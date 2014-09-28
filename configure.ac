@@ -57,6 +57,27 @@ AX_LIBCSTRING_CHECK_ENABLE
 dnl Check for enabling libcerror for cross-platform C error functions
 AX_LIBCERROR_CHECK_ENABLE
 
+dnl Check for enabling libcthreads for cross-platform C threads functions
+AX_LIBCTHREADS_CHECK_ENABLE
+
+dnl Check for enabling libcdata for cross-platform C generic data functions
+AX_LIBCDATA_CHECK_ENABLE
+
+dnl Check for enabling libcnotify for cross-platform C notification functions
+AX_LIBCNOTIFY_CHECK_ENABLE
+
+dnl Check for enabling libuna for Unicode string support
+AX_LIBUNA_CHECK_ENABLE
+
+dnl Check for enabling libfdatetime for file date and time support
+AX_LIBFDATETIME_CHECK_ENABLE
+
+dnl Check for enabling libfguid for file GUID/UUID support
+AX_LIBFGUID_CHECK_ENABLE
+
+dnl Check for enabling libfwnt for file Windows NT type support
+AX_LIBFWNT_CHECK_ENABLE
+
 dnl Headers included in various places
 AC_CHECK_HEADERS([stdarg.h varargs.h])
 
@@ -88,7 +109,7 @@ CFLAGS="$CFLAGS -Wall";
 
 dnl Check if requires and build requires should be set in spec file
 AS_IF(
- [test "x$ac_cv_libcstring" = xyes || test "x$ac_cv_libcerror" = xyes],
+ [test "x$ac_cv_libcstring" = xyes || test "x$ac_cv_libcerror" = xyes  || test "x$ac_cv_libcthreads" = xyes || test "x$ac_cv_libcdata" = xyes || test "x$ac_cv_libcnotify" = xyes  || test "x$ac_cv_libuna" = xyes || test "x$ac_cv_libfdatetime" = xyes || test "x$ac_cv_libfguid" = xyes || test "x$ac_cv_libfwnt" = xyes],
  [AC_SUBST(
   [libfmapi_spec_requires],
   [Requires:])
@@ -118,6 +139,13 @@ AC_CONFIG_FILES([include/Makefile])
 AC_CONFIG_FILES([common/Makefile])
 AC_CONFIG_FILES([libcstring/Makefile])
 AC_CONFIG_FILES([libcerror/Makefile])
+AC_CONFIG_FILES([libcthreads/Makefile])
+AC_CONFIG_FILES([libcdata/Makefile])
+AC_CONFIG_FILES([libcnotify/Makefile])
+AC_CONFIG_FILES([libuna/Makefile])
+AC_CONFIG_FILES([libfdatetime/Makefile])
+AC_CONFIG_FILES([libfguid/Makefile])
+AC_CONFIG_FILES([libfwnt/Makefile])
 AC_CONFIG_FILES([libfmapi/Makefile])
 AC_CONFIG_FILES([po/Makefile.in])
 AC_CONFIG_FILES([po/Makevars])
@@ -145,7 +173,17 @@ AC_OUTPUT
 dnl Print a summary
 AC_MSG_NOTICE([
 Building:
-   libcstring support: $ac_cv_libcstring
-   libcerror support:  $ac_cv_libcerror
+   libcstring support:      $ac_cv_libcstring
+   libcerror support:       $ac_cv_libcerror
+   libcthreads support:     $ac_cv_libcthreads
+   libcdata support:        $ac_cv_libcdata
+   libcnotify support:      $ac_cv_libcnotify
+   libuna support:          $ac_cv_libuna
+   libfdatetime support:    $ac_cv_libfdatetime
+   libfguid support:        $ac_cv_libfguid
+   libfwnt support:         $ac_cv_libfwnt
+
+Features:
+   Multi-threading support: $ac_cv_libcthreads_multi_threading
 ]);
 

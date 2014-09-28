@@ -28,6 +28,7 @@
 /* Define HAVE_LOCAL_LIBFMAPI for local use of libfmapi
  */
 #if !defined( HAVE_LOCAL_LIBFMAPI )
+#include <libfmapi/definitions.h>
 
 /* The definitions in <libfmapi/definitions.h> are copied here
  * for local use of libfmapi

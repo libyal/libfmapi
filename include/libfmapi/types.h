@@ -201,7 +201,8 @@ typedef int64_t off64_t;
 
 /* The following type definitions hide internal data structures
  */
-typedef intptr_t libfmapi_identifier_t;
+typedef intptr_t libfmapi_entry_identifier_t;
+typedef intptr_t libfmapi_one_off_entry_identifier_t;
 
 #ifdef __cplusplus
 }

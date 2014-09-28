@@ -104,4 +104,11 @@ stamp-h1
 /tests/tmp
 
 # Local library dependencies specific files
+/libcdata
 /libcerror
+/libcnotify
+/libcthreads
+/libfdatetime
+/libfguid
+/libfwnt
+/libuna
