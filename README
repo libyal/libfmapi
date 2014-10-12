@@ -1,5 +1,9 @@
 libfmapi is a library for MAPI data types.
 
+Project information:
+* Status: experimental
+* Licence: LGPLv3+
+
 For more information see:
 * Project documentation: https://github.com/libyal/libfmapi/wiki/Home
 * How to build from source: https://github.com/libyal/libfmapi/wiki/Building
