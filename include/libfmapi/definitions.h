@@ -24,11 +24,11 @@
 
 #include <libfmapi/types.h>
 
-#define LIBFMAPI_VERSION					20141018
+#define LIBFMAPI_VERSION					20141021
 
 /* The version string
  */
-#define LIBFMAPI_VERSION_STRING					"20141018"
+#define LIBFMAPI_VERSION_STRING					"20141021"
 
 /* The byte order definitions
  */
