@@ -101,6 +101,11 @@ AS_IF(
   AC_SUBST(
    [HAVE_DLLMAIN],
    [1])
+
+  dnl Used in tests
+  AC_SUBST(
+   [LIBFMAPI_DLL_IMPORT],
+   ["-DLIBFMAPI_DLL_IMPORT"])
   ])
  ])
 
