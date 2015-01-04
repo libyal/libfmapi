@@ -21,13 +21,14 @@ SUBDIRS = \
 DPKG_FILES = \
 	dpkg/changelog \
 	dpkg/changelog.in \
-       	dpkg/compat \
-       	dpkg/control \
-       	dpkg/copyright \
-       	dpkg/copyright.in \
-       	dpkg/rules \
-       	dpkg/libfmapi-dev.docs \
-       	dpkg/libfmapi.docs
+	dpkg/compat \
+	dpkg/control \
+	dpkg/copyright \
+	dpkg/copyright.in \
+	dpkg/rules \
+	dpkg/libfmapi-dev.docs \
+	dpkg/libfmapi.docs \
+	dpkg/source/format
 
 GETTEXT_FILES = \
 	config.rpath \

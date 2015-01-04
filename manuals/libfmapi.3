@@ -1,4 +1,4 @@
-.Dd September 28, 2014
+.Dd January  4, 2015
 .Dt libfmapi 3
 .Os libfmapi
 .Sh NAME
@@ -24,24 +24,71 @@ Error functions
 .Fn libfmapi_error_backtrace_fprint "libfmapi_error_t *error, FILE *stream"
 .Ft int
 .Fn libfmapi_error_backtrace_sprint "libfmapi_error_t *error, char *string, size_t size"
+.Pp
+Entry identifier functions
+.Ft int
+.Fn libfmapi_entry_identifier_initialize "libfmapi_entry_identifier_t **entry_identifier, libfmapi_error_t **error"
+.Ft int
+.Fn libfmapi_entry_identifier_free "libfmapi_entry_identifier_t **entry_identifier, libfmapi_error_t **error"
+.Ft int
+.Fn libfmapi_entry_identifier_copy_from_byte_stream "libfmapi_entry_identifier_t *entry_identifier, uint8_t *byte_stream, size_t byte_stream_size, libfmapi_error_t **error"
+.Ft int
+.Fn libfmapi_entry_identifier_get_service_provider_identifier "libfmapi_entry_identifier_t *entry_identifier, uint8_t *service_provider_identifier, size_t size, libfmapi_error_t **error"
+.Pp
+One-off entry identifier functions
+.Ft int
+.Fn libfmapi_one_off_entry_identifier_initialize "libfmapi_one_off_entry_identifier_t **entry_identifier, libfmapi_error_t **error"
+.Ft int
+.Fn libfmapi_one_off_entry_identifier_free "libfmapi_one_off_entry_identifier_t **entry_identifier, libfmapi_error_t **error"
+.Ft int
+.Fn libfmapi_one_off_entry_identifier_copy_from_byte_stream "libfmapi_one_off_entry_identifier_t *entry_identifier, uint8_t *byte_stream, size_t byte_stream_size, int ascii_codepage, libfmapi_error_t **error"
+.Ft int
+.Fn libfmapi_one_off_entry_identifier_get_version "libfmapi_one_off_entry_identifier_t *entry_identifier, uint16_t *version, libfmapi_error_t **error"
+.Ft int
+.Fn libfmapi_one_off_entry_identifier_get_flags "libfmapi_one_off_entry_identifier_t *entry_identifier, uint16_t *flags, libfmapi_error_t **error"
+.Ft int
+.Fn libfmapi_one_off_entry_identifier_get_utf8_display_name_size "libfmapi_one_off_entry_identifier_t *entry_identifier, size_t *utf8_string_size, libfmapi_error_t **error"
+.Ft int
+.Fn libfmapi_one_off_entry_identifier_get_utf8_display_name "libfmapi_one_off_entry_identifier_t *entry_identifier, uint8_t *utf8_string, size_t utf8_string_size, libfmapi_error_t **error"
+.Ft int
+.Fn libfmapi_one_off_entry_identifier_get_utf16_display_name_size "libfmapi_one_off_entry_identifier_t *entry_identifier, size_t *utf16_string_size, libfmapi_error_t **error"
+.Ft int
+.Fn libfmapi_one_off_entry_identifier_get_utf16_display_name "libfmapi_one_off_entry_identifier_t *entry_identifier, uint16_t *utf16_string, size_t utf16_string_size, libfmapi_error_t **error"
+.Ft int
+.Fn libfmapi_one_off_entry_identifier_get_utf8_address_type_size "libfmapi_one_off_entry_identifier_t *entry_identifier, size_t *utf8_string_size, libfmapi_error_t **error"
+.Ft int
+.Fn libfmapi_one_off_entry_identifier_get_utf8_address_type "libfmapi_one_off_entry_identifier_t *entry_identifier, uint8_t *utf8_string, size_t utf8_string_size, libfmapi_error_t **error"
+.Ft int
+.Fn libfmapi_one_off_entry_identifier_get_utf16_address_type_size "libfmapi_one_off_entry_identifier_t *entry_identifier, size_t *utf16_string_size, libfmapi_error_t **error"
+.Ft int
+.Fn libfmapi_one_off_entry_identifier_get_utf16_address_type "libfmapi_one_off_entry_identifier_t *entry_identifier, uint16_t *utf16_string, size_t utf16_string_size, libfmapi_error_t **error"
+.Ft int
+.Fn libfmapi_one_off_entry_identifier_get_utf8_email_address_size "libfmapi_one_off_entry_identifier_t *entry_identifier, size_t *utf8_string_size, libfmapi_error_t **error"
+.Ft int
+.Fn libfmapi_one_off_entry_identifier_get_utf8_email_address "libfmapi_one_off_entry_identifier_t *entry_identifier, uint8_t *utf8_string, size_t utf8_string_size, libfmapi_error_t **error"
+.Ft int
+.Fn libfmapi_one_off_entry_identifier_get_utf16_email_address_size "libfmapi_one_off_entry_identifier_t *entry_identifier, size_t *utf16_string_size, libfmapi_error_t **error"
+.Ft int
+.Fn libfmapi_one_off_entry_identifier_get_utf16_email_address "libfmapi_one_off_entry_identifier_t *entry_identifier, uint16_t *utf16_string, size_t utf16_string_size, libfmapi_error_t **error"
 .Sh DESCRIPTION
 The
 .Fn libfmapi_get_version
 function is used to retrieve the library version.
 .Sh RETURN VALUES
-Most of the functions return NULL or -1 on error, dependent on the return type. For the actual return values refer to libfmapi.h
+Most of the functions return NULL or \-1 on error, dependent on the return type.
+For the actual return values see "libfmapi.h".
 .Sh ENVIRONMENT
 None
 .Sh FILES
 None
-.Sh NOTES
 .Sh BUGS
-Please report bugs of any kind to <joachim.metz@gmail.com> or on the project website:
-https://github.com/libyal/libfmapi/
+Please report bugs of any kind on the project issue tracker: https://github.com/libyal/libfmapi/issues
 .Sh AUTHOR
-These man pages were written by Joachim Metz.
+These man pages are generated from "libfmapi.h".
 .Sh COPYRIGHT
-Copyright (c) 2009-2014, Joachim Metz <joachim.metz@gmail.com>.
-This is free software; see the source for copying conditions. There is NO warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+Copyright (C) 2009-2015, Joachim Metz <joachim.metz@gmail.com>.
+
+This is free software; see the source for copying conditions.
+There is NO warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 .Sh SEE ALSO
 the libfmapi.h include file

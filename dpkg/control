@@ -1,13 +1,12 @@
 Source: libfmapi
-Section: unknown
+Section: libs
 Priority: extra
 Maintainer: Joachim Metz <joachim.metz@gmail.com>
 Build-Depends: debhelper (>= 7), autotools-dev
-Standards-Version: 3.8.3
+Standards-Version: 3.9.5
 Homepage: https://github.com/libyal/libfmapi/
 
 Package: libfmapi
-Section: libs
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Suggests: libfmapi-dbg
@@ -17,14 +16,14 @@ Description: Library to support the MAPI data types
 Package: libfmapi-dbg
 Architecture: any
 Section: debug
-Depends: libfmapi (= ${Source-Version}), ${misc:Depends}
+Depends: libfmapi (= ${binary:Version}), ${misc:Depends}
 Description: Debugging symbols for libfmapi
  Debugging symbols for libfmapi.
 
 Package: libfmapi-dev
 Section: libdevel
 Architecture: any
-Depends: libfmapi (= ${Source-Version})
+Depends: libfmapi (= ${binary:Version}), ${misc:Depends}
 Description: Header files and libraries for developing applications for libfmapi
  Header files and libraries for developing applications for libfmapi.
 
