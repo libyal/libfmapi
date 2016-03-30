@@ -1,12 +1,12 @@
 include_HEADERS = \
-        libfmapi.h
+	libfmapi.h
 
 pkginclude_HEADERS = \
-        libfmapi/definitions.h \
-        libfmapi/error.h \
-        libfmapi/extern.h \
-        libfmapi/features.h \
-        libfmapi/types.h
+	libfmapi/definitions.h \
+	libfmapi/error.h \
+	libfmapi/extern.h \
+	libfmapi/features.h \
+	libfmapi/types.h
 
 EXTRA_DIST = \
 	libfmapi.h.in \
