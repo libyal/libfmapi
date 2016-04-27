@@ -53,11 +53,11 @@ const char *libfmapi_codepage_get_identifier(
 const char *libfmapi_codepage_get_description(
              uint32_t codepage );
 
-#endif
+#endif /* defined( HAVE_DEBUG_OUTPUT ) */
 
 #if defined( __cplusplus )
 }
 #endif
 
-#endif
+#endif /* !defined( _LIBFMAPI_INTERNAL_CODEPAGE_H ) */
 

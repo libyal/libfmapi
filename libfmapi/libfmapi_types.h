@@ -41,9 +41,9 @@ typedef struct libfmapi_one_off_entry_identifier {}	libfmapi_one_off_entry_ident
 typedef intptr_t libfmapi_entry_identifier_t;
 typedef intptr_t libfmapi_one_off_entry_identifier_t;
 
-#endif
+#endif /* defined( HAVE_DEBUG_OUTPUT ) && !defined( WINAPI ) */
 
-#endif
+#endif /* defined( HAVE_LOCAL_LIBFMAPI ) */
 
-#endif
+#endif /* !defined( _LIBFMAPI_INTERNAL_TYPES_H ) */
 

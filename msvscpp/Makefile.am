@@ -1,4 +1,5 @@
 MSVSCPP_FILES = \
+	fmapi_test_get_version/fmapi_test_get_version.vcproj \
 	libcdata/libcdata.vcproj \
 	libcerror/libcerror.vcproj \
 	libcnotify/libcnotify.vcproj \

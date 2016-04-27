@@ -35,6 +35,7 @@ libfmapi_la_SOURCES = \
 	libfmapi_one_off_entry_identifier.c libfmapi_one_off_entry_identifier.h \
 	libfmapi_property_type.c libfmapi_property_type.h \
 	libfmapi_service_provider_identifier.c libfmapi_service_provider_identifier.h \
+	libfmapi_support.c libfmapi_support.h \
 	libfmapi_types.h \
 	libfmapi_unused.h \
 	libfmapi_value_type.c libfmapi_value_type.h \

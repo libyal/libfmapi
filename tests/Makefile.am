@@ -5,15 +5,28 @@ AM_CPPFLAGS = \
 	@LIBCERROR_CPPFLAGS@ \
 	@LIBFMAPI_DLL_IMPORT@
 
-TESTS =
+TESTS = \
+	test_api_functions.sh
 
 check_SCRIPTS = \
+	test_api_functions.sh \
 	test_runner.sh
 
 EXTRA_DIST = \
 	$(check_SCRIPTS)
 
-check_PROGRAMS =
+check_PROGRAMS = \
+	fmapi_test_get_version
+
+fmapi_test_get_version_SOURCES = \
+	fmapi_test_get_version.c \
+	fmapi_test_libcstring.h \
+	fmapi_test_libfmapi.h \
+	fmapi_test_unused.h
+
+fmapi_test_get_version_LDADD = \
+	../libfmapi/libfmapi.la \
+	@LIBCSTRING_LIBADD@
 
 MAINTAINERCLEANFILES = \
 	Makefile.in

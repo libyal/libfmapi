@@ -1,6 +1,10 @@
 TODO:
 * merge mapi_definitions.h with libfmapi_definitions.h
 
+20160427
+* worked on tests
+* add missing get version function
+
 20160106
 * 2016 update
 

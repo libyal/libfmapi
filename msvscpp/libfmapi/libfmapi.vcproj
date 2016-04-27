@@ -214,6 +214,10 @@
 				>
 			</File>
 			<File
+				RelativePath="..\..\libfmapi\libfmapi_support.c"
+				>
+			</File>
+			<File
 				RelativePath="..\..\libfmapi\libfmapi_value_type.c"
 				>
 			</File>
@@ -297,6 +301,10 @@
 			</File>
 			<File
 				RelativePath="..\..\libfmapi\libfmapi_service_provider_identifier.h"
+				>
+			</File>
+			<File
+				RelativePath="..\..\libfmapi\libfmapi_support.h"
 				>
 			</File>
 			<File

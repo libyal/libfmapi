@@ -1,5 +1,5 @@
 /*
- * Common include file
+ * Support functions
  *
  * Copyright (C) 2009-2016, Joachim Metz <joachim.metz@gmail.com>
  *
@@ -19,25 +19,21 @@
  * along with this software.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#if !defined( _COMMON_H )
-#define _COMMON_H
+#include <common.h>
+#include <types.h>
 
-#if defined( HAVE_CONFIG_H )
-#include <config.h>
-#endif
+#include "libfmapi_definitions.h"
+#include "libfmapi_support.h"
 
-/* Include the Borland/CodeGear C++ Builder compiler specific configuration
+#if !defined( HAVE_LOCAL_LIBFMAPI )
+
+/* Returns the library version as a string
  */
-#if defined( __BORLANDC__ )
-#include <config_borlandc.h>
+const char *libfmapi_get_version(
+             void )
+{
+	return( (const char *) LIBFMAPI_VERSION_STRING );
+}
 
-/* Include the Microsoft Visual Studio C++ compiler specific configuration
- */
-#elif defined( _MSC_VER )
-#include <config_msc.h>
-#endif
-
-#include <config_winapi.h>
-
-#endif /* !defined( _COMMON_H ) */
+#endif /* !defined( HAVE_LOCAL_LIBFMAPI ) */
 

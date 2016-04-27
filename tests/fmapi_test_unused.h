@@ -1,5 +1,5 @@
 /*
- * Common include file
+ * The unused definition
  *
  * Copyright (C) 2009-2016, Joachim Metz <joachim.metz@gmail.com>
  *
@@ -19,25 +19,32 @@
  * along with this software.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#if !defined( _COMMON_H )
-#define _COMMON_H
+#if !defined( _FMAPI_TEST_UNUSED_H )
+#define _FMAPI_TEST_UNUSED_H
 
-#if defined( HAVE_CONFIG_H )
-#include <config.h>
-#endif
+#include <common.h>
 
-/* Include the Borland/CodeGear C++ Builder compiler specific configuration
- */
-#if defined( __BORLANDC__ )
-#include <config_borlandc.h>
+#if !defined( FMAPI_TEST_ATTRIBUTE_UNUSED )
 
-/* Include the Microsoft Visual Studio C++ compiler specific configuration
- */
-#elif defined( _MSC_VER )
-#include <config_msc.h>
-#endif
+#if defined( __GNUC__ ) && __GNUC__ >= 3
+#define FMAPI_TEST_ATTRIBUTE_UNUSED	__attribute__ ((__unused__))
 
-#include <config_winapi.h>
+#else
+#define FMAPI_TEST_ATTRIBUTE_UNUSED
 
-#endif /* !defined( _COMMON_H ) */
+#endif /* defined( __GNUC__ ) && __GNUC__ >= 3 */
+
+#endif /* !defined( FMAPI_TEST_ATTRIBUTE_UNUSED ) */
+
+#if defined( _MSC_VER )
+#define FMAPI_TEST_UNREFERENCED_PARAMETER( parameter ) \
+	UNREFERENCED_PARAMETER( parameter );
+
+#else
+#define FMAPI_TEST_UNREFERENCED_PARAMETER( parameter ) \
+	/* parameter */
+
+#endif /* defined( _MSC_VER ) */
+
+#endif /* !defined( _FMAPI_TEST_UNUSED_H ) */
 

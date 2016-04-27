@@ -1,6 +1,6 @@
 # Files to ignore by git
 #
-# Version: 20150725
+# Version: 20151228
 
 # Generic auto-generated build files
 *~
@@ -11,6 +11,7 @@
 *.lineno
 *.lo
 *.log
+*.loT
 *.Plo
 *.Po
 *.o
@@ -35,12 +36,15 @@ stamp-h[1-9]
 /autom4te.cache/
 /build
 /compile
+/confdefs.h
+/config.cache
 /config.guess
 /config.log
 /config.rpath
 /config.status
 /config.sub
 /configure
+/conftest.c
 /depcomp
 /dist
 /install-sh
@@ -112,6 +116,7 @@ stamp-h[1-9]
 /include/libfmapi/types.h
 /libfmapi/libfmapi.rc
 /libfmapi/libfmapi_definitions.h
+/tests/fmapi_test_get_version
 /tests/tmp*
 
 # Local library dependencies specific files
