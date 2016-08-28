@@ -22,6 +22,7 @@ fmapi_test_get_version_SOURCES = \
 	fmapi_test_get_version.c \
 	fmapi_test_libcstring.h \
 	fmapi_test_libfmapi.h \
+	fmapi_test_macros.h \
 	fmapi_test_unused.h
 
 fmapi_test_get_version_LDADD = \

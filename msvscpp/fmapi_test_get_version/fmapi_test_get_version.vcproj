@@ -194,6 +194,10 @@
 				>
 			</File>
 			<File
+				RelativePath="..\..\tests\fmapi_test_macros.h"
+				>
+			</File>
+			<File
 				RelativePath="..\..\tests\fmapi_test_unused.h"
 				>
 			</File>
