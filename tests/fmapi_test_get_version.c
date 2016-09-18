@@ -46,7 +46,7 @@ int fmapi_test_get_version(
 	          LIBFMAPI_VERSION_STRING,
 	          9 );
 
-	FMAPI_TEST_ASSERT_EQUAL(
+	FMAPI_TEST_ASSERT_EQUAL_INT(
 	 "result",
 	 result,
 	 0 );
