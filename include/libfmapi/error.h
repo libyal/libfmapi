@@ -39,7 +39,7 @@ enum LIBFMAPI_ERROR_DOMAINS
 	LIBFMAPI_ERROR_DOMAIN_INPUT			= (int) 'i',
 	LIBFMAPI_ERROR_DOMAIN_MEMORY			= (int) 'm',
 	LIBFMAPI_ERROR_DOMAIN_OUTPUT			= (int) 'o',
-	LIBFMAPI_ERROR_DOMAIN_RUNTIME			= (int) 'r',
+	LIBFMAPI_ERROR_DOMAIN_RUNTIME			= (int) 'r'
 };
 
 /* The argument error codes
@@ -208,6 +208,17 @@ enum LIBFMAPI_MEMORY_ERROR
 	LIBFMAPI_MEMORY_ERROR_SET_FAILED		= 3
 };
 
+/* The output error codes
+ */
+enum LIBFMAPI_OUTPUT_ERROR
+{
+	LIBFMAPI_OUTPUT_ERROR_GENERIC			= 0,
+
+	/* There is insuficient space to write the output
+	 */
+	LIBFMAPI_OUTPUT_ERROR_INSUFFICIENT_SPACE	= 1
+};
+
 /* The runtime error codes
  * to signify errors regarding runtime processing
  */
@@ -276,16 +287,5 @@ enum LIBFMAPI_RUNTIME_ERROR
 	LIBFMAPI_RUNTIME_ERROR_ABORT_REQUESTED		= 15
 };
 
-/* The output error codes
- */
-enum LIBFMAPI_OUTPUT_ERROR
-{
-	LIBFMAPI_OUTPUT_ERROR_GENERIC			= 0,
-
-	/* There is insuficient space to write the output
-	 */
-	LIBFMAPI_OUTPUT_ERROR_INSUFFICIENT_SPACE	= 1
-};
-
-#endif
+#endif /* !defined( _LIBFMAPI_ERROR_H ) */
 

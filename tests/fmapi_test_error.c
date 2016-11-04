@@ -123,23 +123,23 @@ int main(
 
 	FMAPI_TEST_RUN(
 	 "libfmapi_error_free",
-	 fmapi_test_error_free() )
+	 fmapi_test_error_free );
 
 	FMAPI_TEST_RUN(
 	 "libfmapi_error_fprint",
-	 fmapi_test_error_fprint() )
+	 fmapi_test_error_fprint );
 
 	FMAPI_TEST_RUN(
 	 "libfmapi_error_sprint",
-	 fmapi_test_error_sprint() )
+	 fmapi_test_error_sprint );
 
 	FMAPI_TEST_RUN(
 	 "libfmapi_error_backtrace_fprint",
-	 fmapi_test_error_backtrace_fprint() )
+	 fmapi_test_error_backtrace_fprint );
 
 	FMAPI_TEST_RUN(
 	 "libfmapi_error_backtrace_sprint",
-	 fmapi_test_error_backtrace_sprint() )
+	 fmapi_test_error_backtrace_sprint );
 
 	return( EXIT_SUCCESS );
 

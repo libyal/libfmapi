@@ -208,5 +208,5 @@ typedef intptr_t libfmapi_one_off_entry_identifier_t;
 }
 #endif
 
-#endif
+#endif /* !defined( _LIBFMAPI_TYPES_H ) */
 

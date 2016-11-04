@@ -2,9 +2,9 @@
 <VisualStudioProject
 	ProjectType="Visual C++"
 	Version="9,00"
-	Name="fmapi_test_get_version"
-	ProjectGUID="{4EE1E656-62D7-4A24-BFC4-09B37FE7165D}"
-	RootNamespace="fmapi_test_get_version"
+	Name="fmapi_test_support"
+	ProjectGUID="{EFDEDE63-6AAD-4C92-978C-B15F3C59CE32}"
+	RootNamespace="fmapi_test_support"
 	Keyword="Win32Proj"
 	TargetFrameworkVersion="131072"
 	>
@@ -176,7 +176,7 @@
 			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}"
 			>
 			<File
-				RelativePath="..\..\tests\fmapi_test_get_version.c"
+				RelativePath="..\..\tests\fmapi_test_support.c"
 				>
 			</File>
 		</Filter>

@@ -2,7 +2,7 @@ AC_PREREQ( 2.59 )
 
 AC_INIT(
  [libfmapi],
- [20160918],
+ [20161104],
  [joachim.metz@gmail.com])
 
 AC_CONFIG_SRCDIR(
@@ -69,10 +69,10 @@ AX_LIBCNOTIFY_CHECK_ENABLE
 dnl Check for enabling libuna for Unicode string support
 AX_LIBUNA_CHECK_ENABLE
 
-dnl Check for enabling libfdatetime for file date and time support
+dnl Check for enabling libfdatetime for date and time formats support
 AX_LIBFDATETIME_CHECK_ENABLE
 
-dnl Check for enabling libfguid for file GUID/UUID support
+dnl Check for enabling libfguid for GUID/UUID format support
 AX_LIBFGUID_CHECK_ENABLE
 
 dnl Check for enabling libfwnt for file Windows NT type support

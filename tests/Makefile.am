@@ -16,16 +16,16 @@ EXTRA_DIST = \
 	$(check_SCRIPTS)
 
 check_PROGRAMS = \
-	fmapi_test_get_version
+	fmapi_test_support
 
-fmapi_test_get_version_SOURCES = \
-	fmapi_test_get_version.c \
+fmapi_test_support_SOURCES = \
 	fmapi_test_libcstring.h \
 	fmapi_test_libfmapi.h \
 	fmapi_test_macros.h \
+	fmapi_test_support.c \
 	fmapi_test_unused.h
 
-fmapi_test_get_version_LDADD = \
+fmapi_test_support_LDADD = \
 	../libfmapi/libfmapi.la \
 	@LIBCSTRING_LIBADD@
 

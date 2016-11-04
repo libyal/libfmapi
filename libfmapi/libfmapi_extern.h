@@ -38,10 +38,9 @@
 #include <libfmapi/extern.h>
 
 #else
-
 #define LIBFMAPI_EXTERN	extern
 
 #endif
 
-#endif
+#endif /* !defined( _LIBFMAPI_INTERNAL_EXTERN_H ) */
 

@@ -1,6 +1,6 @@
 # Files to ignore by git
 #
-# Version: 20160507
+# Version: 20161030
 
 # Generic auto-generated build files
 *~
@@ -57,6 +57,7 @@ stamp-h[1-9]
 /test-driver
 /ylwrap
 /m4/codeset.m4
+/m4/extern-inline.m4
 /m4/fcntl-o.m4
 /m4/gettext.m4
 /m4/glibc2.m4
@@ -119,7 +120,7 @@ stamp-h[1-9]
 /include/libfmapi/types.h
 /libfmapi/libfmapi.rc
 /libfmapi/libfmapi_definitions.h
-/tests/fmapi_test_get_version
+/tests/fmapi_test_support
 /tests/tmp*
 
 # Local library dependencies specific files
