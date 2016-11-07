@@ -21,10 +21,10 @@
 
 #include <common.h>
 #include <memory.h>
+#include <narrow_string.h>
 #include <types.h>
 
 #include "libfmapi_class_identifier.h"
-#include "libfmapi_libcstring.h"
 #include "libfmapi_property_type.h"
 
 #if defined( HAVE_DEBUG_OUTPUT )
@@ -2946,7 +2946,7 @@ const char *libfmapi_named_property_types_get_identifier(
 	while( ( libfmapi_named_property_types[ iterator ] ).name != NULL )
 	{
 		if( ( ( libfmapi_named_property_types[ iterator ] ).name_size == name_size )
-		 && ( libcstring_narrow_string_compare_no_case(
+		 && ( narrow_string_compare_no_case(
 		       ( libfmapi_named_property_types[ iterator ] ).name,
 		       name,
 		       name_size ) == 0 ) )
@@ -3038,7 +3038,7 @@ const char *libfmapi_named_property_types_get_description(
 	while( ( libfmapi_named_property_types[ iterator ] ).name != NULL )
 	{
 		if( ( ( libfmapi_named_property_types[ iterator ] ).name_size == name_size )
-		 && ( libcstring_narrow_string_compare_no_case(
+		 && ( narrow_string_compare_no_case(
 		       ( libfmapi_named_property_types[ iterator ] ).name,
 		       name,
 		       name_size ) == 0 ) )

@@ -1,7 +1,6 @@
 AM_CPPFLAGS = \
 	-I$(top_srcdir)/include \
 	-I$(top_srcdir)/common \
-	@LIBCSTRING_CPPFLAGS@ \
 	@LIBCERROR_CPPFLAGS@ \
 	@LIBFMAPI_DLL_IMPORT@
 
@@ -19,15 +18,13 @@ check_PROGRAMS = \
 	fmapi_test_support
 
 fmapi_test_support_SOURCES = \
-	fmapi_test_libcstring.h \
 	fmapi_test_libfmapi.h \
 	fmapi_test_macros.h \
 	fmapi_test_support.c \
 	fmapi_test_unused.h
 
 fmapi_test_support_LDADD = \
-	../libfmapi/libfmapi.la \
-	@LIBCSTRING_LIBADD@
+	../libfmapi/libfmapi.la
 
 MAINTAINERCLEANFILES = \
 	Makefile.in

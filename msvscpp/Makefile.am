@@ -3,7 +3,6 @@ MSVSCPP_FILES = \
 	libcdata/libcdata.vcproj \
 	libcerror/libcerror.vcproj \
 	libcnotify/libcnotify.vcproj \
-	libcstring/libcstring.vcproj \
 	libcthreads/libcthreads.vcproj \
 	libfdatetime/libfdatetime.vcproj \
 	libfguid/libfguid.vcproj \

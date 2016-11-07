@@ -22,7 +22,10 @@
 #include <common.h>
 #include <byte_stream.h>
 #include <memory.h>
+#include <narrow_string.h>
+#include <system_string.h>
 #include <types.h>
+#include <wide_string.h>
 
 #include "libfmapi_class_identifier.h"
 #include "libfmapi_codepage.h"
@@ -31,7 +34,6 @@
 #include "libfmapi_entry_identifier.h"
 #include "libfmapi_libcerror.h"
 #include "libfmapi_libcnotify.h"
-#include "libfmapi_libcstring.h"
 #include "libfmapi_libfdatetime.h"
 #include "libfmapi_libfguid.h"
 #include "libfmapi_libfwnt.h"
@@ -239,7 +241,7 @@ int libfmapi_debug_print_one_off_entry_identifier(
      libcerror_error_t **error )
 {
 	libfmapi_one_off_entry_identifier_t *one_off_entry_identifier = NULL;
-	libcstring_system_character_t *value_string                   = NULL;
+	system_character_t *value_string                              = NULL;
 	static char *function                                         = "libfmapi_debug_print_one_off_entry_identifier";
 	size_t value_string_size                                      = 0;
 	int result                                                    = 0;
@@ -276,7 +278,7 @@ int libfmapi_debug_print_one_off_entry_identifier(
 	libcnotify_printf(
 	 "One-off entry identifier:\n" );
 
-#if defined( LIBCSTRING_HAVE_WIDE_SYSTEM_CHARACTER )
+#if defined( HAVE_WIDE_SYSTEM_CHARACTER )
 	result = libfmapi_one_off_entry_identifier_get_utf16_display_name_size(
 		  (libfmapi_one_off_entry_identifier_t *) one_off_entry_identifier,
 		  &value_string_size,
@@ -298,7 +300,7 @@ int libfmapi_debug_print_one_off_entry_identifier(
 
 		goto on_error;
 	}
-	value_string = libcstring_system_string_allocate(
+	value_string = system_string_allocate(
 	                value_string_size );
 
 	if( value_string == NULL )
@@ -312,7 +314,7 @@ int libfmapi_debug_print_one_off_entry_identifier(
 
 		goto on_error;
 	}
-#if defined( LIBCSTRING_HAVE_WIDE_SYSTEM_CHARACTER )
+#if defined( HAVE_WIDE_SYSTEM_CHARACTER )
 	result = libfmapi_one_off_entry_identifier_get_utf16_display_name(
 		  (libfmapi_one_off_entry_identifier_t *) one_off_entry_identifier,
 		  (uint16_t *) value_string,
@@ -337,7 +339,7 @@ int libfmapi_debug_print_one_off_entry_identifier(
 		goto on_error;
 	}
 	libcnotify_printf(
-	 "Display name\t\t\t: %" PRIs_LIBCSTRING_SYSTEM "\n",
+	 "Display name\t\t\t: %" PRIs_SYSTEM "\n",
 	 value_string );
 
 	memory_free(
@@ -345,7 +347,7 @@ int libfmapi_debug_print_one_off_entry_identifier(
 
 	value_string = NULL;
 
-#if defined( LIBCSTRING_HAVE_WIDE_SYSTEM_CHARACTER )
+#if defined( HAVE_WIDE_SYSTEM_CHARACTER )
 	result = libfmapi_one_off_entry_identifier_get_utf16_address_type_size(
 		  (libfmapi_one_off_entry_identifier_t *) one_off_entry_identifier,
 		  &value_string_size,
@@ -367,7 +369,7 @@ int libfmapi_debug_print_one_off_entry_identifier(
 
 		goto on_error;
 	}
-	value_string = libcstring_system_string_allocate(
+	value_string = system_string_allocate(
 	                value_string_size );
 
 	if( value_string == NULL )
@@ -381,7 +383,7 @@ int libfmapi_debug_print_one_off_entry_identifier(
 
 		goto on_error;
 	}
-#if defined( LIBCSTRING_HAVE_WIDE_SYSTEM_CHARACTER )
+#if defined( HAVE_WIDE_SYSTEM_CHARACTER )
 	result = libfmapi_one_off_entry_identifier_get_utf16_address_type(
 		  (libfmapi_one_off_entry_identifier_t *) one_off_entry_identifier,
 		  (uint16_t *) value_string,
@@ -406,7 +408,7 @@ int libfmapi_debug_print_one_off_entry_identifier(
 		goto on_error;
 	}
 	libcnotify_printf(
-	 "Address type\t\t\t: %" PRIs_LIBCSTRING_SYSTEM "\n",
+	 "Address type\t\t\t: %" PRIs_SYSTEM "\n",
 	 value_string );
 
 	memory_free(
@@ -414,7 +416,7 @@ int libfmapi_debug_print_one_off_entry_identifier(
 
 	value_string = NULL;
 
-#if defined( LIBCSTRING_HAVE_WIDE_SYSTEM_CHARACTER )
+#if defined( HAVE_WIDE_SYSTEM_CHARACTER )
 	result = libfmapi_one_off_entry_identifier_get_utf16_email_address_size(
 		  (libfmapi_one_off_entry_identifier_t *) one_off_entry_identifier,
 		  &value_string_size,
@@ -436,7 +438,7 @@ int libfmapi_debug_print_one_off_entry_identifier(
 
 		goto on_error;
 	}
-	value_string = libcstring_system_string_allocate(
+	value_string = system_string_allocate(
 	                value_string_size );
 
 	if( value_string == NULL )
@@ -450,7 +452,7 @@ int libfmapi_debug_print_one_off_entry_identifier(
 
 		goto on_error;
 	}
-#if defined( LIBCSTRING_HAVE_WIDE_SYSTEM_CHARACTER )
+#if defined( HAVE_WIDE_SYSTEM_CHARACTER )
 	result = libfmapi_one_off_entry_identifier_get_utf16_email_address(
 		  (libfmapi_one_off_entry_identifier_t *) one_off_entry_identifier,
 		  (uint16_t *) value_string,
@@ -475,7 +477,7 @@ int libfmapi_debug_print_one_off_entry_identifier(
 		goto on_error;
 	}
 	libcnotify_printf(
-	 "Email address\t\t\t: %" PRIs_LIBCSTRING_SYSTEM "\n",
+	 "Email address\t\t\t: %" PRIs_SYSTEM "\n",
 	 value_string );
 
 	memory_free(
@@ -603,20 +605,20 @@ int libfmapi_debug_print_value(
      int ascii_codepage,
      libcerror_error_t **error )
 {
-	libcstring_system_character_t filetime_string[ 32 ];
-	libcstring_system_character_t guid_string[ 48 ];
+	system_character_t filetime_string[ 32 ];
+	system_character_t guid_string[ 48 ];
 
-	libfdatetime_filetime_t *filetime           = NULL;
-	libfguid_identifier_t *guid                 = NULL;
-	libcstring_system_character_t *value_string = NULL;
-	static char *function                       = "libfmapi_debug_print_value";
-	size_t value_string_size                    = 0;
-	double value_double                         = 0.0;
-	float value_float                           = 0.0;
-	uint64_t value_64bit                        = 0;
-	uint32_t value_32bit                        = 0;
-	uint8_t is_ascii_string                     = 0;
-	int result                                  = 0;
+	libfdatetime_filetime_t *filetime = NULL;
+	libfguid_identifier_t *guid       = NULL;
+	system_character_t *value_string  = NULL;
+	static char *function             = "libfmapi_debug_print_value";
+	size_t value_string_size          = 0;
+	double value_double               = 0.0;
+	float value_float                 = 0.0;
+	uint64_t value_64bit              = 0;
+	uint32_t value_32bit              = 0;
+	uint8_t is_ascii_string           = 0;
+	int result                        = 0;
 
 	switch( value_type )
 	{
@@ -868,7 +870,7 @@ int libfmapi_debug_print_value(
 
 				return( -1 );
 			}
-#if defined( LIBCSTRING_HAVE_WIDE_SYSTEM_CHARACTER )
+#if defined( HAVE_WIDE_SYSTEM_CHARACTER )
 			result = libfdatetime_filetime_copy_to_utf16_string(
 			          filetime,
 			          (uint16_t *) filetime_string,
@@ -912,7 +914,7 @@ int libfmapi_debug_print_value(
 				return( -1 );
 			}
 			libcnotify_printf(
-			 "Filetime\t: %" PRIs_LIBCSTRING_SYSTEM " UTC\n\n",
+			 "Filetime\t: %" PRIs_SYSTEM " UTC\n\n",
 			 filetime_string );
 
 			break;
@@ -961,7 +963,7 @@ int libfmapi_debug_print_value(
 				value_data      += 16;
 				value_data_size -= 16;
 
-#if defined( LIBCSTRING_HAVE_WIDE_SYSTEM_CHARACTER )
+#if defined( HAVE_WIDE_SYSTEM_CHARACTER )
 				result = libfguid_identifier_copy_to_utf16_string(
 					  guid,
 					  (uint16_t *) guid_string,
@@ -1005,7 +1007,7 @@ int libfmapi_debug_print_value(
 					return( -1 );
 				}
 				libcnotify_printf(
-				 "GUID\t: %" PRIs_LIBCSTRING_SYSTEM "\n\n",
+				 "GUID\t: %" PRIs_SYSTEM "\n\n",
 				 guid_string );
 			}
 			else
@@ -1057,7 +1059,7 @@ int libfmapi_debug_print_value(
 				 */
 				if( is_ascii_string == 0 )
 				{
-#if defined( LIBCSTRING_HAVE_WIDE_SYSTEM_CHARACTER )
+#if defined( HAVE_WIDE_SYSTEM_CHARACTER )
 					result = libuna_utf16_string_size_from_utf16_stream(
 					          value_data,
 					          value_data_size,
@@ -1077,7 +1079,7 @@ int libfmapi_debug_print_value(
 				 */
 				else if( ascii_codepage == 65000 )
 				{
-#if defined( LIBCSTRING_HAVE_WIDE_SYSTEM_CHARACTER )
+#if defined( HAVE_WIDE_SYSTEM_CHARACTER )
 					result = libuna_utf16_string_size_from_utf7_stream(
 					          value_data,
 					          value_data_size,
@@ -1096,7 +1098,7 @@ int libfmapi_debug_print_value(
 				else if( ( ascii_codepage == 1200 )
 				      || ( ascii_codepage == 65001 ) )
 				{
-#if defined( LIBCSTRING_HAVE_WIDE_SYSTEM_CHARACTER )
+#if defined( HAVE_WIDE_SYSTEM_CHARACTER )
 					result = libuna_utf16_string_size_from_utf8_stream(
 					          value_data,
 					          value_data_size,
@@ -1115,7 +1117,7 @@ int libfmapi_debug_print_value(
 					/* TODO currently libuna uses the same numeric values for the codepages as libfmapi
 					 * add a mapping function if this implementation changes
 					 */
-#if defined( LIBCSTRING_HAVE_WIDE_SYSTEM_CHARACTER )
+#if defined( HAVE_WIDE_SYSTEM_CHARACTER )
 					result = libuna_utf16_string_size_from_byte_stream(
 					          value_data,
 					          value_data_size,
@@ -1143,7 +1145,7 @@ int libfmapi_debug_print_value(
 
 					return( -1 );
 				}
-				value_string = libcstring_system_string_allocate(
+				value_string = system_string_allocate(
 				                value_string_size );
 
 				if( value_string == NULL )
@@ -1161,7 +1163,7 @@ int libfmapi_debug_print_value(
 				 */
 				if( is_ascii_string == 0 )
 				{
-#if defined( LIBCSTRING_HAVE_WIDE_SYSTEM_CHARACTER )
+#if defined( HAVE_WIDE_SYSTEM_CHARACTER )
 					result = libuna_utf16_string_copy_from_utf16_stream(
 						  (libuna_utf16_character_t *) value_string,
 						  value_string_size,
@@ -1183,7 +1185,7 @@ int libfmapi_debug_print_value(
 				 */
 				else if( ascii_codepage == 65000 )
 				{
-#if defined( LIBCSTRING_HAVE_WIDE_SYSTEM_CHARACTER )
+#if defined( HAVE_WIDE_SYSTEM_CHARACTER )
 					result = libuna_utf16_string_copy_from_utf7_stream(
 						  (libuna_utf16_character_t *) value_string,
 						  value_string_size,
@@ -1204,7 +1206,7 @@ int libfmapi_debug_print_value(
 				else if( ( ascii_codepage == 1200 )
 				      || ( ascii_codepage == 65001 ) )
 				{
-#if defined( LIBCSTRING_HAVE_WIDE_SYSTEM_CHARACTER )
+#if defined( HAVE_WIDE_SYSTEM_CHARACTER )
 					result = libuna_utf16_string_copy_from_utf8_stream(
 						  (libuna_utf16_character_t *) value_string,
 						  value_string_size,
@@ -1225,7 +1227,7 @@ int libfmapi_debug_print_value(
 					/* TODO currently libuna uses the same numeric values for the codepages as libfmapi
 					 * add a mapping function if this implementation changes
 					 */
-#if defined( LIBCSTRING_HAVE_WIDE_SYSTEM_CHARACTER )
+#if defined( HAVE_WIDE_SYSTEM_CHARACTER )
 					result = libuna_utf16_string_copy_from_byte_stream(
 						  (libuna_utf16_character_t *) value_string,
 						  value_string_size,
@@ -1259,7 +1261,7 @@ int libfmapi_debug_print_value(
 					return( -1 );
 				}
 				libcnotify_printf(
-				 "ASCII string\t: %" PRIs_LIBCSTRING_SYSTEM "\n\n",
+				 "ASCII string\t: %" PRIs_SYSTEM "\n\n",
 				 value_string );
 
 				memory_free(
@@ -1275,7 +1277,7 @@ int libfmapi_debug_print_value(
 			}
 			else
 			{
-#if defined( LIBCSTRING_HAVE_WIDE_SYSTEM_CHARACTER )
+#if defined( HAVE_WIDE_SYSTEM_CHARACTER )
 				result = libuna_utf16_string_size_from_utf16_stream(
 					  value_data,
 					  value_data_size,
@@ -1303,7 +1305,7 @@ int libfmapi_debug_print_value(
 
 					return( -1 );
 				}
-				value_string = libcstring_system_string_allocate(
+				value_string = system_string_allocate(
 				                value_string_size );
 
 				if( value_string == NULL )
@@ -1317,7 +1319,7 @@ int libfmapi_debug_print_value(
 
 					return( -1 );
 				}
-#if defined( LIBCSTRING_HAVE_WIDE_SYSTEM_CHARACTER )
+#if defined( HAVE_WIDE_SYSTEM_CHARACTER )
 				result = libuna_utf16_string_copy_from_utf16_stream(
 				          (libuna_utf16_character_t *) value_string,
 				          value_string_size,
@@ -1351,7 +1353,7 @@ int libfmapi_debug_print_value(
 					return( -1 );
 				}
 				libcnotify_printf(
-				 "Unicode string\t: %" PRIs_LIBCSTRING_SYSTEM "\n\n",
+				 "Unicode string\t: %" PRIs_SYSTEM "\n\n",
 				 value_string );
 
 				memory_free(
@@ -2913,31 +2915,31 @@ int libfmapi_debug_print_binary_data_value(
 {
 	uint8_t filetime_buffer[ 8 ];
 
-	libcstring_system_character_t filetime_string[ 32 ];
-	libcstring_system_character_t guid_string[ 48 ];
-	libcstring_system_character_t sid_string[ 128 ];
+	system_character_t filetime_string[ 32 ];
+	system_character_t guid_string[ 48 ];
+	system_character_t sid_string[ 128 ];
 
-	libfdatetime_filetime_t *delta_filetime       = NULL;
-	libfdatetime_filetime_t *filetime             = NULL;
-	libfguid_identifier_t *guid                   = NULL;
-	libfwnt_security_identifier_t *sid            = NULL;
-	libcstring_system_character_t *value_string   = NULL;
-	uint8_t *rtf_value_string                     = NULL;
-	uint8_t *value_data_pointer                   = NULL;
-	static char *function                         = "libfmapi_debug_print_binary_data_value";
-	size_t rtf_value_string_size                  = 0;
-	size_t sid_string_size                        = 0;
-	size_t value_data_iterator                    = 0;
-	size_t value_string_size                      = 0;
-	uint64_t value_64bit                          = 0;
-	uint32_t entries_size                         = 0;
-	uint32_t number_of_values                     = 0;
-	uint32_t value_32bit                          = 0;
-	uint32_t value_iterator                       = 0;
-	uint16_t value_16bit                          = 0;
-	uint8_t data_size                             = 0;
-	int list_iterator                             = 0;
-	int result                                    = 0;
+	libfdatetime_filetime_t *delta_filetime = NULL;
+	libfdatetime_filetime_t *filetime       = NULL;
+	libfguid_identifier_t *guid             = NULL;
+	libfwnt_security_identifier_t *sid      = NULL;
+	system_character_t *value_string        = NULL;
+	uint8_t *rtf_value_string               = NULL;
+	uint8_t *value_data_pointer             = NULL;
+	static char *function                   = "libfmapi_debug_print_binary_data_value";
+	size_t rtf_value_string_size            = 0;
+	size_t sid_string_size                  = 0;
+	size_t value_data_iterator              = 0;
+	size_t value_string_size                = 0;
+	uint64_t value_64bit                    = 0;
+	uint32_t entries_size                   = 0;
+	uint32_t number_of_values               = 0;
+	uint32_t value_32bit                    = 0;
+	uint32_t value_iterator                 = 0;
+	uint16_t value_16bit                    = 0;
+	uint8_t data_size                       = 0;
+	int list_iterator                       = 0;
+	int result                              = 0;
 
 	if( value_data == NULL )
 	{
@@ -3024,7 +3026,7 @@ int libfmapi_debug_print_binary_data_value(
 				value_data      += 16;
 				value_data_size -= 16;
 
-#if defined( LIBCSTRING_HAVE_WIDE_SYSTEM_CHARACTER )
+#if defined( HAVE_WIDE_SYSTEM_CHARACTER )
 				result = libfguid_identifier_copy_to_utf16_string(
 					  guid,
 					  (uint16_t *) guid_string,
@@ -3068,7 +3070,7 @@ int libfmapi_debug_print_binary_data_value(
 					return( -1 );
 				}
 				libcnotify_printf(
-				 "GUID\t: %" PRIs_LIBCSTRING_SYSTEM "\n\n",
+				 "GUID\t: %" PRIs_SYSTEM "\n\n",
 				 guid_string );
 			}
 			else
@@ -3350,7 +3352,7 @@ int libfmapi_debug_print_binary_data_value(
 
 						return( -1 );
 					}
-#if defined( LIBCSTRING_HAVE_WIDE_SYSTEM_CHARACTER )
+#if defined( HAVE_WIDE_SYSTEM_CHARACTER )
 					result = libfdatetime_filetime_copy_to_utf16_string(
 						  filetime,
 						  (uint16_t *) filetime_string,
@@ -3384,7 +3386,7 @@ int libfmapi_debug_print_binary_data_value(
 						return( -1 );
 					}
 					libcnotify_printf(
-					 "\tFiletime\t: %" PRIs_LIBCSTRING_SYSTEM " UTC\n",
+					 "\tFiletime\t: %" PRIs_SYSTEM " UTC\n",
 					 filetime_string );
 
 					if( libfguid_identifier_initialize(
@@ -3440,7 +3442,7 @@ int libfmapi_debug_print_binary_data_value(
 					value_data_size -= 16;
 */
 
-#if defined( LIBCSTRING_HAVE_WIDE_SYSTEM_CHARACTER )
+#if defined( HAVE_WIDE_SYSTEM_CHARACTER )
 					result = libfguid_identifier_copy_to_utf16_string(
 						  guid,
 						  (uint16_t *) guid_string,
@@ -3497,7 +3499,7 @@ int libfmapi_debug_print_binary_data_value(
 						return( -1 );
 					}
 					libcnotify_printf(
-					 "\tGUID\t\t: %" PRIs_LIBCSTRING_SYSTEM "\n",
+					 "\tGUID\t\t: %" PRIs_SYSTEM "\n",
 					 guid_string );
 
 					list_iterator = 1;
@@ -3588,7 +3590,7 @@ int libfmapi_debug_print_binary_data_value(
 
 							return( -1 );
 						}
-#if defined( LIBCSTRING_HAVE_WIDE_SYSTEM_CHARACTER )
+#if defined( HAVE_WIDE_SYSTEM_CHARACTER )
 						result = libfdatetime_filetime_copy_to_utf16_string(
 							  filetime,
 							  (uint16_t *) filetime_string,
@@ -3622,7 +3624,7 @@ int libfmapi_debug_print_binary_data_value(
 							return( -1 );
 						}
 						libcnotify_printf(
-						 "\tFiletime\t: %" PRIs_LIBCSTRING_SYSTEM " UTC\n",
+						 "\tFiletime\t: %" PRIs_SYSTEM " UTC\n",
 						 filetime_string );
 
 						libcnotify_printf(
@@ -3809,7 +3811,7 @@ int libfmapi_debug_print_binary_data_value(
 
 						return( -1 );
 					}
-#if defined( LIBCSTRING_HAVE_WIDE_SYSTEM_CHARACTER )
+#if defined( HAVE_WIDE_SYSTEM_CHARACTER )
 					result = libfwnt_security_identifier_copy_to_utf16_string(
 						  sid,
 						  (uint16_t *) sid_string,
@@ -3840,7 +3842,7 @@ int libfmapi_debug_print_binary_data_value(
 						return( -1 );
 					}
 					libcnotify_printf(
-					 "\t\tOwner SID:\t\t%" PRIs_LIBCSTRING_SYSTEM "\n",
+					 "\t\tOwner SID:\t\t%" PRIs_SYSTEM "\n",
 					 sid_string );
 				}
 				value_data_pointer = &( value_data[ 16 ] );
@@ -3917,7 +3919,7 @@ int libfmapi_debug_print_binary_data_value(
 
 						return( -1 );
 					}
-#if defined( LIBCSTRING_HAVE_WIDE_SYSTEM_CHARACTER )
+#if defined( HAVE_WIDE_SYSTEM_CHARACTER )
 					result = libfwnt_security_identifier_copy_to_utf16_string(
 						  sid,
 						  (uint16_t *) sid_string,
@@ -3948,7 +3950,7 @@ int libfmapi_debug_print_binary_data_value(
 						return( -1 );
 					}
 					libcnotify_printf(
-					 "\t\tGroup SID:\t\t%" PRIs_LIBCSTRING_SYSTEM "\n",
+					 "\t\tGroup SID:\t\t%" PRIs_SYSTEM "\n",
 					 sid_string );
 				}
 				value_data_pointer = &( value_data[ 20 ] );
@@ -4121,7 +4123,7 @@ int libfmapi_debug_print_binary_data_value(
 
 								return( -1 );
 							}
-#if defined( LIBCSTRING_HAVE_WIDE_SYSTEM_CHARACTER )
+#if defined( HAVE_WIDE_SYSTEM_CHARACTER )
 							result = libfwnt_security_identifier_copy_to_utf16_string(
 								  sid,
 								  (uint16_t *) sid_string,
@@ -4152,7 +4154,7 @@ int libfmapi_debug_print_binary_data_value(
 								return( -1 );
 							}
 							libcnotify_printf(
-							 "\t\tSID:\t\t\t%" PRIs_LIBCSTRING_SYSTEM "\n",
+							 "\t\tSID:\t\t\t%" PRIs_SYSTEM "\n",
 							 sid_string );
 
 							libcnotify_printf(
@@ -4267,7 +4269,7 @@ int libfmapi_debug_print_binary_data_value(
 
 				return( -1 );
 			}
-#if defined( LIBCSTRING_HAVE_WIDE_SYSTEM_CHARACTER )
+#if defined( HAVE_WIDE_SYSTEM_CHARACTER )
 			result = libfwnt_security_identifier_copy_to_utf16_string(
 				  sid,
 				  (uint16_t *) sid_string,
@@ -4298,7 +4300,7 @@ int libfmapi_debug_print_binary_data_value(
 				return( -1 );
 			}
 			libcnotify_printf(
-			 "SID:\t%" PRIs_LIBCSTRING_SYSTEM "\n",
+			 "SID:\t%" PRIs_SYSTEM "\n",
 			 sid_string );
 			libcnotify_printf(
 			 "\n" );
@@ -4402,7 +4404,7 @@ int libfmapi_debug_print_binary_data_value(
 			}
 			else
 			{
-#if defined( LIBCSTRING_HAVE_WIDE_SYSTEM_CHARACTER )
+#if defined( HAVE_WIDE_SYSTEM_CHARACTER )
 				result = libuna_utf16_string_size_from_byte_stream(
 					  value_data,
 					  value_data_size,
@@ -4429,7 +4431,7 @@ int libfmapi_debug_print_binary_data_value(
 
 					return( -1 );
 				}
-				value_string = libcstring_system_string_allocate(
+				value_string = system_string_allocate(
 				                value_string_size );
 
 				if( value_string == NULL )
@@ -4443,7 +4445,7 @@ int libfmapi_debug_print_binary_data_value(
 
 					return( -1 );
 				}
-#if defined( LIBCSTRING_HAVE_WIDE_SYSTEM_CHARACTER )
+#if defined( HAVE_WIDE_SYSTEM_CHARACTER )
 				result = libuna_utf16_string_copy_from_byte_stream(
 				          (libuna_utf16_character_t *) value_string,
 				          value_string_size,
@@ -4477,7 +4479,7 @@ int libfmapi_debug_print_binary_data_value(
 					return( -1 );
 				}
 				libcnotify_printf(
-				 "ASCII string\t: %" PRIs_LIBCSTRING_SYSTEM "\n\n",
+				 "ASCII string\t: %" PRIs_SYSTEM "\n\n",
 				 value_string );
 
 				memory_free(
@@ -4530,7 +4532,7 @@ int libfmapi_debug_print_binary_data_value(
 				value_data      += 16;
 				value_data_size -= 16;
 
-#if defined( LIBCSTRING_HAVE_WIDE_SYSTEM_CHARACTER )
+#if defined( HAVE_WIDE_SYSTEM_CHARACTER )
 				result = libfguid_identifier_copy_to_utf16_string(
 					  guid,
 					  (uint16_t *) guid_string,
@@ -4574,7 +4576,7 @@ int libfmapi_debug_print_binary_data_value(
 					return( -1 );
 				}
 				libcnotify_printf(
-				 "MAPI UID\t: %" PRIs_LIBCSTRING_SYSTEM "\n\n",
+				 "MAPI UID\t: %" PRIs_SYSTEM "\n\n",
 				 guid_string );
 			}
 			else
@@ -4821,7 +4823,7 @@ int libfmapi_debug_print_binary_data_value(
 				value_data      += 16;
 				value_data_size -= 16;
 
-#if defined( LIBCSTRING_HAVE_WIDE_SYSTEM_CHARACTER )
+#if defined( HAVE_WIDE_SYSTEM_CHARACTER )
 				result = libfguid_identifier_copy_to_utf16_string(
 					  guid,
 					  (uint16_t *) guid_string,
@@ -4865,7 +4867,7 @@ int libfmapi_debug_print_binary_data_value(
 					return( -1 );
 				}
 				libcnotify_printf(
-				 "GUID\t\t: %" PRIs_LIBCSTRING_SYSTEM "\n",
+				 "GUID\t\t: %" PRIs_SYSTEM "\n",
 				 guid_string );
 
 				libcnotify_printf(
@@ -4953,7 +4955,7 @@ int libfmapi_debug_print_binary_data_value(
 						value_data_size -= 16;
 						data_size       -= 16;
 
-#if defined( LIBCSTRING_HAVE_WIDE_SYSTEM_CHARACTER )
+#if defined( HAVE_WIDE_SYSTEM_CHARACTER )
 						result = libfguid_identifier_copy_to_utf16_string(
 							  guid,
 							  (uint16_t *) guid_string,
@@ -4984,7 +4986,7 @@ int libfmapi_debug_print_binary_data_value(
 							return( -1 );
 						}
 						libcnotify_printf(
-						 "GUID\t\t: %" PRIs_LIBCSTRING_SYSTEM "\n",
+						 "GUID\t\t: %" PRIs_SYSTEM "\n",
 						 guid_string );
 					}
 					libcnotify_printf(
@@ -5021,7 +5023,7 @@ int libfmapi_debug_print_binary_data_value(
 			break;
 
 		case 0x683c:
-#if defined( LIBCSTRING_HAVE_WIDE_SYSTEM_CHARACTER )
+#if defined( HAVE_WIDE_SYSTEM_CHARACTER )
 			result = libuna_utf16_string_size_from_byte_stream(
 			          value_data,
 			          value_data_size,
@@ -5049,9 +5051,8 @@ int libfmapi_debug_print_binary_data_value(
 
 				return( -1 );
 			}
-			value_string = libcstring_system_string_allocate(
+			value_string = system_string_allocate(
 			                value_string_size );
-			
 
 			if( value_string == NULL )
 			{
@@ -5064,7 +5065,7 @@ int libfmapi_debug_print_binary_data_value(
 
 				return( -1 );
 			}
-#if defined( LIBCSTRING_HAVE_WIDE_SYSTEM_CHARACTER )
+#if defined( HAVE_WIDE_SYSTEM_CHARACTER )
 			result = libuna_utf16_string_copy_from_byte_stream(
 			          (libuna_utf16_character_t *) value_string,
 			          value_string_size,
@@ -5098,7 +5099,7 @@ int libfmapi_debug_print_binary_data_value(
 				return( -1 );
 			}
 			libcnotify_printf(
-			 "ASCII string\t: %" PRIs_LIBCSTRING_SYSTEM "\n",
+			 "ASCII string\t: %" PRIs_SYSTEM "\n",
 			 value_string );
 
 			memory_free(
@@ -5148,7 +5149,7 @@ int libfmapi_debug_print_binary_data_value(
 				value_data      += 16;
 				value_data_size -= 16;
 
-#if defined( LIBCSTRING_HAVE_WIDE_SYSTEM_CHARACTER )
+#if defined( HAVE_WIDE_SYSTEM_CHARACTER )
 				result = libfguid_identifier_copy_to_utf16_string(
 					  guid,
 					  (uint16_t *) guid_string,
@@ -5192,7 +5193,7 @@ int libfmapi_debug_print_binary_data_value(
 					return( -1 );
 				}
 				libcnotify_printf(
-				 "GUID\t: %" PRIs_LIBCSTRING_SYSTEM "\n",
+				 "GUID\t: %" PRIs_SYSTEM "\n",
 				 guid_string );
 
 				libcnotify_printf(
@@ -5264,7 +5265,7 @@ int libfmapi_debug_print_binary_data_value(
 				value_data      += 16;
 				value_data_size -= 16;
 
-#if defined( LIBCSTRING_HAVE_WIDE_SYSTEM_CHARACTER )
+#if defined( HAVE_WIDE_SYSTEM_CHARACTER )
 				result = libfguid_identifier_copy_to_utf16_string(
 					  guid,
 					  (uint16_t *) guid_string,
@@ -5295,7 +5296,7 @@ int libfmapi_debug_print_binary_data_value(
 					return( -1 );
 				}
 				libcnotify_printf(
-				 "GUID\t\t: %" PRIs_LIBCSTRING_SYSTEM "\n",
+				 "GUID\t\t: %" PRIs_SYSTEM "\n",
 				 guid_string );
 
 				libcnotify_printf(
@@ -5331,7 +5332,7 @@ int libfmapi_debug_print_binary_data_value(
 				value_data      += 16;
 				value_data_size -= 16;
 
-#if defined( LIBCSTRING_HAVE_WIDE_SYSTEM_CHARACTER )
+#if defined( HAVE_WIDE_SYSTEM_CHARACTER )
 				result = libfguid_identifier_copy_to_utf16_string(
 					  guid,
 					  (uint16_t *) guid_string,
@@ -5362,7 +5363,7 @@ int libfmapi_debug_print_binary_data_value(
 					return( -1 );
 				}
 				libcnotify_printf(
-				 "GUID\t\t: %" PRIs_LIBCSTRING_SYSTEM "\n",
+				 "GUID\t\t: %" PRIs_SYSTEM "\n",
 				 guid_string );
 
 				libcnotify_printf(

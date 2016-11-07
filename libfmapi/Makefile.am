@@ -1,7 +1,6 @@
 AM_CPPFLAGS = \
 	-I$(top_srcdir)/include \
 	-I$(top_srcdir)/common \
-	@LIBCSTRING_CPPFLAGS@ \
 	@LIBCERROR_CPPFLAGS@ \
 	@LIBCDATA_CPPFLAGS@ \
 	@LIBCTHREADS_CPPFLAGS@ \
@@ -26,7 +25,6 @@ libfmapi_la_SOURCES = \
 	libfmapi_guid.c libfmapi_guid.h \
 	libfmapi_libcerror.h \
 	libfmapi_libcnotify.h \
-	libfmapi_libcstring.h \
 	libfmapi_libfdatetime.h \
 	libfmapi_libfguid.h \
 	libfmapi_libfwnt.h \
@@ -42,7 +40,6 @@ libfmapi_la_SOURCES = \
 	libfmapi_x400_object_identifier.h
 
 libfmapi_la_LIBADD = \
-	@LIBCSTRING_LIBADD@ \
 	@LIBCERROR_LIBADD@ \
 	@LIBCTHREADS_LIBADD@ \
 	@LIBCDATA_LIBADD@ \

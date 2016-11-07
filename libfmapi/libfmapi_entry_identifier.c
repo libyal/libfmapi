@@ -21,6 +21,7 @@
 
 #include <common.h>
 #include <memory.h>
+#include <system_string.h>
 #include <types.h>
 
 #include "libfmapi_definitions.h"
@@ -149,7 +150,7 @@ int libfmapi_entry_identifier_copy_from_byte_stream(
 	static char *function                                           = "libfmapi_entry_identifier_copy_from_byte_stream";
 
 #if defined( HAVE_DEBUG_OUTPUT )
-	libcstring_system_character_t guid_string[ 48 ];
+	system_character_t guid_string[ 48 ];
 
 	libfguid_identifier_t *guid                                     = NULL;
 	int result                                                      = 0;
@@ -285,7 +286,7 @@ int libfmapi_entry_identifier_copy_from_byte_stream(
 
 			goto on_error;
 		}
-#if defined( LIBCSTRING_HAVE_WIDE_SYSTEM_CHARACTER )
+#if defined( HAVE_WIDE_SYSTEM_CHARACTER )
 		result = libfguid_identifier_copy_to_utf16_string(
 			  guid,
 			  (uint16_t *) guid_string,
@@ -312,7 +313,7 @@ int libfmapi_entry_identifier_copy_from_byte_stream(
 			goto on_error;
 		}
 		libcnotify_printf(
-		 "%s: service provider identifier\t: %" PRIs_LIBCSTRING_SYSTEM " (%s)\n",
+		 "%s: service provider identifier\t: %" PRIs_SYSTEM " (%s)\n",
 		 function,
 		 guid_string,
 		 libfmapi_service_provider_identifier_get_name(

@@ -24,10 +24,6 @@
 
 /* The libfmapi type support features
  */
-#if defined( WINAPI ) || @HAVE_WIDE_CHARACTER_TYPE@
-#define LIBFMAPI_HAVE_WIDE_CHARACTER_TYPE	1
-#endif
-
 #if !defined( LIBFMAPI_DEPRECATED )
 #if defined( __GNUC__ ) && __GNUC__ >= 3
 #define LIBFMAPI_DEPRECATED	__attribute__ ((__deprecated__))
