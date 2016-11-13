@@ -69,5 +69,5 @@ struct libfmapi_x400_object_identifier
 }
 #endif
 
-#endif
+#endif /* !defined( _LIBFMAPI_X400_OBJECT_IDENTIFIER_H ) */
 

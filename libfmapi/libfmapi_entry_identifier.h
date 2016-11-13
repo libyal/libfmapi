@@ -74,5 +74,5 @@ int libfmapi_entry_identifier_get_service_provider_identifier(
 }
 #endif
 
-#endif
+#endif /* !defined( _LIBFMAPI_INTERNAL_ENTRY_IDENTIFIER_H ) */
 

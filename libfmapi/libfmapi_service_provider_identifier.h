@@ -44,5 +44,5 @@ const char *libfmapi_service_provider_identifier_get_name(
 }
 #endif
 
-#endif
+#endif /* !defined( _LIBFMAPI_SERVICE_PROVIDER_IDENTIFIER_H ) */
 

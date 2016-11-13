@@ -1,5 +1,5 @@
 /*
- * GUID functions
+ * Library x400_object_identifier type testing program
  *
  * Copyright (C) 2009-2016, Joachim Metz <joachim.metz@gmail.com>
  *
@@ -19,21 +19,40 @@
  * along with this software.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#if !defined( _LIBFMAPI_GUID_H )
-#define _LIBFMAPI_GUID_H
-
 #include <common.h>
+#include <file_stream.h>
 #include <types.h>
 
-#if defined( __cplusplus )
-extern "C" {
+#if defined( HAVE_STDLIB_H ) || defined( WINAPI )
+#include <stdlib.h>
 #endif
 
-extern uint8_t libfmapi_guid_public_strings[ 16 ];
+#include "fmapi_test_libcerror.h"
+#include "fmapi_test_libfmapi.h"
+#include "fmapi_test_macros.h"
+#include "fmapi_test_memory.h"
+#include "fmapi_test_unused.h"
 
-#if defined( __cplusplus )
+#include "../libfmapi/libfmapi_x400_object_identifier.h"
+
+/* The main program
+ */
+#if defined( HAVE_WIDE_SYSTEM_CHARACTER )
+int wmain(
+     int argc FMAPI_TEST_ATTRIBUTE_UNUSED,
+     wchar_t * const argv[] FMAPI_TEST_ATTRIBUTE_UNUSED )
+#else
+int main(
+     int argc FMAPI_TEST_ATTRIBUTE_UNUSED,
+     char * const argv[] FMAPI_TEST_ATTRIBUTE_UNUSED )
+#endif
+{
+	FMAPI_TEST_UNREFERENCED_PARAMETER( argc )
+	FMAPI_TEST_UNREFERENCED_PARAMETER( argv )
+
+	return( EXIT_SUCCESS );
+
+on_error:
+	return( EXIT_FAILURE );
 }
-#endif
-
-#endif /* !defined( _LIBFMAPI_GUID_H ) */
 

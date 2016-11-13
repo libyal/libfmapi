@@ -186,5 +186,5 @@ int libfmapi_one_off_entry_identifier_get_utf16_email_address(
 }
 #endif
 
-#endif
+#endif /* !defined( _LIBFMAPI_INTERNAL_ONE_OFF_ENTRY_IDENTIFIER_H ) */
 

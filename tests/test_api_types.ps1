@@ -1,4 +1,4 @@
-# Library API functions testing script
+# Library API type testing script
 #
 # Version: 20161110
 
@@ -10,17 +10,17 @@ $TestPrefix = Split-Path -path ${Pwd}.Path -parent
 $TestPrefix = Split-Path -path ${TestPrefix} -leaf
 $TestPrefix = ${TestPrefix}.Substring(3)
 
-$TestFunctions = "error support"
-$TestFunctionsWithInput = ""
+$TestTypes = "entry_identifier one_off_entry_identifier property_type value_type x400_object_identifier"
+$TestTypesWithInput = ""
 
 $TestToolDirectory = "..\msvscpp\Release"
 
-Function TestAPIFunction
+Function TestAPIType
 {
-	param( [string]$TestFunction, [string[]]$Options, [string]$Profile )
+	param( [string]$TestType )
 
-	$TestDescription = "Testing API functions: ${TestFunction}"
-	$TestExecutable = "${TestToolDirectory}\${TestPrefix}_test_${TestFunction}.exe"
+	$TestDescription = "Testing API type: ${TestType}"
+	$TestExecutable = "${TestToolDirectory}\${TestPrefix}_test_${TestType}.exe"
 
 	$Output = Invoke-Expression ${TestExecutable}
 	$Result = ${LastExitCode}
@@ -55,9 +55,9 @@ If (-Not (Test-Path ${TestToolDirectory}))
 
 $Result = ${ExitIgnore}
 
-Foreach (${TestFunction} in ${TestFunctions} -split " ")
+Foreach (${TestType} in ${TestTypes} -split " ")
 {
-	$Result = TestAPIFunction ${TestFunction}
+	$Result = TestAPIType ${TestType}
 
 	If (${Result} -ne ${ExitSuccess})
 	{
@@ -65,9 +65,9 @@ Foreach (${TestFunction} in ${TestFunctions} -split " ")
 	}
 }
 
-Foreach (${TestFunction} in ${TestFunctionsWithInput} -split " ")
+Foreach (${TestType} in ${TestTypesWithInput} -split " ")
 {
-	$Result = TestAPIFunction ${TestFunction}
+	$Result = TestAPIType ${TestType}
 
 	If (${Result} -ne ${ExitSuccess})
 	{

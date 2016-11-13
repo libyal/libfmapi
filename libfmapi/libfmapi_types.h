@@ -34,7 +34,7 @@
 /* The following type definitions hide internal data structures
  */
 #if defined( HAVE_DEBUG_OUTPUT ) && !defined( WINAPI )
-typedef struct libfmapi_entry_identifier {}	libfmapi_entry_identifier_t;
+typedef struct libfmapi_entry_identifier {}		libfmapi_entry_identifier_t;
 typedef struct libfmapi_one_off_entry_identifier {}	libfmapi_one_off_entry_identifier_t;
 
 #else

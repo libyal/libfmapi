@@ -21,6 +21,7 @@ libfmapi_la_SOURCES = \
 	libfmapi_debug.c libfmapi_debug.h \
 	libfmapi_definitions.h \
 	libfmapi_entry_identifier.c libfmapi_entry_identifier.h \
+	libfmapi_error.c libfmapi_error.h \
 	libfmapi_extern.h \
 	libfmapi_guid.c libfmapi_guid.h \
 	libfmapi_libcerror.h \

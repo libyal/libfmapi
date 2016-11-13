@@ -1,32 +1,7 @@
 TODO:
 * merge mapi_definitions.h with libfmapi_definitions.h
 
-20160427
-* worked on tests
-* add missing get version function
-
-20160106
-* 2016 update
-
-20150104
-* 2015 update
-
-20141023
-* fixed attached COPYING file containing the wrong license
-
-20141021
-* worked on stand-alone version
-
-20141018
-* changes for deployment
-
-20141014
-* updated configure.ac
-* updated dpkg files
-
-20141012
-* worked on utility scripts
-
 20140928
+* see `git log' for more recent change log
 * Created stand-alone version of version used in libpff
 

@@ -1,5 +1,11 @@
 MSVSCPP_FILES = \
+	fmapi_test_entry_identifier/fmapi_test_entry_identifier.vcproj \
+	fmapi_test_error/fmapi_test_error.vcproj \
+	fmapi_test_one_off_entry_identifier/fmapi_test_one_off_entry_identifier.vcproj \
+	fmapi_test_property_type/fmapi_test_property_type.vcproj \
 	fmapi_test_support/fmapi_test_support.vcproj \
+	fmapi_test_value_type/fmapi_test_value_type.vcproj \
+	fmapi_test_x400_object_identifier/fmapi_test_x400_object_identifier.vcproj \
 	libcdata/libcdata.vcproj \
 	libcerror/libcerror.vcproj \
 	libcnotify/libcnotify.vcproj \

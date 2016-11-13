@@ -1,5 +1,5 @@
 /*
- * GUID functions
+ * Error functions
  *
  * Copyright (C) 2009-2016, Joachim Metz <joachim.metz@gmail.com>
  *
@@ -19,21 +19,56 @@
  * along with this software.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#if !defined( _LIBFMAPI_GUID_H )
-#define _LIBFMAPI_GUID_H
+#if !defined( _LIBFMAPI_INTERNAL_ERROR_H )
+#define _LIBFMAPI_INTERNAL_ERROR_H
 
 #include <common.h>
+#include <file_stream.h>
 #include <types.h>
+
+#if !defined( HAVE_LOCAL_LIBFMAPI )
+#include <libfmapi/error.h>
+#endif
+
+#include "libfmapi_extern.h"
 
 #if defined( __cplusplus )
 extern "C" {
 #endif
 
-extern uint8_t libfmapi_guid_public_strings[ 16 ];
+#if !defined( HAVE_LOCAL_LIBFMAPI )
+
+LIBFMAPI_EXTERN \
+void libfmapi_error_free(
+      libfmapi_error_t **error );
+
+LIBFMAPI_EXTERN \
+int libfmapi_error_fprint(
+     libfmapi_error_t *error,
+     FILE *stream );
+
+LIBFMAPI_EXTERN \
+int libfmapi_error_sprint(
+     libfmapi_error_t *error,
+     char *string,
+     size_t size );
+
+LIBFMAPI_EXTERN \
+int libfmapi_error_backtrace_fprint(
+     libfmapi_error_t *error,
+     FILE *stream );
+
+LIBFMAPI_EXTERN \
+int libfmapi_error_backtrace_sprint(
+     libfmapi_error_t *error,
+     char *string,
+     size_t size );
+
+#endif /* !defined( HAVE_LOCAL_LIBFMAPI ) */
 
 #if defined( __cplusplus )
 }
 #endif
 
-#endif /* !defined( _LIBFMAPI_GUID_H ) */
+#endif /* !defined( _LIBFMAPI_INTERNAL_ERROR_H ) */
 

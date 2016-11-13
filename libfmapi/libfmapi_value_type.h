@@ -60,5 +60,5 @@ const char *libfmapi_value_type_get_description(
 }
 #endif
 
-#endif
+#endif /* !defined( _LIBFMAPI_VALUE_TYPE_H ) */
 

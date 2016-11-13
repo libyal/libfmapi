@@ -121,11 +121,11 @@ const char *libfmapi_named_property_type_get_description(
              size_t name_size,
              uint32_t value_type );
 
-#endif
+#endif /* defined( HAVE_DEBUG_OUTPUT ) */
 
 #if defined( __cplusplus )
 }
 #endif
 
-#endif
+#endif /* !defined( _LIBFMAPI_PROPERTY_TYPE_H ) */
 

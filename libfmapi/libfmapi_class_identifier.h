@@ -78,5 +78,5 @@ const char *libfmapi_class_identifier_get_name(
 }
 #endif
 
-#endif
+#endif /* !defined( _LIBFMAPI_CLASS_IDENTIFIER_H ) */
 

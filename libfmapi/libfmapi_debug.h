@@ -109,5 +109,5 @@ int libfmapi_debug_print_element_multi_value(
 }
 #endif
 
-#endif
+#endif /* !defined( _LIBFMAPI_DEBUG_H ) */
 

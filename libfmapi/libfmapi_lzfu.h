@@ -78,5 +78,5 @@ int libfmapi_lzfu_decompress(
 }
 #endif
 
-#endif
+#endif /* !defined( _LIBFMAPI_LZFU_H ) */
 
