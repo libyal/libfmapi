@@ -89,7 +89,134 @@ formats. It is known to be used in the following file formats:
 * Nickfile (NK2)
 * Personal Folder File (PST, OST, PAB)
 
+== Data types
+The MAPI defines property data types. These are identified by Ptyp or PT_. In this document the
+data types are referred to as value types.
+
+[cols="1,1,5",options="header"]
+|===
+| Value | Identifier | Description
+| 0x0000 | PtypUnspecified +
+(PT_UNSPECIFIED, PT_UNKNOWN) | Reserved for interface use (type is not important to caller)
+| 0x0001 | PtypNull +
+(PT_NULL) | NULL (empty value)
+| 0x0002 | PtypInteger16 +
+(PT_SHORT, PT_I2) | Integer 16-bit signed
+| 0x0003 | PtypInteger32 +
+(PT_LONG, PT_I4) | Integer 32-bit signed
+| 0x0004 | PtypFloating32 +
+(PT_FLOAT, PT_R4) | Floating point single precision (32-bit)
+| 0x0005 | PtypFloating64 +
+(PT_DOUBLE, PT_R8) | Floating point double precision (64-bit)
+| 0x0006 | PtypCurrency
+(PT_CURRENCY) | Currency (64-bit) +
+See section: <<currency,Currency>>
+| 0x0007 | PtypFloatingTime +
+(PT_APPTIME) | Floating (or application) Time (64-bit) +
+The floating time is a double precision floating point and contains the whole number part represents the number of days since December 30, 1899, and the fractional part represents the fraction of a day since midnight.
+| | |
+| 0x000a | PtypErrorCode +
+(PT_ERROR) | Error value (32-bit) +
+SCODE +
+See section: <<error_values,Error values (SCODE)>>
+| | |
+| 0x000b | PtypBoolean +
+(PT_BOOLEAN) | Boolean +
+0 == false, 0 != true +
+Some Microsoft documentation states it to be 8-bit strictly using 0 = false and 1 = true
+| | |
+| 0x000d | PtypObject, PtypEmbeddedTable +
+(PT_OBJECT) | Embedded COM object or table +
+Variable of size
+| | |
+| 0x0014 | PtypInteger64
+(PT_LONGLONG, PT_I8) | Integer 64-bit signed
+| | |
+| 0x001e | PtypString8 +
+(PT_STRING8) | (extended) ASCII or Single Byte Character (SBC) string +
+The string in the file is not always terminated by a end-of-string character +
+The string is formatted using a code page.
+| 0x001f | PtypString +
+(PT_UNICODE) | Unicode string +
+The string uses UTF-16 little-endian (LE) without the byte order mark (BOM) +
+The string in the file is not always terminated by a end-of-string character
+| | |
+| 0x0040 | PtypTime +
+(PT_SYSTIME) | Windows FILETIME or System Time (64-bit) +
+See section: <<filetime,FILETIME>>
+| | |
+| 0x0048 | PtypGuid +
+(PT_CLSID) | (OLE) GUID or Class identifier (128-bit) +
+See section: <<guid,GUID>>
+| | |
+| 0x00fb | PtypServerId +
+(PT_SVREID) | Server identifier
+Variable of size +
+Contains a 16-bit count followed by server identifier structure
+| | |
+| 0x00fd | PtypRestriction +
+(PT_SRESTRICT) | Restriction +
+Variable of size +
+Contains an array of restriction structure
+| 0x00fe | PtypRuleAction +
+(PT_ACTIONS) | Rule actions +
+Variable of size +
+Contains a 16-bit count followed by rule actions structure
+| | |
+| 0x0102 | PtypBinary +
+(PT_BINARY) | Binary data +
+Variable of size
+| | |
+| 0x1002 | PtypMultipleInteger16 +
+(PT_MV_SHORT, PT_MV_I2) | Array of Integer 16-bit signed values
+| 0x1003 | PtypMultipleInteger32 +
+(PT_MV_LONG, PT_MV_I4) | Array of Integer 32-bit signed values
+| 0x1004 | PtypMultipleFloating32 +
+(PT_MV_FLOAT, PT_MV_R4) | Array of Floating point single precision (32-bit) values
+| 0x1005 | PtypMultipleFloating64 +
+(PT_MV_DOUBLE, PT_MV_R8) | Array of Floating point double precision (64-bit) values
+| 0x1006 | PtypMultipleCurrency +
+(PT_MV_CURRENCY) | Array of Currency values
+| 0x1007 | PtypMultipleFloatingTime +
+(PT_MV_APPTIME) | Array of Floating time values
+| | |
+| 0x1014 | PtypMultipleInteger64 +
+(PT_MV_LONGLONG, PT_MV_I8) | Array of Integer 64-bit signed values
+| | |
+| 0x101e | PtypMultipleString8 +
+(PT_MV_STRING8) | Array of (extended) ASCII or SBC string values
+| 0x101f | PtypMultipleString +
+(PT_MV_UNICODE) | Array of Unicode (UTF-16 LE) string values
+| | |
+| 0x1040 | PtypMultipleTime +
+(PT_MV_SYSTIME) | Array of Windows Filetime (64-bit) values
+| | |
+| 0x1048 | PtypMultipleGuid +
+(PT_MV_CLSID) | Array of GUID (Class identifier) values
+| | |
+| 0x1102 | PtypMultipleBinary +
+(PT_MV_BINARY) | Array of Binary data values
+|===
+
+....
+0x1000 => Multi value flag
+0x2000 => Multi instance flag
+....
+
+=== [[currency]]Currency
+a 32-bit low part and a 32-bit high part
+It contains a scaled integer representation of a decimal number with four digits to the right of the decimal point. For example, a stored value of 327500 represents a currency value of 32.7500.
+
+=== [[filetime]]FILETIME
+a 32-bit low part and a 32-bit high part
+It contains the number of 100ns periods since January 1, 1601
+
+=== [[guid]]GUID
+Unsigned 32-bit Integer, Unsigned 16-bit Integer, Unsigned 16-bit Integer, 8 byte array
+
 * [yellow-background]*TODO: migrate rest of documentation*
+
+== [[error_values]]Error values (SCODE)
 
 :numbered!:
 [appendix]
