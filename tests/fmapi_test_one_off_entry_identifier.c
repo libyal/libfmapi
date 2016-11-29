@@ -268,6 +268,1968 @@ on_error:
 	return( 0 );
 }
 
+/* Tests the libfmapi_one_off_entry_identifier_get_version function
+ * Returns 1 if successful or 0 if not
+ */
+int fmapi_test_one_off_entry_identifier_get_version(
+     void )
+{
+	libcerror_error_t *error                                      = NULL;
+	libfmapi_one_off_entry_identifier_t *one_off_entry_identifier = NULL;
+	uint16_t version                                              = 0;
+	int result                                                    = 0;
+	int version_is_set                                            = 0;
+
+	/* Initialize test
+	 */
+	result = libfmapi_one_off_entry_identifier_initialize(
+	          &one_off_entry_identifier,
+	          &error );
+
+	FMAPI_TEST_ASSERT_EQUAL_INT(
+	 "result",
+	 result,
+	 1 );
+
+	FMAPI_TEST_ASSERT_IS_NOT_NULL(
+	 "one_off_entry_identifier",
+	 one_off_entry_identifier );
+
+	FMAPI_TEST_ASSERT_IS_NULL(
+	 "error",
+	 error );
+
+	/* Test regular cases
+	 */
+	result = libfmapi_one_off_entry_identifier_get_version(
+	          one_off_entry_identifier,
+	          &version,
+	          &error );
+
+	FMAPI_TEST_ASSERT_NOT_EQUAL_INT(
+	 "result",
+	 result,
+	 -1 );
+
+	FMAPI_TEST_ASSERT_IS_NULL(
+	 "error",
+	 error );
+
+	version_is_set = result;
+
+	/* Test error cases
+	 */
+	result = libfmapi_one_off_entry_identifier_get_version(
+	          NULL,
+	          &version,
+	          &error );
+
+	FMAPI_TEST_ASSERT_EQUAL_INT(
+	 "result",
+	 result,
+	 -1 );
+
+	FMAPI_TEST_ASSERT_IS_NOT_NULL(
+	 "error",
+	 error );
+
+	libcerror_error_free(
+	 &error );
+
+	if( version_is_set != 0 )
+	{
+		result = libfmapi_one_off_entry_identifier_get_version(
+		          one_off_entry_identifier,
+		          NULL,
+		          &error );
+
+		FMAPI_TEST_ASSERT_EQUAL_INT(
+		 "result",
+		 result,
+		 -1 );
+
+		FMAPI_TEST_ASSERT_IS_NOT_NULL(
+		 "error",
+		 error );
+
+		libcerror_error_free(
+		 &error );
+	}
+	/* Clean up
+	 */
+	result = libfmapi_one_off_entry_identifier_free(
+	          &one_off_entry_identifier,
+	          &error );
+
+	FMAPI_TEST_ASSERT_EQUAL_INT(
+	 "result",
+	 result,
+	 1 );
+
+	FMAPI_TEST_ASSERT_IS_NULL(
+	 "one_off_entry_identifier",
+	 one_off_entry_identifier );
+
+	FMAPI_TEST_ASSERT_IS_NULL(
+	 "error",
+	 error );
+
+	return( 1 );
+
+on_error:
+	if( error != NULL )
+	{
+		libcerror_error_free(
+		 &error );
+	}
+	if( one_off_entry_identifier != NULL )
+	{
+		libfmapi_one_off_entry_identifier_free(
+		 &one_off_entry_identifier,
+		 NULL );
+	}
+	return( 0 );
+}
+
+/* Tests the libfmapi_one_off_entry_identifier_get_flags function
+ * Returns 1 if successful or 0 if not
+ */
+int fmapi_test_one_off_entry_identifier_get_flags(
+     void )
+{
+	libcerror_error_t *error                                      = NULL;
+	libfmapi_one_off_entry_identifier_t *one_off_entry_identifier = NULL;
+	uint16_t flags                                                = 0;
+	int flags_is_set                                              = 0;
+	int result                                                    = 0;
+
+	/* Initialize test
+	 */
+	result = libfmapi_one_off_entry_identifier_initialize(
+	          &one_off_entry_identifier,
+	          &error );
+
+	FMAPI_TEST_ASSERT_EQUAL_INT(
+	 "result",
+	 result,
+	 1 );
+
+	FMAPI_TEST_ASSERT_IS_NOT_NULL(
+	 "one_off_entry_identifier",
+	 one_off_entry_identifier );
+
+	FMAPI_TEST_ASSERT_IS_NULL(
+	 "error",
+	 error );
+
+	/* Test regular cases
+	 */
+	result = libfmapi_one_off_entry_identifier_get_flags(
+	          one_off_entry_identifier,
+	          &flags,
+	          &error );
+
+	FMAPI_TEST_ASSERT_NOT_EQUAL_INT(
+	 "result",
+	 result,
+	 -1 );
+
+	FMAPI_TEST_ASSERT_IS_NULL(
+	 "error",
+	 error );
+
+	flags_is_set = result;
+
+	/* Test error cases
+	 */
+	result = libfmapi_one_off_entry_identifier_get_flags(
+	          NULL,
+	          &flags,
+	          &error );
+
+	FMAPI_TEST_ASSERT_EQUAL_INT(
+	 "result",
+	 result,
+	 -1 );
+
+	FMAPI_TEST_ASSERT_IS_NOT_NULL(
+	 "error",
+	 error );
+
+	libcerror_error_free(
+	 &error );
+
+	if( flags_is_set != 0 )
+	{
+		result = libfmapi_one_off_entry_identifier_get_flags(
+		          one_off_entry_identifier,
+		          NULL,
+		          &error );
+
+		FMAPI_TEST_ASSERT_EQUAL_INT(
+		 "result",
+		 result,
+		 -1 );
+
+		FMAPI_TEST_ASSERT_IS_NOT_NULL(
+		 "error",
+		 error );
+
+		libcerror_error_free(
+		 &error );
+	}
+	/* Clean up
+	 */
+	result = libfmapi_one_off_entry_identifier_free(
+	          &one_off_entry_identifier,
+	          &error );
+
+	FMAPI_TEST_ASSERT_EQUAL_INT(
+	 "result",
+	 result,
+	 1 );
+
+	FMAPI_TEST_ASSERT_IS_NULL(
+	 "one_off_entry_identifier",
+	 one_off_entry_identifier );
+
+	FMAPI_TEST_ASSERT_IS_NULL(
+	 "error",
+	 error );
+
+	return( 1 );
+
+on_error:
+	if( error != NULL )
+	{
+		libcerror_error_free(
+		 &error );
+	}
+	if( one_off_entry_identifier != NULL )
+	{
+		libfmapi_one_off_entry_identifier_free(
+		 &one_off_entry_identifier,
+		 NULL );
+	}
+	return( 0 );
+}
+
+/* Tests the libfmapi_one_off_entry_identifier_get_utf8_display_name_size function
+ * Returns 1 if successful or 0 if not
+ */
+int fmapi_test_one_off_entry_identifier_get_utf8_display_name_size(
+     void )
+{
+	libcerror_error_t *error                                      = NULL;
+	libfmapi_one_off_entry_identifier_t *one_off_entry_identifier = NULL;
+	size_t utf8_display_name_size                                 = 0;
+	int result                                                    = 0;
+	int utf8_display_name_size_is_set                             = 0;
+
+	/* Initialize test
+	 */
+	result = libfmapi_one_off_entry_identifier_initialize(
+	          &one_off_entry_identifier,
+	          &error );
+
+	FMAPI_TEST_ASSERT_EQUAL_INT(
+	 "result",
+	 result,
+	 1 );
+
+	FMAPI_TEST_ASSERT_IS_NOT_NULL(
+	 "one_off_entry_identifier",
+	 one_off_entry_identifier );
+
+	FMAPI_TEST_ASSERT_IS_NULL(
+	 "error",
+	 error );
+
+	/* Test regular cases
+	 */
+	result = libfmapi_one_off_entry_identifier_get_utf8_display_name_size(
+	          one_off_entry_identifier,
+	          &utf8_display_name_size,
+	          &error );
+
+	FMAPI_TEST_ASSERT_NOT_EQUAL_INT(
+	 "result",
+	 result,
+	 -1 );
+
+	FMAPI_TEST_ASSERT_IS_NULL(
+	 "error",
+	 error );
+
+	utf8_display_name_size_is_set = result;
+
+	/* Test error cases
+	 */
+	result = libfmapi_one_off_entry_identifier_get_utf8_display_name_size(
+	          NULL,
+	          &utf8_display_name_size,
+	          &error );
+
+	FMAPI_TEST_ASSERT_EQUAL_INT(
+	 "result",
+	 result,
+	 -1 );
+
+	FMAPI_TEST_ASSERT_IS_NOT_NULL(
+	 "error",
+	 error );
+
+	libcerror_error_free(
+	 &error );
+
+	if( utf8_display_name_size_is_set != 0 )
+	{
+		result = libfmapi_one_off_entry_identifier_get_utf8_display_name_size(
+		          one_off_entry_identifier,
+		          NULL,
+		          &error );
+
+		FMAPI_TEST_ASSERT_EQUAL_INT(
+		 "result",
+		 result,
+		 -1 );
+
+		FMAPI_TEST_ASSERT_IS_NOT_NULL(
+		 "error",
+		 error );
+
+		libcerror_error_free(
+		 &error );
+	}
+	/* Clean up
+	 */
+	result = libfmapi_one_off_entry_identifier_free(
+	          &one_off_entry_identifier,
+	          &error );
+
+	FMAPI_TEST_ASSERT_EQUAL_INT(
+	 "result",
+	 result,
+	 1 );
+
+	FMAPI_TEST_ASSERT_IS_NULL(
+	 "one_off_entry_identifier",
+	 one_off_entry_identifier );
+
+	FMAPI_TEST_ASSERT_IS_NULL(
+	 "error",
+	 error );
+
+	return( 1 );
+
+on_error:
+	if( error != NULL )
+	{
+		libcerror_error_free(
+		 &error );
+	}
+	if( one_off_entry_identifier != NULL )
+	{
+		libfmapi_one_off_entry_identifier_free(
+		 &one_off_entry_identifier,
+		 NULL );
+	}
+	return( 0 );
+}
+
+/* Tests the libfmapi_one_off_entry_identifier_get_utf8_display_name function
+ * Returns 1 if successful or 0 if not
+ */
+int fmapi_test_one_off_entry_identifier_get_utf8_display_name(
+     void )
+{
+	uint8_t utf8_display_name[ 512 ];
+
+	libcerror_error_t *error                                      = NULL;
+	libfmapi_one_off_entry_identifier_t *one_off_entry_identifier = NULL;
+	int result                                                    = 0;
+	int utf8_display_name_is_set                                  = 0;
+
+	/* Initialize test
+	 */
+	result = libfmapi_one_off_entry_identifier_initialize(
+	          &one_off_entry_identifier,
+	          &error );
+
+	FMAPI_TEST_ASSERT_EQUAL_INT(
+	 "result",
+	 result,
+	 1 );
+
+	FMAPI_TEST_ASSERT_IS_NOT_NULL(
+	 "one_off_entry_identifier",
+	 one_off_entry_identifier );
+
+	FMAPI_TEST_ASSERT_IS_NULL(
+	 "error",
+	 error );
+
+	/* Test regular cases
+	 */
+	result = libfmapi_one_off_entry_identifier_get_utf8_display_name(
+	          one_off_entry_identifier,
+	          utf8_display_name,
+	          512,
+	          &error );
+
+	FMAPI_TEST_ASSERT_NOT_EQUAL_INT(
+	 "result",
+	 result,
+	 -1 );
+
+	FMAPI_TEST_ASSERT_IS_NULL(
+	 "error",
+	 error );
+
+	utf8_display_name_is_set = result;
+
+	/* Test error cases
+	 */
+	result = libfmapi_one_off_entry_identifier_get_utf8_display_name(
+	          NULL,
+	          utf8_display_name,
+	          512,
+	          &error );
+
+	FMAPI_TEST_ASSERT_EQUAL_INT(
+	 "result",
+	 result,
+	 -1 );
+
+	FMAPI_TEST_ASSERT_IS_NOT_NULL(
+	 "error",
+	 error );
+
+	libcerror_error_free(
+	 &error );
+
+	if( utf8_display_name_is_set != 0 )
+	{
+		result = libfmapi_one_off_entry_identifier_get_utf8_display_name(
+		          one_off_entry_identifier,
+		          NULL,
+		          512,
+		          &error );
+
+		FMAPI_TEST_ASSERT_EQUAL_INT(
+		 "result",
+		 result,
+		 -1 );
+
+	        FMAPI_TEST_ASSERT_IS_NOT_NULL(
+	         "error",
+	         error );
+
+		libcerror_error_free(
+		 &error );
+
+		result = libfmapi_one_off_entry_identifier_get_utf8_display_name(
+		          one_off_entry_identifier,
+		          utf8_display_name,
+		          0,
+		          &error );
+
+		FMAPI_TEST_ASSERT_EQUAL_INT(
+		 "result",
+		 result,
+		 -1 );
+
+	        FMAPI_TEST_ASSERT_IS_NOT_NULL(
+	         "error",
+	         error );
+
+		libcerror_error_free(
+		 &error );
+
+		result = libfmapi_one_off_entry_identifier_get_utf8_display_name(
+		          one_off_entry_identifier,
+		          utf8_display_name,
+		          (size_t) SSIZE_MAX + 1,
+		          &error );
+
+		FMAPI_TEST_ASSERT_EQUAL_INT(
+		 "result",
+		 result,
+		 -1 );
+
+	        FMAPI_TEST_ASSERT_IS_NOT_NULL(
+	         "error",
+	         error );
+
+		libcerror_error_free(
+		 &error );
+	}
+	/* Clean up
+	 */
+	result = libfmapi_one_off_entry_identifier_free(
+	          &one_off_entry_identifier,
+	          &error );
+
+	FMAPI_TEST_ASSERT_EQUAL_INT(
+	 "result",
+	 result,
+	 1 );
+
+	FMAPI_TEST_ASSERT_IS_NULL(
+	 "one_off_entry_identifier",
+	 one_off_entry_identifier );
+
+	FMAPI_TEST_ASSERT_IS_NULL(
+	 "error",
+	 error );
+
+	return( 1 );
+
+on_error:
+	if( error != NULL )
+	{
+		libcerror_error_free(
+		 &error );
+	}
+	if( one_off_entry_identifier != NULL )
+	{
+		libfmapi_one_off_entry_identifier_free(
+		 &one_off_entry_identifier,
+		 NULL );
+	}
+	return( 0 );
+}
+
+/* Tests the libfmapi_one_off_entry_identifier_get_utf16_display_name_size function
+ * Returns 1 if successful or 0 if not
+ */
+int fmapi_test_one_off_entry_identifier_get_utf16_display_name_size(
+     void )
+{
+	libcerror_error_t *error                                      = NULL;
+	libfmapi_one_off_entry_identifier_t *one_off_entry_identifier = NULL;
+	size_t utf16_display_name_size                                = 0;
+	int result                                                    = 0;
+	int utf16_display_name_size_is_set                            = 0;
+
+	/* Initialize test
+	 */
+	result = libfmapi_one_off_entry_identifier_initialize(
+	          &one_off_entry_identifier,
+	          &error );
+
+	FMAPI_TEST_ASSERT_EQUAL_INT(
+	 "result",
+	 result,
+	 1 );
+
+	FMAPI_TEST_ASSERT_IS_NOT_NULL(
+	 "one_off_entry_identifier",
+	 one_off_entry_identifier );
+
+	FMAPI_TEST_ASSERT_IS_NULL(
+	 "error",
+	 error );
+
+	/* Test regular cases
+	 */
+	result = libfmapi_one_off_entry_identifier_get_utf16_display_name_size(
+	          one_off_entry_identifier,
+	          &utf16_display_name_size,
+	          &error );
+
+	FMAPI_TEST_ASSERT_NOT_EQUAL_INT(
+	 "result",
+	 result,
+	 -1 );
+
+	FMAPI_TEST_ASSERT_IS_NULL(
+	 "error",
+	 error );
+
+	utf16_display_name_size_is_set = result;
+
+	/* Test error cases
+	 */
+	result = libfmapi_one_off_entry_identifier_get_utf16_display_name_size(
+	          NULL,
+	          &utf16_display_name_size,
+	          &error );
+
+	FMAPI_TEST_ASSERT_EQUAL_INT(
+	 "result",
+	 result,
+	 -1 );
+
+	FMAPI_TEST_ASSERT_IS_NOT_NULL(
+	 "error",
+	 error );
+
+	libcerror_error_free(
+	 &error );
+
+	if( utf16_display_name_size_is_set != 0 )
+	{
+		result = libfmapi_one_off_entry_identifier_get_utf16_display_name_size(
+		          one_off_entry_identifier,
+		          NULL,
+		          &error );
+
+		FMAPI_TEST_ASSERT_EQUAL_INT(
+		 "result",
+		 result,
+		 -1 );
+
+		FMAPI_TEST_ASSERT_IS_NOT_NULL(
+		 "error",
+		 error );
+
+		libcerror_error_free(
+		 &error );
+	}
+	/* Clean up
+	 */
+	result = libfmapi_one_off_entry_identifier_free(
+	          &one_off_entry_identifier,
+	          &error );
+
+	FMAPI_TEST_ASSERT_EQUAL_INT(
+	 "result",
+	 result,
+	 1 );
+
+	FMAPI_TEST_ASSERT_IS_NULL(
+	 "one_off_entry_identifier",
+	 one_off_entry_identifier );
+
+	FMAPI_TEST_ASSERT_IS_NULL(
+	 "error",
+	 error );
+
+	return( 1 );
+
+on_error:
+	if( error != NULL )
+	{
+		libcerror_error_free(
+		 &error );
+	}
+	if( one_off_entry_identifier != NULL )
+	{
+		libfmapi_one_off_entry_identifier_free(
+		 &one_off_entry_identifier,
+		 NULL );
+	}
+	return( 0 );
+}
+
+/* Tests the libfmapi_one_off_entry_identifier_get_utf16_display_name function
+ * Returns 1 if successful or 0 if not
+ */
+int fmapi_test_one_off_entry_identifier_get_utf16_display_name(
+     void )
+{
+	uint16_t utf16_display_name[ 512 ];
+
+	libcerror_error_t *error                                      = NULL;
+	libfmapi_one_off_entry_identifier_t *one_off_entry_identifier = NULL;
+	int result                                                    = 0;
+	int utf16_display_name_is_set                                 = 0;
+
+	/* Initialize test
+	 */
+	result = libfmapi_one_off_entry_identifier_initialize(
+	          &one_off_entry_identifier,
+	          &error );
+
+	FMAPI_TEST_ASSERT_EQUAL_INT(
+	 "result",
+	 result,
+	 1 );
+
+	FMAPI_TEST_ASSERT_IS_NOT_NULL(
+	 "one_off_entry_identifier",
+	 one_off_entry_identifier );
+
+	FMAPI_TEST_ASSERT_IS_NULL(
+	 "error",
+	 error );
+
+	/* Test regular cases
+	 */
+	result = libfmapi_one_off_entry_identifier_get_utf16_display_name(
+	          one_off_entry_identifier,
+	          utf16_display_name,
+	          512,
+	          &error );
+
+	FMAPI_TEST_ASSERT_NOT_EQUAL_INT(
+	 "result",
+	 result,
+	 -1 );
+
+	FMAPI_TEST_ASSERT_IS_NULL(
+	 "error",
+	 error );
+
+	utf16_display_name_is_set = result;
+
+	/* Test error cases
+	 */
+	result = libfmapi_one_off_entry_identifier_get_utf16_display_name(
+	          NULL,
+	          utf16_display_name,
+	          512,
+	          &error );
+
+	FMAPI_TEST_ASSERT_EQUAL_INT(
+	 "result",
+	 result,
+	 -1 );
+
+	FMAPI_TEST_ASSERT_IS_NOT_NULL(
+	 "error",
+	 error );
+
+	libcerror_error_free(
+	 &error );
+
+	if( utf16_display_name_is_set != 0 )
+	{
+		result = libfmapi_one_off_entry_identifier_get_utf16_display_name(
+		          one_off_entry_identifier,
+		          NULL,
+		          512,
+		          &error );
+
+		FMAPI_TEST_ASSERT_EQUAL_INT(
+		 "result",
+		 result,
+		 -1 );
+
+	        FMAPI_TEST_ASSERT_IS_NOT_NULL(
+	         "error",
+	         error );
+
+		libcerror_error_free(
+		 &error );
+
+		result = libfmapi_one_off_entry_identifier_get_utf16_display_name(
+		          one_off_entry_identifier,
+		          utf16_display_name,
+		          0,
+		          &error );
+
+		FMAPI_TEST_ASSERT_EQUAL_INT(
+		 "result",
+		 result,
+		 -1 );
+
+	        FMAPI_TEST_ASSERT_IS_NOT_NULL(
+	         "error",
+	         error );
+
+		libcerror_error_free(
+		 &error );
+
+		result = libfmapi_one_off_entry_identifier_get_utf16_display_name(
+		          one_off_entry_identifier,
+		          utf16_display_name,
+		          (size_t) SSIZE_MAX + 1,
+		          &error );
+
+		FMAPI_TEST_ASSERT_EQUAL_INT(
+		 "result",
+		 result,
+		 -1 );
+
+	        FMAPI_TEST_ASSERT_IS_NOT_NULL(
+	         "error",
+	         error );
+
+		libcerror_error_free(
+		 &error );
+	}
+	/* Clean up
+	 */
+	result = libfmapi_one_off_entry_identifier_free(
+	          &one_off_entry_identifier,
+	          &error );
+
+	FMAPI_TEST_ASSERT_EQUAL_INT(
+	 "result",
+	 result,
+	 1 );
+
+	FMAPI_TEST_ASSERT_IS_NULL(
+	 "one_off_entry_identifier",
+	 one_off_entry_identifier );
+
+	FMAPI_TEST_ASSERT_IS_NULL(
+	 "error",
+	 error );
+
+	return( 1 );
+
+on_error:
+	if( error != NULL )
+	{
+		libcerror_error_free(
+		 &error );
+	}
+	if( one_off_entry_identifier != NULL )
+	{
+		libfmapi_one_off_entry_identifier_free(
+		 &one_off_entry_identifier,
+		 NULL );
+	}
+	return( 0 );
+}
+
+/* Tests the libfmapi_one_off_entry_identifier_get_utf8_address_type_size function
+ * Returns 1 if successful or 0 if not
+ */
+int fmapi_test_one_off_entry_identifier_get_utf8_address_type_size(
+     void )
+{
+	libcerror_error_t *error                                      = NULL;
+	libfmapi_one_off_entry_identifier_t *one_off_entry_identifier = NULL;
+	size_t utf8_address_type_size                                 = 0;
+	int result                                                    = 0;
+	int utf8_address_type_size_is_set                             = 0;
+
+	/* Initialize test
+	 */
+	result = libfmapi_one_off_entry_identifier_initialize(
+	          &one_off_entry_identifier,
+	          &error );
+
+	FMAPI_TEST_ASSERT_EQUAL_INT(
+	 "result",
+	 result,
+	 1 );
+
+	FMAPI_TEST_ASSERT_IS_NOT_NULL(
+	 "one_off_entry_identifier",
+	 one_off_entry_identifier );
+
+	FMAPI_TEST_ASSERT_IS_NULL(
+	 "error",
+	 error );
+
+	/* Test regular cases
+	 */
+	result = libfmapi_one_off_entry_identifier_get_utf8_address_type_size(
+	          one_off_entry_identifier,
+	          &utf8_address_type_size,
+	          &error );
+
+	FMAPI_TEST_ASSERT_NOT_EQUAL_INT(
+	 "result",
+	 result,
+	 -1 );
+
+	FMAPI_TEST_ASSERT_IS_NULL(
+	 "error",
+	 error );
+
+	utf8_address_type_size_is_set = result;
+
+	/* Test error cases
+	 */
+	result = libfmapi_one_off_entry_identifier_get_utf8_address_type_size(
+	          NULL,
+	          &utf8_address_type_size,
+	          &error );
+
+	FMAPI_TEST_ASSERT_EQUAL_INT(
+	 "result",
+	 result,
+	 -1 );
+
+	FMAPI_TEST_ASSERT_IS_NOT_NULL(
+	 "error",
+	 error );
+
+	libcerror_error_free(
+	 &error );
+
+	if( utf8_address_type_size_is_set != 0 )
+	{
+		result = libfmapi_one_off_entry_identifier_get_utf8_address_type_size(
+		          one_off_entry_identifier,
+		          NULL,
+		          &error );
+
+		FMAPI_TEST_ASSERT_EQUAL_INT(
+		 "result",
+		 result,
+		 -1 );
+
+		FMAPI_TEST_ASSERT_IS_NOT_NULL(
+		 "error",
+		 error );
+
+		libcerror_error_free(
+		 &error );
+	}
+	/* Clean up
+	 */
+	result = libfmapi_one_off_entry_identifier_free(
+	          &one_off_entry_identifier,
+	          &error );
+
+	FMAPI_TEST_ASSERT_EQUAL_INT(
+	 "result",
+	 result,
+	 1 );
+
+	FMAPI_TEST_ASSERT_IS_NULL(
+	 "one_off_entry_identifier",
+	 one_off_entry_identifier );
+
+	FMAPI_TEST_ASSERT_IS_NULL(
+	 "error",
+	 error );
+
+	return( 1 );
+
+on_error:
+	if( error != NULL )
+	{
+		libcerror_error_free(
+		 &error );
+	}
+	if( one_off_entry_identifier != NULL )
+	{
+		libfmapi_one_off_entry_identifier_free(
+		 &one_off_entry_identifier,
+		 NULL );
+	}
+	return( 0 );
+}
+
+/* Tests the libfmapi_one_off_entry_identifier_get_utf8_address_type function
+ * Returns 1 if successful or 0 if not
+ */
+int fmapi_test_one_off_entry_identifier_get_utf8_address_type(
+     void )
+{
+	uint8_t utf8_address_type[ 512 ];
+
+	libcerror_error_t *error                                      = NULL;
+	libfmapi_one_off_entry_identifier_t *one_off_entry_identifier = NULL;
+	int result                                                    = 0;
+	int utf8_address_type_is_set                                  = 0;
+
+	/* Initialize test
+	 */
+	result = libfmapi_one_off_entry_identifier_initialize(
+	          &one_off_entry_identifier,
+	          &error );
+
+	FMAPI_TEST_ASSERT_EQUAL_INT(
+	 "result",
+	 result,
+	 1 );
+
+	FMAPI_TEST_ASSERT_IS_NOT_NULL(
+	 "one_off_entry_identifier",
+	 one_off_entry_identifier );
+
+	FMAPI_TEST_ASSERT_IS_NULL(
+	 "error",
+	 error );
+
+	/* Test regular cases
+	 */
+	result = libfmapi_one_off_entry_identifier_get_utf8_address_type(
+	          one_off_entry_identifier,
+	          utf8_address_type,
+	          512,
+	          &error );
+
+	FMAPI_TEST_ASSERT_NOT_EQUAL_INT(
+	 "result",
+	 result,
+	 -1 );
+
+	FMAPI_TEST_ASSERT_IS_NULL(
+	 "error",
+	 error );
+
+	utf8_address_type_is_set = result;
+
+	/* Test error cases
+	 */
+	result = libfmapi_one_off_entry_identifier_get_utf8_address_type(
+	          NULL,
+	          utf8_address_type,
+	          512,
+	          &error );
+
+	FMAPI_TEST_ASSERT_EQUAL_INT(
+	 "result",
+	 result,
+	 -1 );
+
+	FMAPI_TEST_ASSERT_IS_NOT_NULL(
+	 "error",
+	 error );
+
+	libcerror_error_free(
+	 &error );
+
+	if( utf8_address_type_is_set != 0 )
+	{
+		result = libfmapi_one_off_entry_identifier_get_utf8_address_type(
+		          one_off_entry_identifier,
+		          NULL,
+		          512,
+		          &error );
+
+		FMAPI_TEST_ASSERT_EQUAL_INT(
+		 "result",
+		 result,
+		 -1 );
+
+	        FMAPI_TEST_ASSERT_IS_NOT_NULL(
+	         "error",
+	         error );
+
+		libcerror_error_free(
+		 &error );
+
+		result = libfmapi_one_off_entry_identifier_get_utf8_address_type(
+		          one_off_entry_identifier,
+		          utf8_address_type,
+		          0,
+		          &error );
+
+		FMAPI_TEST_ASSERT_EQUAL_INT(
+		 "result",
+		 result,
+		 -1 );
+
+	        FMAPI_TEST_ASSERT_IS_NOT_NULL(
+	         "error",
+	         error );
+
+		libcerror_error_free(
+		 &error );
+
+		result = libfmapi_one_off_entry_identifier_get_utf8_address_type(
+		          one_off_entry_identifier,
+		          utf8_address_type,
+		          (size_t) SSIZE_MAX + 1,
+		          &error );
+
+		FMAPI_TEST_ASSERT_EQUAL_INT(
+		 "result",
+		 result,
+		 -1 );
+
+	        FMAPI_TEST_ASSERT_IS_NOT_NULL(
+	         "error",
+	         error );
+
+		libcerror_error_free(
+		 &error );
+	}
+	/* Clean up
+	 */
+	result = libfmapi_one_off_entry_identifier_free(
+	          &one_off_entry_identifier,
+	          &error );
+
+	FMAPI_TEST_ASSERT_EQUAL_INT(
+	 "result",
+	 result,
+	 1 );
+
+	FMAPI_TEST_ASSERT_IS_NULL(
+	 "one_off_entry_identifier",
+	 one_off_entry_identifier );
+
+	FMAPI_TEST_ASSERT_IS_NULL(
+	 "error",
+	 error );
+
+	return( 1 );
+
+on_error:
+	if( error != NULL )
+	{
+		libcerror_error_free(
+		 &error );
+	}
+	if( one_off_entry_identifier != NULL )
+	{
+		libfmapi_one_off_entry_identifier_free(
+		 &one_off_entry_identifier,
+		 NULL );
+	}
+	return( 0 );
+}
+
+/* Tests the libfmapi_one_off_entry_identifier_get_utf16_address_type_size function
+ * Returns 1 if successful or 0 if not
+ */
+int fmapi_test_one_off_entry_identifier_get_utf16_address_type_size(
+     void )
+{
+	libcerror_error_t *error                                      = NULL;
+	libfmapi_one_off_entry_identifier_t *one_off_entry_identifier = NULL;
+	size_t utf16_address_type_size                                = 0;
+	int result                                                    = 0;
+	int utf16_address_type_size_is_set                            = 0;
+
+	/* Initialize test
+	 */
+	result = libfmapi_one_off_entry_identifier_initialize(
+	          &one_off_entry_identifier,
+	          &error );
+
+	FMAPI_TEST_ASSERT_EQUAL_INT(
+	 "result",
+	 result,
+	 1 );
+
+	FMAPI_TEST_ASSERT_IS_NOT_NULL(
+	 "one_off_entry_identifier",
+	 one_off_entry_identifier );
+
+	FMAPI_TEST_ASSERT_IS_NULL(
+	 "error",
+	 error );
+
+	/* Test regular cases
+	 */
+	result = libfmapi_one_off_entry_identifier_get_utf16_address_type_size(
+	          one_off_entry_identifier,
+	          &utf16_address_type_size,
+	          &error );
+
+	FMAPI_TEST_ASSERT_NOT_EQUAL_INT(
+	 "result",
+	 result,
+	 -1 );
+
+	FMAPI_TEST_ASSERT_IS_NULL(
+	 "error",
+	 error );
+
+	utf16_address_type_size_is_set = result;
+
+	/* Test error cases
+	 */
+	result = libfmapi_one_off_entry_identifier_get_utf16_address_type_size(
+	          NULL,
+	          &utf16_address_type_size,
+	          &error );
+
+	FMAPI_TEST_ASSERT_EQUAL_INT(
+	 "result",
+	 result,
+	 -1 );
+
+	FMAPI_TEST_ASSERT_IS_NOT_NULL(
+	 "error",
+	 error );
+
+	libcerror_error_free(
+	 &error );
+
+	if( utf16_address_type_size_is_set != 0 )
+	{
+		result = libfmapi_one_off_entry_identifier_get_utf16_address_type_size(
+		          one_off_entry_identifier,
+		          NULL,
+		          &error );
+
+		FMAPI_TEST_ASSERT_EQUAL_INT(
+		 "result",
+		 result,
+		 -1 );
+
+		FMAPI_TEST_ASSERT_IS_NOT_NULL(
+		 "error",
+		 error );
+
+		libcerror_error_free(
+		 &error );
+	}
+	/* Clean up
+	 */
+	result = libfmapi_one_off_entry_identifier_free(
+	          &one_off_entry_identifier,
+	          &error );
+
+	FMAPI_TEST_ASSERT_EQUAL_INT(
+	 "result",
+	 result,
+	 1 );
+
+	FMAPI_TEST_ASSERT_IS_NULL(
+	 "one_off_entry_identifier",
+	 one_off_entry_identifier );
+
+	FMAPI_TEST_ASSERT_IS_NULL(
+	 "error",
+	 error );
+
+	return( 1 );
+
+on_error:
+	if( error != NULL )
+	{
+		libcerror_error_free(
+		 &error );
+	}
+	if( one_off_entry_identifier != NULL )
+	{
+		libfmapi_one_off_entry_identifier_free(
+		 &one_off_entry_identifier,
+		 NULL );
+	}
+	return( 0 );
+}
+
+/* Tests the libfmapi_one_off_entry_identifier_get_utf16_address_type function
+ * Returns 1 if successful or 0 if not
+ */
+int fmapi_test_one_off_entry_identifier_get_utf16_address_type(
+     void )
+{
+	uint16_t utf16_address_type[ 512 ];
+
+	libcerror_error_t *error                                      = NULL;
+	libfmapi_one_off_entry_identifier_t *one_off_entry_identifier = NULL;
+	int result                                                    = 0;
+	int utf16_address_type_is_set                                 = 0;
+
+	/* Initialize test
+	 */
+	result = libfmapi_one_off_entry_identifier_initialize(
+	          &one_off_entry_identifier,
+	          &error );
+
+	FMAPI_TEST_ASSERT_EQUAL_INT(
+	 "result",
+	 result,
+	 1 );
+
+	FMAPI_TEST_ASSERT_IS_NOT_NULL(
+	 "one_off_entry_identifier",
+	 one_off_entry_identifier );
+
+	FMAPI_TEST_ASSERT_IS_NULL(
+	 "error",
+	 error );
+
+	/* Test regular cases
+	 */
+	result = libfmapi_one_off_entry_identifier_get_utf16_address_type(
+	          one_off_entry_identifier,
+	          utf16_address_type,
+	          512,
+	          &error );
+
+	FMAPI_TEST_ASSERT_NOT_EQUAL_INT(
+	 "result",
+	 result,
+	 -1 );
+
+	FMAPI_TEST_ASSERT_IS_NULL(
+	 "error",
+	 error );
+
+	utf16_address_type_is_set = result;
+
+	/* Test error cases
+	 */
+	result = libfmapi_one_off_entry_identifier_get_utf16_address_type(
+	          NULL,
+	          utf16_address_type,
+	          512,
+	          &error );
+
+	FMAPI_TEST_ASSERT_EQUAL_INT(
+	 "result",
+	 result,
+	 -1 );
+
+	FMAPI_TEST_ASSERT_IS_NOT_NULL(
+	 "error",
+	 error );
+
+	libcerror_error_free(
+	 &error );
+
+	if( utf16_address_type_is_set != 0 )
+	{
+		result = libfmapi_one_off_entry_identifier_get_utf16_address_type(
+		          one_off_entry_identifier,
+		          NULL,
+		          512,
+		          &error );
+
+		FMAPI_TEST_ASSERT_EQUAL_INT(
+		 "result",
+		 result,
+		 -1 );
+
+	        FMAPI_TEST_ASSERT_IS_NOT_NULL(
+	         "error",
+	         error );
+
+		libcerror_error_free(
+		 &error );
+
+		result = libfmapi_one_off_entry_identifier_get_utf16_address_type(
+		          one_off_entry_identifier,
+		          utf16_address_type,
+		          0,
+		          &error );
+
+		FMAPI_TEST_ASSERT_EQUAL_INT(
+		 "result",
+		 result,
+		 -1 );
+
+	        FMAPI_TEST_ASSERT_IS_NOT_NULL(
+	         "error",
+	         error );
+
+		libcerror_error_free(
+		 &error );
+
+		result = libfmapi_one_off_entry_identifier_get_utf16_address_type(
+		          one_off_entry_identifier,
+		          utf16_address_type,
+		          (size_t) SSIZE_MAX + 1,
+		          &error );
+
+		FMAPI_TEST_ASSERT_EQUAL_INT(
+		 "result",
+		 result,
+		 -1 );
+
+	        FMAPI_TEST_ASSERT_IS_NOT_NULL(
+	         "error",
+	         error );
+
+		libcerror_error_free(
+		 &error );
+	}
+	/* Clean up
+	 */
+	result = libfmapi_one_off_entry_identifier_free(
+	          &one_off_entry_identifier,
+	          &error );
+
+	FMAPI_TEST_ASSERT_EQUAL_INT(
+	 "result",
+	 result,
+	 1 );
+
+	FMAPI_TEST_ASSERT_IS_NULL(
+	 "one_off_entry_identifier",
+	 one_off_entry_identifier );
+
+	FMAPI_TEST_ASSERT_IS_NULL(
+	 "error",
+	 error );
+
+	return( 1 );
+
+on_error:
+	if( error != NULL )
+	{
+		libcerror_error_free(
+		 &error );
+	}
+	if( one_off_entry_identifier != NULL )
+	{
+		libfmapi_one_off_entry_identifier_free(
+		 &one_off_entry_identifier,
+		 NULL );
+	}
+	return( 0 );
+}
+
+/* Tests the libfmapi_one_off_entry_identifier_get_utf8_email_address_size function
+ * Returns 1 if successful or 0 if not
+ */
+int fmapi_test_one_off_entry_identifier_get_utf8_email_address_size(
+     void )
+{
+	libcerror_error_t *error                                      = NULL;
+	libfmapi_one_off_entry_identifier_t *one_off_entry_identifier = NULL;
+	size_t utf8_email_address_size                                = 0;
+	int result                                                    = 0;
+	int utf8_email_address_size_is_set                            = 0;
+
+	/* Initialize test
+	 */
+	result = libfmapi_one_off_entry_identifier_initialize(
+	          &one_off_entry_identifier,
+	          &error );
+
+	FMAPI_TEST_ASSERT_EQUAL_INT(
+	 "result",
+	 result,
+	 1 );
+
+	FMAPI_TEST_ASSERT_IS_NOT_NULL(
+	 "one_off_entry_identifier",
+	 one_off_entry_identifier );
+
+	FMAPI_TEST_ASSERT_IS_NULL(
+	 "error",
+	 error );
+
+	/* Test regular cases
+	 */
+	result = libfmapi_one_off_entry_identifier_get_utf8_email_address_size(
+	          one_off_entry_identifier,
+	          &utf8_email_address_size,
+	          &error );
+
+	FMAPI_TEST_ASSERT_NOT_EQUAL_INT(
+	 "result",
+	 result,
+	 -1 );
+
+	FMAPI_TEST_ASSERT_IS_NULL(
+	 "error",
+	 error );
+
+	utf8_email_address_size_is_set = result;
+
+	/* Test error cases
+	 */
+	result = libfmapi_one_off_entry_identifier_get_utf8_email_address_size(
+	          NULL,
+	          &utf8_email_address_size,
+	          &error );
+
+	FMAPI_TEST_ASSERT_EQUAL_INT(
+	 "result",
+	 result,
+	 -1 );
+
+	FMAPI_TEST_ASSERT_IS_NOT_NULL(
+	 "error",
+	 error );
+
+	libcerror_error_free(
+	 &error );
+
+	if( utf8_email_address_size_is_set != 0 )
+	{
+		result = libfmapi_one_off_entry_identifier_get_utf8_email_address_size(
+		          one_off_entry_identifier,
+		          NULL,
+		          &error );
+
+		FMAPI_TEST_ASSERT_EQUAL_INT(
+		 "result",
+		 result,
+		 -1 );
+
+		FMAPI_TEST_ASSERT_IS_NOT_NULL(
+		 "error",
+		 error );
+
+		libcerror_error_free(
+		 &error );
+	}
+	/* Clean up
+	 */
+	result = libfmapi_one_off_entry_identifier_free(
+	          &one_off_entry_identifier,
+	          &error );
+
+	FMAPI_TEST_ASSERT_EQUAL_INT(
+	 "result",
+	 result,
+	 1 );
+
+	FMAPI_TEST_ASSERT_IS_NULL(
+	 "one_off_entry_identifier",
+	 one_off_entry_identifier );
+
+	FMAPI_TEST_ASSERT_IS_NULL(
+	 "error",
+	 error );
+
+	return( 1 );
+
+on_error:
+	if( error != NULL )
+	{
+		libcerror_error_free(
+		 &error );
+	}
+	if( one_off_entry_identifier != NULL )
+	{
+		libfmapi_one_off_entry_identifier_free(
+		 &one_off_entry_identifier,
+		 NULL );
+	}
+	return( 0 );
+}
+
+/* Tests the libfmapi_one_off_entry_identifier_get_utf8_email_address function
+ * Returns 1 if successful or 0 if not
+ */
+int fmapi_test_one_off_entry_identifier_get_utf8_email_address(
+     void )
+{
+	uint8_t utf8_email_address[ 512 ];
+
+	libcerror_error_t *error                                      = NULL;
+	libfmapi_one_off_entry_identifier_t *one_off_entry_identifier = NULL;
+	int result                                                    = 0;
+	int utf8_email_address_is_set                                 = 0;
+
+	/* Initialize test
+	 */
+	result = libfmapi_one_off_entry_identifier_initialize(
+	          &one_off_entry_identifier,
+	          &error );
+
+	FMAPI_TEST_ASSERT_EQUAL_INT(
+	 "result",
+	 result,
+	 1 );
+
+	FMAPI_TEST_ASSERT_IS_NOT_NULL(
+	 "one_off_entry_identifier",
+	 one_off_entry_identifier );
+
+	FMAPI_TEST_ASSERT_IS_NULL(
+	 "error",
+	 error );
+
+	/* Test regular cases
+	 */
+	result = libfmapi_one_off_entry_identifier_get_utf8_email_address(
+	          one_off_entry_identifier,
+	          utf8_email_address,
+	          512,
+	          &error );
+
+	FMAPI_TEST_ASSERT_NOT_EQUAL_INT(
+	 "result",
+	 result,
+	 -1 );
+
+	FMAPI_TEST_ASSERT_IS_NULL(
+	 "error",
+	 error );
+
+	utf8_email_address_is_set = result;
+
+	/* Test error cases
+	 */
+	result = libfmapi_one_off_entry_identifier_get_utf8_email_address(
+	          NULL,
+	          utf8_email_address,
+	          512,
+	          &error );
+
+	FMAPI_TEST_ASSERT_EQUAL_INT(
+	 "result",
+	 result,
+	 -1 );
+
+	FMAPI_TEST_ASSERT_IS_NOT_NULL(
+	 "error",
+	 error );
+
+	libcerror_error_free(
+	 &error );
+
+	if( utf8_email_address_is_set != 0 )
+	{
+		result = libfmapi_one_off_entry_identifier_get_utf8_email_address(
+		          one_off_entry_identifier,
+		          NULL,
+		          512,
+		          &error );
+
+		FMAPI_TEST_ASSERT_EQUAL_INT(
+		 "result",
+		 result,
+		 -1 );
+
+	        FMAPI_TEST_ASSERT_IS_NOT_NULL(
+	         "error",
+	         error );
+
+		libcerror_error_free(
+		 &error );
+
+		result = libfmapi_one_off_entry_identifier_get_utf8_email_address(
+		          one_off_entry_identifier,
+		          utf8_email_address,
+		          0,
+		          &error );
+
+		FMAPI_TEST_ASSERT_EQUAL_INT(
+		 "result",
+		 result,
+		 -1 );
+
+	        FMAPI_TEST_ASSERT_IS_NOT_NULL(
+	         "error",
+	         error );
+
+		libcerror_error_free(
+		 &error );
+
+		result = libfmapi_one_off_entry_identifier_get_utf8_email_address(
+		          one_off_entry_identifier,
+		          utf8_email_address,
+		          (size_t) SSIZE_MAX + 1,
+		          &error );
+
+		FMAPI_TEST_ASSERT_EQUAL_INT(
+		 "result",
+		 result,
+		 -1 );
+
+	        FMAPI_TEST_ASSERT_IS_NOT_NULL(
+	         "error",
+	         error );
+
+		libcerror_error_free(
+		 &error );
+	}
+	/* Clean up
+	 */
+	result = libfmapi_one_off_entry_identifier_free(
+	          &one_off_entry_identifier,
+	          &error );
+
+	FMAPI_TEST_ASSERT_EQUAL_INT(
+	 "result",
+	 result,
+	 1 );
+
+	FMAPI_TEST_ASSERT_IS_NULL(
+	 "one_off_entry_identifier",
+	 one_off_entry_identifier );
+
+	FMAPI_TEST_ASSERT_IS_NULL(
+	 "error",
+	 error );
+
+	return( 1 );
+
+on_error:
+	if( error != NULL )
+	{
+		libcerror_error_free(
+		 &error );
+	}
+	if( one_off_entry_identifier != NULL )
+	{
+		libfmapi_one_off_entry_identifier_free(
+		 &one_off_entry_identifier,
+		 NULL );
+	}
+	return( 0 );
+}
+
+/* Tests the libfmapi_one_off_entry_identifier_get_utf16_email_address_size function
+ * Returns 1 if successful or 0 if not
+ */
+int fmapi_test_one_off_entry_identifier_get_utf16_email_address_size(
+     void )
+{
+	libcerror_error_t *error                                      = NULL;
+	libfmapi_one_off_entry_identifier_t *one_off_entry_identifier = NULL;
+	size_t utf16_email_address_size                               = 0;
+	int result                                                    = 0;
+	int utf16_email_address_size_is_set                           = 0;
+
+	/* Initialize test
+	 */
+	result = libfmapi_one_off_entry_identifier_initialize(
+	          &one_off_entry_identifier,
+	          &error );
+
+	FMAPI_TEST_ASSERT_EQUAL_INT(
+	 "result",
+	 result,
+	 1 );
+
+	FMAPI_TEST_ASSERT_IS_NOT_NULL(
+	 "one_off_entry_identifier",
+	 one_off_entry_identifier );
+
+	FMAPI_TEST_ASSERT_IS_NULL(
+	 "error",
+	 error );
+
+	/* Test regular cases
+	 */
+	result = libfmapi_one_off_entry_identifier_get_utf16_email_address_size(
+	          one_off_entry_identifier,
+	          &utf16_email_address_size,
+	          &error );
+
+	FMAPI_TEST_ASSERT_NOT_EQUAL_INT(
+	 "result",
+	 result,
+	 -1 );
+
+	FMAPI_TEST_ASSERT_IS_NULL(
+	 "error",
+	 error );
+
+	utf16_email_address_size_is_set = result;
+
+	/* Test error cases
+	 */
+	result = libfmapi_one_off_entry_identifier_get_utf16_email_address_size(
+	          NULL,
+	          &utf16_email_address_size,
+	          &error );
+
+	FMAPI_TEST_ASSERT_EQUAL_INT(
+	 "result",
+	 result,
+	 -1 );
+
+	FMAPI_TEST_ASSERT_IS_NOT_NULL(
+	 "error",
+	 error );
+
+	libcerror_error_free(
+	 &error );
+
+	if( utf16_email_address_size_is_set != 0 )
+	{
+		result = libfmapi_one_off_entry_identifier_get_utf16_email_address_size(
+		          one_off_entry_identifier,
+		          NULL,
+		          &error );
+
+		FMAPI_TEST_ASSERT_EQUAL_INT(
+		 "result",
+		 result,
+		 -1 );
+
+		FMAPI_TEST_ASSERT_IS_NOT_NULL(
+		 "error",
+		 error );
+
+		libcerror_error_free(
+		 &error );
+	}
+	/* Clean up
+	 */
+	result = libfmapi_one_off_entry_identifier_free(
+	          &one_off_entry_identifier,
+	          &error );
+
+	FMAPI_TEST_ASSERT_EQUAL_INT(
+	 "result",
+	 result,
+	 1 );
+
+	FMAPI_TEST_ASSERT_IS_NULL(
+	 "one_off_entry_identifier",
+	 one_off_entry_identifier );
+
+	FMAPI_TEST_ASSERT_IS_NULL(
+	 "error",
+	 error );
+
+	return( 1 );
+
+on_error:
+	if( error != NULL )
+	{
+		libcerror_error_free(
+		 &error );
+	}
+	if( one_off_entry_identifier != NULL )
+	{
+		libfmapi_one_off_entry_identifier_free(
+		 &one_off_entry_identifier,
+		 NULL );
+	}
+	return( 0 );
+}
+
+/* Tests the libfmapi_one_off_entry_identifier_get_utf16_email_address function
+ * Returns 1 if successful or 0 if not
+ */
+int fmapi_test_one_off_entry_identifier_get_utf16_email_address(
+     void )
+{
+	uint16_t utf16_email_address[ 512 ];
+
+	libcerror_error_t *error                                      = NULL;
+	libfmapi_one_off_entry_identifier_t *one_off_entry_identifier = NULL;
+	int result                                                    = 0;
+	int utf16_email_address_is_set                                = 0;
+
+	/* Initialize test
+	 */
+	result = libfmapi_one_off_entry_identifier_initialize(
+	          &one_off_entry_identifier,
+	          &error );
+
+	FMAPI_TEST_ASSERT_EQUAL_INT(
+	 "result",
+	 result,
+	 1 );
+
+	FMAPI_TEST_ASSERT_IS_NOT_NULL(
+	 "one_off_entry_identifier",
+	 one_off_entry_identifier );
+
+	FMAPI_TEST_ASSERT_IS_NULL(
+	 "error",
+	 error );
+
+	/* Test regular cases
+	 */
+	result = libfmapi_one_off_entry_identifier_get_utf16_email_address(
+	          one_off_entry_identifier,
+	          utf16_email_address,
+	          512,
+	          &error );
+
+	FMAPI_TEST_ASSERT_NOT_EQUAL_INT(
+	 "result",
+	 result,
+	 -1 );
+
+	FMAPI_TEST_ASSERT_IS_NULL(
+	 "error",
+	 error );
+
+	utf16_email_address_is_set = result;
+
+	/* Test error cases
+	 */
+	result = libfmapi_one_off_entry_identifier_get_utf16_email_address(
+	          NULL,
+	          utf16_email_address,
+	          512,
+	          &error );
+
+	FMAPI_TEST_ASSERT_EQUAL_INT(
+	 "result",
+	 result,
+	 -1 );
+
+	FMAPI_TEST_ASSERT_IS_NOT_NULL(
+	 "error",
+	 error );
+
+	libcerror_error_free(
+	 &error );
+
+	if( utf16_email_address_is_set != 0 )
+	{
+		result = libfmapi_one_off_entry_identifier_get_utf16_email_address(
+		          one_off_entry_identifier,
+		          NULL,
+		          512,
+		          &error );
+
+		FMAPI_TEST_ASSERT_EQUAL_INT(
+		 "result",
+		 result,
+		 -1 );
+
+	        FMAPI_TEST_ASSERT_IS_NOT_NULL(
+	         "error",
+	         error );
+
+		libcerror_error_free(
+		 &error );
+
+		result = libfmapi_one_off_entry_identifier_get_utf16_email_address(
+		          one_off_entry_identifier,
+		          utf16_email_address,
+		          0,
+		          &error );
+
+		FMAPI_TEST_ASSERT_EQUAL_INT(
+		 "result",
+		 result,
+		 -1 );
+
+	        FMAPI_TEST_ASSERT_IS_NOT_NULL(
+	         "error",
+	         error );
+
+		libcerror_error_free(
+		 &error );
+
+		result = libfmapi_one_off_entry_identifier_get_utf16_email_address(
+		          one_off_entry_identifier,
+		          utf16_email_address,
+		          (size_t) SSIZE_MAX + 1,
+		          &error );
+
+		FMAPI_TEST_ASSERT_EQUAL_INT(
+		 "result",
+		 result,
+		 -1 );
+
+	        FMAPI_TEST_ASSERT_IS_NOT_NULL(
+	         "error",
+	         error );
+
+		libcerror_error_free(
+		 &error );
+	}
+	/* Clean up
+	 */
+	result = libfmapi_one_off_entry_identifier_free(
+	          &one_off_entry_identifier,
+	          &error );
+
+	FMAPI_TEST_ASSERT_EQUAL_INT(
+	 "result",
+	 result,
+	 1 );
+
+	FMAPI_TEST_ASSERT_IS_NULL(
+	 "one_off_entry_identifier",
+	 one_off_entry_identifier );
+
+	FMAPI_TEST_ASSERT_IS_NULL(
+	 "error",
+	 error );
+
+	return( 1 );
+
+on_error:
+	if( error != NULL )
+	{
+		libcerror_error_free(
+		 &error );
+	}
+	if( one_off_entry_identifier != NULL )
+	{
+		libfmapi_one_off_entry_identifier_free(
+		 &one_off_entry_identifier,
+		 NULL );
+	}
+	return( 0 );
+}
+
 /* The main program
  */
 #if defined( HAVE_WIDE_SYSTEM_CHARACTER )
@@ -291,35 +2253,67 @@ int main(
 	 "libfmapi_one_off_entry_identifier_free",
 	 fmapi_test_one_off_entry_identifier_free );
 
+#if defined( TODO )
+
 	/* TODO: add tests for libfmapi_one_off_entry_identifier_copy_from_byte_stream */
 
-	/* TODO: add tests for libfmapi_one_off_entry_identifier_get_version */
+	FMAPI_TEST_RUN(
+	 "libfmapi_one_off_entry_identifier_get_version",
+	 fmapi_test_one_off_entry_identifier_get_version );
 
-	/* TODO: add tests for libfmapi_one_off_entry_identifier_get_flags */
+	FMAPI_TEST_RUN(
+	 "libfmapi_one_off_entry_identifier_get_flags",
+	 fmapi_test_one_off_entry_identifier_get_flags );
 
-	/* TODO: add tests for libfmapi_one_off_entry_identifier_get_utf8_display_name_size */
+	FMAPI_TEST_RUN(
+	 "libfmapi_one_off_entry_identifier_get_utf8_display_name_size",
+	 fmapi_test_one_off_entry_identifier_get_utf8_display_name_size );
 
-	/* TODO: add tests for libfmapi_one_off_entry_identifier_get_utf8_display_name */
+	FMAPI_TEST_RUN(
+	 "libfmapi_one_off_entry_identifier_get_utf8_display_name",
+	 fmapi_test_one_off_entry_identifier_get_utf8_display_name );
 
-	/* TODO: add tests for libfmapi_one_off_entry_identifier_get_utf16_display_name_size */
+	FMAPI_TEST_RUN(
+	 "libfmapi_one_off_entry_identifier_get_utf16_display_name_size",
+	 fmapi_test_one_off_entry_identifier_get_utf16_display_name_size );
 
-	/* TODO: add tests for libfmapi_one_off_entry_identifier_get_utf16_display_name */
+	FMAPI_TEST_RUN(
+	 "libfmapi_one_off_entry_identifier_get_utf16_display_name",
+	 fmapi_test_one_off_entry_identifier_get_utf16_display_name );
 
-	/* TODO: add tests for libfmapi_one_off_entry_identifier_get_utf8_address_type_size */
+	FMAPI_TEST_RUN(
+	 "libfmapi_one_off_entry_identifier_get_utf8_address_type_size",
+	 fmapi_test_one_off_entry_identifier_get_utf8_address_type_size );
 
-	/* TODO: add tests for libfmapi_one_off_entry_identifier_get_utf8_address_type */
+	FMAPI_TEST_RUN(
+	 "libfmapi_one_off_entry_identifier_get_utf8_address_type",
+	 fmapi_test_one_off_entry_identifier_get_utf8_address_type );
 
-	/* TODO: add tests for libfmapi_one_off_entry_identifier_get_utf16_address_type_size */
+	FMAPI_TEST_RUN(
+	 "libfmapi_one_off_entry_identifier_get_utf16_address_type_size",
+	 fmapi_test_one_off_entry_identifier_get_utf16_address_type_size );
 
-	/* TODO: add tests for libfmapi_one_off_entry_identifier_get_utf16_address_type */
+	FMAPI_TEST_RUN(
+	 "libfmapi_one_off_entry_identifier_get_utf16_address_type",
+	 fmapi_test_one_off_entry_identifier_get_utf16_address_type );
 
-	/* TODO: add tests for libfmapi_one_off_entry_identifier_get_utf8_email_address_size */
+	FMAPI_TEST_RUN(
+	 "libfmapi_one_off_entry_identifier_get_utf8_email_address_size",
+	 fmapi_test_one_off_entry_identifier_get_utf8_email_address_size );
 
-	/* TODO: add tests for libfmapi_one_off_entry_identifier_get_utf8_email_address */
+	FMAPI_TEST_RUN(
+	 "libfmapi_one_off_entry_identifier_get_utf8_email_address",
+	 fmapi_test_one_off_entry_identifier_get_utf8_email_address );
 
-	/* TODO: add tests for libfmapi_one_off_entry_identifier_get_utf16_email_address_size */
+	FMAPI_TEST_RUN(
+	 "libfmapi_one_off_entry_identifier_get_utf16_email_address_size",
+	 fmapi_test_one_off_entry_identifier_get_utf16_email_address_size );
 
-	/* TODO: add tests for libfmapi_one_off_entry_identifier_get_utf16_email_address */
+	FMAPI_TEST_RUN(
+	 "libfmapi_one_off_entry_identifier_get_utf16_email_address",
+	 fmapi_test_one_off_entry_identifier_get_utf16_email_address );
+
+#endif /* defined( TODO ) */
 
 	return( EXIT_SUCCESS );
 

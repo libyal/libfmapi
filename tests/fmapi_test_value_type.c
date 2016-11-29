@@ -33,8 +33,6 @@
 #include "fmapi_test_memory.h"
 #include "fmapi_test_unused.h"
 
-#include "../libfmapi/libfmapi_value_type.h"
-
 /* The main program
  */
 #if defined( HAVE_WIDE_SYSTEM_CHARACTER )
