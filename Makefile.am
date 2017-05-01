@@ -23,10 +23,9 @@ DPKG_FILES = \
 	dpkg/compat \
 	dpkg/control \
 	dpkg/copyright \
-	dpkg/copyright.in \
 	dpkg/rules \
-	dpkg/libfmapi-dev.docs \
-	dpkg/libfmapi.docs \
+	dpkg/libfmapi-dev.install \
+	dpkg/libfmapi.install \
 	dpkg/source/format
 
 GETTEXT_FILES = \
