@@ -10,7 +10,7 @@ $TestPrefix = Split-Path -path ${Pwd}.Path -parent
 $TestPrefix = Split-Path -path ${TestPrefix} -leaf
 $TestPrefix = ${TestPrefix}.Substring(3)
 
-$LibraryTests = "entry_identifier error one_off_entry_identifier property_type support value_type x400_object_identifier"
+$LibraryTests = "class_identifier_definition entry_identifier error lzfu_header named_property_type one_off_entry_identifier property_type support value_type x400_object_identifier"
 $LibraryTestsWithInput = ""
 
 $TestToolDirectory = "..\msvscpp\Release"
@@ -45,6 +45,18 @@ Function RunTest
 If (-Not (Test-Path ${TestToolDirectory}))
 {
 	$TestToolDirectory = "..\vs2010\Release"
+}
+If (-Not (Test-Path ${TestToolDirectory}))
+{
+	$TestToolDirectory = "..\vs2012\Release"
+}
+If (-Not (Test-Path ${TestToolDirectory}))
+{
+	$TestToolDirectory = "..\vs2013\Release"
+}
+If (-Not (Test-Path ${TestToolDirectory}))
+{
+	$TestToolDirectory = "..\vs2015\Release"
 }
 If (-Not (Test-Path ${TestToolDirectory}))
 {
