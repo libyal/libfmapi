@@ -1,16 +1,12 @@
 # Tests C library functions and types.
 #
-# Version: 20170115
+# Version: 20170722
 
 $ExitSuccess = 0
 $ExitFailure = 1
 $ExitIgnore = 77
 
-$TestPrefix = Split-Path -path ${Pwd}.Path -parent
-$TestPrefix = Split-Path -path ${TestPrefix} -leaf
-$TestPrefix = ${TestPrefix}.Substring(3)
-
-$LibraryTests = "class_identifier_definition entry_identifier error lzfu_header named_property_type one_off_entry_identifier property_type support value_type x400_object_identifier"
+$LibraryTests = "entry_identifier error one_off_entry_identifier property_type support value_type x400_object_identifier"
 $LibraryTestsWithInput = ""
 
 $TestToolDirectory = "..\msvscpp\Release"
@@ -20,7 +16,7 @@ Function RunTest
 	param( [string]$TestType )
 
 	$TestDescription = "Testing: ${TestName}"
-	$TestExecutable = "${TestToolDirectory}\${TestPrefix}_test_${TestName}.exe"
+	$TestExecutable = "${TestToolDirectory}\fmapi_test_${TestName}.exe"
 
 	$Output = Invoke-Expression ${TestExecutable}
 	$Result = ${LastExitCode}
