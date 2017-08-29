@@ -62,13 +62,13 @@ int fmapi_test_one_off_entry_identifier_initialize(
 	 result,
 	 1 );
 
-        FMAPI_TEST_ASSERT_IS_NOT_NULL(
-         "one_off_entry_identifier",
-         one_off_entry_identifier );
+	FMAPI_TEST_ASSERT_IS_NOT_NULL(
+	 "one_off_entry_identifier",
+	 one_off_entry_identifier );
 
-        FMAPI_TEST_ASSERT_IS_NULL(
-         "error",
-         error );
+	FMAPI_TEST_ASSERT_IS_NULL(
+	 "error",
+	 error );
 
 	result = libfmapi_one_off_entry_identifier_free(
 	          &one_off_entry_identifier,
@@ -79,13 +79,13 @@ int fmapi_test_one_off_entry_identifier_initialize(
 	 result,
 	 1 );
 
-        FMAPI_TEST_ASSERT_IS_NULL(
-         "one_off_entry_identifier",
-         one_off_entry_identifier );
+	FMAPI_TEST_ASSERT_IS_NULL(
+	 "one_off_entry_identifier",
+	 one_off_entry_identifier );
 
-        FMAPI_TEST_ASSERT_IS_NULL(
-         "error",
-         error );
+	FMAPI_TEST_ASSERT_IS_NULL(
+	 "error",
+	 error );
 
 	/* Test error cases
 	 */
@@ -98,9 +98,9 @@ int fmapi_test_one_off_entry_identifier_initialize(
 	 result,
 	 -1 );
 
-        FMAPI_TEST_ASSERT_IS_NOT_NULL(
-         "error",
-         error );
+	FMAPI_TEST_ASSERT_IS_NOT_NULL(
+	 "error",
+	 error );
 
 	libcerror_error_free(
 	 &error );
@@ -116,9 +116,9 @@ int fmapi_test_one_off_entry_identifier_initialize(
 	 result,
 	 -1 );
 
-        FMAPI_TEST_ASSERT_IS_NOT_NULL(
-         "error",
-         error );
+	FMAPI_TEST_ASSERT_IS_NOT_NULL(
+	 "error",
+	 error );
 
 	libcerror_error_free(
 	 &error );
@@ -250,9 +250,9 @@ int fmapi_test_one_off_entry_identifier_free(
 	 result,
 	 -1 );
 
-        FMAPI_TEST_ASSERT_IS_NOT_NULL(
-         "error",
-         error );
+	FMAPI_TEST_ASSERT_IS_NOT_NULL(
+	 "error",
+	 error );
 
 	libcerror_error_free(
 	 &error );
