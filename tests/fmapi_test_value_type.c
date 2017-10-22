@@ -33,6 +33,8 @@
 #include "fmapi_test_memory.h"
 #include "fmapi_test_unused.h"
 
+#include "../libfmapi/libfmapi_value_type.h"
+
 /* The main program
  */
 #if defined( HAVE_WIDE_SYSTEM_CHARACTER )
@@ -48,13 +50,13 @@ int main(
 	FMAPI_TEST_UNREFERENCED_PARAMETER( argc )
 	FMAPI_TEST_UNREFERENCED_PARAMETER( argv )
 
-#if defined( __GNUC__ ) && !defined( _FMAPI_DLL_IMPORT )
+#if defined( __GNUC__ ) && !defined( LIBFMAPI_DLL_IMPORT )
 
 	/* TODO: add tests for libfmapi_value_type_get_identifier */
 
 	/* TODO: add tests for libfmapi_value_type_get_description */
 
-#endif /* defined( __GNUC__ ) && !defined( _FMAPI_DLL_IMPORT ) */
+#endif /* defined( __GNUC__ ) && !defined( LIBFMAPI_DLL_IMPORT ) */
 
 	return( EXIT_SUCCESS );
 
