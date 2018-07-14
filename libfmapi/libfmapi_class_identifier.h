@@ -26,6 +26,7 @@
 #include <types.h>
 
 #include "libfmapi_definitions.h"
+#include "libfmapi_extern.h"
 
 #if defined( __cplusplus )
 extern "C" {
@@ -48,31 +49,62 @@ struct libfmapi_class_identifier_definition
 	const char *name;
 };
 
-#endif
+#endif /* defined( HAVE_DEBUG_OUTPUT ) */
 
-extern uint8_t libfmapi_class_identifier_mapi[ 16 ];
-extern uint8_t libfmapi_class_identifier_public_strings[ 16 ];
-extern uint8_t libfmapi_class_identifier_internet_headers[ 16 ];
-extern uint8_t libfmapi_class_identifier_appointment[ 16 ];
-extern uint8_t libfmapi_class_identifier_task[ 16 ];
-extern uint8_t libfmapi_class_identifier_address[ 16 ];
-extern uint8_t libfmapi_class_identifier_common[ 16 ];
-extern uint8_t libfmapi_class_identifier_journal[ 16 ];
-extern uint8_t libfmapi_class_identifier_sticky_note[ 16 ];
-extern uint8_t libfmapi_class_identifier_sharing[ 16 ];
-extern uint8_t libfmapi_class_identifier_rss_feed[ 16 ];
-extern uint8_t libfmapi_class_identifier_unified_messaging[ 16 ];
-extern uint8_t libfmapi_class_identifier_calendar[ 16 ];
-extern uint8_t libfmapi_class_identifier_air_sync[ 16 ];
-extern uint8_t libfmapi_class_identifier_attachment[ 16 ];
-extern uint8_t libfmapi_class_identifier_unknown[ 16 ];
+LIBFMAPI_EXTERN \
+uint8_t libfmapi_class_identifier_mapi[ 16 ];
+
+LIBFMAPI_EXTERN \
+uint8_t libfmapi_class_identifier_public_strings[ 16 ];
+
+LIBFMAPI_EXTERN \
+uint8_t libfmapi_class_identifier_internet_headers[ 16 ];
+
+LIBFMAPI_EXTERN \
+uint8_t libfmapi_class_identifier_appointment[ 16 ];
+
+LIBFMAPI_EXTERN \
+uint8_t libfmapi_class_identifier_task[ 16 ];
+
+LIBFMAPI_EXTERN \
+uint8_t libfmapi_class_identifier_address[ 16 ];
+
+LIBFMAPI_EXTERN \
+uint8_t libfmapi_class_identifier_common[ 16 ];
+
+LIBFMAPI_EXTERN \
+uint8_t libfmapi_class_identifier_journal[ 16 ];
+
+LIBFMAPI_EXTERN \
+uint8_t libfmapi_class_identifier_sticky_note[ 16 ];
+
+LIBFMAPI_EXTERN \
+uint8_t libfmapi_class_identifier_sharing[ 16 ];
+
+LIBFMAPI_EXTERN \
+uint8_t libfmapi_class_identifier_rss_feed[ 16 ];
+
+LIBFMAPI_EXTERN \
+uint8_t libfmapi_class_identifier_unified_messaging[ 16 ];
+
+LIBFMAPI_EXTERN \
+uint8_t libfmapi_class_identifier_calendar[ 16 ];
+
+LIBFMAPI_EXTERN \
+uint8_t libfmapi_class_identifier_air_sync[ 16 ];
+
+LIBFMAPI_EXTERN \
+uint8_t libfmapi_class_identifier_attachment[ 16 ];
+
+LIBFMAPI_EXTERN \
+uint8_t libfmapi_class_identifier_unknown[ 16 ];
 
 #if defined( HAVE_DEBUG_OUTPUT )
 
 const char *libfmapi_class_identifier_get_name(
              uint8_t *class_identifier );
 
-#endif
+#endif /* defined( HAVE_DEBUG_OUTPUT ) */
 
 #if defined( __cplusplus )
 }

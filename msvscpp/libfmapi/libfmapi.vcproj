@@ -198,10 +198,6 @@
 				>
 			</File>
 			<File
-				RelativePath="..\..\libfmapi\libfmapi_guid.c"
-				>
-			</File>
-			<File
 				RelativePath="..\..\libfmapi\libfmapi_lzfu.c"
 				>
 			</File>
@@ -261,10 +257,6 @@
 			</File>
 			<File
 				RelativePath="..\..\libfmapi\libfmapi_extern.h"
-				>
-			</File>
-			<File
-				RelativePath="..\..\libfmapi\libfmapi_guid.h"
 				>
 			</File>
 			<File
