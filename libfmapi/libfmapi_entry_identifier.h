@@ -66,8 +66,8 @@ int libfmapi_entry_identifier_copy_from_byte_stream(
 LIBFMAPI_EXTERN \
 int libfmapi_entry_identifier_get_service_provider_identifier(
      libfmapi_entry_identifier_t *entry_identifier,
-     uint8_t *service_provider_identifier,
-     size_t size,
+     uint8_t *guid_data,
+     size_t guid_data_size,
      libcerror_error_t **error );
 
 #if defined( __cplusplus )

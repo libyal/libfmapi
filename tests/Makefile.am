@@ -55,6 +55,7 @@ fmapi_test_error_LDADD = \
 fmapi_test_one_off_entry_identifier_SOURCES = \
 	fmapi_test_libcerror.h \
 	fmapi_test_libfmapi.h \
+	fmapi_test_libuna.h \
 	fmapi_test_macros.h \
 	fmapi_test_memory.c fmapi_test_memory.h \
 	fmapi_test_one_off_entry_identifier.c \

@@ -127,8 +127,8 @@ int libfmapi_entry_identifier_copy_from_byte_stream(
 LIBFMAPI_EXTERN \
 int libfmapi_entry_identifier_get_service_provider_identifier(
      libfmapi_entry_identifier_t *entry_identifier,
-     uint8_t *service_provider_identifier,
-     size_t size,
+     uint8_t *guid_data,
+     size_t guid_data_size,
      libfmapi_error_t **error );
 
 /* -------------------------------------------------------------------------
@@ -163,13 +163,13 @@ int libfmapi_one_off_entry_identifier_copy_from_byte_stream(
      int ascii_codepage,
      libfmapi_error_t **error );
 
-/* Retrieves the version
+/* Retrieves the format version
  * Returns 1 if successful or -1 on error
  */
 LIBFMAPI_EXTERN \
 int libfmapi_one_off_entry_identifier_get_version(
      libfmapi_one_off_entry_identifier_t *entry_identifier,
-     uint16_t *version,
+     uint16_t *format_version,
      libfmapi_error_t **error );
 
 /* Retrieves the flags

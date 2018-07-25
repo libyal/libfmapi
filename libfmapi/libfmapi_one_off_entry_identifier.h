@@ -37,9 +37,9 @@ typedef struct libfmapi_internal_one_off_entry_identifier libfmapi_internal_one_
 
 struct libfmapi_internal_one_off_entry_identifier
 {
-	/* The version
+	/* The format version
 	 */
-	uint16_t version;
+	uint16_t format_version;
 
 	/* The flags
 	 */
@@ -95,7 +95,7 @@ int libfmapi_one_off_entry_identifier_copy_from_byte_stream(
 LIBFMAPI_EXTERN \
 int libfmapi_one_off_entry_identifier_get_version(
      libfmapi_one_off_entry_identifier_t *entry_identifier,
-     uint16_t *version,
+     uint16_t *format_version,
      libcerror_error_t **error );
 
 LIBFMAPI_EXTERN \

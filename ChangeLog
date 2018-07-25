@@ -1,5 +1,6 @@
 TODO:
 * merge mapi_definitions.h with libfmapi_definitions.h
+* rename libfmapi_one_off_entry_identifier_get_version to libfmapi_one_off_entry_identifier_get_format_version
 
 20140928
 * see `git log' for more recent change log

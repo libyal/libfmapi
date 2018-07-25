@@ -164,6 +164,8 @@ int libfmapi_one_off_entry_identifier_copy_from_byte_stream(
 	libfmapi_internal_one_off_entry_identifier_t *internal_entry_identifier = NULL;
 	static char *function                                                   = "libfmapi_one_off_entry_identifier_copy_from_byte_stream";
 	size_t byte_stream_index                                                = 0;
+	uint16_t flags                                                          = 0;
+	uint16_t format_version                                                 = 0;
 	uint16_t supported_flags                                                = 0;
 
 	if( entry_identifier == NULL )
@@ -179,6 +181,39 @@ int libfmapi_one_off_entry_identifier_copy_from_byte_stream(
 	}
 	internal_entry_identifier = (libfmapi_internal_one_off_entry_identifier_t *) entry_identifier;
 
+	if( internal_entry_identifier->email_address != NULL )
+	{
+		libcerror_error_set(
+		 error,
+		 LIBCERROR_ERROR_DOMAIN_RUNTIME,
+		 LIBCERROR_RUNTIME_ERROR_VALUE_ALREADY_SET,
+		 "%s: invalid entry identifier - email address value already set.",
+		 function );
+
+		return( -1 );
+	}
+	if( internal_entry_identifier->address_type != NULL )
+	{
+		libcerror_error_set(
+		 error,
+		 LIBCERROR_ERROR_DOMAIN_RUNTIME,
+		 LIBCERROR_RUNTIME_ERROR_VALUE_ALREADY_SET,
+		 "%s: invalid entry identifier - address type value already set.",
+		 function );
+
+		return( -1 );
+	}
+	if( internal_entry_identifier->display_name != NULL )
+	{
+		libcerror_error_set(
+		 error,
+		 LIBCERROR_ERROR_DOMAIN_RUNTIME,
+		 LIBCERROR_RUNTIME_ERROR_VALUE_ALREADY_SET,
+		 "%s: invalid entry identifier - display value value already set.",
+		 function );
+
+		return( -1 );
+	}
 	if( byte_stream == NULL )
 	{
 		libcerror_error_set(
@@ -226,14 +261,14 @@ int libfmapi_one_off_entry_identifier_copy_from_byte_stream(
 #endif
 	byte_stream_copy_to_uint16_little_endian(
 	 byte_stream,
-	 internal_entry_identifier->version );
+	 format_version );
 
 	byte_stream      += 2;
 	byte_stream_size -= 2;
 
 	byte_stream_copy_to_uint16_little_endian(
 	 byte_stream,
-	 internal_entry_identifier->flags );
+	 flags );
 
 	byte_stream      += 2;
 	byte_stream_size -= 2;
@@ -242,25 +277,25 @@ int libfmapi_one_off_entry_identifier_copy_from_byte_stream(
 	if( libcnotify_verbose != 0 )
 	{
 		libcnotify_printf(
-		 "%s: version\t: %" PRIu16 "\n",
+		 "%s: format version\t: %" PRIu16 "\n",
 		 function,
-		 internal_entry_identifier->version );
+		 format_version );
 
 		libcnotify_printf(
 		 "%s: flags\t\t: 0x%04" PRIx16 "\n",
 		 function,
-		 internal_entry_identifier->flags );
+		 flags );
 	}
 #endif
-	if( internal_entry_identifier->version != 0 )
+	if( format_version != 0 )
 	{
 		libcerror_error_set(
 		 error,
 		 LIBCERROR_ERROR_DOMAIN_RUNTIME,
 		 LIBCERROR_RUNTIME_ERROR_UNSUPPORTED_VALUE,
-		 "%s: unsupported version: %" PRIu16 ".",
+		 "%s: unsupported format version: %" PRIu16 ".",
 		 function,
-		 internal_entry_identifier->version );
+		 format_version );
 
 		goto on_error;
 	}
@@ -268,7 +303,7 @@ int libfmapi_one_off_entry_identifier_copy_from_byte_stream(
 	                | LIBFMAPI_ONE_OFF_ENTRY_IDENTIFIER_FLAG_0x1000
 	                | LIBFMAPI_ONE_OFF_ENTRY_IDENTIFIER_FLAG_UNICODE;
 
-	if( ( internal_entry_identifier->flags & ~( supported_flags ) ) != 0 )
+	if( ( flags & ~( supported_flags ) ) != 0 )
 	{
 		libcerror_error_set(
 		 error,
@@ -276,7 +311,7 @@ int libfmapi_one_off_entry_identifier_copy_from_byte_stream(
 		 LIBCERROR_RUNTIME_ERROR_UNSUPPORTED_VALUE,
 		 "%s: unsupported flags: 0x%04" PRIx16 ".",
 		 function,
-		 internal_entry_identifier->flags );
+		 flags );
 
 		goto on_error;
 	}
@@ -291,6 +326,8 @@ int libfmapi_one_off_entry_identifier_copy_from_byte_stream(
 
 		goto on_error;
 	}
+	internal_entry_identifier->format_version = format_version;
+	internal_entry_identifier->flags          = flags;
 	internal_entry_identifier->ascii_codepage = ascii_codepage;
 
 	byte_stream_index = 0;
@@ -642,12 +679,12 @@ on_error:
 	return( -1 );
 }
 
-/* Retrieves the version
+/* Retrieves the format version
  * Returns 1 if successful or -1 on error
  */
 int libfmapi_one_off_entry_identifier_get_version(
      libfmapi_one_off_entry_identifier_t *entry_identifier,
-     uint16_t *version,
+     uint16_t *format_version,
      libcerror_error_t **error )
 {
 	libfmapi_internal_one_off_entry_identifier_t *internal_entry_identifier = NULL;
@@ -666,18 +703,18 @@ int libfmapi_one_off_entry_identifier_get_version(
 	}
 	internal_entry_identifier = (libfmapi_internal_one_off_entry_identifier_t *) entry_identifier;
 
-	if( version == NULL )
+	if( format_version == NULL )
 	{
 		libcerror_error_set(
 		 error,
 		 LIBCERROR_ERROR_DOMAIN_ARGUMENTS,
 		 LIBCERROR_ARGUMENT_ERROR_INVALID_VALUE,
-		 "%s: invalid version.",
+		 "%s: invalid format version.",
 		 function );
 
 		return( -1 );
 	}
-	*version = internal_entry_identifier->version;
+	*format_version = internal_entry_identifier->format_version;
 
 	return( 1 );
 }

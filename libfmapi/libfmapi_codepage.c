@@ -104,5 +104,5 @@ const char *libfmapi_codepage_get_description(
 	 ( libfmapi_codepages[ iterator ] ).description );
 }
 
-#endif
+#endif /* defined( HAVE_DEBUG_OUTPUT ) */
 

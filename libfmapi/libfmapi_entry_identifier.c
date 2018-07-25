@@ -355,8 +355,8 @@ on_error:
  */
 int libfmapi_entry_identifier_get_service_provider_identifier(
      libfmapi_entry_identifier_t *entry_identifier,
-     uint8_t *service_provider_identifier,
-     size_t size,
+     uint8_t *guid_data,
+     size_t guid_data_size,
      libcerror_error_t **error )
 {
 	libfmapi_internal_entry_identifier_t *internal_entry_identifier = NULL;
@@ -375,41 +375,41 @@ int libfmapi_entry_identifier_get_service_provider_identifier(
 	}
 	internal_entry_identifier = (libfmapi_internal_entry_identifier_t *) entry_identifier;
 
-	if( service_provider_identifier == NULL )
+	if( guid_data == NULL )
 	{
 		libcerror_error_set(
 		 error,
 		 LIBCERROR_ERROR_DOMAIN_ARGUMENTS,
 		 LIBCERROR_ARGUMENT_ERROR_INVALID_VALUE,
-		 "%s: invalid service provider identifier.",
+		 "%s: invalid GUID data.",
 		 function );
 
 		return( -1 );
 	}
-	if( size < 16 )
-	{
-		libcerror_error_set(
-		 error,
-		 LIBCERROR_ERROR_DOMAIN_ARGUMENTS,
-		 LIBCERROR_ARGUMENT_ERROR_VALUE_TOO_SMALL,
-		 "%s: service provider identifier too small.",
-		 function );
-
-		return( -1 );
-	}
-	if( size > (size_t) SSIZE_MAX )
+	if( guid_data_size > (size_t) SSIZE_MAX )
 	{
 		libcerror_error_set(
 		 error,
 		 LIBCERROR_ERROR_DOMAIN_ARGUMENTS,
 		 LIBCERROR_ARGUMENT_ERROR_VALUE_EXCEEDS_MAXIMUM,
-		 "%s: size value exceeds maximum.",
+		 "%s: GUID data size value exceeds maximum.",
+		 function );
+
+		return( -1 );
+	}
+	if( guid_data_size < 16 )
+	{
+		libcerror_error_set(
+		 error,
+		 LIBCERROR_ERROR_DOMAIN_ARGUMENTS,
+		 LIBCERROR_ARGUMENT_ERROR_VALUE_TOO_SMALL,
+		 "%s: GUID data size value too small.",
 		 function );
 
 		return( -1 );
 	}
 	if( memory_copy(
-	     service_provider_identifier,
+	     guid_data,
 	     internal_entry_identifier->service_provider_identifier,
 	     16 ) == NULL )
 	{

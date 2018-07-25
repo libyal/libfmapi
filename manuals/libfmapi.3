@@ -1,4 +1,4 @@
-.Dd January 12, 2017
+.Dd July 25, 2018
 .Dt libfmapi 3
 .Os libfmapi
 .Sh NAME
@@ -33,7 +33,7 @@ Entry identifier functions
 .Ft int
 .Fn libfmapi_entry_identifier_copy_from_byte_stream "libfmapi_entry_identifier_t *entry_identifier, uint8_t *byte_stream, size_t byte_stream_size, libfmapi_error_t **error"
 .Ft int
-.Fn libfmapi_entry_identifier_get_service_provider_identifier "libfmapi_entry_identifier_t *entry_identifier, uint8_t *service_provider_identifier, size_t size, libfmapi_error_t **error"
+.Fn libfmapi_entry_identifier_get_service_provider_identifier "libfmapi_entry_identifier_t *entry_identifier, uint8_t *guid_data, size_t guid_data_size, libfmapi_error_t **error"
 .Pp
 One-off entry identifier functions
 .Ft int
@@ -43,7 +43,7 @@ One-off entry identifier functions
 .Ft int
 .Fn libfmapi_one_off_entry_identifier_copy_from_byte_stream "libfmapi_one_off_entry_identifier_t *entry_identifier, uint8_t *byte_stream, size_t byte_stream_size, int ascii_codepage, libfmapi_error_t **error"
 .Ft int
-.Fn libfmapi_one_off_entry_identifier_get_version "libfmapi_one_off_entry_identifier_t *entry_identifier, uint16_t *version, libfmapi_error_t **error"
+.Fn libfmapi_one_off_entry_identifier_get_version "libfmapi_one_off_entry_identifier_t *entry_identifier, uint16_t *format_version, libfmapi_error_t **error"
 .Ft int
 .Fn libfmapi_one_off_entry_identifier_get_flags "libfmapi_one_off_entry_identifier_t *entry_identifier, uint16_t *flags, libfmapi_error_t **error"
 .Ft int
