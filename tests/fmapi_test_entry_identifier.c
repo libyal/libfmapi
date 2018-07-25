@@ -109,6 +109,8 @@ int fmapi_test_entry_identifier_initialize(
 	          &entry_identifier,
 	          &error );
 
+	entry_identifier = NULL;
+
 	FMAPI_TEST_ASSERT_EQUAL_INT(
 	 "result",
 	 result,
@@ -120,8 +122,6 @@ int fmapi_test_entry_identifier_initialize(
 
 	libcerror_error_free(
 	 &error );
-
-	entry_identifier = NULL;
 
 #if defined( HAVE_FMAPI_TEST_MEMORY )
 

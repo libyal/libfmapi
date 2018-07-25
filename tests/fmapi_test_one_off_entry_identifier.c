@@ -111,6 +111,8 @@ int fmapi_test_one_off_entry_identifier_initialize(
 	          &one_off_entry_identifier,
 	          &error );
 
+	one_off_entry_identifier = NULL;
+
 	FMAPI_TEST_ASSERT_EQUAL_INT(
 	 "result",
 	 result,
@@ -122,8 +124,6 @@ int fmapi_test_one_off_entry_identifier_initialize(
 
 	libcerror_error_free(
 	 &error );
-
-	one_off_entry_identifier = NULL;
 
 #if defined( HAVE_FMAPI_TEST_MEMORY )
 
@@ -721,9 +721,9 @@ int fmapi_test_one_off_entry_identifier_get_utf8_display_name(
 		 result,
 		 -1 );
 
-	        FMAPI_TEST_ASSERT_IS_NOT_NULL(
-	         "error",
-	         error );
+		FMAPI_TEST_ASSERT_IS_NOT_NULL(
+		 "error",
+		 error );
 
 		libcerror_error_free(
 		 &error );
@@ -739,9 +739,9 @@ int fmapi_test_one_off_entry_identifier_get_utf8_display_name(
 		 result,
 		 -1 );
 
-	        FMAPI_TEST_ASSERT_IS_NOT_NULL(
-	         "error",
-	         error );
+		FMAPI_TEST_ASSERT_IS_NOT_NULL(
+		 "error",
+		 error );
 
 		libcerror_error_free(
 		 &error );
@@ -757,9 +757,9 @@ int fmapi_test_one_off_entry_identifier_get_utf8_display_name(
 		 result,
 		 -1 );
 
-	        FMAPI_TEST_ASSERT_IS_NOT_NULL(
-	         "error",
-	         error );
+		FMAPI_TEST_ASSERT_IS_NOT_NULL(
+		 "error",
+		 error );
 
 		libcerror_error_free(
 		 &error );
@@ -1007,9 +1007,9 @@ int fmapi_test_one_off_entry_identifier_get_utf16_display_name(
 		 result,
 		 -1 );
 
-	        FMAPI_TEST_ASSERT_IS_NOT_NULL(
-	         "error",
-	         error );
+		FMAPI_TEST_ASSERT_IS_NOT_NULL(
+		 "error",
+		 error );
 
 		libcerror_error_free(
 		 &error );
@@ -1025,9 +1025,9 @@ int fmapi_test_one_off_entry_identifier_get_utf16_display_name(
 		 result,
 		 -1 );
 
-	        FMAPI_TEST_ASSERT_IS_NOT_NULL(
-	         "error",
-	         error );
+		FMAPI_TEST_ASSERT_IS_NOT_NULL(
+		 "error",
+		 error );
 
 		libcerror_error_free(
 		 &error );
@@ -1043,9 +1043,9 @@ int fmapi_test_one_off_entry_identifier_get_utf16_display_name(
 		 result,
 		 -1 );
 
-	        FMAPI_TEST_ASSERT_IS_NOT_NULL(
-	         "error",
-	         error );
+		FMAPI_TEST_ASSERT_IS_NOT_NULL(
+		 "error",
+		 error );
 
 		libcerror_error_free(
 		 &error );
@@ -1293,9 +1293,9 @@ int fmapi_test_one_off_entry_identifier_get_utf8_address_type(
 		 result,
 		 -1 );
 
-	        FMAPI_TEST_ASSERT_IS_NOT_NULL(
-	         "error",
-	         error );
+		FMAPI_TEST_ASSERT_IS_NOT_NULL(
+		 "error",
+		 error );
 
 		libcerror_error_free(
 		 &error );
@@ -1311,9 +1311,9 @@ int fmapi_test_one_off_entry_identifier_get_utf8_address_type(
 		 result,
 		 -1 );
 
-	        FMAPI_TEST_ASSERT_IS_NOT_NULL(
-	         "error",
-	         error );
+		FMAPI_TEST_ASSERT_IS_NOT_NULL(
+		 "error",
+		 error );
 
 		libcerror_error_free(
 		 &error );
@@ -1329,9 +1329,9 @@ int fmapi_test_one_off_entry_identifier_get_utf8_address_type(
 		 result,
 		 -1 );
 
-	        FMAPI_TEST_ASSERT_IS_NOT_NULL(
-	         "error",
-	         error );
+		FMAPI_TEST_ASSERT_IS_NOT_NULL(
+		 "error",
+		 error );
 
 		libcerror_error_free(
 		 &error );
@@ -1579,9 +1579,9 @@ int fmapi_test_one_off_entry_identifier_get_utf16_address_type(
 		 result,
 		 -1 );
 
-	        FMAPI_TEST_ASSERT_IS_NOT_NULL(
-	         "error",
-	         error );
+		FMAPI_TEST_ASSERT_IS_NOT_NULL(
+		 "error",
+		 error );
 
 		libcerror_error_free(
 		 &error );
@@ -1597,9 +1597,9 @@ int fmapi_test_one_off_entry_identifier_get_utf16_address_type(
 		 result,
 		 -1 );
 
-	        FMAPI_TEST_ASSERT_IS_NOT_NULL(
-	         "error",
-	         error );
+		FMAPI_TEST_ASSERT_IS_NOT_NULL(
+		 "error",
+		 error );
 
 		libcerror_error_free(
 		 &error );
@@ -1615,9 +1615,9 @@ int fmapi_test_one_off_entry_identifier_get_utf16_address_type(
 		 result,
 		 -1 );
 
-	        FMAPI_TEST_ASSERT_IS_NOT_NULL(
-	         "error",
-	         error );
+		FMAPI_TEST_ASSERT_IS_NOT_NULL(
+		 "error",
+		 error );
 
 		libcerror_error_free(
 		 &error );
@@ -1865,9 +1865,9 @@ int fmapi_test_one_off_entry_identifier_get_utf8_email_address(
 		 result,
 		 -1 );
 
-	        FMAPI_TEST_ASSERT_IS_NOT_NULL(
-	         "error",
-	         error );
+		FMAPI_TEST_ASSERT_IS_NOT_NULL(
+		 "error",
+		 error );
 
 		libcerror_error_free(
 		 &error );
@@ -1883,9 +1883,9 @@ int fmapi_test_one_off_entry_identifier_get_utf8_email_address(
 		 result,
 		 -1 );
 
-	        FMAPI_TEST_ASSERT_IS_NOT_NULL(
-	         "error",
-	         error );
+		FMAPI_TEST_ASSERT_IS_NOT_NULL(
+		 "error",
+		 error );
 
 		libcerror_error_free(
 		 &error );
@@ -1901,9 +1901,9 @@ int fmapi_test_one_off_entry_identifier_get_utf8_email_address(
 		 result,
 		 -1 );
 
-	        FMAPI_TEST_ASSERT_IS_NOT_NULL(
-	         "error",
-	         error );
+		FMAPI_TEST_ASSERT_IS_NOT_NULL(
+		 "error",
+		 error );
 
 		libcerror_error_free(
 		 &error );
@@ -2151,9 +2151,9 @@ int fmapi_test_one_off_entry_identifier_get_utf16_email_address(
 		 result,
 		 -1 );
 
-	        FMAPI_TEST_ASSERT_IS_NOT_NULL(
-	         "error",
-	         error );
+		FMAPI_TEST_ASSERT_IS_NOT_NULL(
+		 "error",
+		 error );
 
 		libcerror_error_free(
 		 &error );
@@ -2169,9 +2169,9 @@ int fmapi_test_one_off_entry_identifier_get_utf16_email_address(
 		 result,
 		 -1 );
 
-	        FMAPI_TEST_ASSERT_IS_NOT_NULL(
-	         "error",
-	         error );
+		FMAPI_TEST_ASSERT_IS_NOT_NULL(
+		 "error",
+		 error );
 
 		libcerror_error_free(
 		 &error );
@@ -2187,9 +2187,9 @@ int fmapi_test_one_off_entry_identifier_get_utf16_email_address(
 		 result,
 		 -1 );
 
-	        FMAPI_TEST_ASSERT_IS_NOT_NULL(
-	         "error",
-	         error );
+		FMAPI_TEST_ASSERT_IS_NOT_NULL(
+		 "error",
+		 error );
 
 		libcerror_error_free(
 		 &error );
