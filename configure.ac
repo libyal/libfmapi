@@ -2,7 +2,7 @@ AC_PREREQ( 2.59 )
 
 AC_INIT(
  [libfmapi],
- [20180725],
+ [20180728],
  [joachim.metz@gmail.com])
 
 AC_CONFIG_SRCDIR(
@@ -92,7 +92,7 @@ AS_IF(
  [test "x$enable_shared" = xyes],
  [AS_CASE(
   [$host],
-  [*cygwin* | *mingw*],
+  [*cygwin* | *mingw* | *msys*],
   [AC_DEFINE(
    [HAVE_DLLMAIN],
    [1],
@@ -101,7 +101,10 @@ AS_IF(
    [HAVE_DLLMAIN],
    [1])
 
-  dnl Used in tests
+  AC_SUBST(
+   [LIBFMAPI_DLL_EXPORT],
+   ["-DLIBFMAPI_DLL_EXPORT"])
+
   AC_SUBST(
    [LIBFMAPI_DLL_IMPORT],
    ["-DLIBFMAPI_DLL_IMPORT"])

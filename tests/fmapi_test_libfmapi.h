@@ -24,13 +24,6 @@
 
 #include <common.h>
 
-/* If Cygwin libtool DLL support is enabled and do not want to create static
- * executables set LIBFMAPI_DLL_IMPORT before including libfmapi.h
- */
-#if defined( _WIN32 ) && defined( DLL_EXPORT ) && !defined( HAVE_STATIC_EXECUTABLES )
-#define LIBFMAPI_DLL_IMPORT
-#endif
-
 #include <libfmapi.h>
 
 #endif /* !defined( _FMAPI_TEST_LIBFMAPI_H ) */

@@ -28,13 +28,6 @@
  */
 #if !defined( HAVE_LOCAL_LIBFMAPI )
 
-/* If libtool DLL support is enabled set LIBFMAPI_DLL_EXPORT
- * before including libfmapi/extern.h
- */
-#if defined( _WIN32 ) && defined( DLL_EXPORT )
-#define LIBFMAPI_DLL_EXPORT
-#endif
-
 #include <libfmapi/extern.h>
 
 #define LIBFMAPI_EXTERN_VARIABLE	LIBFMAPI_EXTERN
