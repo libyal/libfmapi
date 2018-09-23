@@ -2,7 +2,7 @@ AC_PREREQ( 2.59 )
 
 AC_INIT(
  [libfmapi],
- [20180728],
+ [20180923],
  [joachim.metz@gmail.com])
 
 AC_CONFIG_SRCDIR(
@@ -120,9 +120,6 @@ AS_IF(
  [AC_SUBST(
   [libfmapi_spec_requires],
   [Requires:])
- AC_SUBST(
-  [libfmapi_spec_build_requires],
-  [BuildRequires:])
  ])
 
 dnl Set the date for the dpkg files
