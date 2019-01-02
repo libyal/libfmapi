@@ -9,6 +9,8 @@ Homepage: https://github.com/libyal/libfmapi
 Package: libfmapi
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
+Conflicts: libfmapi1
+Replaces: libfmapi1
 Suggests: libfmapi-dbg
 Description: Library to support the MAPI data types
  libfmapi is a library to support the MAPI data types.
