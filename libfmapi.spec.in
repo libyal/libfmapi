@@ -13,6 +13,14 @@ BuildRequires: gcc @ax_libcdata_spec_build_requires@ @ax_libcerror_spec_build_re
 %description -n libfmapi
 Library to support the MAPI data types
 
+%package -n libfmapi-static
+Summary: Library to support the MAPI data types
+Group: Development/Libraries
+Requires: libfmapi = %{version}-%{release}
+
+%description -n libfmapi-static
+Static library version of libfmapi.
+
 %package -n libfmapi-devel
 Summary: Header files and libraries for developing applications for libfmapi
 Group: Development/Libraries
@@ -45,11 +53,16 @@ rm -rf %{buildroot}
 %doc AUTHORS README
 %attr(755,root,root) %{_libdir}/*.so.*
 
+%files -n libfmapi-static
+%defattr(644,root,root,755)
+%license COPYING
+%doc AUTHORS README
+%attr(755,root,root) %{_libdir}/*.a
+
 %files -n libfmapi-devel
 %defattr(644,root,root,755)
 %license COPYING
 %doc AUTHORS README
-%{_libdir}/*.a
 %{_libdir}/*.la
 %{_libdir}/*.so
 %{_libdir}/pkgconfig/libfmapi.pc
