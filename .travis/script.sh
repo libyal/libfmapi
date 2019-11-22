@@ -25,7 +25,7 @@ then
 
 		make install DESTDIR=${PWD}/osx-pkg;
 		mkdir -p ${PWD}/osx-pkg/usr/share/doc/libfmapi;
-		cp AUTHORS COPYING NEWS README ${PWD}/osx-pkg/usr/share/doc/libfmapi;
+		cp AUTHORS COPYING COPYING.LESSER NEWS README ${PWD}/osx-pkg/usr/share/doc/libfmapi;
 
 		pkgbuild --root osx-pkg --identifier com.github.libyal.libfmapi --version ${VERSION} --ownership recommended ../libfmapi-${VERSION}.pkg;
 	fi
