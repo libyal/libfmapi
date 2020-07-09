@@ -27,7 +27,6 @@
 #include <stdlib.h>
 #endif
 
-#include "fmapi_test_libcerror.h"
 #include "fmapi_test_libfmapi.h"
 #include "fmapi_test_macros.h"
 #include "fmapi_test_unused.h"
