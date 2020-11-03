@@ -2,7 +2,7 @@ AC_PREREQ( 2.59 )
 
 AC_INIT(
  [libfmapi],
- [20201002],
+ [20201103],
  [joachim.metz@gmail.com])
 
 AC_CONFIG_SRCDIR(

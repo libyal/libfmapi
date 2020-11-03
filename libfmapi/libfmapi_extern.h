@@ -30,7 +30,11 @@
 
 #include <libfmapi/extern.h>
 
+#if defined( __CYGWIN__ )
+#define LIBFMAPI_EXTERN_VARIABLE	extern
+#else
 #define LIBFMAPI_EXTERN_VARIABLE	LIBFMAPI_EXTERN
+#endif
 
 #else
 #define LIBFMAPI_EXTERN		/* extern */
