@@ -7,6 +7,7 @@ Microsoft Outlook MAPI definitions for Exchange (ESEDB) and Outlook (NK2 and PFF
 :numbered!:
 [abstract]
 == Summary
+
 The Microsoft (Office) Outlook Messaging API (MAPI) is used in multiple file formats.
 This document is intended as a working document for the ESEDB, NK2 and PFF specification.
 
@@ -14,6 +15,7 @@ Which should allow existing Open Source forensic tooling to be able to process t
 
 [preface]
 == Document information
+
 [cols="1,5"]
 |===
 | Author(s): | Joachim Metz <joachim.metz@gmail.com>
@@ -24,8 +26,9 @@ Which should allow existing Open Source forensic tooling to be able to process t
 
 [preface]
 == License
+
 ....
-Copyright (C) 2008-2016, Joachim Metz <joachim.metz@gmail.com>.
+Copyright (C) 2008-2022, Joachim Metz <joachim.metz@gmail.com>.
 Permission is granted to copy, distribute and/or modify this document under the
 terms of the GNU Free Documentation License, Version 1.3 or any later version
 published by the Free Software Foundation; with no Invariant Sections, no
@@ -35,6 +38,7 @@ in the section entitled "GNU Free Documentation License".
 
 [preface]
 == Revision history
+
 [cols="1,1,1,5",options="header"]
 |===
 | Version | Author | Date | Comments
@@ -78,10 +82,12 @@ Additional information about MAPI properties
 | 0.0.28 | J.B. Metz | February 2013 | Additional information.
 | 0.0.29 | J.B. Metz | August 2013 | Additional information with thanks to J. Lohman.
 | 0.0.30 | J.B. Metz | November 2016 | Switched to asciidoc format.
+| 0.0.31 | J.B. Metz | February | Migrated documentation and changes to formatting.
 |===
 
 :numbered:
 == Overview
+
 The Microsoft (Office) Outlook Messaging API (MAPI) is used in multiple file
 formats. It is known to be used in the following file formats:
 
@@ -90,6 +96,7 @@ formats. It is known to be used in the following file formats:
 * Personal Folder File (PST, OST, PAB)
 
 == Data types
+
 The MAPI defines property data types. These are identified by Ptyp or PT_. In this document the
 data types are referred to as value types.
 
@@ -204,36 +211,766 @@ Variable of size
 ....
 
 === [[currency]]Currency
+
 a 32-bit low part and a 32-bit high part
 It contains a scaled integer representation of a decimal number with four digits to the right of the decimal point. For example, a stored value of 327500 represents a currency value of 32.7500.
 
 === [[filetime]]FILETIME
+
 a 32-bit low part and a 32-bit high part
 It contains the number of 100ns periods since January 1, 1601
 
 === [[guid]]GUID
+
 Unsigned 32-bit Integer, Unsigned 16-bit Integer, Unsigned 16-bit Integer, 8 byte array
+
+=== Array (multi) value types
+
+The array (multi) value types are variable size and consists of:
+
+[cols="1,1,1,5",options="header"]
+|===
+| Offset | Size | Value | Description
+| 0 | ... | | The element data dependent on the size of the type
+|===
+
+The array (multi) value types of an ASCII and Unicode string and Binary Data
+are variable size and consists of:
+
+[cols="1,1,1,5",options="header"]
+|===
+| Offset | Size | Value | Description
+| 0 | 4 | | The number of elements
+| 4 | (amount x 4) | | Byte offset of the element data
+| ... | ... | | (The element data)
+|===
+
+The byte offsets can contain duplicate values. This is used to indicate
+an empty value (NULL). Note that the array (multi) value type can consist
+of a single element.
+
+=== Server identifier structure
+
+The server identifier refers to either a folder or message object. The server
+identifier structure consist of:
+
+[cols="1,1,1,5",options="header"]
+|===
+| Offset | Size | Value | Description
+| 0 | 1 | | Structure definition used +
+0x00 => custom definition +
+0x01 => Microsoft definition
+| 1 | 8 | | Folder identifier
+| 9 | 8 | | Message identifier
+| 17 | 4 | | Index within an array of server identifiers
+|===
+
+== The property identifiers
+
+The MAPI defines property identifiers/names. These are identified by PidTag,
+ptag or `PR_`. The property type is a combination of the item type and the item
+value type. Transmittable properties are transferred with a message;
+nontransmittable properties are not transferred with a message. Nontransmittable
+properties usually contain information that is of value only to clients and
+service providers operating with the current session.
+
+[cols="1,5",options="header"]
+|===
+| Type | Description
+| 0x0000 | Reserved for the special value PR_NULL (reserved by MAPI)
+| 0x0001 – 0x0bff | Message envelope properties (defined by MAPI)
+| 0x0c00 – 0x0dff | Recipient properties (defined by MAPI)
+| 0x0e00 – 0x0fff | Non-transmittable message properties (defined by MAPI)
+| 0x1000 – 0x2fff | Message content properties (defined by MAPI)
+| 0x3000 - 0x33ff | Common object properties that appear on multiple objects (defined by MAPI)
+| 0x3400 - 0x35ff | Message store properties (defined by MAPI)
+| 0x3600 - 0x36ff | Folder and address book container properties (defined by MAPI)
+| 0x3700 – 0x38ff | Attachment properties (defined by MAPI)
+| 0x3900 – 0x39ff | Address book properties (defined by MAPI)
+| 0x3a00 – 0x3bff | Messaging user properties (defined by MAPI)
+| 0x3c00 – 0x3cff | Distribution list properties (defined by MAPI)
+| 0x3d00 – 0x3dff | Profile properties (defined by MAPI)
+| 0x3e00 – 0x3fff | Status object properties (defined by MAPI)
+| 0x4000 - 0x57ff | Message envelope properties (defined by transport providers)
+| 0x5800 – 0x5fff | Recipient properties (defined by transport and address book providers)
+| 0x6000 - 0x65ff | Non-transmittable message properties (defined by clients)
+| 0x6600 – 0x67ff | Non-transmittable properties (defined by a service provider) +
+These properties can be visible or invisible to users.
+| 0x67f0 – 0x67ff | Secure profile properties +
+These properties can be hidden and encrypted.
+| 0x6800 – 0x7bff | Message content properties for custom message classes (defined by creators of those classes)
+| 0x7c00 – 0x7fff | Non-transmittable properties for custom message classes (defined by creators of those classes)
+| 0x8000 – 0xfffe | Named properties (defined by clients and occasionally service providers) +
+These properties are identified by name through the IMAPIProp::GetNamesFromIDs and IMAPIProp::GetIDsFromNames methods.
+| 0xffff | Special error value PROP_ID_INVALID (reserved by MAPI)
+|===
+
+MAPI uses the `_A` and `_W` additives to signify if the property is an ASCII
+(single byte character) or a Wide (multiple byte character) string. This
+document does not bother with this distinction. The additive `_O` is used for
+some types, it refers to the direct use of embedded object instead of data types.
+
+=== Reserved (0x0000)
+
+[cols="1,1,1,5",options="header"]
+|===
+| Item | Value | Identifier | Description
+| 0x0000 | 0x0001 (NULL) | PidTagNull +
+(PR_NULL) | NULL value +
+Represents a null value or setting of a property or reserves array space.
+|===
+
+=== Message envelope properties (0x0001 – 0x0bff)
+
+[cols="1,1,1,5",options="header"]
+|===
+| Item | Value | Identifier | Description
+| 0x0001 | 0x0003 (Integer 32-bit signed) | PidTagAcknowledgementMode +
+(PR_ACKNOWLEDGEMENT_MODE) | Acknowledgment mode +
+Contains the identifier of the mode for message acknowledgment. +
+See section: <<acknowledgment_mode_definitions,Acknowledgment mode definitions>>
+| 0x0002 | 0x000b (Boolean) | PidTagAlternateRecipientAllowed +
+(PR_ALTERNATE_RECIPIENT_ALLOWED) | Alternate recipient allowed +
+Contains TRUE if the sender permits auto forwarding of this message.
+| | 0x001e (ASCII string) +
+0x001f (Unicode string) | | [yellow-background]*Unknown*
+| 0x0003 | 0x0102 (Binary data) | PidTagAuthorizingUsers +
+(PR_AUTHORIZING_USERS) | Authorized users +
+Contains a list of entry identifiers for users who have authorized the sending of a message.
+| 0x0004 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidTagAutoForwardComment +
+(PR_AUTO_FORWARD_COMMENT) | Auto forward comment +
+Contains a comment added by the auto-forwarding agent.
+| 0x0005 | 0x000b (Boolean) | PidTagAutoForwarded +
+(PR_AUTO_FORWARDED) | Auto forwarded +
+Contains TRUE if the client requests an X-MS-Exchange-Organization-AutoForwarded header field.
+| 0x0006 | 0x0102 (Binary data) | PidTagContentConfidentialityAlgorithmId +
+(PR_CONTENT_CONFIDENTIALITY_ALGORITHM_ID) | Content confidentiality algorithm identifier +
+Contains an identifier for the algorithm used to confirm message content confidentiality.
+| 0x0007 | 0x0102 (Binary data) | PidTagContentCorrelator +
+(PR_CONTENT_CORRELATOR) | Original content correlator +
+Contains a value the message sender can use to match a report with the original message.
+| 0x0008 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidTagContentIdentifier +
+(PR_CONTENT_IDENTIFIER) | Content identifier +
+Contains a key value that enables the message recipient to identify its content.
+| 0x0009 | | 0x0003 (Integer 32-bit signed) | PidTagContentLength +
+(PR_CONTENT_LENGTH) | Content length +
+Contains the message size in bytes.
+| 0x000a | 0x000b (Boolean) | PidTagContentReturnRequested +
+(PR_CONTENT_RETURN_REQUESTED) | Content return requested +
+Contains TRUE if a message should be returned with a nondelivery report.
+| 0x000b | 0x0102 (Binary data) | PidTagConversationKey +
+(PR_CONVERSATION_KEY) | Conversation key +
+Contains the mail conversation key which consists of a GUID
+| 0x000c | 0x0102 (Binary data) | PidTagConversionEits +
+(PR_CONVERSION_EITS) | Conversion encoded information types +
+Contains the encoded information types (EITs) that are applied to a message in transit to describe conversions.
+| 0x000d | 0x000b (Boolean) | PidTagConversionWithLossProhibited +
+(PR_CONVERSION_WITH_LOSS_PROHIBITED) | Text conversions that loose information is prohibited
+| 0x000e | 0x0102 (Binary data) | PidTagConvertedEits +
+(PR_CONVERTED_EITS) | Encoded information types (EITS) conversation identifier +
+Contains a conversion identifier for the types of text in a message.
+| 0x000f | 0x0040 (Filetime) | PidTagDeferredDeliveryTime +
+(PR_DEFERRED_DELIVERY_TIME) | Sender requested delivery date and time +
+Contains the date and time when a message sender wants a message delivered.
+| 0x0010 | 0x0040 (Filetime) | PidTagDeliverTime +
+(PR_DELIVER_TIME) | Message delivery time +
+Contains the date and time when the original message was delivered.
+| 0x0011 | 0x0003 (Integer 32-bit signed) | PidTagDiscardReason +
+(PR_DISCARD_REASON) | Message discard reason +
+Contains a reason why a message transfer agent (MTA) has discarded a message.
+| 0x0012 | 0x000b (Boolean) | PidTagDisclosureOfRecipients +
+(PR_DISCLOSURE_OF_RECIPIENTS) | Disclosure of recipient allowed
+| 0x0013 | 0x0102 (Binary data) | PidTagDistributionListExpansionHistory +
+(PR_DL_EXPANSION_HISTORY) | Distribution list expansion history +
+Contains a history showing how a distribution list has been expanded during message transmission.
+| 0x0014 | 0x000b (Boolean) | PidTagDistributionListExpansionProhibited +
+(PR_DL_EXPANSION_PROHIBITED) | Expansion of distribution list is prohibited
+| 0x0015 | 0x0040 (Filetime) | PidTagExpiryTime +
+(PR_EXPIRY_TIME) | Message expiry time +
+Contains the date and time when the messaging system can invalidate the content of a message.
+| 0x0016 | 0x000b (Boolean) | PidTagImplicitConversionProhibited +
+(PR_IMPLICIT_CONVERSION_PROHIBITED) Implicit message text conversions prohibited
+| 0x0017 | 0x0003 (Integer 32-bit signed) | PidTagImportance +
+(PR_IMPORTANCE) | Importance +
+Contains a value that indicates the message sender's opinion of the importance of a message. +
+See section: <<importance_definitions,Importance definitions>>
+| 0x0018 | | 0x0102 (Binary data) | PR_IPM_ID | Interpersonal message X400 identifier +
+[yellow-background]*(No longer supported as of ...)*
+| 0x0019 | 0x0040 (Filetime) | PidTagLatestDeliveryTime +
+(PR_LATEST_DELIVERY_TIME) | Latest message delivery time +
+Contains the latest date and time when a message transfer agent (MTA) should deliver a message.
+| 0x001a | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidTagMessageClass +
+(PR_MESSAGE_CLASS) | Message class +
+Contains a text string that identifies the sender-defined message class. +
+See section: <<message_class_definitions,Message class definitions>>
+| | 0x0040 (Filetime) | | [yellow-background]*Unknown*
+| 0x001b | 0x0102 (Binary data) | PidTagMessageDeliveryId +
+(PR_MESSAGE_DELIVERY_ID) | Message delivery identifier
+| 0x001b | 0x0102 (Binary data) | PidTagMessageDeliveryId +
+(PR_MESSAGE_DELIVERY_ID) | Message delivery identifier
+4+|
+|===
+
+* [yellow-background]*TODO: migrate documentation*
+
+=== Recipient properties (0x0c00 – 0x0dff)
+
+* [yellow-background]*TODO: migrate documentation*
+
+=== Non-transmittable message properties (0x0e00 – 0x0fff)
+
+* [yellow-background]*TODO: migrate documentation*
+
+=== Message content properties (0x1000 – 0x2fff)
+
+* [yellow-background]*TODO: migrate documentation*
+
+=== Common objects properties (0x3000 – 0x03ff)
+
+* [yellow-background]*TODO: migrate documentation*
+
+=== Message store properties (0x3400 - 0x35ff)
+
+* [yellow-background]*TODO: migrate documentation*
+
+=== Folder and address book container properties (0x3600 – 0x36ff)
+
+* [yellow-background]*TODO: migrate documentation*
+
+=== Attachment properties (0x3700 – 0x38ff)
+
+* [yellow-background]*TODO: migrate documentation*
+
+=== Address book properties (0x3900 – 0x39ff)
+
+* [yellow-background]*TODO: migrate documentation*
+
+=== Messaging user properties (0x3a00 – 0x3bff)
+
+* [yellow-background]*TODO: migrate documentation*
+
+=== Distribution list properties (0x3c00 – 0x3cff)
+
+[cols="1,1,1,5",options="header"]
+|===
+| Item | Value | Identifier | Description
+|===
+
+=== Profile properties (0x3d00 – 0x3dff)
+
+* [yellow-background]*TODO: migrate documentation*
+
+=== Status object properties (0x3e00 – 0x3fff)
+
+* [yellow-background]*TODO: migrate documentation*
+
+=== Message envelope properties (0x4000 – 0x57ff)
+
+* [yellow-background]*TODO: migrate documentation*
+
+=== Recipient properties (0x5800 - 0x5fff)
+
+* [yellow-background]*TODO: migrate documentation*
+
+=== Non-transmittable message properties (0x6000 - 0x65ff)
+
+* [yellow-background]*TODO: migrate documentation*
+
+=== Non-transmittable properties (0x6600 – 0x67ff)
+
+* [yellow-background]*TODO: migrate documentation*
+
+=== Message content properties for custom message classes (0x6800 – 0x7bff)
+
+* [yellow-background]*TODO: migrate documentation*
+
+=== IPM.Microsoft.WunderBar.Link
+
+* [yellow-background]*TODO: migrate documentation*
+
+=== IPM.Microsoft.WunderBar.SFInfo
+
+* [yellow-background]*TODO: migrate documentation*
+
+=== IPM.RuleOrganizer
+
+* [yellow-background]*TODO: migrate documentation*
+
+=== Non-transmittable properties for custom message classes (0x7c00 – 0x7fff)
+
+* [yellow-background]*TODO: migrate documentation*
+
+=== IPM.Configuration
+
+Found in:
+
+* IPM.Configuration.AvailabilityOptions
+* IPM.Configuration.Calendar
+* IPM.Configuration.CategoryList
+* IPM.Configuration.RssRule
+* IPM.Configuration.WorkHours
+
+* [yellow-background]*TODO: migrate documentation*
+
+=== Named properties (0x8000 – 0xfffe)
+
+* [yellow-background]*TODO: migrate documentation*
+
+=== Special error value (0xffff)
+
+* [yellow-background]*TODO: migrate documentation*
+
+=== Named properties in the name-to-id map
+
+* [yellow-background]*TODO: migrate documentation*
+
+=== Class identifiers
+
+* [yellow-background]*TODO: migrate documentation*
+
+=== Calendar property set (0x0000000 - 0x00000ff)
+
+* [yellow-background]*TODO: migrate documentation*
+
+=== Address property set (0x0008000 - 0x00080ff)
+
+* [yellow-background]*TODO: migrate documentation*
+
+=== Task property set (0x0008100 - 0x00081ff)
+
+* [yellow-background]*TODO: migrate documentation*
+
+=== Appointment property set (0x0008200 - 0x00082ff)
+
+* [yellow-background]*TODO: migrate documentation*
+
+=== Common property set (0x0008500 - 0x00085ff)
+
+* [yellow-background]*TODO: migrate documentation*
+
+=== Journal property set (0x0008700 - 0x00087ff)
+
+* [yellow-background]*TODO: migrate documentation*
+
+=== RSS feed property set (0x0008900 - 0x00089ff)
+
+* [yellow-background]*TODO: migrate documentation*
+
+=== Sharing property set (0x0008a00 - 0x0008aff)
+
+* [yellow-background]*TODO: migrate documentation*
+
+=== Sticky note property set (0x0008b00 - 0x0008bff)
+
+* [yellow-background]*TODO: migrate documentation*
+
+=== Public strings property set
+
+* [yellow-background]*TODO: migrate documentation*
+
+=== Internet headers property set
+
+* [yellow-background]*TODO: migrate documentation*
+
+=== Attachment property set
+
+* [yellow-background]*TODO: migrate documentation*
+
+=== Unified messaging property set
+
+* [yellow-background]*TODO: migrate documentation*
+
+=== Other property sets
+
+==== CLSID: 0006200b-0000-0000-c000-000000000046
+
+* [yellow-background]*TODO: migrate documentation*
+
+==== CLSID: 00062013-0000-0000-c000-000000000046
+
+* [yellow-background]*TODO: migrate documentation*
+
+==== CLSID: 00062014-0000-0000-c000-000000000046
+
+* [yellow-background]*TODO: migrate documentation*
+
+==== CLSID: 29f3ab56-554d-11d0-a97c-00a0c911f50a
+
+* [yellow-background]*TODO: migrate documentation*
+
+==== CLSID: 4e3a7680-b77a-11d0-9da5-00c04fd65685
+
+* [yellow-background]*TODO: migrate documentation*
+
+== MAPI definitions
+
+=== [[acknowledgment_mode_definitions]]Acknowledgment mode definitions
+
+The acknowledgment mode definitions are used by the following properties:
+
+* 0x0001 (PidTagAcknowledgementMode)
+
+[cols="1,1,5",options="header"]
+|===
+| Value | Identifier | Description
+| 0 | | Manual
+| 1 | | Automatic
+|===
+
+=== [[importance_definitions]]Importance definitions
+
+* [yellow-background]*TODO: migrate documentation*
+
+=== [[priority_definitions]]Priority definitions
+
+* [yellow-background]*TODO: migrate documentation*
+
+=== [[sensitivity_definitions]]Sensitivity definitions
+
+* [yellow-background]*TODO: migrate documentation*
+
+=== [[address_type_definitions]]Address type definitions
+
+* [yellow-background]*TODO: migrate documentation*
+
+=== [[recipient_type_definitions]]Recipient type definitions
+
+* [yellow-background]*TODO: migrate documentation*
+
+=== [[message_flag_definitions]]Message flag definitions
+
+* [yellow-background]*TODO: migrate documentation*
+
+=== [[message_submit_flag_definitions]]Message submit flag definitions
+
+* [yellow-background]*TODO: migrate documentation*
+
+=== [[message_status_flag_definitions]]Message status flag definitions
+
+* [yellow-background]*TODO: migrate documentation*
+
+=== [[access_flags_definitions]]Access flags definitions
+
+* [yellow-background]*TODO: migrate documentation*
+
+=== [[row_type_definitions]]Row type definitions
+
+* [yellow-background]*TODO: migrate documentation*
+
+=== [[client_access_level_flags_definitions]]Client access level flags definitions
+
+* [yellow-background]*TODO: migrate documentation*
+
+=== [[icon_index_definitions]]Icon index definitions
+
+* [yellow-background]*TODO: migrate documentation*
+
+=== [[verb_definitions]]Verb definitions
+
+* [yellow-background]*TODO: migrate documentation*
+
+=== [[flag_status_definitions]]Flag status definitions
+
+* [yellow-background]*TODO: migrate documentation*
+
+=== [[resource_flag_definitions]]Resource flag definitions
+
+* [yellow-background]*TODO: migrate documentation*
+
+=== [[message_store_characteristics_mask_definitions]]Message store characteristics mask definitions
+
+* [yellow-background]*TODO: migrate documentation*
+
+=== [[valid_folder_mask_definitions]]Valid folder mask definitions
+
+* [yellow-background]*TODO: migrate documentation*
+
+=== [[container_flag_definitions]]Container flag definitions
+
+* [yellow-background]*TODO: migrate documentation*
+
+=== [[folder_type_definitions]]Folder type definitions
+
+* [yellow-background]*TODO: migrate documentation*
+
+=== [[aging_granularity_definitions]]Aging granularity definitions
+
+* [yellow-background]*TODO: migrate documentation*
+
+=== [[attachment_method_definitions]]Attachment method definitions
+
+The attachment method definitions are used by the following properties:
+
+* 0x3705 (PidTagAttachMethod)
+
+[cols="1,1,5",options="header"]
+|===
+| Value | Identifier | Description
+| 0 | NO_ATTACHMENT | None (No attachment)
+| 1 | ATTACH_BY_VALUE | By value +
+The PR_ATTACH_DATA_BIN (PidTagAttachDataBinary) property contains the attachment data.
+| 2 | ATTACH_BY_REFERENCE | By reference +
+The PidTagAttachPathname (PR_ATTACH_PATHNAME) or PidTagAttachLongPathname  (PR_ATTACH_LONG_PATHNAME) property contains a fully-qualified path identifying the attachment to recipients with access to a common file server.
+| 3 | ATTACH_BY_REF_RESOLVE | By reference resolve +
+The PidTagAttachPathname (PR_ATTACH_PATHNAME) or PidTagAttachLongPathname  (PR_ATTACH_LONG_PATHNAME) property  contains a fully-qualified path identifying the attachment.
+| 4 | ATTACH_BY_REF_ONLY | By reference only +
+The PidTagAttachPathname (PR_ATTACH_PATHNAME) or PidTagAttachLongPathname  (PR_ATTACH_LONG_PATHNAME) property  contains a fully-qualified path identifying the attachment.
+| 5 | ATTACH_EMBEDDED_MSG | Embedded message +
+The PidTagAttachDataObject (PR_ATTACH_DATA_OBJ) property contains an embedded object that supports the IMessage interface.
+| 6 | ATTACH_OLE | OLE +
+The attachment is an embedded OLE object. +
+When the OLE object is in OLE 2.0 IStorage format, the data is accessible through PidTagAttachDataObject (PR_ATTACH_DATA_OBJ). When the OLE object is in OLE 1.0 OLESTREAM format, the data is accessible through PR_ATTACH_DATA_BIN as an IStream. The type of the OLE encoding can be determined by the PidTagAttachTag (PR_ATTACH_TAG) value.
+|===
+
+=== [[attachment_flag_definitions]]Attachment flag definitions
+
+* [yellow-background]*TODO: migrate documentation*
+
+=== [[icon_display_type_definitions]]Icon display type definitions
+
+* [yellow-background]*TODO: migrate documentation*
+
+=== [[extended_icon_display_type_definitions]]Extended icon display type definitions
+
+* [yellow-background]*TODO: migrate documentation*
+
+=== [[gender_definitions]]Gender definitions
+
+* [yellow-background]*TODO: migrate documentation*
+
+=== [[encoding_preference_flag_definitions]]Encoding preference flag definitions
+
+* [yellow-background]*TODO: migrate documentation*
+
+=== [[codepage_definitions]]Codepage definitions
+
+* [yellow-background]*TODO: migrate documentation*
+
+=== [[conflict_resolution_method_definitions]]Conflict resolution method definitions
+
+* [yellow-background]*TODO: migrate documentation*
+
+=== [[message_editor_format_definitions]]Message editor format definitions
+
+* [yellow-background]*TODO: migrate documentation*
+
+=== [[rpc_over_http_flag_definitions]]RPC over HTTP flag definitions
+
+* [yellow-background]*TODO: migrate documentation*
+
+=== [[rpc_over_http_authentication_scheme_definitions]]RPC over HTTP authentication scheme definitions
+
+* [yellow-background]*TODO: migrate documentation*
 
 * [yellow-background]*TODO: migrate rest of documentation*
 
+== MAPI data
+
+=== [[message_body]] The message body
+
+Both the plain text message body (PidTagBody) and the HTML message body
+(PidTagBodyHtml) are stored using a codepage. The codepage (character set) used
+can determined as following:
+
+1. use the PidTagInternetCodepage if available
+2. else use the PidTagMessageCodepage if available
+3. else use the system codepage.
+
+Note that some items do contain both a PidTagInternetCodepage and
+PidTagMessageCodepage, but the PidTagMessageCodepage is used to code the plain
+text message body (PidTagBody).
+
+== Item classes
+
+* [yellow-background]*TODO: migrate documentation*
+
+=== [[object_type]]Object type
+
+* [yellow-background]*TODO: migrate documentation*
+
+=== [[container_class_definitions]]Container class definitions
+
+* [yellow-background]*TODO: migrate documentation*
+
+=== [[message_class_definitions]]Message class definitions
+
+* [yellow-background]*TODO: migrate documentation*
+
+== Other item classes
+
+=== Name to identifier map
+
+[cols="1,1,1,5",options="header"]
+|===
+| Item | Value | Identifier | Description
+| 0x0001 | 0x0003 (Integer 32-bit signed) | PidTagNameidBucketCount | Name-to-ID Map Number of Validation Entries +
+[yellow-background]*(Hash bucket count)*
+| 0x0002 | 0x0102 (Binary data) | PidTagNameidStreamGuid | Name-to-ID map Class Identifiers +
+Contains the name-to-id map table class identifiers
+| 0x0003 | 0x0102 (Binary data) | PidTagNameidStreamEntry | Name-to-ID map Entries +
+Contains the name-to-id map table entries
+| 0x0004 | 0x0102 (Binary data) | PidTagNameidStreamString | Name-to-ID map Strings +
+Contains the name-to-id map table strings
+| 0x1000 - 0xfffe | 0x0102 (Binary data) | PidTagNameidBucketBase | Name-to-ID Map Validation Entries +
+[yellow-background]*(Hash buckets)* +
+According to `[MS-PST]` a hash bucket can hold up to 8 validation entries
+|===
+
 == [[error_values]]Error values (SCODE)
+
+Error values are stored in a SCODE structure. The SCODE structure is also known
+as HRESULT.
+
+The SCODE structure consist of:
+
+[cols="1,1,1,5",options="header"]
+|===
+| Offset | Size | Value | Description
+| 0 (LSB) | 16 bits | | The error or warning code
+| 2 | 11 bits | | Error facility
+| 3.3 | 1 bit | | r-bit (Reserved)
+| 3.4 | 1 bit | | N-bit (Reserved)
+| 3.5 | 1 bit | | C-bit (Reserved)
+| 3.6 | 1 bit | | R-bit (Reserved)
+| 3.7 | 1 bit | | S-bit (success-bit) +
+0 indicates success and 1 failure.
+|===
+
+=== Error facility definitions
+
+The SCODE specifies error and warning values for different facilities:
+
+[cols="1,1,5",options="header"]
+|===
+| Value | Identifier | Description
+| 0x000 | FACILITY_NULL | Used for broadly applicable common status codes such as S_OK or E_OUTOF_MEMORY.
+| 0x001 | FACILITY_RPC | For status codes returned from remote procedure calls.
+| 0x002 | FACILITY_DISPATCH | For late binding IDispatch interface errors.
+| 0x003 | FACILITY_STORAGE | For status codes returned from IStorage or IStream method calls relating to structured storage. Status codes with code (lower 16 bits) values in the range of Windows error codes (that is, less than 256) have the same meaning as the corresponding Windows errors.
+| 0x004 | FACILITY_ITF | For most status codes returned from interface methods; the value is defined by the interface. That is, two HRESULT values with exactly the same 32-bit value returned from two different interfaces might have different meanings.
+3+|
+| 0x008 | FACILITY_WINDOWS | 
+3+|
+| 0x010 | FACILITY_SCARD | 
+| 0x011 | FACILITY_COMPLUS | 
+3+|
+| 0x019 | FACILITY_HTTP | 
+| 0x020 | FACILITY_BACKGROUNDCOPY | 
+3+|
+| 0x026 | FACILITY_GRAPHICS | 
+| 0x027 | FACILITY_NAP FACILITY_SHELL | 
+| 0x028 | FACILITY_INK | 
+3+|
+| 0x030 | FACILITY_PLA | 
+| 0x031 | FACILITY_FVE | 
+| 0x032 | FACILITY_FWP | 
+3+|
+| 0x034 | FACILITY_NDIS | 
+3+|
+| 0x7ff | FACILITY_BACKUP | 
+| 0x800 | FACILITY_NTDSB | 
+|===
+
+=== Error values
+
+* [yellow-background]*TODO: complete documentation*
+
+== Notes
+
+* [yellow-background]*TODO: migrate rest of documentation*
 
 :numbered!:
 [appendix]
 == References
 
-`[REFERENCE]`
+`[SMITH02]`
 
 [cols="1,5",options="header"]
 |===
-| Title: |
-| Author(s): |
-| Date: |
-| URL: |
+| Title: | outlook.pst -- format of MS Outlook .pst file
+| Author(s): | David Smith, Joe Nahmias, Brad Hards, Carl Byington
+| URL: | https://www.five-ten-sg.com/libpst/rn01re05.html
+|===
+
+`[RUSSON]`
+
+[cols="1,5",options="header"]
+|===
+| Title: | NTFS Documentation
+| Author(s): | Richard Russon, Yuval Flede
+| URL: | https://dubeyko.com/development/FileSystems/NTFS/ntfsdoc.pdf
+|===
+
+`[MSDN]`
+
+[cols="1,5",options="header"]
+|===
+| Title: | Microsoft Developer Network
+| URL: | http://msdn.microsoft.com/
+|===
+
+`[MS-OXCFXICS]`
+
+[cols="1,5",options="header"]
+|===
+| Title: | `[MS-OXCFXICS]`: Bulk Data Transfer Protocol Specification
+| URL: | http://msdn.microsoft.com/
+|===
+
+`[MS-OXOAB]`
+
+[cols="1,5",options="header"]
+|===
+| Title: | `[MS-OXOAB]`: Offline Address Book (OAB) File Format and Schema
+| URL: | http://msdn.microsoft.com/
+|===
+
+`[MS-OXORULE]`
+
+[cols="1,5",options="header"]
+|===
+| Title: | `[MS-OXORULE]`: E-Mail Rules Protocol Specification
+| URL: | http://msdn.microsoft.com/
+|===
+
+`[MS-PST]`
+
+[cols="1,5",options="header"]
+|===
+| Title: | `[MS-PST]` Outlook Personal Folders File Format (.pst) structure specification
+| URL: | http://msdn.microsoft.com/
+|===
+
+`[NTLCID]`
+
+[cols="1,5",options="header"]
+|===
+| Tile: | Locale identifier (LCID) definitions
+| URL: | https://github.com/libyal/libfwnt/blob/main/documentation/Language%20Code%20identifiers.asciidoc
+|===
+
+`[NTSID]`
+
+[cols="1,5",options="header"]
+|===
+| Tile: | NT security descriptor definitions
+| URL: | https://github.com/libyal/libfwnt/blob/main/documentation/Security%20Descriptor.asciidoc
+|===
+
+`[OPENCHANGE]`
+
+[cols="1,5",options="header"]
+|===
+| Title: | Openchange MAPI library
+| URL: | http://www.openchange.org/index.php
 |===
 
 [appendix]
 == GNU Free Documentation License
+
 Version 1.3, 3 November 2008
 Copyright © 2000, 2001, 2002, 2007, 2008 Free Software Foundation, Inc.
 <http://fsf.org/>
@@ -242,6 +979,7 @@ Everyone is permitted to copy and distribute verbatim copies of this license
 document, but changing it is not allowed.
 
 === 0. PREAMBLE
+
 The purpose of this License is to make a manual, textbook, or other functional
 and useful document "free" in the sense of freedom: to assure everyone the
 effective freedom to copy and redistribute it, with or without modifying it,
@@ -262,6 +1000,7 @@ recommend this License principally for works whose purpose is instruction or
 reference.
 
 === 1. APPLICABILITY AND DEFINITIONS
+
 This License applies to any manual or other work, in any medium, that contains
 a notice placed by the copyright holder saying it can be distributed under the
 terms of this License. Such a notice grants a world-wide, royalty-free license,
@@ -340,6 +1079,7 @@ disclaiming warranties: any other implication that these Warranty Disclaimers
 may have is void and has no effect on the meaning of this License.
 
 === 2. VERBATIM COPYING
+
 You may copy and distribute the Document in any medium, either commercially or
 noncommercially, provided that this License, the copyright notices, and the
 license notice saying this License applies to the Document are reproduced in
@@ -353,6 +1093,7 @@ You may also lend copies, under the same conditions stated above, and you may
 publicly display copies.
 
 === 3. COPYING IN QUANTITY
+
 If you publish printed copies (or copies in media that commonly have printed
 covers) of the Document, numbering more than 100, and the Document's license
 notice requires Cover Texts, you must enclose the copies in covers that carry,
@@ -386,6 +1127,7 @@ well before redistributing any large number of copies, to give them a chance to
 provide you with an updated version of the Document.
 
 === 4. MODIFICATIONS
+
 You may copy and distribute a Modified Version of the Document under the
 conditions of sections 2 and 3 above, provided that you release the Modified
 Version under precisely this License, with the Modified Version filling the
@@ -478,6 +1220,7 @@ permission to use their names for publicity for or to assert or imply
 endorsement of any Modified Version.
 
 === 5. COMBINING DOCUMENTS
+
 You may combine the Document with other documents released under this License,
 under the terms defined in section 4 above for modified versions, provided that
 you include in the combination all of the Invariant Sections of all of the
@@ -499,6 +1242,7 @@ combine any sections Entitled "Acknowledgements", and any sections Entitled
 "Dedications". You must delete all sections Entitled "Endorsements".
 
 === 6. COLLECTIONS OF DOCUMENTS
+
 You may make a collection consisting of the Document and other documents
 released under this License, and replace the individual copies of this License
 in the various documents with a single copy that is included in the collection,
@@ -511,6 +1255,7 @@ into the extracted document, and follow this License in all other respects
 regarding verbatim copying of that document.
 
 === 7. AGGREGATION WITH INDEPENDENT WORKS
+
 A compilation of the Document or its derivatives with other separate and
 independent documents or works, in or on a volume of a storage or distribution
 medium, is called an "aggregate" if the copyright resulting from the
@@ -527,6 +1272,7 @@ in electronic form. Otherwise they must appear on printed covers that bracket
 the whole aggregate.
 
 === 8. TRANSLATION
+
 Translation is considered a kind of modification, so you may distribute
 translations of the Document under the terms of section 4. Replacing Invariant
 Sections with translations requires special permission from their copyright
@@ -544,6 +1290,7 @@ If a section in the Document is Entitled "Acknowledgements", "Dedications", or
 typically require changing the actual title.
 
 === 9. TERMINATION
+
 You may not copy, modify, sublicense, or distribute the Document except as
 expressly provided under this License. Any attempt otherwise to copy, modify,
 sublicense, or distribute it is void, and will automatically terminate your
@@ -567,6 +1314,7 @@ your rights have been terminated and not permanently reinstated, receipt of a
 copy of some or all of the same material does not give you any rights to use it.
 
 === 10. FUTURE REVISIONS OF THIS LICENSE
+
 The Free Software Foundation may publish new, revised versions of the GNU Free
 Documentation License from time to time. Such new versions will be similar in
 spirit to the present version, but may differ in detail to address new problems
@@ -584,6 +1332,7 @@ License can be used, that proxy's public statement of acceptance of a version
 permanently authorizes you to choose that version for the Document.
 
 === 11. RELICENSING
+
 "Massive Multiauthor Collaboration Site" (or "MMC Site") means any World Wide
 Web server that publishes copyrightable works and also provides prominent
 facilities for anybody to edit those works. A public wiki that anybody can edit
