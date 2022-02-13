@@ -785,19 +785,206 @@ text message body (PidTagBody).
 
 == Item classes
 
-* [yellow-background]*TODO: migrate documentation*
+The item classes are defined by the MAPI interface definitions:
+
+[cols="1,1,5",options="header"]
+|===
+| Item class | Corresponding MAPI interface | Parent MAPI interface
+| | IMAPIProp | (IUnknown)
+| Container | IMAPIContainer | IMAPIProp
+| Folder | IMAPIFolder | IMAPIContainer
+| Message | IMessage | IMAPIProp
+| Message store | IMsgStore | IMAPIProp
+| Address book folder | IABContainer | IMAPIContainer
+| Attachment | IAttach | IMAPIProp
+| Distribution list | IDistList | IMAPIContainer
+| Task | |
+| Appointment | |
+| Contact | |
+|===
+
+IUnknown is not a MAPI interface, but actually a COM interface that specifies
+the most basic of interfaces. IMAPIProp is the most basic MAPI interface.
 
 === [[object_type]]Object type
 
-* [yellow-background]*TODO: migrate documentation*
+MAPI items sometimes define 0x0ffe PidTagObjectType (PR_OBJECT_TYPE). This
+value contains the following values.
+
+[cols="1,1,5",options="header"]
+|===
+| Value | Identifier | Description
+| 0x00000001 | MAPI_STORE | Message store
+| 0x00000002 | MAPI_ADDRBOOK | Address book
+| 0x00000003 | MAPI_FOLDER | Folder
+| 0x00000004 | MAPI_ABCONT | Address book container
+| 0x00000005 | MAPI_MESSAGE | Message
+| 0x00000006 | MAPI_MAILUSER | (Individual) Recipient
+| 0x00000007 | MAPI_ATTACH | Attachment
+| 0x00000008 | MAPI_DISTLIST | Distribution list (recipient)
+| 0x00000009 | MAPI_PROFSECT | Profile section
+| 0x0000000a | MAPI_STATUS | Status object
+| 0x0000000b | MAPI_SESSION | Session
+| 0x0000000c | MAPI_FORMINFO | Form information
+|===
 
 === [[container_class_definitions]]Container class definitions
 
-* [yellow-background]*TODO: migrate documentation*
+The container classes are defined by PidTagContainerClass (PR_CONTAINER_CLASS).
+The following are known:
+
+[cols="1,5",options="header"]
+|===
+| Message type | Usage
+| IPF | (inter-personal folder)
+| IPF.Note | Folder containing e-mails
+| IPF.Appointment | Folder containing appointments
+| IPF.Contact | Folder containing contacts
+| IPF.Journal | Folder containing journal entries (activities)
+| IPF.StickyNote | Folder containing notes
+| IPF.Task | Folder containing tasks
+| Outlook.ItemProcessor |
+| IPF.Note.OutlookHomepage | (used by RSS Feeds folder)
+|===
 
 === [[message_class_definitions]]Message class definitions
 
-* [yellow-background]*TODO: migrate documentation*
+Message classes are defined by PidTagMessageClass (PR_MESSAGE_CLASS). The IPM
+prefix stands for inter-personal message and is used for most of the visible
+items used in Microsoft Outlook. The message class can have a prefix like REPORT
+and a suffix like NDR. The middle portion of the message class describes the
+item type.
+
+[cols="1,5",options="header"]
+|===
+| Item type | Usage
+| IPM | Common (inter-personal message) +
+Items for which the specified form cannot be found
+| IPM.Activity | Journal entry
+| IPM.Appointment | Appointment
+| IPM.Configuration.* | [yellow-background]*Configuration*
+| IPM.Conflict.Message | Conflict message
+| IPM.Contact | Contact
+| IPM.DistList | Distribution list
+| IPM.Document.* | Document
+| IPM.OLE.Class | [yellow-background]*The exception item of a recurrence series*
+| IPM.OLE.CLASS.{00061055-0000-0000-C000-000000000046} | Recurring appointment
+| IPM.Note | E-mail message (note)
+| IPM.FAX +
+IPM.Note.Fax | Fax
+| IPM.Note.IMC.Notification | Reports from the Internet Mail Connect (the Exchange Server gateway to the Internet)
+| IPM.Note.Mobile.SMS | Mobile text message
+| IPM.Note.Mobile.MMS | Mobile multimedia message
+| IPM.Note.Rules.OofTemplate.Microsoft | Out-of-office template
+| IPM.Note.Secure | Encrypted notes to other people
+| IPM.Note.Secure.Sign | Digitally signed notes to other people
+| IPM.Note.SMIME | S/MIME e-mail
+| IPM.Note.SMIME.MultipartSigned | S/MIME e-mail
+| IPM.Note.Voicemail | Voicemail
+| IPM.Post | Posting note in a folder
+| IPM.Post.RSS | RSS feed
+| IPM.Report | Reporting item status
+| IPM.Sharing +
+IPM.Sharing.* | [yellow-background]*Sharing*
+| IPM.Schedule.Meeting.Request | Request for meeting
+| IPM.Schedule.Meeting.Resp.* | Response on request for meeting
+| IPM.Schedule.Meeting.Canceled | Meeting cancellation
+| IPM.Schedule.Meeting.Notification | Notification for meeting
+| IPM.StickyNote | Sticky note +
+[yellow-background]*MSDN: Creating note*
+| IPM.Task | Task
+| IPM.TaskRequest.* | Task request
+|===
+
+[cols="1,5",options="header"]
+|===
+| Prefix | Usage
+| REPORT | Report +
+According to the Exchange protocol documentation REPORT is only used with IPM.Note
+|===
+
+[cols="1,5",options="header"]
+|===
+| Suffix | Usage
+2+| REPORT.IPM.Note.*
+| REPORT.IPM.Note.DR | Delivery report +
+The e-mail was delivered
+| REPORT.IPM.Note.NDR | Nondelivery report +
+The e-mail could not be delivered
+| REPORT.IPM.Note.IPNRN | Read receipt +
+The recipient read the e-mail
+| REPORT.IPM.Note.IPNNRN | Non-read receipt +
+The recipient deleted the e-mail without reading
+2+| IPM.Schedule.Meeting.Resp.*
+| IPM.Schedule.Meeting.Resp.Neg | Responses to decline meeting requests
+| IPM.Schedule.Meeting.Resp.Pos | Responses to accept meeting requests
+| IPM.Schedule.Meeting.Resp.Tent | A new time for the meeting is proposed +
+[yellow-background]*MSDN: Responses to tentatively accept meeting requests*
+2+| REPORT.IPM.Schedule.Meeting.Resp.*
+| [yellow-background]*REPORT.IPM.Schedule.Meeting.Request.NDR* |
+2+| IPM.TaskRequest.*
+| IPM.TaskRequest.Accept | Responses to accept task requests
+| IPM.TaskRequest.Decline | Responses to decline task requests
+| IPM.TaskRequest.Update | Update for a task requested
+2+| IPM.Document.*
+| |
+|===
+
+==== Notes
+
+Other message classes:
+
+[cols="1,5",options="header"]
+|===
+| Item type | Usage
+| IPM.Microsoft.ScheduleData.FreeBusy | Free Busy Schedule Data
+| IPM.Microsoft.FolderDesign.NamedView |
+| IPM.Microsoft.WunderBar.Persistence |
+| IPM.Microsoft.WunderBar.SFInfo |
+| IPM.Microsoft.WunderBar.Link |
+| IPM.Microsoft.MigrationStatus |
+| |
+| IPC.MS.Outlook.AgingProperties |
+| |
+| IPC.MS.REN.USERFIELDS | Is used for message delivery/read notice?
+| |
+| IPM.ContactLinkingViews |
+| IPM.Contact.OlTrans | (some kind of contact class)
+| |
+| IPM.MessageManager |
+| |
+| IPM.Note.StorageQuotaWarning | Storage quota warning
+| |
+| IPM.Rule.Message |
+| IPM.RuleOrganizer | Outlook Rules Organizer
+| IPM.Schedule.Meeting | Meeting
+| IPM.ExtendedRule.Message |
+| |
+| IPM.Configuration.Calendar |
+| IPM.Configuration.AvailabilityOptions |
+| IPM.Configuration.WorkHours |
+| IPM.Configuration.RssRule |
+| IPM.Configuration.HomeTimeZone |
+| IPM.Configuration.CategoryList |
+| |
+| IPM.ContactLinkingViews |
+| IPM.Contact.OlTrans | Contact
+| |
+| IPM.Note.StorageQuotaWarning |
+| |
+| IPM.Microsoft.SniffData |
+|===
+....
+IPC
+REPORT.IPM
+
+MSDN:
+IPM.Recall.Report 	Message recall reports
+IPM.Outlook.Recall 	Recalling sent messages from recipient Inboxes
+IPM.Remote 	Remote Mail message headers
+IPM.Note.Rules.ReplyTemplate.Microsoft 	Editing rule reply templates
+IPM.Resend 	Resending a failed message
+....
 
 == Other item classes
 
@@ -852,26 +1039,26 @@ The SCODE specifies error and warning values for different facilities:
 | 0x003 | FACILITY_STORAGE | For status codes returned from IStorage or IStream method calls relating to structured storage. Status codes with code (lower 16 bits) values in the range of Windows error codes (that is, less than 256) have the same meaning as the corresponding Windows errors.
 | 0x004 | FACILITY_ITF | For most status codes returned from interface methods; the value is defined by the interface. That is, two HRESULT values with exactly the same 32-bit value returned from two different interfaces might have different meanings.
 3+|
-| 0x008 | FACILITY_WINDOWS | 
+| 0x008 | FACILITY_WINDOWS |
 3+|
-| 0x010 | FACILITY_SCARD | 
-| 0x011 | FACILITY_COMPLUS | 
+| 0x010 | FACILITY_SCARD |
+| 0x011 | FACILITY_COMPLUS |
 3+|
-| 0x019 | FACILITY_HTTP | 
-| 0x020 | FACILITY_BACKGROUNDCOPY | 
+| 0x019 | FACILITY_HTTP |
+| 0x020 | FACILITY_BACKGROUNDCOPY |
 3+|
-| 0x026 | FACILITY_GRAPHICS | 
-| 0x027 | FACILITY_NAP FACILITY_SHELL | 
-| 0x028 | FACILITY_INK | 
+| 0x026 | FACILITY_GRAPHICS |
+| 0x027 | FACILITY_NAP FACILITY_SHELL |
+| 0x028 | FACILITY_INK |
 3+|
-| 0x030 | FACILITY_PLA | 
-| 0x031 | FACILITY_FVE | 
-| 0x032 | FACILITY_FWP | 
+| 0x030 | FACILITY_PLA |
+| 0x031 | FACILITY_FVE |
+| 0x032 | FACILITY_FWP |
 3+|
-| 0x034 | FACILITY_NDIS | 
+| 0x034 | FACILITY_NDIS |
 3+|
-| 0x7ff | FACILITY_BACKUP | 
-| 0x800 | FACILITY_NTDSB | 
+| 0x7ff | FACILITY_BACKUP |
+| 0x800 | FACILITY_NTDSB |
 |===
 
 === Error values
@@ -880,7 +1067,343 @@ The SCODE specifies error and warning values for different facilities:
 
 == Notes
 
-* [yellow-background]*TODO: migrate rest of documentation*
+....
+Where is PidTagConversationTracking (Boolean) ?
+Where is PidTagConversationId (Binary Data) ?
+....
+
+=== Conversation identifier
+
+[cols="1,1,1,5",options="header"]
+|===
+| Offset | Size | Value | Description
+| 0 | 2 | | [yellow-background]*Unknown (i)*
+| 2 | 4 | | Buffer
+| 6 | 64 | | [yellow-background]*Unknown (in)* +
+GUID
+| 70 | 16 | | MD5 digest hash
+|===
+
+=== [[subject_control_codes]]Subject control codes
+
+The PidTagSubject sometimes contains 2 control code character values at the
+start of the string.
+
+....
+0x01 0x01
+0x01 0x04  IPM.Note, ?
+0x01 0x05 (RE:)
+0x01 0x06  IPM.Note, ?
+0x01 0x07  REPORT.IPM.Note.IPNRN, Read Receipt
+0x01 0x10  REPORT.IPM.Note.NDR, Undeliverable
+0x01 0x14  REPORT.IPM.Note.NDR, Undeliverable
+0x01 0x1a  IPM.Note.Rules.OofTemplate.Microsoft, Out of Office AutoReply
+....
+
+=== IExchangeModifyTable
+
+[cols="1,5",options="header"]
+|===
+| MAPI property | Usage
+| PR_RULE_ACTIONS | (Defined by MAPI)
+| PR_RULE_CONDITION | (Defined by MAPI)
+| PR_RULE_ID | (Defined by MAPI)
+| PR_RULE_LEVEL | (Defined by MAPI)
+| PR_RULE_NAME | (Defined by MAPI)
+| PR_RULE_PROVIDER | (Defined by MAPI)
+| PR_RULE_PROVIDER_DATA | (Defined by MAPI)
+| PR_RULE_SEQUENCE | (Defined by MAPI)
+| PR_RULE_STATE | (Defined by MAPI)
+| PR_RULE_USER_FLAGS | (Defined by MAPI)
+| PR_MEMBER_ENTRYID | (Defined by MAPI)
+| PR_MEMBER_ID | (Defined by MAPI)
+| PR_MEMBER_NAME | (Defined by MAPI)
+| PR_MEMBER_RIGHTS | (Defined by MAPI)
+|===
+
+=== IMailUser
+
+[cols="1,5",options="header"]
+|===
+| MAPI property | Usage
+| PR_ADDRTYPE | (Defined by MAPI)
+| PR_DISPLAY_NAME | (Defined by MAPI)
+| PR_DISPLAY_TYPE | (Defined by MAPI)
+| PR_EMAIL_ADDRESS | (Defined by MAPI)
+| PR_ENTRYID | (Defined by MAPI)
+| PR_OBJECT_TYPE | (Defined by MAPI)
+| PR_RECORD_KEY | (Defined by MAPI)
+| PR_SEARCH_KEY | (Defined by MAPI)
+| PR_ACCOUNT | (Defined by MAPI)
+| PR_ASSISTANT | (Defined by MAPI)
+| PR_BUSINESS_TELEPHONE_NUMBER | (Defined by MAPI)
+| PR_GIVEN_NAME | (Defined by MAPI)
+| PR_GOVERNMENT_ID_NUMBER | (Defined by MAPI)
+| PR_LOCALITY | (Defined by MAPI)
+| PR_POSTAL_ADDRESS | (Defined by MAPI)
+|===
+
+=== IMAPIStatus
+
+[cols="1,5",options="header"]
+|===
+| MAPI property | Usage
+| PR_DISPLAY_NAME | (Defined by MAPI)
+| PR_PROVIDER_DISPLAY | (Defined by MAPI)
+| PR_PROVIDER_DLL_NAME | (Defined by MAPI)
+| PR_RESOURCE_FLAGS | (Defined by MAPI)
+| PR_RESOURCE_METHODS | (Defined by MAPI)
+| PR_RESOURCE_TYPE | (Defined by MAPI)
+| PR_STATUS_CODE | (Defined by MAPI)
+|===
+
+==== IProfSect
+
+[cols="1,5",options="header"]
+|===
+| MAPI property | Usage
+| PR_OBJECT_TYPE | (Defined by MAPI)
+| PR_PROFILE_NAME | (Defined by MAPI)
+|===
+
+=== COM class identifiers
+
+[cols="1,5",options="header"]
+|===
+| Class identifier | Interface
+| 00000000-0000-0000-c000-000000000046 | IUnknown
+| 00020400-0000-0000-c000-000000000046 | IDispatch
+|===
+
+=== The free/busy entry identifiers structure
+
+The entry type should be of value type 0x0102 (Binary data)
+
+The free/busy entry identifiers structure is used by the following entry types:
+
+* 0x36e4 (PR_FREEBUSY_ENTRYIDS)
+
+[yellow-background]*Item type 0x36e4 with value type 0x0102*
+
+....
+00000000: 03 00 00 00 10 00 00 00   28 00 00 00 28 00 00 00
+Array of 3 values followed by a folder information reference ?
+00000010: 00 00 00 00 c5 38 9f 82   8f 0f db 48 94 2b 2a dc
+00000020: ea c3 d5 0b 28 00 10 00
+Refers to “IPM.Microsoft.ScheduleData.FreeBusy”
+....
+
+The value type should be 0x1102
+
+=== Recipient types
+
+....
+#define MAPI_P1     0x10000000  /* Recipient is a P1 resend recipient       */
+#define MAPI_SUBMITTED 0x80000000 /* Recipient is already processed         */
+/* #define MAPI_AUTHORIZE 4        recipient is a CMC authorizing user      */
+/*#define MAPI_DISCRETE 0x10000000 Recipient is a P1 resend recipient       */
+....
+
+=== PRQ_ID_SECURE4
+
+....
+0x0000004400000000 => SPAM Search Folder 2
+
+0x0100000000000000 => IPM_SUBTREE
+0x0200000000000000 => NON_IPM_SUBTREE
+0x0300000000000000 => EFORMS REGISTRY
+0x0400000000000000 => Organization Forms
+0x0500000000000000 => Private root folder
+0x0600000000000000 => Common Views
+0x0700000000000000 => Finder
+0x0800000000000000 => Shortcuts
+0x0900000000000000 => Views
+0x0a00000000000000 => IPM_SUBTREE
+0x0f00000000000000 => ~MAPISP(Internal)
+
+0x1000000000000000 => Drizzle
+0x1200000000000000 => Shared Data
+....
+
+=== Unknown long property identifier (libpst)?
+
+[cols="1,1,1,5",options="header"]
+|===
+| Item type | Value type | Identifier | Description
+| 0xffffffff | 0x101e +
+0x101f | | [yellow-background]*Unknown* +
+Array of ASCII or Unicode string value
+|===
+
+=== FILETIME precision
+
+An estimation of the significance of the bits in the FILETIME (PT_SYSTIME) structure.
+
+[cols="1,5",options="header"]
+|===
+| Bits | Usage
+2+| Lower 32-bit
+| 0 – 24 | Mainly significant for the 100ns intervals
+| 25 – 29 | Mainly significant for the seconds
+| 30 – 31 | Mainly significant for the minutes
+2+| Upper 32-bit
+| 32 – 35 | Mainly significant for the minutes
+| 36 – 40 | Mainly significant for the hours
+| 41 – 63 | Mainly significant for the days
+|===
+
+=== PR_ATTACH_VIRUS_SCAN_INFO
+
+Found in EDB does not change often
+
+....
+03 00 43 41 49 5f 56 00  00 00 00 68 69 80 00 00
+00 00 00
+....
+
+=== PR_INTERNET_MESSAGE_INFO
+
+Found in EDB does not change often
+
+....
+49 4e 46 4f 0a 00 00 00  04 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00  00 00 00 00
+....
+
+=== PR_INTERNET_PARSE_STATE
+
+Found in EDB, start of data changes
+
+....
+01 00 f2 bd 00 00 00 00  94 00 00 00 f2 bd 00 00
+01 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00  94 00 00 00 94 00 00 00
+00 00 00 00 00 00 00 00  01 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00
+....
+
+=== PR_INTERNET_CONTENT
+
+Found in EDB,
+
+....
+D0 01 00 00 00 00 00 00  01 00 00 00 00 00 00 00
+01 00 00 00 00 00 00 00  00 10 00 00 00 00 00 00
+00 20 00 00 00 00 00 00  00 00 00 00 00 00 00 00
+....
+
+=== 0x67b2 0x0102
+
+....
+03 00 79 0e (0x0e79 0x0003) PR_TRUST_SENDER
+03 00 a1 66
+03 00 f1 3f
+02 01 20 67
+03 01 59 66
+02 01 c6 66
+03 00 fd 3f
+03 00 de 3f
+02 01 c7 66
+0b 00 5a 66
+b0 84 55 80
+b0 84 42 80
+0b 00 47 80
+b0 84 41 80
+0b 00 46 80
+0b 00 48 80
+0b 00 49 80
+0b 00 4a 80
+0b 00 4c 80
+48 10 1d 82
+0b 00 1f 0e
+40 00 39 00
+....
+
+=== 0x677f 0x0102
+
+MAPI identifiers
+
+....
+14 00 48 67
+14 00 88 3f
+02 01 b0 67
+40 00 8f 66
+03 00 43 67 40 00 39 00 14 00 a4 67 02 01 a5 67
+14 10 a6 67 02 01 e0 65 02 01 e2 65 02 01 e3 65
+02 00 a9 67 0b 00 ad 67 03 00 07 0e 0b 00 aa 67
+0b 00 1b 0e 03 00 17 0e 03 00 ab 67 40 00 06 0e
+b0 84 1a 00 b0 84 3d 00 b0 84 1d 0e 03 00 17 00
+0b 00 ae 67 0b 00 af 67 0b 00 57 00 0b 00 58 00
+0b 00 59 00 0b 00 ea 3f 40 00 48 00 02 01 47 00
+40 00 07 30 40 00 08 30 0b 00 01 0e fb 00 40 67
+02 01 45 67 14 00 4a 67 14 00 80 3f 02 01 c2 65
+02 01 f3 3f 02 01 f4 3f 02 01 d4 3f 03 00 23 0e
+b0 84 35 10 b0 84 39 10 02 01 68 40 02 01 69 40
+b0 84 36 10 02 01 12 10 14 00 4b 67 02 00 f2 65
+03 00 f3 65 03 00 e9 65 02 01 f0 65 03 00 f1 65
+0b 00 53 67 0b 00 08 67 03 00 00 66 03 00 01 66
+03 00 02 66 03 00 03 66 03 00 04 66 b0 84 f3 10
+03 00 10 67 b0 84 07 67 40 00 54 66 0b 00 f4 10
+0b 00 f5 10 0b 00 f6 10 40 00 09 67 48 10 0c 67
+03 00 61 0e 0b 00 62 0e 03 00 08 0e 02 01 b9 67
+02 01 ba 67 02 01 bd 67 02 01 be 67
+....
+
+=== PR_CONTENTS_SYNCHRONIZER
+
+Flags used by Exchange Incremental Change Synchronization Interface
+
+....
+#define SYNC_UNICODE                         0x01
+#define SYNC_NO_DELETIONS                    0x02
+#define SYNC_NO_SOFT_DELETIONS                   0x04
+#define SYNC_READ_STATE                      0x08
+#define SYNC_ASSOCIATED                      0x10
+#define SYNC_NORMAL                          0x20
+#define SYNC_NO_CONFLICTS                    0x40
+#define SYNC_ONLY_SPECIFIED_PROPS            0x80
+#define SYNC_NO_FOREIGN_KEYS                 0x100
+#define SYNC_LIMITED_IMESSAGE                0x200
+#define SYNC_CATCHUP                         0x400
+#define SYNC_NEW_MESSAGE                     0x800 // only applicable to ImportMessageChange()
+#define SYNC_MSG_SELECTIVE                   0x1000 // Used internally. Will reject if used by clients.
+#define SYNC_BEST_BODY                       0x2000
+#define SYNC_IGNORE_SPECIFIED_ON_ASSOCIATED  0x4000
+#define SYNC_PROGRESS_MODE                   0x8000 // AirMapi progress mode
+#define SYNC_FXRECOVERMODE                   0x10000
+#define SYNC_DEFER_CONFIG                    0x20000
+#define SYNC_FORCE_UNICODE                   0x40000 // Forces server to return Unicode properties
+....
+
+....
+#define CONVENIENT_DEPTH  ((ULONG) 0x00000001
+#define SHOW_SOFT_DELETES ((ULONG) 0x00000002)
+#define SHOW_SUBFOLDERS   ((ULONG 0x00000004)
+....
+
+=== PR_FOLDER_XVIEWINFO_E
+
+....
+00000000: 00 00 00 00 4c 02 e1 00  4d 00 65 00 73 00 73 00   ....L... M.e.s.s.
+00000010: 61 00 67 00 65 00 73 00  00 00                     a.g.e.s. ..
+....
+
+Contains a version number, some flags and a view name in Unicode, all of which
+are Outlook specific.
+
+[cols="1,1,1,5",options="header"]
+|===
+| Offset | Size | Value | Description
+| 0 | 4 | | Version?
+| 4 | 4 | | Flags?
+| 8 | ...  | | View name +
+Contains an UTF-16 little-endian string with an end-of-string character.
+|===
 
 :numbered!:
 [appendix]
