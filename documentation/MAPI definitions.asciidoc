@@ -354,7 +354,7 @@ Contains a value the message sender can use to match a report with the original 
 0x001f (Unicode string) | PidTagContentIdentifier +
 (PR_CONTENT_IDENTIFIER) | Content identifier +
 Contains a key value that enables the message recipient to identify its content.
-| 0x0009 | | 0x0003 (Integer 32-bit signed) | PidTagContentLength +
+| 0x0009 | 0x0003 (Integer 32-bit signed) | PidTagContentLength +
 (PR_CONTENT_LENGTH) | Content length +
 Contains the message size in bytes.
 | 0x000a | 0x000b (Boolean) | PidTagContentReturnRequested +
@@ -391,12 +391,12 @@ Contains a history showing how a distribution list has been expanded during mess
 (PR_EXPIRY_TIME) | Message expiry time +
 Contains the date and time when the messaging system can invalidate the content of a message.
 | 0x0016 | 0x000b (Boolean) | PidTagImplicitConversionProhibited +
-(PR_IMPLICIT_CONVERSION_PROHIBITED) Implicit message text conversions prohibited
+(PR_IMPLICIT_CONVERSION_PROHIBITED) | Implicit message text conversions prohibited
 | 0x0017 | 0x0003 (Integer 32-bit signed) | PidTagImportance +
 (PR_IMPORTANCE) | Importance +
 Contains a value that indicates the message sender's opinion of the importance of a message. +
 See section: <<importance_definitions,Importance definitions>>
-| 0x0018 | | 0x0102 (Binary data) | PR_IPM_ID | Interpersonal message X400 identifier +
+| 0x0018 | 0x0102 (Binary data) | PR_IPM_ID | Interpersonal message X400 identifier +
 [yellow-background]*(No longer supported as of ...)*
 | 0x0019 | 0x0040 (Filetime) | PidTagLatestDeliveryTime +
 (PR_LATEST_DELIVERY_TIME) | Latest message delivery time +
@@ -412,6 +412,48 @@ See section: <<message_class_definitions,Message class definitions>>
 | 0x001b | 0x0102 (Binary data) | PidTagMessageDeliveryId +
 (PR_MESSAGE_DELIVERY_ID) | Message delivery identifier
 4+|
+| 0x001e | 0x0102 (Binary data) | PidTagMessageSecurityLabel +
+(PR_MESSAGE_SECURITY_LABEL) | Message security label
+| 0x001f | 0x0102 (Binary data) | PidTagObsoletedMessageIds +
+(PR_OBSOLETED_IPMS) | Obsolete message identifiers +
+Contains the identifiers of messages that this message supersedes. +
+[yellow-background]*Search key format*
+| 0x0020 | 0x0102 (Binary data) | PidTagOriginallyIntendedRecipientName +
+(PR_ORIGINALLY_INTENDED_RECIPIENT_NAME) | Originally intended recipient name +
+Contains the encoded name of the originally intended recipient of an autoforwarded message.
+| 0x0021 | 0x0102 (Binary data) | PidTagOriginalEits +
+(PR_ORIGINAL_EITS) | Message text original encoded information types (EITS)
+| 0x0022 | 0x0102 (Binary data) | PidTagOriginatorCertificate +
+(PR_ORIGINATOR_CERTIFICATE) | Originator certificate +
+Contains an ASN.1 authentication certificate
+| 0x0023 | 0x000b (Boolean) | PidTagOriginatorDeliveryReportRequested +
+(PR_ORIGINATOR_DELIVERY_REPORT_REQUESTED) | Originator delivery report requested +
+Contains TRUE if a message sender requests a delivery report for a particular recipient from the messaging system before the message is placed in the message store.
+| | 0x0102 (Binary data) | | [yellow-background]*Unknown*
+| 0x0024 | 0x0102 (Binary data) | PidTagOriginatorReturnAddress +
+(PR_ORIGINATOR_RETURN_ADDRESS) | Originator return address +
+Contains the binary-encoded return address of the message originator.
+| 0x0025 | 0x0102 (Binary data) | PidTagParentKey +
+(PR_PARENT_KEY) | Parent key +
+Contains the search key that is used to correlate the original message and the reports about the original message. +
+[yellow-background]*Contains a GUID*
+| 0x0026 | 0x0003 (Integer 32-bit signed) | PidTagPriority +
+(PR_PRIORITY) | Priority +
+See section: <<priority_definitions,Priority definitions>>
+| 0x0027 | 0x0102 (Binary data) | PidTagOriginCheck +
+(PR_ORIGIN_CHECK) | Origin verification value +
+Contains a binary verification value that enables a delivery report recipient to verify the origin of the original message.
+| 0x0028 | 0x000b (Boolean) | PidTagProofOfSubmissionRequested +
+(PR_PROOF_OF_SUBMISSION_REQUESTED) | ASN.1 proof of submission requested
+| 0x0029 | 0x000b (Boolean) | PidTagReadReceiptRequested +
+(PR_READ_RECEIPT_REQUESTED) | Read receipt requested +
+Contains TRUE if a message sender wants the messaging system to generate a read report when the recipient has read a message.
+| 0x002a | 0x0040 (Filetime) | PidTagReceiptTime +
+(PR_RECEIPT_TIME) | Receipt time +
+Contains the date and time a delivery report is generated.
+| 0x002b | 0x000b (Boolean) | PidTagRecipientReassignmentProhibited +
+(PR_RECIPIENT_REASSIGNMENT_PROHIBITED) | Recipient reassignment prohibited +
+Specifies whether adding additional recipients, when forwarding the message, is prohibited for the e-mail message.
 |===
 
 * [yellow-background]*TODO: migrate documentation*
@@ -622,51 +664,306 @@ The acknowledgment mode definitions are used by the following properties:
 
 === [[importance_definitions]]Importance definitions
 
-* [yellow-background]*TODO: migrate documentation*
+The importance definitions are used by the following properties:
+
+* 0x0017 (PidTagImportance)
+
+[cols="1,1,5",options="header"]
+|===
+| Value | Identifier | Description
+| 0 | IMPORTANCE_LOW | Low
+| 1 | IMPORTANCE_NORMAL | Normal
+| 2 | IMPORTANCE_HIGH | High
+|===
 
 === [[priority_definitions]]Priority definitions
 
-* [yellow-background]*TODO: migrate documentation*
+The priority definitions are used by the following properties:
+
+* 0x0026 (PidTagPriority)
+
+[cols="1,1,5",options="header"]
+|===
+| Value | Identifier | Description
+| -1 | PRIO_NONURGENT | Non urgent
+| 0 | PRIO_NORMAL | Normal
+| 1 | PRIO_URGENT | Urgent
+|===
 
 === [[sensitivity_definitions]]Sensitivity definitions
 
-* [yellow-background]*TODO: migrate documentation*
+The sensitivitiy definitions are used by the following properties:
+
+* 0x002e (PidTagOriginalSensitivity)
+* 0x0036 (PidTagSensitivity)
+
+[cols="1,1,5",options="header"]
+|===
+| Value | Identifier | Description
+| 0 | SENSITIVITY_NONE | None
+| 1 | SENSITIVITY_PERSONAL | Personal
+| 2 | SENSITIVITY_PRIVATE | Private
+| 3 | SENSITIVITY_COMPANY_CONFIDENTIAL | Company Confidential
+|===
 
 === [[address_type_definitions]]Address type definitions
 
-* [yellow-background]*TODO: migrate documentation*
+The address type definitions are used by the following properties:
+
+* 0x0064 (PidTagSentRepresentingAddressType)
+* 0x0066 (PidTagOriginalSenderAddressType)
+* 0x0068 (PidTagOriginalSentRepresentingAddressType)
+* 0x0075 (PidTagReceivedByAddressType)
+* 0x0077 (PidTagReceivedRepresentingAddressType)
+* 0x0079 (PidTagOriginalAuthorAddressType)
+* 0x007b (PidTagOriginallyIntendedRecipAddrtype)
+* 0x0c1e (PidTagSenderAddressType)
+* 0x3002 (PidTagAddressType)
+
+[cols="1,1,5",options="header"]
+|===
+| Value | Identifier | Description
+| "EX" | ExChange address
+| "FAX" | [yellow-background]*FAX number*
+| "MHS" | [yellow-background]*X.400 Message Handling Service address*
+| "PROFS" | 
+| "SMTP" | Simple Mail Transfer Protocol address
+| "UNKNOWN" | 
+| "X400" | X.400 address
+|===
+
+The value string should contain only the uppercase alphabetic characters from
+A through Z and the numbers from 0 through 9.
 
 === [[recipient_type_definitions]]Recipient type definitions
 
-* [yellow-background]*TODO: migrate documentation*
+The recipient type definitions are used by the following properties:
+
+* 0x0c15 (PidTagRecipientType)
+
+[cols="1,1,5",options="header"]
+|===
+| Value | Identifier | Description
+| 0 | MAPI_ORIG | Originator +
+The originator.
+| 1 | MAPI_TO | To +
+The recipient is a primary (To) recipient.
+| 2 | MAPI_CC | CC +
+The recipient is a carbon copy (CC) recipient, a recipient that receives a message in addition to the primary recipients.
+| 3 | MAPI_BCC | BCC +
+The recipient is a blind carbon copy (BCC) recipient. Primary and carbon copy recipients are unaware of the existence of BCC recipients.
+3+| _Special purpose flags_
+| 0x10000000 | MAPI_P1 | Resend +
+The recipient did not successfully receive the message on the previous attempt.
+| 0x80000000 | MAPI_SUBMITTED | Already processed +
+The recipient has already received the message and does not need to receive it again.
+|===
 
 === [[message_flag_definitions]]Message flag definitions
 
-* [yellow-background]*TODO: migrate documentation*
+The message flag definitions are used by the following properties:
+
+* 0x0e07 (PidTagMessageFlags)
+
+[cols="1,1,5",options="header"]
+|===
+| Value | Identifier | Description
+| 0x0001 | MSGFLAG_READ | Read +
+The message is marked as having been read.
+| 0x0002 | MSGFLAG_UNMODIFIED | Unmodified +
+The outgoing message has not been modified since the first time that it was saved; the incoming message has not been modified since it was delivered.
+| 0x0004 | MSGFLAG_SUBMIT | Submit +
+The message is marked for sending.
+| 0x0008 | MSGFLAG_UNSENT | Unsent +
+The message is still being composed.
+| 0x0010 | MSGFLAG_HASATTACH | Has attachment(s) +
+The message has at least one attachment.
+| 0x0020 | MSGFLAG_FROMME | From Me +
+The messaging user sending was the messaging user receiving the message.
+| 0x0040 | MSGFLAG_ASSOCIATED | Associated +
+The message is an associated message of a folder.
+| 0x0080 | MSGFLAG_RESEND | Resend +
+The message includes a request for a resend operation with a nondelivery report.
+| 0x0100 | MSGFLAG_RN_PENDING | Read notification pending +
+A read report needs to be sent for the message.
+| 0x0200 | MSGFLAG_NRN_PENDING | Non-Read notification pending +
+A nonread report needs to be sent for the message.
+| | | 
+| 0x1000 | MSGFLAG_ORIGIN_X400 | Origin X.400 +
+The incoming message arrived over an X.400 link.
+| 0x2000 | MSGFLAG_ORIGIN_INTERNET | Origin Internet +
+The incoming message arrived over the Internet.
+| | | 
+| 0x8000 | MSGFLAG_ORIGIN_MISC_EXT | Origin external +
+The incoming message arrived over an external link other than X.400 or the Internet.
+|===
 
 === [[message_submit_flag_definitions]]Message submit flag definitions
 
-* [yellow-background]*TODO: migrate documentation*
+The message submit flag definitions are used by the following properties:
+
+* 0x0e14 (PidTagSubmitFlags)
+
+[cols="1,1,5",options="header"]
+|===
+| Value | Identifier | Description
+| 0x00000001 | SUBMITFLAG_LOCKED | The MAPI spooler currently has the message locked.
+| 0x00000002 | SUBMITFLAG_PREPROCESS | The message needs preprocessing.
+|===
 
 === [[message_status_flag_definitions]]Message status flag definitions
 
-* [yellow-background]*TODO: migrate documentation*
+The message status flag definitions are used by the following properties:
+
+* 0x0e17 (PidTagMessageStatus)
+
+[cols="1,1,5",options="header"]
+|===
+| Value | Identifier | Description
+| 0x00000001 | MSGSTATUS_HIGHLIGHTED | The message is to be highlighted in recipients' folder displays.
+| 0x00000002 | MSGSTATUS_TAGGED | The message has been tagged for a client-defined purpose.
+| 0x00000004 | MSGSTATUS_HIDDEN | The message is to be suppressed from recipients' folder displays.
+| 0x00000008 | MSGSTATUS_DELMARKED | The message has been marked for subsequent deletion.
+| | | 
+| 0x00000100 | MSGSTATUS_DRAFT | The message is in draft revision status.
+| 0x00000200 | MSGSTATUS_ANSWERED | The message has been replied to.
+| | | 
+| 0x00001000 | MSGSTATUS_REMOTE_DOWNLOAD | The message has been marked for downloading from the remote message store to the local client.
+| 0x00002000 | MSGSTATUS_REMOTE_DELETE | The message has been marked for deletion at the remote message store without downloading to the local client.
+|===
 
 === [[access_flags_definitions]]Access flags definitions
 
-* [yellow-background]*TODO: migrate documentation*
+The access flags definitions are used by the following properties:
+
+* 0x0ff4 (PidTagAccess)
+
+[cols="1,1,5",options="header"]
+|===
+| Value | Identifier | Description
+| 0x00000001 | MAPI_ACCESS_MODIFY | Write access
+| 0x00000002 | MAPI_ACCESS_READ | Read access
+| 0x00000004 | MAPI_ACCESS_DELETE | Deletion permission
+| 0x00000008 | MAPI_ACCESS_CREATE_HIERARCHY | Permission to create sub folders in the folder hierarchy
+| 0x00000010 | MAPI_ACCESS_CREATE_CONTENTS | Permission to create content messages
+| 0x00000020 | MAPI_ACCESS_CREATE_ASSOCIATED | Permission to create associated content messages
+|===
 
 === [[row_type_definitions]]Row type definitions
 
-* [yellow-background]*TODO: migrate documentation*
+The row type definitions are used by the following properties:
+
+* 0x0ff5 (PidTagRowType)
+
+[cols="1,1,5",options="header"]
+|===
+| Value | Identifier | Description
+| 0x00000001 | TBL_LEAF_ROW | Data row
+| 0x00000002 | TBL_EMPTY_CATEGORY | Header row with empty category
+| 0x00000004 | TBL_EXPANDED_CATEGORY | Expanded header row
+| 0x00000008 | TBL_COLLAPSED_CATEGORY | Collapsed header row
+|===
 
 === [[client_access_level_flags_definitions]]Client access level flags definitions
 
-* [yellow-background]*TODO: migrate documentation*
+The client access level flags definitions are used by the following properties:
+
+* 0x0ff7 (PidTagAccessLevel)
+
+[cols="1,1,5",options="header"]
+|===
+| Value | Identifier | Description
+| 0x00000000 | | Read-only
+| 0x00000001 | | Modify
+|===
 
 === [[icon_index_definitions]]Icon index definitions
 
-* [yellow-background]*TODO: migrate documentation*
+The icon index definitions are used by the following properties:
+
+* 0x1080 (PidTagIconIndex)
+
+[cols="1,5",options="header"]
+|===
+| Value | Description
+| 0x00000001 | Post
+| | 
+| 0x00000003 | Other
+| | 
+| 0x00000100 | Read mail
+| 0x00000101 | Unread mail
+| 0x00000102 | Submitted mail
+| 0x00000103 | Unsent mail
+| 0x00000104 | Receipt mail
+| 0x00000105 | Replied mail
+| 0x00000106 | Forwarded mail
+| 0x00000107 | Remote mail
+| 0x00000108 | Delivery mail
+| 0x00000109 | Read mail
+| 0x0000010a | Nondelivery mail
+| 0x0000010b | Nonread mail
+| 0x0000010c | Recall_S mail
+| 0x0000010d | Recall_F mail
+| 0x0000010e | Tracking mail
+| | 
+| 0x0000011b | Out of office mail
+| 0x0000011c | Recall mail
+| | 
+| 0x00000130 | Tracked mail
+| | 
+| 0x00000200 | Contact
+| | 
+| 0x00000202 | Distribution list
+| | 
+| 0x00000300 | Sticky note blue
+| 0x00000301 | Sticky note green
+| 0x00000302 | Sticky note pink
+| 0x00000303 | Sticky note yellow
+| 0x00000304 | Sticky note white
+| | 
+| 0x00000400 | Single instance appointment
+| 0x00000401 | Recurring appointment
+| 0x00000402 | Single instance meeting
+| 0x00000403 | Recurring meeting
+| 0x00000404 | Meeting request
+| 0x00000405 | Accept
+| 0x00000406 | Decline
+| 0x00000407 | Tentativly
+| 0x00000408 | Cancellation
+| 0x00000409 | Informational update
+| | 
+| 0x00000500 | Task/Task Update
+| 0x00000501 | Unassigned recurring task
+| 0x00000502 | Assignee's task
+| 0x00000503 | Assigner's task
+| 0x00000504 | Task request
+| 0x00000505 | Task acceptance
+| 0x00000506 | Task rejection
+| | 
+| 0x00000601 | Journal conversation
+| 0x00000602 | Journal e-mail message
+| 0x00000603 | Journal meeting request
+| 0x00000604 | Journal meeting response
+| | 
+| 0x00000606 | Journal task request
+| 0x00000607 | Journal task response
+| 0x00000608 | Journal note
+| 0x00000609 | Journal fax
+| 0x0000060a | Journal phone call
+| | 
+| 0x0000060c | Journal letter
+| 0x0000060d | Journal Microsoft Office Word
+| 0x0000060e | Journal Microsoft Office Excel
+| 0x0000060f | Journal Microsoft Office PowerPoint
+| 0x00000610 | Journal Microsoft Office Access
+| | 
+| 0x00000612 | Journal document
+| 0x00000613 | Journal meeting
+| 0x00000614 | Journal meeting cancellation
+| 0x00000615 | Journal remote session
+| | 
+| 0xffffffff | New mail
+|===
 
 === [[verb_definitions]]Verb definitions
 
@@ -1190,7 +1487,7 @@ The free/busy entry identifiers structure is used by the following entry types:
 Array of 3 values followed by a folder information reference ?
 00000010: 00 00 00 00 c5 38 9f 82   8f 0f db 48 94 2b 2a dc
 00000020: ea c3 d5 0b 28 00 10 00
-Refers to “IPM.Microsoft.ScheduleData.FreeBusy”
+Refers to "IPM.Microsoft.ScheduleData.FreeBusy"
 ....
 
 The value type should be 0x1102
