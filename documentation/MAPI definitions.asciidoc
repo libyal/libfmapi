@@ -726,9 +726,9 @@ The address type definitions are used by the following properties:
 | "EX" | ExChange address
 | "FAX" | [yellow-background]*FAX number*
 | "MHS" | [yellow-background]*X.400 Message Handling Service address*
-| "PROFS" | 
+| "PROFS" |
 | "SMTP" | Simple Mail Transfer Protocol address
-| "UNKNOWN" | 
+| "UNKNOWN" |
 | "X400" | X.400 address
 |===
 
@@ -788,12 +788,12 @@ The message includes a request for a resend operation with a nondelivery report.
 A read report needs to be sent for the message.
 | 0x0200 | MSGFLAG_NRN_PENDING | Non-Read notification pending +
 A nonread report needs to be sent for the message.
-| | | 
+| | |
 | 0x1000 | MSGFLAG_ORIGIN_X400 | Origin X.400 +
 The incoming message arrived over an X.400 link.
 | 0x2000 | MSGFLAG_ORIGIN_INTERNET | Origin Internet +
 The incoming message arrived over the Internet.
-| | | 
+| | |
 | 0x8000 | MSGFLAG_ORIGIN_MISC_EXT | Origin external +
 The incoming message arrived over an external link other than X.400 or the Internet.
 |===
@@ -824,10 +824,10 @@ The message status flag definitions are used by the following properties:
 | 0x00000002 | MSGSTATUS_TAGGED | The message has been tagged for a client-defined purpose.
 | 0x00000004 | MSGSTATUS_HIDDEN | The message is to be suppressed from recipients' folder displays.
 | 0x00000008 | MSGSTATUS_DELMARKED | The message has been marked for subsequent deletion.
-| | | 
+| | |
 | 0x00000100 | MSGSTATUS_DRAFT | The message is in draft revision status.
 | 0x00000200 | MSGSTATUS_ANSWERED | The message has been replied to.
-| | | 
+| | |
 | 0x00001000 | MSGSTATUS_REMOTE_DOWNLOAD | The message has been marked for downloading from the remote message store to the local client.
 | 0x00002000 | MSGSTATUS_REMOTE_DELETE | The message has been marked for deletion at the remote message store without downloading to the local client.
 |===
@@ -887,9 +887,9 @@ The icon index definitions are used by the following properties:
 |===
 | Value | Description
 | 0x00000001 | Post
-| | 
+| |
 | 0x00000003 | Other
-| | 
+| |
 | 0x00000100 | Read mail
 | 0x00000101 | Unread mail
 | 0x00000102 | Submitted mail
@@ -905,22 +905,22 @@ The icon index definitions are used by the following properties:
 | 0x0000010c | Recall_S mail
 | 0x0000010d | Recall_F mail
 | 0x0000010e | Tracking mail
-| | 
+| |
 | 0x0000011b | Out of office mail
 | 0x0000011c | Recall mail
-| | 
+| |
 | 0x00000130 | Tracked mail
-| | 
+| |
 | 0x00000200 | Contact
-| | 
+| |
 | 0x00000202 | Distribution list
-| | 
+| |
 | 0x00000300 | Sticky note blue
 | 0x00000301 | Sticky note green
 | 0x00000302 | Sticky note pink
 | 0x00000303 | Sticky note yellow
 | 0x00000304 | Sticky note white
-| | 
+| |
 | 0x00000400 | Single instance appointment
 | 0x00000401 | Recurring appointment
 | 0x00000402 | Single instance meeting
@@ -931,7 +931,7 @@ The icon index definitions are used by the following properties:
 | 0x00000407 | Tentativly
 | 0x00000408 | Cancellation
 | 0x00000409 | Informational update
-| | 
+| |
 | 0x00000500 | Task/Task Update
 | 0x00000501 | Unassigned recurring task
 | 0x00000502 | Assignee's task
@@ -939,63 +939,278 @@ The icon index definitions are used by the following properties:
 | 0x00000504 | Task request
 | 0x00000505 | Task acceptance
 | 0x00000506 | Task rejection
-| | 
+| |
 | 0x00000601 | Journal conversation
 | 0x00000602 | Journal e-mail message
 | 0x00000603 | Journal meeting request
 | 0x00000604 | Journal meeting response
-| | 
+| |
 | 0x00000606 | Journal task request
 | 0x00000607 | Journal task response
 | 0x00000608 | Journal note
 | 0x00000609 | Journal fax
 | 0x0000060a | Journal phone call
-| | 
+| |
 | 0x0000060c | Journal letter
 | 0x0000060d | Journal Microsoft Office Word
 | 0x0000060e | Journal Microsoft Office Excel
 | 0x0000060f | Journal Microsoft Office PowerPoint
 | 0x00000610 | Journal Microsoft Office Access
-| | 
+| |
 | 0x00000612 | Journal document
 | 0x00000613 | Journal meeting
 | 0x00000614 | Journal meeting cancellation
 | 0x00000615 | Journal remote session
-| | 
+| |
 | 0xffffffff | New mail
 |===
 
 === [[verb_definitions]]Verb definitions
 
-* [yellow-background]*TODO: migrate documentation*
+The verb definition are used by the following properties:
+
+* 0x1081 (PidTagLastVerbExecuted)
+
+Note that these values are not the same as the <<icon_index_definitions,Icon index definitions>>
+
+[cols="1,5",options="header"]
+|===
+| Value | Description
+| 0x00000001 | Post
+| |
+| 0x00000003 | Other
+| |
+| 0x00000100 | Read mail
+| 0x00000101 | Unread mail
+| 0x00000102 | Submitted mail
+| 0x00000103 | Unsent mail
+| 0x00000104 | Receipt mail
+| 0x00000105 | Replied mail
+| 0x00000106 | Forwarded mail
+| 0x00000107 | Remote mail
+| 0x00000108 | Delivery Receipt (Delivery mail)
+| 0x00000109 | Read Receipt (Read mail)
+| 0x0000010a | Nondelivery Receipt (Nondelivery mail)
+| 0x0000010b | Nonread Receipt (Nonread mail)
+| 0x0000010c | Recall_S mail
+| 0x0000010d | Recall_F mail
+| 0x0000010e | Tracking mail
+| |
+| 0x0000011b | Out of office mail
+| 0x0000011c | Recall mail
+| |
+| 0x00000139 | Tracked mail
+| |
+| 0x00000200 | Contact
+| 0x00000201 | Distribution list
+| |
+| 0x00000300 | Sticky note blue
+| 0x00000301 | Sticky note green
+| 0x00000302 | Sticky note pink
+| 0x00000303 | Sticky note yellow
+| 0x00000304 | Sticky note white
+| |
+| 0x00000400 | Single instance appointment
+| 0x00000401 | Recurring appointment
+| 0x00000402 | Single instance meeting
+| 0x00000403 | Recurring meeting
+| 0x00000404 | Meeting request / Full Update
+| 0x00000405 | Accept
+| 0x00000406 | Decline
+| 0x00000407 | Tentatively Accept
+| 0x00000408 | Cancellation
+| 0x00000409 | Informational update
+| |
+| 0x00000500 | Task/Task Update
+| 0x00000501 | Unassigned recurring task
+| 0x00000502 | Assignee's task
+| 0x00000503 | Assigner's task
+| 0x00000504 | Task request
+| 0x00000505 | Task acceptance
+| 0x00000506 | Task rejection
+| |
+| 0x00000601 | Journal conversation
+| 0x00000602 | Journal e-mail message
+| 0x00000603 | Journal meeting request
+| 0x00000604 | Journal meeting response
+| |
+| 0x00000606 | Journal task request
+| 0x00000607 | Journal task response
+| 0x00000608 | Journal note
+| 0x00000609 | Journal fax
+| 0x0000060a | Journal phone call
+| 0x0000060b | Journal Task
+| 0x0000060c | Journal letter
+| 0x0000060d | Journal Microsoft Office Word
+| 0x0000060e | Journal Microsoft Office Excel
+| 0x0000060f | Journal Microsoft Office PowerPoint
+| 0x00000610 | Journal Microsoft Office Access
+| |
+| 0x00000612 | Journal document
+| 0x00000613 | Journal meeting
+| 0x00000614 | Journal meeting cancellation
+| 0x00000615 | Journal remote session
+| |
+| 0xffffffff | New mail
+|===
 
 === [[flag_status_definitions]]Flag status definitions
 
-* [yellow-background]*TODO: migrate documentation*
+The resource flag definitions are used by the following properties:
+
+* 0x1090 (PidTagFlagStatus)
+
+[cols="1,1,5",options="header"]
+|===
+| Value | Identifier | Description
+| 0x00000000 | | Unflagged
+| 0x00000001 | followupComplete | Flagged complete
+| 0x00000002 | followupFlagged | Flagged
+|===
 
 === [[resource_flag_definitions]]Resource flag definitions
 
-* [yellow-background]*TODO: migrate documentation*
+The resource flag definitions are used by the following properties:
+
+* 0x3009 (PidTagResourceFlags)
+
+For a message service:
+
+[cols="1,1,5",options="header"]
+|===
+| Value | Identifier | Description
+| 0x00000001 | SERVICE_DEFAULT_STORE | The message service contains the default store.
+| 0x00000002 | SERVICE_SINGLE_COPY | Any attempt to create or copy this message service into a profile where the service already exists will fail.
+| 0x00000004 | SERVICE_CREATE_WITH_STORE | Reserved
+| 0x00000008 | SERVICE_PRIMARY_IDENTITY | The corresponding message service contains the provider used for the primary identity for this session.
+| | |
+| 0x00000020 | SERVICE_NO_PRIMARY_IDENTITY | Set to indicate that none of the providers in the message service can be used to supply an identity.
+|===
+
+For a service provider:
+
+[cols="1,1,5",options="header"]
+|===
+| Value | Identifier | Description
+| 0x00000001 | STATUS_DEFAULT_OUTBOUND | This identity should be applied to outbound messages if the profile contains multiple instances of this transport provider.
+| 0x00000002 | STATUS_DEFAULT_STORE | This message store is the default store for the profile.
+| 0x00000004 | STATUS_PRIMARY_IDENTITY | This provider furnishes the primary identity for the session.
+| 0x00000008 | STATUS_SIMPLE_STORE | This message store will be used by Simple MAPI as its default message store.
+| 0x00000010 | STATUS_XP_PREFER_LAST | This transport expects to be the last transport selected to send a message when multiple transport providers are able to transmit the message.
+| 0x00000020 | STATUS_NO_PRIMARY_IDENTITY | This provider does not furnish an identity in its status row.
+| 0x00000040 | STATUS_NO_DEFAULT_STORE | This message store is incapable of becoming the default message store for the profile.
+| 0x00000080 | STATUS_TEMP_SECTION | This message store should not be published in the message store table and will be deleted from the profile after logoff.
+| 0x00000100 | STATUS_OWN_STORE | This transport provider is tightly coupled with a message store and furnishes the PR_OWN_STORE_ENTRYID  (PidTagOwnStoreEntryId) property in its status row.
+| 0x00000200 | HOOK_INBOUND | The spooler hook needs to process inbound messages.
+| 0x00000400 | HOOK_OUTBOUND | The spooler hook needs to process outbound messages.
+| 0x00000800 | STATUS_NEED_IPM_TREE | The standard folders in this message store, including the interpersonal message (IPM) root folder, have not yet been verified.
+| 0x00001000 | STATUS_PRIMARY_STORE | This message store is to be used when a client application logs on.
+| 0x00002000 | STATUS_SECONDARY_STORE | This message store is to be used if the primary store is not available when a client application logs on.
+|===
 
 === [[message_store_characteristics_mask_definitions]]Message store characteristics mask definitions
 
-* [yellow-background]*TODO: migrate documentation*
+The message store characteristics maskdefinitions are used by the following properties:
+
+* 0x340d (PidTagStoreSupportMask)
+* 0x6611 (PidTagContactAddressBookStoreSupportMask)
+* 0x6621 (PidTagContactAddressBookStoreSupportMasks)
+
+[cols="1,1,5",options="header"]
+|===
+| Value | Identifier | Description
+| 0x00000001 | STORE_ENTRYID_UNIQUE | Entry identifiers for the objects in the message store are unique, that is, never reused during the life of the store.
+| 0x00000002 | STORE_READONLY | All interfaces for the message store have a read-only access level.
+| 0x00000004 | STORE_SEARCH_OK | The message store supports search-results folders.
+| 0x00000008 | STORE_MODIFY_OK | The message store supports modification of its existing messages.
+| 0x00000010 | STORE_CREATE_OK | The message store supports creation of new messages.
+| 0x00000020 | STORE_ATTACH_OK | The message store supports attachments (OLE or non-OLE) to messages.
+| 0x00000040 | STORE_OLE_OK | The message store supports OLE attachments. The OLE data is accessible through an IStorage interface, such as that available through the PidTagAttachDataObject (PR_ATTACH_DATA_OBJ) property.
+| 0x00000080 | STORE_SUBMIT_OK | The message store supports marking a message for submission.
+| 0x00000100 | STORE_NOTIFY_OK | The message store supports notifications.
+| 0x00000200 | STORE_MV_PROPS_OK | The message store supports multivalued properties, guarantees the stability of value order in a multivalued property throughout a save operation, and supports instantiation of multivalued properties in tables
+| 0x00000400 | STORE_CATEGORIZE_OK | The message store supports categorized views of tables.
+| 0x00000800 | STORE_RTF_OK | The message store supports Rich Text Format (RTF) messages, usually compressed, and the store itself keeps PR_BODY and PR_RTF_COMPRESSED synchronized.
+| 0x00001000 | STORE_RESTRICTION_OK | The message store supports restrictions.
+| 0x00002000 | STORE_SORT_OK | The message store supports sorting views of tables.
+| 0x00004000 | STORE_PUBLIC_FOLDERS | The folders in this store are public (multi-user), not private (possibly multi-instance but not multi-user).
+| 0x00008000 | STORE_UNCOMPRESSED_RTF | The message store supports storage of RTF messages in uncompressed form. An uncompressed RTF stream is identified by the value dwMagicUncompressedRTF in the stream header. The dwMagicUncompressedRTF value is defined in the RTFLIB.H file.
+| 0x00010000 | STORE_HTML_OK | The message store supports HTML messages, stored in the PidTagBodyHtml (PR_BODY_HTML)  property.
+| 0x00020000 | STORE_ANSI_OK | The message store supports properties containing ANSI (8-bit) characters.
+| 0x00040000 | STORE_UNICODE_OK | The message store supports properties containing Unicode characters.
+| 0x00080000 | STORE_LOCALSTORE | This flag is reserved and should not be used.
+| | |
+| 0x00200000 | STORE_ITEMPROC | In a wrapped PST store, indicates that when a new message arrives at the store, the store does rules and spam filter processing on the message separately. The store calls IMAPISupport::Notify, setting fnevNewMail in the NOTIFICATION structure that is passed as a parameter, and then passes the details of the new message to the listening client. Subsequently, when the listening client receives the notification, it does not process rules on the message.
+| | |
+| 0x00800000 | STORE_PUSHER_OK | The MAPI Protocol Handler will not crawl the store, and the store is responsible to push any changes through notifications to the indexer to have messages indexed.
+|===
 
 === [[valid_folder_mask_definitions]]Valid folder mask definitions
 
-* [yellow-background]*TODO: migrate documentation*
+The valid folder mask definitions are used by the following properties:
+
+* 0x35df (PidTagValidFolderMask)
+
+[cols="1,1,5",options="header"]
+|===
+| Value | Identifier | Description
+| 0x0001 | FOLDER_IPM_SUBTREE_VALID | The IPM folder subtree has a valid entry identifier.
+| 0x0002 | FOLDER_IPM_INBOX_VALID | The interpersonal message (IPM) receive folder has a valid entry identifier.
+| 0x0004 | FOLDER_IPM_OUTBOX_VALID | The IPM Outbox folder has a valid entry identifier
+| 0x0008 | FOLDER_IPM_WASTEBOX_VALID | The IPM Deleted Items folder has a valid entry identifier.
+| 0x0010 | FOLDER_IPM_SENTMAIL_VALID | The IPM Sent Items folder has a valid entry identifier.
+| 0x0020 | FOLDER_VIEWS_VALID | The views folder has a valid entry identifier.
+| 0x0040 | FOLDER_COMMON_VIEWS_VALID | The common views folder has a valid entry identifier
+| 0x0080 | FOLDER_FINDER_VALID | The finder folder has a valid entry identifier.
+|===
 
 === [[container_flag_definitions]]Container flag definitions
 
-* [yellow-background]*TODO: migrate documentation*
+The container flag definitions are used by the following properties:
+
+* 0x3600 (PidTagContainerFlags)
+
+[cols="1,1,5",options="header"]
+|===
+| Value | Identifier | Description
+| 0x00000001 | AB_RECIPIENTS | The container can hold recipients. This flag does not indicate whether any recipients are actually present in the container, or whether they can be added or removed.
+| 0x00000002 | AB_SUBCONTAINERS | The container can hold child containers. This flag does not indicate whether any subcontainers are actually present in the container, nor whether they can be added or removed.
+| 0x00000004 | AB_MODIFIABLE | Entries can be added to and removed from the container. This flag does not indicate whether any entries in the container can be modified.
+| 0x00000008 | AB_UNMODIFIABLE | Entries cannot be added to or removed from the container. This flag does not indicate whether any entries in the container can be modified.
+| 0x00000010 | AB_FIND_ON_OPEN | Displays a dialog box to request a restriction before displaying any contents of the container.
+| 0x00000020 | AB_NOT_DEFAULT | The container is not the default one
+|===
 
 === [[folder_type_definitions]]Folder type definitions
 
-* [yellow-background]*TODO: migrate documentation*
+The folder type definitions are used by the following properties:
+
+* 0x3601 (PidTagFolderType)
+
+[cols="1,1,5",options="header"]
+|===
+| Value | Identifier | Description
+| 0 | FOLDER_ROOT | The root folder of the folder hierarchy table, that is, a folder that has no parent folder.
+| 1 | FOLDER_GENERIC | A generic folder that contains messages and other folders.
+| 2 | FOLDER_SEARCH | A folder that contains the results of a search, in the form of links to messages that meet search criteria.
+| | |
+| 4 | | [yellow-background]*Unknown (MDB Attachments Folder)* +
+Seen in an Exchange database
+|===
 
 === [[aging_granularity_definitions]]Aging granularity definitions
 
-* [yellow-background]*TODO: migrate documentation*
+The folder type definitions are used by the following properties:
+
+* 0x36ee (PR_AGING_GRANULARITY)
+
+[cols="1,1,5",options="header"]
+|===
+| Value | Identifier | Description
+| 0 | AG_MONTHS | 0x36ec (PR_AGING_PERIOD) is defined in months
+| 1 | AG_WEEKS | 0x36ec (PR_AGING_PERIOD) is defined in weeks
+| 2 | AG_DAYS | 0x36ec (PR_AGING_PERIOD) is defined in days
+|===
 
 === [[attachment_method_definitions]]Attachment method definitions
 
@@ -1024,23 +1239,118 @@ When the OLE object is in OLE 2.0 IStorage format, the data is accessible throug
 
 === [[attachment_flag_definitions]]Attachment flag definitions
 
-* [yellow-background]*TODO: migrate documentation*
+The attachment flags definitions are used by the following properties:
+
+* 0x3714 (PidTagAttachFlags)
+
+[cols="1,1,5",options="header"]
+|===
+| Value | Identifier | Description
+| 0x00000001 | ATT_INVISIBLE_IN_HTML | Attachment not available in HTML
+| 0x00000002 | ATT_INVISIBLE_IN_RTF | Attachment not available in RTF
+| 0x00000004 | ATT_MHTML_REF | [yellow-background]*Unknown*
+|===
 
 === [[icon_display_type_definitions]]Icon display type definitions
 
-* [yellow-background]*TODO: migrate documentation*
+The icon display type definitions are used by the following properties:
+
+* 0x3900 (PidTagDisplayType)
+
+[cols="1,1,5",options="header"]
+|===
+| Value | Identifier | Description
+3+| _Used by address book contents tables_
+| 0x00000000 | DT_MAILUSER | A typical messaging user with a mailbox.
+| 0x00000001 | DT_DISTLIST | A distribution list.
+| 0x00000002 | DT_FORUM | A forum, such as a bulletin board service or a public or shared folder.
+| 0x00000003 | DT_AGENT | A dynamic distribution list or an automated agent, such as Quote-Of-The-Day or a weather chart display.
+| 0x00000004 | DT_PRIVATE_DISTLIST | A private, personally administered distribution list.
+| 0x00000005 | DT_ORGANIZATION | A special alias defined for a large group, such as helpdesk, accounting, or blood-drive coordinator.
+| 0x00000006 | DT_REMOTE_MAILUSER | A recipient known to be from a foreign or remote messaging system or an address list entry in the Global Address List.
+| 0x00000007 | DT_ROOM | Conference room.
+| 0x00000008 | DT_EQUIPMENT | Equipment, for example, a printer or a projector.
+| 0x00000009 | DT_SEC_DISTLIST | Security distribution list.
+3+| _Used by address book hierarchy tables and one-off tables_
+| 0x00010000 | DT_MODIFIABLE | Modifiable; the container should be denoted as modifiable in the user interface.
+| 0x00020000 | DT_GLOBAL | A global address book.
+| 0x00030000 | DT_LOCAL | A local address book that you share with a small workgroup.
+| 0x00040000 | DT_WAN | A wide area network address book.
+| 0x00050000 | DT_NOT_SPECIFIC | Does not match any of the other settings.
+3+| _Used by folder hierarchy tables_
+| 0x01000000 | DT_FOLDER | Display default folder icon adjacent to folder.
+| 0x02000000 | DT_FOLDER_LINK | Display default folder link icon adjacent to folder rather than the default folder icon.
+| 0x04000000 | DT_FOLDER_SPECIAL | Display icon for a folder with an application-specific distinction, such as a special type of public folder.
+|===
+
+If this property is not set, the client should assume the default type
+appropriate for the table, typically DT_FOLDER, DT_LOCAL, or DT_MAILUSER.
 
 === [[extended_icon_display_type_definitions]]Extended icon display type definitions
 
-* [yellow-background]*TODO: migrate documentation*
+The icon display type definitions are used by the following properties:
+
+* 0x3905 (PidTagDisplayTypeEx)
+
+The following are conveniance macro's for the extended icon display type defintions.
+
+[cols="1,1,5",options="header"]
+|===
+| Value | Identifier | Description
+| 0x000000ff | DTE_MASK_LOCAL |
+| 0x0000ff00 | DTE_MASK_REMOTE |
+| 0x40000000 | DTE_FLAG_ACL_CAPABLE |
+| 0x80000000 | DTE_FLAG_REMOTE_VALID |
+|===
+
+The actual definitions other than the icon display type definitions are currently
+not specified.
+
+* [yellow-background]*Per MSDN the client applications must not define any new
+values and must be prepared to deal with an undocumented value.*
 
 === [[gender_definitions]]Gender definitions
 
-* [yellow-background]*TODO: migrate documentation*
+The gender definitions are used by the following properties:
+
+* 0x3a4d (PidTagGender)
+
+[cols="1,1,5",options="header"]
+|===
+| Value | Identifier | Description
+| 0x0000 | genderUnspecified | Unspecified
+| 0x0001 | genderFemale | Female
+| 0x0002 | genderMale | Male
+|===
 
 === [[encoding_preference_flag_definitions]]Encoding preference flag definitions
 
-* [yellow-background]*TODO: migrate documentation*
+The encoding preference flag definitions are used by the following properties:
+
+* 0x3a71 (PidTagSendInternetEncoding)
+
+[cols="1,1,5",options="header"]
+|===
+| Value | Identifier | Description
+| 0x00010000 | MAPI_SEND_NO_RICH_INFO | [yellow-background]*Unknown*
+| 0x00020000 | ENCODING_PREFERENCE | If not set the encoding is left to the messaging system.
+| 0x00040000 | ENCODING_MIME | Encode the message using MIME. +
+If not set the message body is encoded in plain text and the attachments in UUENCODE.
+| 0x00080000 | BODY_ENCODING_HTML | Encode the message body in HTML. +
+Ignored unless the ENCODING_MIME is set.
+| 0x00100000 | BODY_ENCODING_TEXT_AND_HTML | Encode the message body in text and HTML using Multipurpose Internet Mail Extensions (MIME) multipart alternatives. +
+Ignored unless the ENCODING_MIME is set.
+| 0x00200000 | MAC_ATTACH_ENCODING_UUENCODE | Encode Macintosh attachments in Apple double mode. +
+Ignored unless the ENCODING_MIME is set.
+| 0x00400000 | MAC_ATTACH_ENCODING_APPLESINGLE | Encode Macintosh attachments in Apple single mode. +
+Ignored unless the ENCODING_MIME is set.
+| 0x00600000 | MAC_ATTACH_ENCODING_APPLEDOUBLE | Encode Macintosh attachments in UUENCODE. +
+If ENCODING_MIME flag is set, this flag is ignored and BinHex encoding is used.
+| | |
+| 0x10000000 | OOP_DONT_LOOKUP | [yellow-background]*Unknown*
+|===
+
+Note that MAC_ATTACH_ENCODING_APPLEDOUBLE (0x00600000) consists of 2 flags.
 
 === [[codepage_definitions]]Codepage definitions
 
@@ -1048,21 +1358,192 @@ When the OLE object is in OLE 2.0 IStorage format, the data is accessible throug
 
 === [[conflict_resolution_method_definitions]]Conflict resolution method definitions
 
-* [yellow-background]*TODO: migrate documentation*
+The conflict resolution method definitions are used by the following properties:
+
+* 0x3fe7 (PidTagResolveMethod)
+
+[cols="1,1,5",options="header"]
+|===
+| Value | Identifier | Description
+| 0x00000000 | LVE_METHOD_DEFAULT | Conflict resolve message should be generated.
+| 0x00000001 | RESOLVE_METHOD_LAST_WRITER_WINS | Overwrite target message with current changes being applied.
+| 0x00000002 | RESOLVE_NO_CONFLICT_NOTIFICATION | Do not send conflict notification message when generating conflict resolve message in public folder.
+|===
 
 === [[message_editor_format_definitions]]Message editor format definitions
 
-* [yellow-background]*TODO: migrate documentation*
+The message editor format definitions are used by the following properties:
+
+* 0x5909 (PidTagMessageEditorFormat)
+
+[cols="1,1,5",options="header"]
+|===
+| Value | Identifier | Description
+| 0 | EDITOR_FORMAT_DONTKNOW | The format for the editor to use is unknown.
+| 1 | EDITOR_FORMAT_PLAINTEXT | The editor should display the message in plain text format.
+| 2 | EDITOR_FORMAT_HTML | The editor should display the message in HTML format.
+| 3 | EDITOR_FORMAT_RTF | The editor should display the message in Rich Text Format.
+|===
 
 === [[rpc_over_http_flag_definitions]]RPC over HTTP flag definitions
 
-* [yellow-background]*TODO: migrate documentation*
+The RPC over HTTP flag definitions are used by the following properties:
+
+* 0x6623 (PR_ROH_FLAGS)
+
+[cols="1,1,5",options="header"]
+|===
+| Value | Identifier | Description
+| 0x00000001 | ROHFLAGS_USE_ROH | Connect to the Exchange Server using RPC over HTTP.
+| 0x00000002 | ROHFLAGS_SSL_ONLY | Connect to the Exchange Server using Secure Socket Layer (SSL) only.
+| 0x00000004 | ROHFLAGS_MUTUAL_AUTH | Mutually authenticate the session when connecting by using SSL.
+| 0x00000008 | ROHFLAGS_HTTP_FIRST_ON_FAST | On fast networks, connect by using HTTP first. Then, connect by using TCP/IP.
+| | |
+| 0x00000020 | ROHFLAGS_HTTP_FIRST_ON_SLOW | On slow networks, connect by using HTTP first. Then, connect by using TCP/IP.
+|===
 
 === [[rpc_over_http_authentication_scheme_definitions]]RPC over HTTP authentication scheme definitions
 
-* [yellow-background]*TODO: migrate documentation*
+The RPC over HTTP authentication scheme definitions are used by the following
+properties:
 
-* [yellow-background]*TODO: migrate rest of documentation*
+* 0x6627 (PR_ROH_PROXY_AUTH_SCHEME)
+
+[cols="1,1,5",options="header"]
+|===
+| Value | Identifier | Description
+| 0x00000001 | ROHAUTH_BASIC | Basic authentication
+| 0x00000002 | ROHAUTH_NTLM | NTLM authentication
+|===
+
+=== [[personal_storage_table_configuration_flags_definitions]]Personal storage table configuration flags definitions
+
+The personal storage table configuration flags definitions are used by
+the following entry types:
+
+* 0x6770 (PidTagPstConfigurationFlags)
+
+[cols="1,1,5",options="header"]
+|===
+| Bit(s) | Identifier | Description
+| 0x00000001 | PST_CONFIG_CREATE_NOWARN | Do not warn if not configured
+| 0x00000002 | PST_CONFIG_PRESERVE_DISPLAY_NAME | Preserve display name property
+| | |
+| 0x00000008 | OST_CONFIG_POLICY_DELAY_IGNORE_OST | Prompt user for location of missing OST file
+| 0x00000010 | OST_CONFIG_CREATE_NEW_DEFAULT | Make a new copy of the OST file
+| | |
+| 0x80000000 | PST_CONFIG_UNICODE | Unicode PST file
+|===
+
+=== [[view_class_identifier_definitions]]View class identifier definitions
+
+The view class identifier definitions definitions are used by the following
+properties:
+
+* 0x6833 (PR_VIEW_CLSID)
+
+[cols="1,5",options="header"]
+|===
+| Identifier | Service provider
+| [yellow-background]*00062000-0000-0000-c000-000000000046* |
+|===
+
+=== [[address_book_provider_type_definitions]]Address book provider type definitions
+
+The address book provider type definitions definitions are used by
+the following properties:
+
+* 0x00008029 (PidLidAddressBookProviderArrayType)
+
+[cols="1,1,5",options="header"]
+|===
+| Value | Identifier | Description
+| 0x00000001 | | Email1 is defined for the contact.
+| 0x00000002 | | Email2 is defined for the contact.
+| 0x00000004 | | Email3 is defined for the contact.
+| 0x00000008 | | Business fax is defined for the contact.
+| 0x00000010 | | Home fax is defined for the contact.
+| 0x00000020 | | Primary fax is defined for the contact.
+|===
+
+=== [[appointment_sequence_definitions]]Appointment sequence definitions
+
+The appointment sequence definitions are used by the following properties:
+
+* 0x00008201 (PidLidAppointmentSequence)
+
+[cols="1,1,5",options="header"]
+|===
+| Value | Identifier | Description
+| 0x00000001 | asfMeeting (M) | This flag indicates that the object is a meeting object or a meeting-related object.
+| 0x00000002 | asfReceived (R) | This flag indicates that the represented object was received from someone else.
+| 0x00000004 | asfCanceled (C) | This flag indicates that the meeting object represented by the object has been canceled.
+|===
+
+=== [[appointment_color_definitions]]Appointment color definitions
+
+The appointment color definitions are used by the following properties:
+
+* 0x00008214 (PidLidAppointmentColor)
+
+[cols="1,5",options="header"]
+|===
+| Value | Description
+| 0x00000000 | None
+| 0x00000001 | Red
+| 0x00000002 | Blue
+| 0x00000003 | Green
+| 0x00000004 | Grey
+| 0x00000005 | Orange
+| 0x00000006 | Cyan
+| 0x00000007 | Olive
+| 0x00000008 | Purple
+| 0x00000009 | Teal
+| 0x0000000a | Yellow
+|===
+
+=== [[side_effect_definitions]]Side effect definitions
+
+The side effect definitions are used by the following properties:
+
+* 0x00008510 (PidLidSideEffects)
+
+[cols="1,1,5",options="header"]
+|===
+| Value | Identifier | Description
+| 0x00000001 | seOpenToDelete | Additional processing is required on the message object when deleting.
+| | |
+| 0x00000008 | seNoFrame | No UI is associated with the message object.
+| 0x00000010 | seCoerceToInbox | Additional processing is required on the message object when moving or copying to a folder object with a PidTagContainerClass (PR_CONTAINER_CLASS) property of "IPF.Note". +
+See section: <<container_class_definitions,Container class definitions>>
+| 0x00000020 | seOpenTocopy | Additional processing is required on the message object when copying to another folder.
+| 0x00000040 | seOpenToMove | Additional processing is required on the message object when moving to another folder.
+| | |
+| 0x00000100 | seOpenForCtxMenu | Additional processing is required on the message object when displaying verbs to the end-user.
+| | |
+| 0x00000400 | seCannotUndoDelete | Cannot undo delete operation, must not be set unless "seOpenToDelete" is set.
+| 0x00000800 | seCannotUndoCopy | Cannot undo copy operation, must not be set unless "seOpenTocopy" is set.
+| 0x00001000 | seCannotUndoMove | Cannot undo move operation, must not be set unless "seOpenToMove" is set.
+| 0x00002000 | seHasScript | The message object contains end-user script.
+| 0x00004000 | seOpenToPermDelete | Additional processing is required to permanently delete the message object.
+|===
+
+=== [[task_mode_definitions]]Task mode definitions
+
+The task mode definitions are used by the following properties:
+
+* 0x00008518 (PidLidTaskMode)
+
+[cols="1,5",options="header"]
+|===
+| Value | Description
+| 0x00000000 | The task is not assigned.
+| 0x00000001 | The task is embedded in a task request.
+| 0x00000002 | The task was accepted (by the task assignee).
+| 0x00000003 | The task was rejected (by the task assignee).
+| 0x00000004 | The task is embedded in a task update.
+| 0x00000005 | The task was assigned to the task assigner.
+|===
 
 == MAPI data
 
