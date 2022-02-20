@@ -454,6 +454,43 @@ Contains the date and time a delivery report is generated.
 | 0x002b | 0x000b (Boolean) | PidTagRecipientReassignmentProhibited +
 (PR_RECIPIENT_REASSIGNMENT_PROHIBITED) | Recipient reassignment prohibited +
 Specifies whether adding additional recipients, when forwarding the message, is prohibited for the e-mail message.
+| 0x002c | 0x0102 (Binary data) | PR_REDIRECTION_HISTORY | [yellow-background]*Unknown*
+| 0x002d | 0x0102 (Binary data) | PR_RELATED_IPMS | [yellow-background]*Unknown*
+| 0x002e | 0x0003 (Integer 32-bit signed) | PidTagOriginalSensitivity +
+(PR_ORIGINAL_SENSITIVITY) | Original sensitivity +
+Contains the sensitivity value assigned by the sender of the first version of a message that is, the message before being forwarded or replied to. +
+See section: <<sensitivity_definitions,Sensitivity definitions>>
+| 0x002f | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_LANGUAGES | [yellow-background]*Unknown*
+| 0x0030 | 0x0040 (Filetime) | PidTagReplyTime +
+(PR_REPLY_TIME) | Reply deadline +
+Specifies the reply deadline on a message.
+| 0x0031 | 0x0102 (Binary data) | PidTagReportTag +
+(PR_REPORT_TAG) | Report tag +
+Contains a binary tag value that the messaging system should copy to any report generated for the message.
+| 0x0032 | 0x0040 (Filetime) | PR_REPORT_TIME | [yellow-background]*Unknown*
+| 0x0033 | 0x000b (Boolean) | PR_RETURNED_IPM | [yellow-background]*Unknown*
+| 0x0034 | 0x0003 (Integer 32-bit signed) | PidTagSecurity +
+(PR_SECURITY) | Security +
+[yellow-background]*Unknown, deprecated according to MSDN*
+| | 0x0102 | | [yellow-background]*Unknown* +
+Contains: 4 bytes unknown, 16 bytes GUID, 4 bytes unknown, ENTRYID?
+| 0x0035 | 0x000b (Boolean) | PR_INCOMPLETE_COPY | [yellow-background]*Unknown*
+| 0x0036 | 0x0003 (Integer 32-bit signed) | PidTagSensitivity +
+(PR_SENSITIVITY) | Sensitivity +
+Contains a value that indicates the message sender's opinion of the sensitivity of a message. +
+See section: <<sensitivity_definitions,Sensitivity definitions>>
+| 0x0037 | 0x001e (ASCII string) +
+| 0x001f (Unicode string) | PidTagSubject +
+(PR_SUBJECT) | Subject +
+Contains the full subject of a message. +
+The subject can start with 2 characters of control codes see section: <<subject_control_codes,Subject control codes>>
+| 0x0038 | 0x0102 (Binary data) | PidTagSubjectMessageId +
+(PR_SUBJECT_IPM) | Subject message identifier +
+Contains a binary value that is copied from the message for which a report is being generated.
+| 0x0039 | 0x0040 (Filetime) | PidTagClientSubmitTime +
+(PR_CLIENT_SUBMIT_TIME) | Client submit time +
+Contains the date and time the message sender submitted a message.
 |===
 
 * [yellow-background]*TODO: migrate documentation*
@@ -720,7 +757,7 @@ The address type definitions are used by the following properties:
 * 0x0c1e (PidTagSenderAddressType)
 * 0x3002 (PidTagAddressType)
 
-[cols="1,1,5",options="header"]
+[cols="1,5",options="header"]
 |===
 | Value | Identifier | Description
 | "EX" | ExChange address
@@ -1545,9 +1582,321 @@ The task mode definitions are used by the following properties:
 | 0x00000005 | The task was assigned to the task assigner.
 |===
 
+== MAPI data types
+
+=== [[mapi_x400_object_identifiers]]MAPI X.400 object identifiers (MAPIOID)
+
+The MAPI X.400 object identifiers are used by the following properties:
+
+* 0x3702 (PidTagAttachEncoding)
+* 0x370a (PidTagAttachTag)
+
+The MAPI X.400 object identifier consists of:
+
+[cols="1,1,1,5",options="header"]
+|===
+| Offset | Size | Value | Description
+| 0 | 7 | | The MAPI prefix +
+Contains: 0x2a 0x86 0x48 0x86 0xf7 0x14 0x03
+| 7 | 1 | | Object identifier type +
+0x0a => tag +
+0x0b => encoding
+| 8 | ...  | | Object identifier data +
+Known tags (0x0a) +
+0x01 => TNEF +
+0x03 => OLE +
+0x03 0x01 => OLE1 +
+0x03 0x01 0x01 => OLE1 storage +
+0x03 0x02 => OLE2 +
+0x03 0x02 0x01 => OLE2 storage +
+0x04 => Mime +
+ +
+Known encodings (0x0b) +
+0x01 => MacBinary
+|===
+
+....
+References:
+initoid.h
+mapioid.h
+
+OID 1 0xb0 0xb1
+OID 2 0xb0 0xb1 0xb2
+OID 3 0xb0 0xb1 0xb2 0xb3
+OID 4 0xb0 0xb1 0xb2 0xb3 0xb4
+
+[MSDN]
+For complete information on these object identifiers, see the documentation on ASN.1, X.208, and X.209. The object identifier is found in the application-reference element of the FTBP (File Transfer Body Part) environment.
+....
+
+....
+libpff_table_read_entry_value: table set: 000 entry: 006 item entry type                        : 0x370a (PR_ATTACH_TAG : Attachment application tag)
+libpff_table_read_entry_value: table set: 000 entry: 006 item entry value type                  : 0x0102 (PT_BINARY : Binary data)
+libpff_table_read_entry_value: table set: 000 entry: 006 item entry value                       : at offset: 211 of size: 9
+00000000: 2a 86 48 86 f7 14 03 0a  04                        *.H..... .
+
+found with a MacBinary PR_ATTACH_ENCODING
+....
+
+=== The MAPI unique identifier (MAPIUID)
+
+The MAPIUID is a little-endian version of a GUID.
+
+TheMAPIUID is used by the following entry types:
+
+* 0x3414 (PidTagStoreProvider)
+* 0x3615 (PidTagAbProviderId)
+
+=== The embedded object
+
+The embedded object has a value type of 0x000d (Embedded object)
+
+The embedded object is used by the following entry types:
+
+* 0x3701 (PidTagAttachDataObject)
+
+The embedded object is 8 bytes of size and consists of:
+
+[cols="1,1,1,5",options="header"]
+|===
+| Offset | Size | Value | Description
+| 0 | 4 | | Local descriptor identifier
+| 4 | 4 | | [yellow-background]*Unknown*
+|===
+
+=== [[entry_identifier]]The entry identifier structure (ENTRYID)
+
+The entry type should be of value type 0x0102 (Binary data). The entry
+identifier is used to define object specific references in a generic way.
+
+The entry identifier structure is variable of size and consists of:
+
+[cols="1,1,1,5",options="header"]
+|===
+| Offset | Size | Value | Description
+| 0 | 4 | | Flags +
+Contains a byte array
+| 4 | 16 | | Service provider identifier +
+Contains a  MAPIUID
+| 20 | ...  | | Object identifier
+|===
+
+==== The entry identifier flags
+
+The first byte of the entry identifier flags can contain the following flags:
+
+[cols="1,1,5",options="header"]
+|===
+| Bit(s) | Identifier | Description
+| 0x08 | MAPI_NOTRESERVED | Other users cannot access the entry identifier
+| 0x10 | MAPI_NOW | The entry identifier cannot be used at other times
+| 0x20 | MAPI_THISSESSION | The entry identifier cannot be used on other sessions.
+| 0x40 | MAPI_NOTRECIP | The entry identifier cannot be used as a recipient on a message
+| 0x80 | MAPI_SHORTTERM | The entry identifier is short-term. All other values in this byte must be set unless other uses of the entry identifier are enabled.
+|===
+
+[yellow-background]*Seen 0xff being used in 0x684e of IPM.Microsoft.WunderBar.Link*
+
+....
+Entry identifier from and Exchange database table: Folders, column: N3616
+Flags                           : 0xef, 0x00, 0x00, 0x00
+Service provider identifier     : 19f83992-c48f-47bf-bada-7aaea4ef8ad9 (Unknown)
+Object identifier data:
+Descriptor identifier           : 1049576
+....
+
+The second byte of the entry identifier flags can contain the following flags:
+
+[cols="1,1,5",options="header"]
+|===
+| Bit(s) | Identifier | Description
+| 0x80 | MAPI_COMPOUND |
+|===
+
+==== The service provider identifier
+
+[cols="1,5",options="header"]
+|===
+| Identifier | Service provider
+| a41f2b81-a3be-1910-9d6e-00dd010f5402 | One-off entry identifier
+| c840a7dc-42c0-1a10-b4b9-08002b2fe182 | X500 address +
+[yellow-background]*Main address book?*
+| |
+| 4a2f9232-b9d7-4afc-a1d5-9634785b50af | [yellow-background]*Unknown (Folder reference (32-bit))*
+| 4b2ef2ba-7cd4-4f00-a536-a91f779c1d42 | [yellow-background]*Unknown (Folder reference (64-bit))*
+| 828a5cbd-68fa-49e8-bfab-60c8b4ee1bf6 | [yellow-background]*Unknown (Folder reference (32-bit) (Outlook 2000))*
+| 829f38c5-0f8f-48db-942b-2adceac3d50b | [yellow-background]*Unknown (Folder reference (64-bit) (Outlook 2003 11.0))*
+| |
+| 94e24743-0110-4003-a103-7e01054f2e69 | [yellow-background]*Unknown*
+| |
+| d3ad91c0-9d51-11cf-a4a9-00aa0047faa4 | Windows address book (WAB) wrapped entry identifier (WAB_GUID)
+| |
+| f0f35091-7e99-4783-8c97-045ccd019790 | [yellow-background]*Unknown*
+|===
+
+==== Object identifiers
+
+===== Folder reference
+
+The folder reference has service provider identifier:
+
+* 4a2f9232-b9d7-4afc-a1d5-9634785b50af
+* 4b2ef2ba-7cd4-4f00-a536-a91f779c1d42
+* 828a5cbd-68fa-49e8-bfab-60c8b4ee1bf6
+* 829f38c5-0f8f-48db-942b-2adceac3d50b
+
+The folder reference entry identifier is used by the following entry types:
+
+* 0x3416
+* 0x35e0 (PR_IPM_SUBTREE_ENTRYID)
+* 0x35e2 (PR_IPM_OUTBOX_ENTRYID)
+* 0x35e3 (PR_IPM_WASTEBASKET_ENTRYID)
+* 0x35e4 (PR_IPM_SENTMAIL_ENTRYID)
+* 0x35e5 (PR_VIEWS_ENTRYID)
+* 0x35e6 (PR_COMMON_VIEWS_ENTRYID)
+* 0x35e7 (PR_FINDER_ENTRYID)
+* 0x36d0 (PR_IPM_APPOINTMENT_ENTRYID)
+* 0x36d1 (PR_IPM_CONTACT_ENTRYID)
+* 0x36d3 (PR_IPM_NOTE_ENTRYID)
+* 0x36d4 (PR_IPM_TASK_ENTRYID)
+* 0x36d5 (PR_REMINDERS_ONLINE_ENTRYID)
+* 0x36d7 (PR_IPM_DRAFTS_ENTRYID)
+
+The object identifier is 4 bytes of size and consists of:
+
+[cols="1,1,1,5",options="header"]
+|===
+| Offset | Size | Value | Description
+| 0 | 4 | | (item) descriptor identifier
+|===
+
+===== 94e24743-0110-4003-a103-7e01054f2e69
+
+....
+Found in 64-bit pst
+libpff_table_read_entry_value: table set: 00 entry: 004 item entry type                 : 0x3416 (Folder information reference to "ItemProcSearch")
+libpff_table_read_entry_value: table set: 00 entry: 004 item entry value type           : 0x0102 (Binary data)
+libpff_table_read_entry_value: table set: 00 entry: 004 item entry value                : at offset: 368 of size: 46
+00000000: 00 00 00 00 43 47 e2 94   10 01 03 40 a1 03 7e 01
+00000010: 05 4f 2e 69 01 00 38 12   ec 33 e1 a4 38 44 bd 5c
+00000020: 54 32 64 30 01 52 00 00   0e 34 00 03 00 00
+....
+
+===== One-off entry identifier
+
+The one-off entry identifier has service provider identifier:
+
+* a41f2b81-a3be-1910-9d6e-00dd010f5402
+
+The one-off entry identifier is used by the following entry types:
+
+* 0x003f (PR_RECEIVED_BY_ENTRYID)
+* 0x0041 (PR_SENT_REPRESENTING_ENTRYID)
+* 0x0043 (PR_RCVD_REPRESENTING_ENTRYID)
+* 0x0c19 (PR_SENDER_ENTRYID)
+* 0x0e0a (PR_SENTMAIL_ENTRYID)
+
+One-off entry identifiers are used for addresses not found in any available address books.
+
+The object identifier of the one-off entry identifier consists off:
+
+[cols="1,1,1,5",options="header"]
+|===
+| Offset | Size | Value | Description
+| 0 | 2 | 0x0000 | Version
+| 2 | 2 | | Flags
+| 4 | ... | | Display name +
+ASCII or Unicode string terminated by end-of-string character
+| ... | ... | | Address type +
+ASCII or Unicode string terminated by end-of-string character +
+See section: <<address_type_definitions,Address type definitions>>
+| ... | ... | | E-mail address +
+ASCII or Unicode string terminated by end-of-string character
+|===
+
+====== One-off entry identifier flags
+
+The one-off entry identifier flags
+
+[cols="1,1,5",options="header"]
+|===
+| Value | Identifier | Description
+| 0x0001 | MAPI_ONE_OFF_NO_RICH_INFO | Set if a recipient should not receive message content in the Transport Neutral Encapsulation Format (TNEF)
+| | |
+| 0x1000 | | [yellow-background]*Unknown*
+| | |
+| 0x8000 | MAPI_ONE_OFF_UNICODE | Set if the display name and e-mail address are Unicode strings
+|===
+
+===== X500 address
+
+The X500 address has service provider identifier:
+
+* c840a7dc-42c0-1a10-b4b9-08002b2fe182
+
+The X500 address entry identifier is used by the following entry types:
+
+* 0x003f (PR_RECEIVED_BY_ENTRYID)
+* 0x0041 (PR_SENT_REPRESENTING_ENTRYID)
+* 0x0043 (PR_RCVD_REPRESENTING_ENTRYID)
+* 0x0c19 (PR_SENDER_ENTRYID)
+* 0x0e0a (PR_SENTMAIL_ENTRYID)
+
+[cols="1,1,1,5",options="header"]
+|===
+| Offset | Size | Value | Description
+| 0 | 4 | 0x00000001 | [yellow-background]*Unknown* +
+X500 type indicator?
+| 4 | 4 | 0x00000000 +
+0x00000001 | [yellow-background]*Unknown*
+| 10 | | | X500 address +
+ASCII string terminated by end-of-string character
+|===
+
+===== Windows address book (WAB) wrapped entry identifier
+
+The Windows address book (WAB) wrapped entry identifier has service provider identifier:
+
+* d3ad91c0-9d51-11cf-a4a9-00aa0047faa4
+
+Notes:
+
+....
+Object identifier data:
+00000000: c3 00 00 00 00                                     .....f.k ....O.&.
+
+00000000:                66 1d 6b  0b d8 0f eb 4f a6 26 99   .....f.k ....O.&.
+00000010: 8f 17 10 df 2f                                     ..../..c q.9.T.E.
+
+00000010:                07 00                               ..../..c q.9.T.E.
+
+00000010:                      63  71 e1 39 15 54 85 45 9f   ..../..c q.9.T.E.
+00000020: 77 30 f7 fd 71 c3 84                               w0..q... ....A..c
+
+00000020:                      00  00 00 01 00 41 00 00      w0..q... ....A..c
+
+00000020:                                               63   w0..q... ....A..c
+00000030: 71 e1 39 15 54 85 45 9f  77 30 f7 fd 71 c3 84      q.9.T.E. w0..q...
+
+00000030:                                               00   q.9.T.E. w0..q...
+00000040: 00 00 02 07 15 00 00                               .......
+
+00000000: 83 00 00 00 00 eb 0b 71  48 23 72 4d 4c ad 56 a1   .......q H#rML.V.
+00000010: a5 06 22 32 5b c4 08 2d  00                        .."2[..- .
+
+enum
+{
+BFLAGS_INTERNAL_MAILUSER		= 0x03,	// Outlook Contact
+BFLAGS_INTERNAL_DISTLIST,			// Outlook Distribution List
+BFLAGS_EXTERNAL_MAILUSER,			// external (MAPI) Contact
+BFLAGS_EXTERNAL_DISTLIST,			// external (MAPI) Distribution List
+BFLAGS_MASK_OUTLOOK		= 0x80,	// bit pattern 1000 0000
+};
+....
+
 == MAPI data
 
-=== [[message_body]] The message body
+=== [[message_body]]The message body
 
 Both the plain text message body (PidTagBody) and the HTML message body
 (PidTagBodyHtml) are stored using a codepage. The codepage (character set) used
