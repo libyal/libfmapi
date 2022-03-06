@@ -1601,7 +1601,7 @@ Contains: 0x2a 0x86 0x48 0x86 0xf7 0x14 0x03
 | 7 | 1 | | Object identifier type +
 0x0a => tag +
 0x0b => encoding
-| 8 | ...  | | Object identifier data +
+| 8 | ... | | Object identifier data +
 Known tags (0x0a) +
 0x01 => TNEF +
 0x03 => OLE +
@@ -1678,7 +1678,7 @@ The entry identifier structure is variable of size and consists of:
 Contains a byte array
 | 4 | 16 | | Service provider identifier +
 Contains a  MAPIUID
-| 20 | ...  | | Object identifier
+| 20 | ... | | Object identifier
 |===
 
 ==== The entry identifier flags
@@ -1893,6 +1893,69 @@ BFLAGS_EXTERNAL_DISTLIST,			// external (MAPI) Distribution List
 BFLAGS_MASK_OUTLOOK		= 0x80,	// bit pattern 1000 0000
 };
 ....
+
+
+=== The entries structure
+
+The entries structure has a value type of 0x0102 (Binary data). It is basically 
+an array of entry identifiers. The entries structure is used by:
+
+* 0x004f (PR_REPLY_RECIPIENT_ENTRIES)
+
+The entries structure is variable of size and consists of:
+
+[cols="1,1,1,5",options="header"]
+|===
+| Offset | Size | Value | Description
+| 0 |4 | |The number of entries
+| 4 |4 | |The size of the entries
+4+| _Entries_
+| 8 | 4 | | Entry data size
+| 12 | ... | | Entry data +
+(consists of an entry identifier structure)
+|===
+
+=== The multi value entry identifiers structure
+
+The multi value entry identifiers structure has a value type of 0x1102 (Array
+of Binary data values). It is basically an array followed by an entry
+identifier. The multi value entry identifiers structure is used by:
+
+* 0x36d8 (PR_ADDITIONAL_REN_ENTRYIDS)
+* 0x36e4 (PR_FREEBUSY_ENTRYIDS)
+
+The entries structure is variable of size and consists of:
+
+[cols="1,1,1,5",options="header"]
+|===
+| Offset | Size | Value | Description
+| 0 | 4 | | The number of entries
+4+| _Entries_
+| 4 | 4 | | Entry identifier offset +
+The offset is relative to the start of the multi value entry identifiers structure and stored after the entries
+4+| _Entries data (stored after the entries)_
+| ... | [yellow-background]*24* | | Entry data +
+(consists of an entry identifier structure)
+|===
+
+[yellow-background]*Contains a folder reference entry identifier; is the size
+fixed or does it need to be determined run-time?*
+
+=== [[change_key_structure]]The change key structure
+
+The change key structure has a value type of 0x0102 (Binary data) and is used
+by:
+
+* 0x65e2 (PR_CHANGE_KEY)
+
+The change list structure consists of a variable size:
+
+[cols="1,1,1,5",options="header"]
+|===
+| Offset | Size | Value | Description
+| 10 | 16 | | [yellow-background]*GUID*
+| 16 | ... | | [yellow-background]*Data*
+|===
 
 == MAPI data
 
@@ -2528,7 +2591,7 @@ are Outlook specific.
 | Offset | Size | Value | Description
 | 0 | 4 | | Version?
 | 4 | 4 | | Flags?
-| 8 | ...  | | View name +
+| 8 | ... | | View name +
 Contains an UTF-16 little-endian string with an end-of-string character.
 |===
 
