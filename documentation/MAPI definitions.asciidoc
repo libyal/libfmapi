@@ -1984,7 +1984,7 @@ not have significance for interpretation, but is significant for serialization
 and deserialization. The set of XIDs MUST be serialized without padding as an
 array of SizedXid structures binary-sorted by the value of NamespaceGuid field
 of the XID structure in the ascending order.
-...
+....
 
 === [[conversation_index_structure]]The conversation index structure
 
@@ -2050,6 +2050,150 @@ time range bit is:
 
 * not set (0) the difference is less than .02 second and greater than two years. This results in that the high 15 bits and the low 18 bits of the current system time in the header block are discarded.
 * set (1) the difference is less than one second and greater than 56 years. This results in that the high 10 bits and the low 23 bits of the current system time in the header block are discarded.
+
+=== The embedded object information reference record
+
+The entry type should be of value type 0x000d (Embedded object)
+
+The Embedded object information reference record consists of 8 bytes:
+
+[cols="1,1,1,5",options="header"]
+|===
+| Offset | Size | Value | Description
+| 0 | 4 | | The descriptor index identifier
+| 4 | 4 | | The object size
+|===
+
+=== [[security_desciptor_structure]]The security descriptor structure
+
+The entry type should be of value type 0x0102 (Binary data)
+
+The security descriptor structure is used by the following entry types:
+
+* 0x0e27 (ptagNTSD)
+* 0x3d21 (ptagAdminNTSD)
+
+The security descriptor is variable of size and consists of:
+
+* security descriptor transfer header
+* NT security descriptor
+
+The security descriptor transfer header is variable of size and consists of:
+
+[cols="1,1,1,5",options="header"]
+|===
+| Offset | Size | Value | Description
+| 0 | 2 | | Byte size of the header
+| 2 | 2 | | The version +
+[yellow-background]*(SECURITY_DESCRIPTOR_TRANSFER_VERSION)*
+| 4 | 4 | | Security information flags
+| 8 | ...  | | [yellow-background]*Additional data*
+|===
+
+The additional data consists of:
+
+....
+
+//  <0 or more>
+//          2 BYTES                                 Property Tag
+//          16 BYTES                                Named Property GUID
+//          1 BYTE                                  Named property "kind"
+//          if (kind == MNID_ID)
+//                  4 BYTES                         Named property ID
+//          else
+//                  <null terminated property name in UNICODE!!!!!>
+....
+
+The security descriptor transfer header is followed by the NT security
+descriptor which is also used in several other parts of Windows NT, like NTFS.
+For more information see `[NTSID]`.
+
+==== Security information flags
+
+[cols="1,1,5",options="header"]
+|===
+| Value | Identifier | Description
+| 0x00000001 | OWNER_SECURITY_INFORMATION | The owner identifier of the object is being referenced.
+| 0x00000002 | GROUP_SECURITY_INFORMATION | The primary group identifier of the object is being referenced.
+| 0x00000004 | DACL_SECURITY_INFORMATION | The DACL of the object is being referenced.
+| 0x00000008 | SACL_SECURITY_INFORMATION | The SACL of the object is being referenced.
+| 0x00000010 | LABEL_SECURITY_INFORMATION | The mandatory integrity label is being referenced.
+| 0x10000000 | PROTECTED_SACL_SECURITY_INFORMATION | The SACL cannot inherit ACEs.
+| 0x20000000 | PROTECTED_DACL_SECURITY_INFORMATION | The DACL cannot inherit access control entries (ACEs).
+| 0x40000000 | UNPROTECTED_SACL_SECURITY_INFORMATION | The SACL inherits ACEs from the parent object.
+| 0x80000000 | UNPROTECTED_DACL_SECURITY_INFORMATION | The DACL inherits ACEs from the parent object.
+|===
+
+=== [[persist_data_block_structure]]Persist data block structure
+
+The entry type should be of value type 0x0102 (Binary data)
+
+The persist data block structure is used by the following entry types:
+
+* 0x36d9 (PidTagAdditionalRenEntryIdsEx)
+
+The persist data block structure is variable of size and consists of:
+
+[cols="1,1,1,5",options="header"]
+|===
+| Offset | Size | Value | Description
+| 0 | 2 | | Block type (PersistID)
+| 2 | 2 | | Size of elements data (DataElementsSize)
+| 4 | ...  | | Array of elements (DataElements)
+|===
+
+==== Block type
+
+[cols="1,1,5",options="header"]
+|===
+| Value | Identifier | Description
+| 0x0000 | PERSIST_SENTINEL | No more persist data blocks need to be processed.
+| | |
+| 0x8001 | RSF_PID_RSS_SUBSCRIPTION | Block data contains: RSS Subscriptions folder.
+| 0x8002 | RSF_PID_SEND_AND_TRACK | Block data contains: Tracked Mail Processing folder.
+| | |
+| 0x8004 | RSF_PID_TODO_SEARCH | Block data contains: To-Do Search folder.
+| | |
+| 0x8006 | RSF_PID_CONV_ACTIONS | Block data contains: Conversation Action Settings folder.
+| 0x8007 | RSF_PID_COMBINED_ACTIONS | [yellow-background]*Unknown (reserved)*
+| 0x8008 | RSF_PID_SUGGESTED_CONTACTS | Block data contains: Suggested Contacts folder.
+| 0x8009 | RSF_PID_CONTACT_SEARCH | Block data contains: Contacts Search folder. +
+Used only by Outlook.
+| 0x800a | RSF_PID_BUDDYLIST_PDLS | Block data contains: Instant Messaging (IM) Contact Lists folder. +
+The referenced folder contains Personal Distribution Lists (PDLs) representing each group within the IM Contact list. +
+Used by both Outlook and Exchange.
+| 0x800b | RSF_PID_BUDDYLIST_CONTACTS | Block data contains: IM Contacts folder. +
+The referenced folder contains the individual contacts referenced by the IM Contact List groups. +
+Used by both Outlook and Exchange.A
+|===
+
+If the persists data block type is not one of the ones defined here, the block
+is ignored and processing is continued until either a PERSIST_SENTINEL type is
+found or the end of the data is reached.
+
+==== Persist data block element
+
+The persist data block element is variable of size and consists of:
+
+[cols="1,1,1,5",options="header"]
+|===
+| Offset | Size | Value | Description
+| 0 | 2 | | Element type (ElementID)
+| 2 | 2 | | Size of element data (ElementDataSize)
+| 4 | ...  | | Data
+|===
+
+===== Element type
+
+[cols="1,1,5",options="header"]
+|===
+| Value | Identifier | Description
+| 0x0000 | ELEMENT_SENTINEL | No more persist data elements need to be processed.
+| 0x0001 | RSF_ELID_ENTRYID | Data contains the entry identifier of the folder specified by block. +
+See section: <<entry_identifier,The entry identifier structure (ENTRYID)>>
+| 0x0002 | RSF_ELID_HEADER | [yellow-background]*The data contains a 32-bit (header) value.* +
+[yellow-background]*The meaning of this value is dependent on the block type. Also see: `[MS-OXOSFLD]`.*
+|===
 
 == MAPI data
 
