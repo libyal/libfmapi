@@ -2164,7 +2164,7 @@ The referenced folder contains Personal Distribution Lists (PDLs) representing e
 Used by both Outlook and Exchange.
 | 0x800b | RSF_PID_BUDDYLIST_CONTACTS | Block data contains: IM Contacts folder. +
 The referenced folder contains the individual contacts referenced by the IM Contact List groups. +
-Used by both Outlook and Exchange.A
+Used by both Outlook and Exchange.
 |===
 
 If the persists data block type is not one of the ones defined here, the block
@@ -2194,6 +2194,90 @@ See section: <<entry_identifier,The entry identifier structure (ENTRYID)>>
 | 0x0002 | RSF_ELID_HEADER | [yellow-background]*The data contains a 32-bit (header) value.* +
 [yellow-background]*The meaning of this value is dependent on the block type. Also see: `[MS-OXOSFLD]`.*
 |===
+
+=== [[lcid_structure]]The LCID structure
+
+The entry type should be of value type 0x0003 (Integer 32-bit signed)
+
+The LCID structure is used by the following entry types:
+
+* 0x3ff1 (PidTagMessageLocaleId)
+* 0x65f1 (PR_RULE_MSG_CONDITION_LCID)
+
+For more information see `[NTLCID]`.
+
+=== The free/busy data structure
+
+The entry type should be of value type 0x0102 (Binary data)
+
+The free/busy data structure is used by the following entry types:
+
+* 0x686c (PR_PERSONAL_FREEBUSY)
+
+[yellow-background]*Item type 0x686c with value type 0x0102*
+
+....
+00000000: ef be ad de 40 00 00 00   00 00 01 00 00 00 00 00
+00000010: 00 00 00 00 00 00 00 00   08 00 00 00 04 00 00 00
+00000020: 00 00 00 00 00 00 00 00   00 00 00 00 00 00 00 00
+00000030: 00 30 85 90 7a 93 c8 01   00 f0 4b 09 4c b2 c9 01
+....
+
+=== The appointment recur structure
+
+The entry type should be of value type 0x0102 (Binary data)
+
+The appointment recur structure is used by the following entry types:
+
+* 0x8216 (PidLidAppointmentRecur)
+
+[yellow-background]*TODO*
+
+....
+00000000: 04 30 04 30 0b 20 01 00  00 00 c0 21 00 00 01 00   .0.0. .. ...!.... 
+00000010: 00 00 00 00 00 00 20 00  00 00 23 20 00 00 0a 00   ...... . ..# .... 
+00000020: 00 00 00 00 00 00 00 00  00 00 00 00 00 00 60 71   ........ ......`q 
+00000030: c7 0c df 80 e9 5a 06 30  00 00 08 30 00 00 1c 02   .....Z.0 ...0.... 
+00000040: 00 00 3a 02 00 00 00 00  00 00 00 00 00 00 00 00   ..:..... ........ 
+....
+
+=== The time zone structure
+
+The entry type should be of value type 0x0102 (Binary data)
+
+The time zone structure is used by the following entry types:
+
+* 0x8233 (PidLidTimeZoneStruct)
+
+[yellow-background]*TODO*
+
+....
+00000000: c4 ff ff ff 00 00 00 00  c4 ff ff ff 00 00 00 00   ........ ........ 
+00000010: 0a 00 00 00 05 00 03 00  00 00 00 00 00 00 00 00   ........ ........ 
+00000020: 00 00 03 00 00 00 05 00  02 00 00 00 00 00 00 00   ........ ........ 
+....
+
+=== The time zone definitions structure
+
+The entry type should be of value type 0x0102 (Binary data)
+
+The time zone definitions structure is used by the following entry types:
+
+* 0x825e (PidLidAppointmentTimeZoneDefinitionStartDisplay)
+* 0x825f (PidLidAppointmentTimeZoneDefinitionEndDisplay)
+
+[yellow-background]*TODO*
+
+....
+00000000: 02 01 34 00 02 00 17 00  57 00 2e 00 20 00 45 00   ..4..... W... .E. 
+00000010: 75 00 72 00 6f 00 70 00  65 00 20 00 53 00 74 00   u.r.o.p. e. .S.t. 
+00000020: 61 00 6e 00 64 00 61 00  72 00 64 00 20 00 54 00   a.n.d.a. r.d. .T. 
+00000030: 69 00 6d 00 65 00 01 00  02 01 3e 00 02 00 41 06   i.m.e... ..>...A. 
+00000040: 00 00 00 00 00 00 00 00  00 00 00 00 00 00 c4 ff   ........ ........ 
+00000050: ff ff 00 00 00 00 c4 ff  ff ff 00 00 0a 00 00 00   ........ ........ 
+00000060: 05 00 03 00 00 00 00 00  00 00 00 00 03 00 00 00   ........ ........ 
+00000070: 05 00 02 00 00 00 00 00  00 00                     ........ .. 
+....
 
 == MAPI data
 
