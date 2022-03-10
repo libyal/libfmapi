@@ -2279,6 +2279,87 @@ The time zone definitions structure is used by the following entry types:
 00000070: 05 00 02 00 00 00 00 00  00 00                     ........ .. 
 ....
 
+=== [[extended_folder_flags_structure]]The extended folder flags structure
+
+The entry type should be of value type 0x0102 (Binary data)
+
+The extended folder flags are used by the following entry types:
+
+* 0x36da (PidTagExtendedFolderFlags)
+* 0x6848 (PidTagSearchFolderEfpFlags)
+
+From `[MAPI]`:
+
+....
+This property is a binary stream that contains encoded sub-properties for the 
+folder. It is formatted as a series of variable length sub items. The first 8 
+bits of the sub item is an ID field, which indicates what kind of flag the sub 
+item represents. The second 8 bits is the number of bytes of data that follow. 
+....
+
+[cols="1,1,1,5",options="header"]
+|===
+| Offset | Size | Value | Description
+| 0 | 1 | | Extended flag type
+| 1 | 1 | | Extended flag data size
+| 2 | ...
+|===
+
+Extended flag data
+
+Extended flags types:
+
+[cols="1,1,5",options="header"]
+|===
+| Value | Name | Remarks
+| 0x00 | Invalid | Do not use this value
+| 0x01 | ExtendedFlags | 
+| 0x02 | SearchFolderID | The data field is a 16-byte field. When the application creates a persistent search folder, it must set this field on the folder to the same value as the PR_WB_SF_TAG (PidTagSearchFolderId) binary property on the Search Folder Message.
+| 0x03 | SearchFolderTag | Specified in `[MS- OXOSRCH]`
+| 0x04 | Reserved | 
+| 0x05 | ToDoFolderVersion | The data field is a 4-byte field. When the application creates the to-do search folder, it must set the value of this field on the folder to the little-endian integer value of” 0x000c0000”:
+| 0x06 | Reserved | 
+|===
+
+Extended flag data of type: ExtendedFlags
+
+[cols="1,5",options="header"]
+|===
+| Bits | Description
+| 0‑1 | Reserved.
+| 2 | Set to 0 if the application should show a policy description.
+| 3‑5 | Reserved.
+| 6‑7 | Controls the display of the number of messages in the folder. +
+0x00 – Use the default setting +
+0x01 – Use the number of unread messages +
+0x02 – Use the total number of messages +
+0x03 - Invalid
+| 8‑31 | Reserved.
+|===
+
+Example:
+
+....
+0x36da (PidTagExtendedFolderFlags : Extended folder flags) 
+0x0102 (PT_BINARY : Binary data) 
+00000000: 01 04 00 00 10 00
+
+01 => extended flags
+04 => 32-bit value
+0x00100000 => some unknown flag is set
+....
+
+....
+01 04 00 00 00 01 (Reminders)
+01 04 00 00 10 00 (Deleted Items, Inbox, Outbox, Sent Items, Calendar, Journal, Drafts, Notes, RSS Feeds, Tasks, Renamed by MAE)
+01 04 08 00 10 00 (Sync Issues, Conflicts, Local Failures, Server Failures)
+01 04 00 00 40 00 05 04  00 00 0c 00 (To-Do Search)
+01 04 00 00 40 00 (Tracked Mail Processing)
+01 04 00 40 10 00 (Contacts)
+01 04 00 80 1e 00 (Junk E-mail)
+06 04 02 00 00 00 (IPM_SUBTREE)
+....
+
 == MAPI data
 
 === [[message_body]]The message body
