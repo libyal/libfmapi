@@ -2234,11 +2234,11 @@ The appointment recur structure is used by the following entry types:
 [yellow-background]*TODO*
 
 ....
-00000000: 04 30 04 30 0b 20 01 00  00 00 c0 21 00 00 01 00   .0.0. .. ...!.... 
-00000010: 00 00 00 00 00 00 20 00  00 00 23 20 00 00 0a 00   ...... . ..# .... 
-00000020: 00 00 00 00 00 00 00 00  00 00 00 00 00 00 60 71   ........ ......`q 
-00000030: c7 0c df 80 e9 5a 06 30  00 00 08 30 00 00 1c 02   .....Z.0 ...0.... 
-00000040: 00 00 3a 02 00 00 00 00  00 00 00 00 00 00 00 00   ..:..... ........ 
+00000000: 04 30 04 30 0b 20 01 00  00 00 c0 21 00 00 01 00   .0.0. .. ...!....
+00000010: 00 00 00 00 00 00 20 00  00 00 23 20 00 00 0a 00   ...... . ..# ....
+00000020: 00 00 00 00 00 00 00 00  00 00 00 00 00 00 60 71   ........ ......`q
+00000030: c7 0c df 80 e9 5a 06 30  00 00 08 30 00 00 1c 02   .....Z.0 ...0....
+00000040: 00 00 3a 02 00 00 00 00  00 00 00 00 00 00 00 00   ..:..... ........
 ....
 
 === The time zone structure
@@ -2252,9 +2252,9 @@ The time zone structure is used by the following entry types:
 [yellow-background]*TODO*
 
 ....
-00000000: c4 ff ff ff 00 00 00 00  c4 ff ff ff 00 00 00 00   ........ ........ 
-00000010: 0a 00 00 00 05 00 03 00  00 00 00 00 00 00 00 00   ........ ........ 
-00000020: 00 00 03 00 00 00 05 00  02 00 00 00 00 00 00 00   ........ ........ 
+00000000: c4 ff ff ff 00 00 00 00  c4 ff ff ff 00 00 00 00   ........ ........
+00000010: 0a 00 00 00 05 00 03 00  00 00 00 00 00 00 00 00   ........ ........
+00000020: 00 00 03 00 00 00 05 00  02 00 00 00 00 00 00 00   ........ ........
 ....
 
 === The time zone definitions structure
@@ -2269,14 +2269,14 @@ The time zone definitions structure is used by the following entry types:
 [yellow-background]*TODO*
 
 ....
-00000000: 02 01 34 00 02 00 17 00  57 00 2e 00 20 00 45 00   ..4..... W... .E. 
-00000010: 75 00 72 00 6f 00 70 00  65 00 20 00 53 00 74 00   u.r.o.p. e. .S.t. 
-00000020: 61 00 6e 00 64 00 61 00  72 00 64 00 20 00 54 00   a.n.d.a. r.d. .T. 
-00000030: 69 00 6d 00 65 00 01 00  02 01 3e 00 02 00 41 06   i.m.e... ..>...A. 
-00000040: 00 00 00 00 00 00 00 00  00 00 00 00 00 00 c4 ff   ........ ........ 
-00000050: ff ff 00 00 00 00 c4 ff  ff ff 00 00 0a 00 00 00   ........ ........ 
-00000060: 05 00 03 00 00 00 00 00  00 00 00 00 03 00 00 00   ........ ........ 
-00000070: 05 00 02 00 00 00 00 00  00 00                     ........ .. 
+00000000: 02 01 34 00 02 00 17 00  57 00 2e 00 20 00 45 00   ..4..... W... .E.
+00000010: 75 00 72 00 6f 00 70 00  65 00 20 00 53 00 74 00   u.r.o.p. e. .S.t.
+00000020: 61 00 6e 00 64 00 61 00  72 00 64 00 20 00 54 00   a.n.d.a. r.d. .T.
+00000030: 69 00 6d 00 65 00 01 00  02 01 3e 00 02 00 41 06   i.m.e... ..>...A.
+00000040: 00 00 00 00 00 00 00 00  00 00 00 00 00 00 c4 ff   ........ ........
+00000050: ff ff 00 00 00 00 c4 ff  ff ff 00 00 0a 00 00 00   ........ ........
+00000060: 05 00 03 00 00 00 00 00  00 00 00 00 03 00 00 00   ........ ........
+00000070: 05 00 02 00 00 00 00 00  00 00                     ........ ..
 ....
 
 === [[extended_folder_flags_structure]]The extended folder flags structure
@@ -2291,10 +2291,10 @@ The extended folder flags are used by the following entry types:
 From `[MAPI]`:
 
 ....
-This property is a binary stream that contains encoded sub-properties for the 
-folder. It is formatted as a series of variable length sub items. The first 8 
-bits of the sub item is an ID field, which indicates what kind of flag the sub 
-item represents. The second 8 bits is the number of bytes of data that follow. 
+This property is a binary stream that contains encoded sub-properties for the
+folder. It is formatted as a series of variable length sub items. The first 8
+bits of the sub item is an ID field, which indicates what kind of flag the sub
+item represents. The second 8 bits is the number of bytes of data that follow.
 ....
 
 [cols="1,1,1,5",options="header"]
@@ -2313,12 +2313,12 @@ Extended flags types:
 |===
 | Value | Name | Remarks
 | 0x00 | Invalid | Do not use this value
-| 0x01 | ExtendedFlags | 
+| 0x01 | ExtendedFlags |
 | 0x02 | SearchFolderID | The data field is a 16-byte field. When the application creates a persistent search folder, it must set this field on the folder to the same value as the PR_WB_SF_TAG (PidTagSearchFolderId) binary property on the Search Folder Message.
 | 0x03 | SearchFolderTag | Specified in `[MS- OXOSRCH]`
-| 0x04 | Reserved | 
+| 0x04 | Reserved |
 | 0x05 | ToDoFolderVersion | The data field is a 4-byte field. When the application creates the to-do search folder, it must set the value of this field on the folder to the little-endian integer value of” 0x000c0000”:
-| 0x06 | Reserved | 
+| 0x06 | Reserved |
 |===
 
 Extended flag data of type: ExtendedFlags
@@ -2340,8 +2340,8 @@ Extended flag data of type: ExtendedFlags
 Example:
 
 ....
-0x36da (PidTagExtendedFolderFlags : Extended folder flags) 
-0x0102 (PT_BINARY : Binary data) 
+0x36da (PidTagExtendedFolderFlags : Extended folder flags)
+0x0102 (PT_BINARY : Binary data)
 00000000: 01 04 00 00 10 00
 
 01 => extended flags
@@ -2359,6 +2359,80 @@ Example:
 01 04 00 80 1e 00 (Junk E-mail)
 06 04 02 00 00 00 (IPM_SUBTREE)
 ....
+
+=== The global identifier structure
+
+The entry type should be of value type [yellow-background]*0x0102 (Binary data)*
+
+The global identifier structure (GID) used by the following entry types:
+
+* [yellow-background]*TODO*
+
+[cols="1,1,1,5",options="header"]
+|===
+| Offset | Size | Value | Description
+| 0 | 16 | | Database identifier +
+Contains a GUID
+| 16 | 6 | | Item object identifier (or global counter)
+|===
+
+=== [[message_identifier_structure]]The message identifier structure
+
+The entry type should be of value type 0x0014 (Integer 64-bit signed)
+
+The message identifier structure (MID) used by the following entry types:
+
+* 0x674a (PidTagMid)
+
+[cols="1,1,1,5",options="header"]
+|===
+| Offset | Size | Value | Description
+| 0 | 2 | | Store object identifier (or replica identifier)
+| 2 | 6 | | Message object identifier (or global counter)
+|===
+
+=== [[folder_identifier_structure]]The folder identifier structure
+
+The entry type should be of value type 0x0014 (Integer 64-bit signed)
+
+The folder identifier structure (FID) used by the following entry types:
+
+* 0x6748 (PidTagFolderId)
+
+[cols="1,1,1,5",options="header"]
+|===
+| Offset | Size | Value | Description
+| 0 | 2 | | Store object identifier (or replica identifier)
+| 2 | 6 | | Folder object identifier (or global counter)
+|===
+
+=== [[folder_web_view_information_structure]]The folder web view information structure
+
+[yellow-background]*TODO*
+
+....
+The following is a parse of the sample data for the WebViewPersistenceObject stream.
+
+dwVersion
+    Offset 0x0, 4 bytes: 0x00000002 (WEBVIEW_PERSISTENCE_VERSION).
+
+dwType
+    Offset 0x4, 4 bytes: 0x00000001 (WEBVIEWURL).
+
+dwFlags
+    Offset 0x8, 4 bytes: 0x00000001 (WEBVIEW_FLAGS_SHOWBYDEFAULT).
+
+dwUnused[7]
+    Offset 0xC, 28 bytes: all zeros.
+
+cbData
+    Offset 0x28, 4 bytes: 0x00000032.
+
+wzURL
+    Offset 0x2C, 0x32 bytes: array of 25 WCHARs. A Unicode zero-terminated string value: “http://www.microsoft.com”.
+....
+
+=== Other structures
 
 == MAPI data
 
