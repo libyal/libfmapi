@@ -2317,7 +2317,7 @@ Extended flags types:
 | 0x02 | SearchFolderID | The data field is a 16-byte field. When the application creates a persistent search folder, it must set this field on the folder to the same value as the PR_WB_SF_TAG (PidTagSearchFolderId) binary property on the Search Folder Message.
 | 0x03 | SearchFolderTag | Specified in `[MS- OXOSRCH]`
 | 0x04 | Reserved |
-| 0x05 | ToDoFolderVersion | The data field is a 4-byte field. When the application creates the to-do search folder, it must set the value of this field on the folder to the little-endian integer value of” 0x000c0000”:
+| 0x05 | ToDoFolderVersion | The data field is a 4-byte field. When the application creates the to-do search folder, it must set the value of this field on the folder to the little-endian integer value of" 0x000c0000":
 | 0x06 | Reserved |
 |===
 
@@ -2429,10 +2429,209 @@ cbData
     Offset 0x28, 4 bytes: 0x00000032.
 
 wzURL
-    Offset 0x2C, 0x32 bytes: array of 25 WCHARs. A Unicode zero-terminated string value: “http://www.microsoft.com”.
+    Offset 0x2C, 0x32 bytes: array of 25 WCHARs. A Unicode zero-terminated string value: "http://www.microsoft.com".
 ....
 
 === Other structures
+
+==== The 0x6835 (binary view data) structure
+
+The entry type should be of value type 0x0102 (Binary data)
+
+The 0x6835 (binary view data) structure is used by the following entry types:
+
+* 0x6835 (binary view data)
+
+[cols="1,1,1,5",options="header"]
+|===
+| Offset | Size | Value | Description
+| 0 | 4 | | [yellow-background]*Signature* +
+0xda 0xda 0x00 0x00
+| 4 | 4 | | [yellow-background]*Empty*
+| 8 | 4 | | [yellow-background]*Unknown* +
+0x5c 0xed 0x01 0x00 +
+0x6c 0xed 0x01 0x00
+| 12 | 4 | | [yellow-background]*Unknown* +
+0x33 0x0c 0x00 0x00
+| 16 | 4 | | [yellow-background]*Unknown* +
+0x80 0x80 0x80 0x00
+| 20 | 4 | | [yellow-background]*Unknown* +
+0x03 0x00 0x00 0x00
+| 24 | 4 | | [yellow-background]*Unknown* +
+0x08 0x00 0x00 0x00
+| 28 | 4 | | Size of the collapse state
+| 32 | ... | | Collapse state data
+|===
+
+Examples of the collapse state data
+
+....
+00000020: 52 4d 4a 47 02 00 00 00  44 63 30 00 ff ff 02 00   RMJG.... Dc0.....
+00000030: 03 00 00 00 01 00 00 00  01 00 00 00 03 00 90 10   ........ ........
+00000040: 00 00 00 00 03 00 95 10  00 00 00 00 40 00 06 0e   ........ ....@...
+00000050: 01 00 00 00 44 63 30 00  24 d1 2e 00 01 01         ....Dc0. $.....
+....
+
+....
+00000020: 41 67 67 54 61 62 53 74  61 74 65 00 0c 00 00 00   AggTabSt ate.....
+00000030: 01 00 00 00 01 00 00 00  0c 00 00 00 01 00 00 00   ........ ........
+00000040: 01 00 00 00 00 00 00 00                            ........
+....
+
+Font related data [yellow-background]*(related to the 0x80 0x80 0x80 0x00 value?)*
+
+[cols="1,1,1,5",options="header"]
+|===
+| Offset | Size | Value | Description
+| 0 | 2 | | [yellow-background]*Size of the following string in little-endian*
+| 2 | 8 | "Segoe UI" | [yellow-background]*Unknown (Name of font)* +
+| 10 | 2 | | [yellow-background]*Unknown* +
+[yellow-background]*0x50 0x00*
+| 12 | 2 | | [yellow-background]*Unknown* +
+[yellow-background]*0x20 0x00*
+| 14 | 2 | | [yellow-background]*Unknown* +
+[yellow-background]*0x40 0x00*
+| 16 | 4 | | [yellow-background]*Unknown*
+| 20 | 2 | | [yellow-background]*Size of the following string in little-endian*
+| 22 | 8 | "Segoe UI" | [yellow-background]*Unknown (Name of font)*
+| 30 | 2 | | [yellow-background]*Unknown* +
+[yellow-background]*0x50 0x00*
+| 32 | 2 | | [yellow-background]*Unknown* +
+[yellow-background]*0x20 0x00*
+| 34 | 2 | | [yellow-background]*Unknown* +
+[yellow-background]*0x40 0x00*
+| 36 | 4 | | [yellow-background]*Unknown*
+| 40 | 2 | | [yellow-background]*Size of the following string in little-endian*
+| 42 | 8 | "Segoe UI" | [yellow-background]*Unknown (Name of font)*
+| 50 | 2 | | [yellow-background]*Unknown* +
+[yellow-background]*0x50 0x00*
+| 52 | 2 | | [yellow-background]*Unknown* +
+[yellow-background]*0x20 0x00*
+| 54 | 2 | | [yellow-background]*Unknown* +
+[yellow-background]*0x40 0x00*
+| 56 | 4 | | [yellow-background]*Unknown*
+| 60 | 4 | | [yellow-background]*Unknown* +
+[yellow-background]*0x10 0x00 0x00 0x00*
+| 64 | 4 | | [yellow-background]*Unknown* +
+[yellow-background]*0x58 0x00 0x00 0x00*
+| 68 | 4 | | [yellow-background]*Unknown* +
+[yellow-background]*0xf4 0x01 0x00 0x00*
+| 72 | 12 | | [yellow-background]*Empty*
+| 84 | 4 | | Number of visible columns
+| 88 | ( amount x 4 ) | | Visible column order +
+Contains the column index number
+| ... | 4 | | Number of column definitions
+| ... | ... | | Column definition entries
+|===
+
+Column definition entry
+
+[cols="1,1,1,5",options="header"]
+|===
+| Offset | Size | Value | Description
+| 0 | 4 | | [yellow-background]*Unknown* +
+0x06 0x1f 0x00 0x00 +
+0x09 0x1f 0x00 0x00 +
+0x11 0x0a 0x40 0x08
+| 4 | 4 | | [yellow-background]*Unknown* +
+0x80 0x04 0x03 0x00 +
+0x80 0x02 0x00 0x00 +
+| 0x00 0x01 0x00 0x00
+| 8 | 4 | | [yellow-background]*Unknown* +
+0x00 0x06 0x00 0x00 +
+0x00 0x09 0x00 0x00 +
+0x00 0x11 0x00 0x00 +
+Relates to value at offset 0
+| 12 | 2 | | [yellow-background]*Unknown* +
+0x00 0x00
+| 14 | 2 | | Property value type
+| 15 | 1 | | [yellow-background]*Unknown* +
+0x00 => empty +
+0x02 => Class identifier
+| 16 | ... | | [yellow-background]*Data after previous unknown*
+| ... | 1 | | [yellow-background]*Unknown* +
+0x00 => empty +
+0x01 => 2 byte number of characters + UTF-16 string
+| ... | ... | | [yellow-background]*Data after previous unknown*
+| ... | 2 | | Property entry type
+| ... | 2 | | [yellow-background]*Unknown* +
+0x00 0x00
+| | 1 | | [yellow-background]*Unknown* +
+0x00 => empty +
+0x02 => 20 bytes data ? +
+0x03 => 7 bytes data? +
+0x04 => 4 bytes data +
+0x06 => +
+| | ... | | [yellow-background]*Data after previous unknown*
+| | 1 | | [yellow-background]*Unknown* +
+0x00 => empty +
+0x0b => 14 bytes data ? +
+0x0e => 7 bytes data ?
+| | ... | | [yellow-background]*Data after previous unknown*
+| ... | 1 | | [yellow-background]*Unknown* +
+0x00 => empty
+| ... | ... | | [yellow-background]*Data after previous unknown*
+| ... | 1 | | [yellow-background]*Unknown* +
+0x00 => empty +
+0x01 => byte
+| ... | ... | | [yellow-background]*Data after previous unknown*
+| ... | 4 | | [yellow-background]*Unknown* +
+0x00 0x00 0x00 0x00
+| ... | 2 | | Narrow heading string length in big-endian
+| ... | ... | | Narrow heading string +
+ASCII string not NUL-terminated
+| ... | 2 | | [yellow-background]*Unknown* +
+0x64 0x00
+| ... | 2 | | [yellow-background]*Unknown* +
+0x02 0x00
+| ... | 2 | | [yellow-background]*Unknown* +
+0x00 0x00
+| ... | 2 | | Text alignment +
+0x49 0x01 align left +
+0x6a 0x01 align center
+| ... | 2 | | [yellow-background]*Unknown* +
+0x00 0x00
+| ... | 2 | | Column width
+| ... | 4 | | Column index number in big-endian +
+0x00fe (not used column?)
+| ... | 1 | | [yellow-background]*Unknown* +
+0x00 +
+0xff (not used column?)
+| ... | 1 | | [yellow-background]*Unknown* +
+0x01 +
+0x02
+| ... | 4 | | Wide heading string byte size
+| ... | 2 | | Wide heading string length in big-endian +
+byte size = length x 2
+| ... | ...  | | Wide heading string +
+UTF-16 string NUL-terminated
+| ... | 2 | | [yellow-background]*Unknown* +
+[yellow-background]*0x00 0x00*
+|===
+
+==== The 0x859c (PidLidSpamOriginalFolder) structure
+
+The entry type should be of value type 0x0102 (Binary data)
+
+The 0x859c (PidLidSpamOriginalFolder) structure is used by the following entry
+types:
+
+* 0x859c (PidLidSpamOriginalFolder)
+
+The 00x859c (PidLidSpamOriginalFolder) structure consists of multiple entries
+of a variable size:
+
+[cols="1,1,1,5",options="header"]
+|===
+| Offset | Size | Value | Description
+| 0 | 4 | | [yellow-background]*Empty*
+| 4 | 16 | | [yellow-background]*GUID*
+| 20 | 2 | | [yellow-background]*Unknown* +
+01 00
+| 22 | 16 | | [yellow-background]*GUID*
+| 38 | 4 | | [yellow-background]*Empty*
+| 42 | 4 | | [yellow-background]*Unknown*
+|===
 
 == MAPI data
 
