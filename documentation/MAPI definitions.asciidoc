@@ -82,7 +82,7 @@ Additional information about MAPI properties
 | 0.0.28 | J.B. Metz | February 2013 | Additional information.
 | 0.0.29 | J.B. Metz | August 2013 | Additional information with thanks to J. Lohman.
 | 0.0.30 | J.B. Metz | November 2016 | Switched to asciidoc format.
-| 0.0.31 | J.B. Metz | February | Migrated documentation and changes to formatting.
+| 0.0.31 | J.B. Metz | February 2022 | Migrated documentation and changes to formatting.
 |===
 
 :numbered:
@@ -481,7 +481,7 @@ Contains: 4 bytes unknown, 16 bytes GUID, 4 bytes unknown, ENTRYID?
 Contains a value that indicates the message sender's opinion of the sensitivity of a message. +
 See section: <<sensitivity_definitions,Sensitivity definitions>>
 | 0x0037 | 0x001e (ASCII string) +
-| 0x001f (Unicode string) | PidTagSubject +
+0x001f (Unicode string) | PidTagSubject +
 (PR_SUBJECT) | Subject +
 Contains the full subject of a message. +
 The subject can start with 2 characters of control codes see section: <<subject_control_codes,Subject control codes>>
@@ -491,6 +491,44 @@ Contains a binary value that is copied from the message for which a report is be
 | 0x0039 | 0x0040 (Filetime) | PidTagClientSubmitTime +
 (PR_CLIENT_SUBMIT_TIME) | Client submit time +
 Contains the date and time the message sender submitted a message.
+| 0x003a | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_REPORT_NAME | [yellow-background]*Unknown*
+| 0x003b | 0x001e (ASCII string) +
+0x001f (Unicode string) | | [yellow-background]*Unknown*
+| | 0x0102 (Binary data) | PidTagSentRepresentingSearchKey +
+(PR_SENT_REPRESENTING_SEARCH_KEY) | Sent representing search key
+Contains ASCII NUL-terminated string. +
+Contains the search key for the messaging user represented by the sender.
+| 0x003c | 0x0102 (Binary data) | PR_X400_CONTENT_TYPE | [yellow-background]*Unknown*
+| 0x003d | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidTagSubjectPrefix +
+(PR_SUBJECT_PREFIX) | Subject prefix _
+Contains a subject prefix that typically indicates some action on a message, such as "FW: " for forwarding.
+| 0x003e | 0x0003 (Integer 32-bit signed) | PR_NON_RECEIPT_REASON | [yellow-background]*Unknown*
+| 0x003f | 0x0102 (Binary data) | PidTagReceivedByEntryId +
+(PR_RECEIVED_BY_ENTRYID) | Received by entry identifier +
+Contains the entry identifier for the messaging user represented by the sender. +
+See section: <<entry_identifier_structure,The entry identifier structure (ENTRYID)>>
+| 0x0040 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidTagReceivedByName +
+(PR_RECEIVED_BY_NAME) | Received by name
+| 0x0041 | 0x0102 (Binary data) | PidTagSentRepresentingEntryId +
+(PR_SENT_REPRESENTING_ENTRYID) | Sent representing entry identifier _
+Contains recipient/sender structure +
+See section: <<entry_identifier_structure,The entry identifier structure (ENTRYID)>>
+| 0x0042 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidTagSentRepresentingName +
+(PR_SENT_REPRESENTING_NAME) | Sent representing name +
+Contains the display name for the messaging user represented by the sender.
+| 0x0043 | 0x0102 (Binary data) | PR_RCVD_REPRESENTING_ENTRYID | Received representing entry identifier +
+Contains recipient/sender structure +
+See section: <<entry_identifier_structure,The entry identifier structure (ENTRYID)>>
+| 0x0044 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_RCVD_REPRESENTING_NAME | Received representing name
+| 0x0045 | 0x0102 (Binary data) | PR_REPORT_ENTRYID | Report entry identifier +
+See section: <<entry_identifier_structure,The entry identifier structure (ENTRYID)>>
+| 0x0046 | 0x0102 (Binary data) | PR_READ_RECEIPT_ENTRYID | Read receipt entry identifier +
+See section: <<entry_identifier_structure,The entry identifier structure (ENTRYID)>>
 |===
 
 * [yellow-background]*TODO: migrate documentation*
@@ -1664,7 +1702,7 @@ The embedded object is 8 bytes of size and consists of:
 | 4 | 4 | | [yellow-background]*Unknown*
 |===
 
-=== [[entry_identifier]]The entry identifier structure (ENTRYID)
+=== [[entry_identifier_structure]]The entry identifier structure (ENTRYID)
 
 The entry type should be of value type 0x0102 (Binary data). The entry
 identifier is used to define object specific references in a generic way.
@@ -2190,7 +2228,7 @@ The persist data block element is variable of size and consists of:
 | Value | Identifier | Description
 | 0x0000 | ELEMENT_SENTINEL | No more persist data elements need to be processed.
 | 0x0001 | RSF_ELID_ENTRYID | Data contains the entry identifier of the folder specified by block. +
-See section: <<entry_identifier,The entry identifier structure (ENTRYID)>>
+See section: <<entry_identifier_structure,The entry identifier structure (ENTRYID)>>
 | 0x0002 | RSF_ELID_HEADER | [yellow-background]*The data contains a 32-bit (header) value.* +
 [yellow-background]*The meaning of this value is dependent on the block type. Also see: `[MS-OXOSFLD]`.*
 |===
