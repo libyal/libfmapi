@@ -529,6 +529,71 @@ See section: <<entry_identifier_structure,The entry identifier structure (ENTRYI
 See section: <<entry_identifier_structure,The entry identifier structure (ENTRYID)>>
 | 0x0046 | 0x0102 (Binary data) | PR_READ_RECEIPT_ENTRYID | Read receipt entry identifier +
 See section: <<entry_identifier_structure,The entry identifier structure (ENTRYID)>>
+| 0x0047 | 0x0102 (Binary data) | PR_MESSAGE_SUBMISSION_ID | [yellow-background]*Unknown*
+| 0x0048 | 0x0040 (Filetime) | PR_PROVIDER_SUBMIT_TIME | [yellow-background]*Unknown*
+| 0x0049 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidTagOriginalSubject +
+(PR_ORIGINAL_SUBJECT) | Original subject +
+Contains the subject of an original message for use in a report about the message.
+| 0x004a | 0x000b (Boolean) | PR_DISC_VAL | [yellow-background]*Unknown*
+| 0x004b | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_ORIG_MESSAGE_CLASS | [yellow-background]*Unknown*
+| 0x004c | 0x0102 (Binary data) | PidTagOriginalAuthorEntryId +
+(PR_ORIGINAL_AUTHOR_ENTRYID) | Original author entry identifier +
+Contains the entry identifier of the author of the first version of a message, that is, the message before being forwarded or replied to. +
+See section: <<entry_identifier_structure,The entry identifier structure (ENTRYID)>>
+| 0x004d | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidTagOriginalAuthorName +
+(PR_ORIGINAL_AUTHOR_NAME) | Original author name +
+Contains the display name of the author of the first version of a message, that is, the message before being forwarded or replied to.
+| 0x004e | 0x0040 (Filetime) | PidTagOriginalSubmitTime +
+(PR_ORIGINAL_SUBMIT_TIME) | Original submit time +
+Contains the original submission date and time of the message in the report.
+| 0x004f | 0x0102 (Binary data) | PR_REPLY_RECIPIENT_ENTRIES | Reply recipients entries +
+[yellow-background]*Unknown contents*
+| 0x0050 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidTagReplyRecipientEntries +
+(PR_REPLY_RECIPIENT_NAMES) | Reply recipients names
+| 0x0051 | 0x0102 (Binary data) | PR_RECEIVED_BY_SEARCH_KEY | Received by search key +
+Contains ASCII string with end-of-string character
+| 0x0052 | 0x0102 (Binary data) | PR_RCVD_REPRESENTING_SEARCH_KEY | Received representing search key +
+Contains ASCII string with end-of-string character
+| 0x0053 | 0x0102 (Binary data) | PR_READ_RECEIPT_SEARCH_KEY | [yellow-background]*Unknown*
+| 0x0054 | 0x0102 (Binary data) | PR_REPORT_SEARCH_KEY | [yellow-background]*Unknown*
+| 0x0055 | 0x0040 (Filetime) | PR_ORIGINAL_DELIVERY_TIME | [yellow-background]*Unknown*
+| 0x0056 | 0x0102 (Binary data) | PR_ORIGINAL_AUTHOR_SEARCH_KEY | [yellow-background]*Unknown*
+| 0x0057 | 0x000b (Boolean) | PidTagMessageToMe +
+(PR_MESSAGE_TO_ME) | My address in To field +
+Contains TRUE if this messaging user is specifically named as a primary (To) recipient of this message and is not part of a distribution list.
+| 0x0058 | 0x000b (Boolean) | PidTagMessageCcMe +
+(PR_MESSAGE_CC_ME) | My address in CC field +
+Contains TRUE if this messaging user is specifically named as a carbon copy (CC) recipient of this message and is not part of a distribution list.
+| 0x0059 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidTagMessageRecipientMe +
+(PR_MESSAGE_RECIP_ME) | Message addressed to me +
+Contains TRUE if this messaging user is specifically named as a primary (To), carbon copy (CC), or blind carbon copy (BCC) recipient of this message and is not part of a distribution list.
+| 0x005a | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidTagOriginalSenderName +
+(PR_ORIGINAL_SENDER_NAME) | Original sender name +
+Contains the display name of the sender of the first version of a message, that is, the message before being forwarded or replied to.
+| 0x005b | 0x0102 (Binary data) | PidTagOriginalSenderEntryId +
+(PR_ORIGINAL_SENDER_ENTRYID) | Original sender entry identifier +
+Contains the entry identifier of the sender of the first version of a message, that is, the message before being forwarded or replied to. +
+See section: <<entry_identifier_structure,The entry identifier structure (ENTRYID)>>
+| 0x005c | 0x0102 (Binary data) | PidTagOriginalSenderSearchKey +
+(PR_ORIGINAL_SENDER_SEARCH_KEY) | Original sender search key +
+Contains the search key for the sender of the first version of a message, that is, the message before being forwarded or replied to.
+| 0x005d | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidTagOriginalSentRepresentingName +
+(PR_ORIGINAL_SENT_REPRESENTING_NAME) | Original sent representing name +
+Contains the display name of the messaging user on whose behalf the original message was sent.
+| 0x005e | 0x0102 (Binary data) | PidTagOriginalSentRepresentingEntryId +
+(PR_ORIGINAL_SENT_REPRESENTING_ENTRYID) | Original sent representing entry identifier +
+Contains the entry identifier of the messaging user on whose behalf the original message was sent.
+See section: <<entry_identifier_structure,The entry identifier structure (ENTRYID)>>
+| 0x005f | 0x0102 (Binary data) | PidTagOriginalSentRepresentingSearchKey +
+(PR_ORIGINAL_SENT_REPRESENTING_SEARCH_KEY) | Original sent representing search key +
+Contains the search key of the messaging user on whose behalf the original message was sent.
 |===
 
 * [yellow-background]*TODO: migrate documentation*
