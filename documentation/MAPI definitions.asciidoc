@@ -594,6 +594,80 @@ See section: <<entry_identifier_structure,The entry identifier structure (ENTRYI
 | 0x005f | 0x0102 (Binary data) | PidTagOriginalSentRepresentingSearchKey +
 (PR_ORIGINAL_SENT_REPRESENTING_SEARCH_KEY) | Original sent representing search key +
 Contains the search key of the messaging user on whose behalf the original message was sent.
+| 0x0060 | 0x0040 (Filetime) | PidTagStartDate +
+(PR_START_DATE) | Appointment start date and time +
+Contains the starting date and time of an appointment as managed by a scheduling application.
+| 0x0061 | 0x0040 (Filetime) | PidTagEndDate +
+(PR_END_DATE) | Appointment end date and time +
+Contains the ending date and time of an appointment as managed by a scheduling application.
+| 0x0062 | 0x0003 (Integer 32-bit signed) | PidTagOwnerAppointmentId +
+(PR_OWNER_APPT_ID) | Appointment owner identifier +
+Contains an identifier for an appointment in the owner's schedule.
+| 0x0063 | 0x000b (Boolean) | PidTagResponseRequested +
+(PR_RESPONSE_REQUESTED) | Response requested +
+Contains TRUE if the message sender wants a response to a meeting request.
+| 0x0064 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidTagSentRepresentingAddressType +
+(PR_SENT_REPRESENTING_ADDRTYPE) | Sent representing address type +
+Contains the address type for the messaging user who is represented by the sender. +
+See section: <<address_type_definitions,Address type definitions>>
+| 0x0065 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidTagSentRepresentingEmailAddress +
+(PR_SENT_REPRESENTING_EMAIL_ADDRESS) | Sent representing e-mail address +
+Contains the e-mail address for the messaging user who is represented by the sender.
+| 0x0066 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidTagOriginalSenderAddressType +
+(PR_ORIGINAL_SENDER_ADDRTYPE) | Original sender address type +
+Contains the address type of the sender of the first version of a message, that is, the message before being forwarded or replied to. +
+See section: <<address_type_definitions,Address type definitions>>
+| 0x0067 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidTagOriginalSenderEmailAddress +
+(PR_ORIGINAL_SENDER_EMAIL_ADDRESS) | Original sender e-mail address +
+Contains the e-mail address of the sender of the first version of a message, that is, the message before being forwarded or replied to.
+| 0x0068 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidTagOriginalSentRepresentingAddressType +
+(PR_ORIGINAL_SENT_REPRESENTING_ADDRTYPE) | Original sent representing address type +
+Contains the address type of the messaging user on whose behalf the original message was sent. +
+See section: <<address_type_definitions,Address type definitions>>
+| 0x0069 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidTagOriginalSentRepresentingEmailAddress +
+(PR_ORIGINAL_SENT_REPRESENTING_EMAIL_ADDRESS) | Original sent representing e-mail address +
+Contains the e-mail address of the messaging user on whose behalf the original message was sent.
+| | | |
+| 0x0070 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidTagConversationTopic +
+(PR_CONVERSATION_TOPIC) | Conversation topic +
+Contains the topic of the first message in a conversation thread.
+| 0x0071 | 0x0102 (Binary data) | PidTagConversationIndex +
+(PR_CONVERSATION_INDEX) | Conversation index +
+Contains a binary value that indicates the relative position of this message within a conversation thread. +
+See section: <<conversation_index_structure,conversation index structure>>
+| 0x0072 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidTagOriginalDisplayBcc +
+(PR_ORIGINAL_DISPLAY_BCC) | Original display BCC +
+Contains the display names of any blind carbon copy (BCC) recipients of the original message.
+| 0x0073 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidTagOriginalDisplayCc +
+(PR_ORIGINAL_DISPLAY_CC) | Original display CC +
+Contains the display names of any carbon copy (CC) recipients of the original message.
+| 0x0074 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidTagOriginalDisplayTo +
+(PR_ORIGINAL_DISPLAY_TO) | Original display TO +
+Contains the display names of the primary (To) recipients of the original message.
+| 0x0075 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidTagReceivedByAddressType +
+(PR_RECEIVED_BY_ADDRTYPE) | Received by address type +
+Contains the e-mail address type, such as SMTP, for the messaging user who actually receives the message. +
+See section: <<address_type_definitions,Address type definitions>>
+| 0x0076 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidTagReceivedByEmailAddress +
+(PR_RECEIVED_BY_EMAIL_ADDRESS) | Received by e-mail address +
+Contains the e-mail address for the messaging user who receives the message.
+| 0x0077 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidTagReceivedRepresentingAddressType +
+(PR_RCVD_REPRESENTING_ADDRTYPE) | Received representing address type +
+Contains the address type for the messaging user who is represented by the user actually receiving the message. +
+See section: <<address_type_definitions,Address type definitions>>
 |===
 
 * [yellow-background]*TODO: migrate documentation*
