@@ -668,43 +668,128 @@ Contains the e-mail address for the messaging user who receives the message.
 (PR_RCVD_REPRESENTING_ADDRTYPE) | Received representing address type +
 Contains the address type for the messaging user who is represented by the user actually receiving the message. +
 See section: <<address_type_definitions,Address type definitions>>
+| 0x0078 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidTagReceivedRepresentingEmailAddress +
+(PR_RCVD_REPRESENTING_EMAIL_ADDRESS) | Received representing e-mail address +
+Contains the e-mail address for the messaging user who is represented by the receiving user.
+| 0x0079 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidTagOriginalAuthorAddressType +
+(PR_ORIGINAL_AUTHOR_ADDRTYPE) | Original author address type +
+Contains the address type of the author of the first version of a message, that is, the message before being forwarded or replied to.
+See section: <<address_type_definitions,Address type definitions>>
+| 0x007a | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidTagOriginalAuthorEmailAddress +
+(PR_ORIGINAL_AUTHOR_EMAIL_ADDRESS) | Original author e-mail address +
+Contains the e-mail address of the author of the first version of a message, that is, the message before being forwarded or replied to.
+| 0x007b | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidTagOriginallyIntendedRecipAddrtype +
+(PR_ORIGINALLY_INTENDED_RECIP_ADDRTYPE) | Originally intended recipient address type +
+Contains the address type of the originally intended recipient of an auto-forwarded message. +
+See section: <<address_type_definitions,Address type definitions>>
+| 0x007c | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidTagOriginallyIntendedRecipEmailAddress +
+(PR_ORIGINALLY_INTENDED_RECIP_EMAIL_ADDRESS) | Originally intended recipient e-mail address +
+Contains the e-mail address of the originally intended recipient of an autoforwarded message.
+| 0x007d | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidTagTransportMessageHeaders +
+(PR_TRANSPORT_MESSAGE_HEADERS) | Transport message headers +
+Contains transport-specific message envelope information. These contain the SMTP e-mail headers.
+| 0x007e | 0x0102 (Binary data) | PidTagDelegation +
+(PR_DELEGATION) | Delegation +
+[yellow-background]*Unknown, deprecated according to MSDN*
+| 0x007f | 0x0102 (Binary data) | PidTagTnefCorrelationKey +
+(PR_TNEF_CORRELATION_KEY) | TNEF correlation key +
+Contains a value that correlates a Transport Neutral Encapsulation Format (TNEF) attachment with a message. +
+[yellow-background]*Contains a single byte 0x00*
+| 0x0080 | 0x001e (ASCII string) +
+0x001f (Unicode string) | "displayed" | [yellow-background]*Unknown (found in a message delivery report item)*
+| 0x0081 | 0x001e (ASCII string) +
+0x001f (Unicode string) | "automatic-action/MDN-sent-automatically" | [yellow-background]*Unknown (found in a message delivery report item)*
+| | | |
+| 0x0083 | 0x101e (Array of ASCII string) +
+0x101f (Array of Unicode string) | | [yellow-background]*Unknown (Contains sender name)*
+| 0x0084 | 0x101e (Array of ASCII string) +
+0x101f (Array of Unicode string) | | [yellow-background]*Unknown (Contains sender e-mail address)*
 |===
 
-* [yellow-background]*TODO: migrate documentation*
-
 === Recipient properties (0x0c00 – 0x0dff)
+
+[cols="1,1,1,5",options="header"]
+|===
+| Item | Value | Identifier | Description
+|===
 
 * [yellow-background]*TODO: migrate documentation*
 
 === Non-transmittable message properties (0x0e00 – 0x0fff)
 
+[cols="1,1,1,5",options="header"]
+|===
+| Item | Value | Identifier | Description
+|===
+
 * [yellow-background]*TODO: migrate documentation*
 
 === Message content properties (0x1000 – 0x2fff)
+
+[cols="1,1,1,5",options="header"]
+|===
+| Item | Value | Identifier | Description
+|===
 
 * [yellow-background]*TODO: migrate documentation*
 
 === Common objects properties (0x3000 – 0x03ff)
 
+[cols="1,1,1,5",options="header"]
+|===
+| Item | Value | Identifier | Description
+|===
+
 * [yellow-background]*TODO: migrate documentation*
 
 === Message store properties (0x3400 - 0x35ff)
+
+[cols="1,1,1,5",options="header"]
+|===
+| Item | Value | Identifier | Description
+|===
 
 * [yellow-background]*TODO: migrate documentation*
 
 === Folder and address book container properties (0x3600 – 0x36ff)
 
+[cols="1,1,1,5",options="header"]
+|===
+| Item | Value | Identifier | Description
+|===
+
 * [yellow-background]*TODO: migrate documentation*
 
 === Attachment properties (0x3700 – 0x38ff)
+
+[cols="1,1,1,5",options="header"]
+|===
+| Item | Value | Identifier | Description
+|===
 
 * [yellow-background]*TODO: migrate documentation*
 
 === Address book properties (0x3900 – 0x39ff)
 
+[cols="1,1,1,5",options="header"]
+|===
+| Item | Value | Identifier | Description
+|===
+
 * [yellow-background]*TODO: migrate documentation*
 
 === Messaging user properties (0x3a00 – 0x3bff)
+
+[cols="1,1,1,5",options="header"]
+|===
+| Item | Value | Identifier | Description
+|===
 
 * [yellow-background]*TODO: migrate documentation*
 
