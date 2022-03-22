@@ -717,6 +717,17 @@ Contains a value that correlates a Transport Neutral Encapsulation Format (TNEF)
 [cols="1,1,1,5",options="header"]
 |===
 | Item | Value | Identifier | Description
+| 0x0c00 | 0x0102 (Binary data) | PR_CONTENT_INTEGRITY_CHECK | [yellow-background]*Unknown*
+| 0x0c01 | 0x0003 (Integer 32-bit signed) | PR_EXPLICIT_CONVERSION | [yellow-background]*Unknown*
+| 0x0c02 | 0x000b (Boolean) | PidTagIpmReturnRequested +
+(PR_IPM_RETURN_REQUESTED) | Return report requested +
+Contains TRUE if this message should be returned with a report.
+| 0x0c03 | 0x0102 (Binary data) | PidTagMessageToken +
+(PR_MESSAGE_TOKEN) | Message ASN.1 secutiry token
+| 0x0c04 | 0x0003 (Integer 32-bit signed) | PR_NDR_REASON_CODE | [yellow-background]*Unknown*
+| 0x0c05 | 0x0003 (Integer 32-bit signed) | PR_NDR_DIAG_CODE | [yellow-background]*Unknown*
+| 0x0c06 | 0x000b (Boolean) | PR_NON_RECEIPT_NOTIFICATION_REQUESTED | [yellow-background]*Unknown (Non receipt notification requested)*
+| 0x0c07 | 0x0003 (Integer 32-bit signed) | PR_DELIVERY_POINT | [yellow-background]*Unknown*
 |===
 
 * [yellow-background]*TODO: migrate documentation*
