@@ -728,6 +728,14 @@ Contains TRUE if this message should be returned with a report.
 | 0x0c05 | 0x0003 (Integer 32-bit signed) | PR_NDR_DIAG_CODE | [yellow-background]*Unknown*
 | 0x0c06 | 0x000b (Boolean) | PR_NON_RECEIPT_NOTIFICATION_REQUESTED | [yellow-background]*Unknown (Non receipt notification requested)*
 | 0x0c07 | 0x0003 (Integer 32-bit signed) | PR_DELIVERY_POINT | [yellow-background]*Unknown*
+| 0x0c08 | 0x000b (Boolean) | PR_ORIGINATOR_NON_DELIVERY_REPORT_REQUESTED | [yellow-background]*Unknown (Originator non delivery report requested)*
+| 0x0c09 | 0x0102 (Binary data) | PR_ORIGINATOR_REQUESTED_ALTERNATE_RECIPIENT | [yellow-background]*Unknown*
+| 0x0c0a | 0x000b (Boolean) | PR_PHYSICAL_DELIVERY_BUREAU_FAX_DELIVERY | [yellow-background]*Unknown*
+| 0x0c0b | 0x0003 (Integer 32-bit signed) | PR_PHYSICAL_DELIVERY_MODE | [yellow-background]*Unknown*
+| 0x0c0c | 0x0003 (Integer 32-bit signed) | PR_PHYSICAL_DELIVERY_REPORT_REQUEST | [yellow-background]*Unknown*
+| 0x0c0d | 0x0102 (Binary data) | PR_PHYSICAL_FORWARDING_ADDRESS | [yellow-background]*Unknown*
+| 0x0c0e | 0x000b (Boolean) | PR_PHYSICAL_FORWARDING_ADDRESS_REQUESTED | [yellow-background]*Unknown*
+| 0x0c0f | 0x000b (Boolean) | PR_PHYSICAL_FORWARDING_PROHIBITED | [yellow-background]*Unknown*
 |===
 
 * [yellow-background]*TODO: migrate documentation*
