@@ -736,6 +736,20 @@ Contains TRUE if this message should be returned with a report.
 | 0x0c0d | 0x0102 (Binary data) | PR_PHYSICAL_FORWARDING_ADDRESS | [yellow-background]*Unknown*
 | 0x0c0e | 0x000b (Boolean) | PR_PHYSICAL_FORWARDING_ADDRESS_REQUESTED | [yellow-background]*Unknown*
 | 0x0c0f | 0x000b (Boolean) | PR_PHYSICAL_FORWARDING_PROHIBITED | [yellow-background]*Unknown*
+| 0x0c10 | 0x0102 (Binary data) | PR_PHYSICAL_RENDITION_ATTRIBUTES | [yellow-background]*Unknown*
+| 0x0c11 | 0x0102 (Binary data) | PR_PROOF_OF_DELIVERY | [yellow-background]*Unknown*
+| 0x0c12 | 0x000b (Boolean) | PR_PROOF_OF_DELIVERY_REQUESTED | [yellow-background]*Unknown*
+| 0x0c13 | 0x0102 (Binary data) | PidTagRecipientCertificate +
+(PR_RECIPIENT_CERTIFICATE) | Recipient certificate +
+Contains an ASN.1 authentication certificate
+| 0x0c14 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_RECIPIENT_NUMBER_FOR_ADVICE | [yellow-background]*Unknown*
+| 0x0c15 | 0x0003 (Integer 32-bit signed) | PidTagRecipientType +
+(PR_RECIPIENT_TYPE) | Recipient type +
+Contains the recipient type for a message recipient. +
+See section: <<recipient_type_definitions,Recipient type definitions>>
+| 0x0c16 | 0x0003 (Integer 32-bit signed) | PR_REGISTERED_MAIL_TYPE | [yellow-background]*Unknown*
+| 0x0c17 | 0x000b (Boolean) | PR_REPLY_REQUESTED | Reply requested
 |===
 
 * [yellow-background]*TODO: migrate documentation*
