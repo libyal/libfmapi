@@ -750,9 +750,32 @@ Contains the recipient type for a message recipient. +
 See section: <<recipient_type_definitions,Recipient type definitions>>
 | 0x0c16 | 0x0003 (Integer 32-bit signed) | PR_REGISTERED_MAIL_TYPE | [yellow-background]*Unknown*
 | 0x0c17 | 0x000b (Boolean) | PR_REPLY_REQUESTED | Reply requested
+| 0x0c18 | 0x0003 (Integer 32-bit signed) | PR_REQUESTED_DELIVERY_METHOD | [yellow-background]*Unknown*
+| 0x0c19 | 0x0102 (Binary data) | PidTagSenderEntryId +
+(PR_SENDER_ENTRYID) | Sender entry identifier +
+Contains the message sender's entry identifier. +
+See section: <<entry_identifier_structure,The entry identifier structure (ENTRYID)>>
+| 0x0c1a | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidTagSenderName +
+(PR_SENDER_NAME) | Sender name +
+Contains the message sender's display name.
+| 0x0c1b | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_SUPPLEMENTARY_INFO | [yellow-background]*Unknown*
+| 0x0c1c | 0x0003 (Integer 32-bit signed) | PR_TYPE_OF_MTS_USER | [yellow-background]*Unknown*
+| 0x0c1d | 0x0102 (Binary data) | PidTagSenderSearchKey +
+(PR_SENDER_SEARCH_KEY) | Sender search key +
+Contains the message sender's search key. Contains ASCII NUL-terminated string
+| 0x0c1e | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidTagSenderAddressType +
+(PR_SENDER_ADDRTYPE) | Sender address type +
+Contains the message sender's e-mail address type. +
+See section: <<address_type_definitions,Address type definitions>>
+| 0x0c1f | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidTagSenderEmailAddress +
+(PR_SENDER_EMAIL_ADDRESS) | Sender e-mail address +
+Contains the message sender's e-mail address.
+| 0x0c20 | 0x0003 (Integer 32-bit signed) | PR_NDR_STATUS_CODE | [yellow-background]*Unknown (None delivery status code)*
 |===
-
-* [yellow-background]*TODO: migrate documentation*
 
 === Non-transmittable message properties (0x0e00 – 0x0fff)
 
