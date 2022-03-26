@@ -782,6 +782,35 @@ Contains the message sender's e-mail address.
 [cols="1,1,1,5",options="header"]
 |===
 | Item | Value | Identifier | Description
+| 0x0e00 | 0x0014 (Integer 64-bit signed) | PidTagCurrentVersion +
+(PR_CURRENT_VERSION) | Message store verion +
+Contain the current version of a message store.
+| 0x0e01 | 0x000b (Boolean) | PidTagDeleteAfterSubmit +
+(PR_DELETE_AFTER_SUBMIT) | Delete after submit +
+Contains TRUE if a client application wants MAPI to delete the associated message after submission.
+| 0x0e02 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidTagDisplayBcc +
+(PR_DISPLAY_BCC) | Display BCC +
+Contains an ASCII list of the display names of any blind carbon copy (BCC) message recipients, separated by semicolons (;).
+| 0x0e03 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidTagDisplayCc +
+(PR_DISPLAY_CC) | Display CC +
+Contains an ASCII list of the display names of any carbon copy (CC) message recipients, separated by semicolons (;). 
+| 0x0e04 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidTagDisplayTo +
+(PR_DISPLAY_TO) | Display To +
+Contains a list of the display names of the primary (To) message recipients, separated by semicolons (;)
+| 0x0e05 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidTagParentDisplay +
+(PR_PARENT_DISPLAY) | Parent display name +
+Contains the display name of the folder where a message was found during a search.
+| 0x0e06 | 0x0040 (Filetime) | PidTagOriginalDeliveryTime +
+(PR_MESSAGE_DELIVERY_TIME) | Message delivery time +
+Contains a copy of the original message's delivery date and time in a thread. 
+| 0x0e07 | 0x0003 (Integer 32-bit signed) | PidTagMessageFlags +
+(PR_MESSAGE_FLAGS) | Message flags +
+Contains a bitmask of flags that indicate the origin and current state of a message. +
+See section: <<message_flag_definitions,Message flag definitions>>
 |===
 
 * [yellow-background]*TODO: migrate documentation*
