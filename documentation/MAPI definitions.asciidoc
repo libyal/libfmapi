@@ -811,6 +811,32 @@ Contains a copy of the original message's delivery date and time in a thread.
 (PR_MESSAGE_FLAGS) | Message flags +
 Contains a bitmask of flags that indicate the origin and current state of a message. +
 See section: <<message_flag_definitions,Message flag definitions>>
+| 0x0e08 | 0x0003 (Integer 32-bit signed) | PidTagMessageSize +
+(PR_MESSAGE_SIZE) | Message size +
+Contains the sum, in bytes, of the sizes of all properties on a message object.
+| | 0x0014 (Integer 64-bit signed) | PidTagMessageSizeExtended +
+(PR_MESSAGE_SIZE_EXTENDED) | Message size +
+Contains the sum, in bytes, of the sizes of all properties on a message object.
+| 0x0e09 | 0x0102 (Binary data) | PidTagParentEntryId +
+(PR_PARENT_ENTRYID) | Parent folder entry identifier +
+Contains the entry identifier of the folder that contains a folder or message. +
+See section: <<entry_identifier_structure,The entry identifier structure (ENTRYID)>>
+| 0x0e0a | 0x0102 (Binary data) | PidTagSentMailEntryId +
+(PR_SENTMAIL_ENTRYID) | Sent mail folder entry identifier +
+Contains the entry identifier of the folder where the message should be moved after submission. +
+See section: <<entry_identifier_structure,The entry identifier structure (ENTRYID)>>
+| 0x0e0b | 0x000b (Boolean) | PidTagCorrelate +
+(PR_CORRELATE) | Correlation requested +
+Contains TRUE if the sender of a message requests the correlation feature of the messaging system.
+| 0x0e0c | 0x0102 (Binary data) | PidTagCorrelateMtsid +
+(PR_CORRELATE_MTSID) | Correlation  message transfer system identifier +
+Contains the message transfer system (MTS) identifier used in correlating reports with sent messages
+| 0x0e0e | 0x000b (Boolean) | PidTagDiscreteValues +
+(PR_DISCRETE_VALUES) | Report applies to specific members only +
+Contains TRUE if a nondelivery report applies only to discrete members of a distribution list rather than the entire list. 
+| 0x0e0f | 0x000b (Boolean) | PidTagResponsibility +
+(PR_RESPONSIBILITY) | Transport provider has responsibility +
+Contains TRUE if some transport provider has already accepted responsibility for delivering the message to this recipient, and FALSE if the MAPI spooler considers that this transport provider should accept responsibility.
 |===
 
 * [yellow-background]*TODO: migrate documentation*
