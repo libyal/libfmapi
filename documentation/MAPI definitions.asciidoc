@@ -837,6 +837,23 @@ Contains TRUE if a nondelivery report applies only to discrete members of a dist
 | 0x0e0f | 0x000b (Boolean) | PidTagResponsibility +
 (PR_RESPONSIBILITY) | Transport provider has responsibility +
 Contains TRUE if some transport provider has already accepted responsibility for delivering the message to this recipient, and FALSE if the MAPI spooler considers that this transport provider should accept responsibility.
+| 0x0e10 | 0x0003 (Integer 32-bit signed) | PidTagSpoolerStatus +
+(PR_SPOOLER_STATUS) | Spooler status +
+Contains the status of the message based on information that is available to the MAPI spooler.
+| 0x0e11 | 0x0003 (Integer 32-bit signed) | PR_TRANSPORT_STATUS | [yellow-background]*Unknown*
+| 0x0e12 | 0x000d (Embedded object) | PR_MESSAGE_RECIPIENTS | [yellow-background]*Unknown*
+| 0x0e13 | 0x000d (Embedded object) | PR_MESSAGE_ATTACHMENTS | [yellow-background]*Unknown*
+| 0x0e14 | 0x0003 (Integer 32-bit signed) | PidTagSubmitFlags +
+(PR_SUBMIT_FLAGS) | Message submit flags +
+Contains a bitmask of flags indicating details about a message submission. +
+See section: <<message_submit_flag_definitions,Message submit flag definitions>>
+| 0x0e15 | 0x0003 (Integer 32-bit signed) | PR_RECIPIENT_STATUS | [yellow-background]*Unknown*
+| 0x0e16 | 0x0003 (Integer 32-bit signed) | PR_TRANSPORT_KEY | [yellow-background]*Unknown*
+| 0x0e17 | 0x0003 (Integer 32-bit signed) | PidTagMessageStatus +
+(PR_MSG_STATUS) | Message status flags +
+Contains a 32-bit bitmask of flags that defines the status of a message in a contents table. +
+See section: <<message_status_flag_definitions,Message status flag definitions>>
+| 0x0e18 | 0x0003 (Integer 32-bit signed) | PR_MESSAGE_DOWNLOAD_TIME | [yellow-background]*Unknown*
 |===
 
 * [yellow-background]*TODO: migrate documentation*
