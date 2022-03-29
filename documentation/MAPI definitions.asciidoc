@@ -854,6 +854,21 @@ See section: <<message_submit_flag_definitions,Message submit flag definitions>>
 Contains a 32-bit bitmask of flags that defines the status of a message in a contents table. +
 See section: <<message_status_flag_definitions,Message status flag definitions>>
 | 0x0e18 | 0x0003 (Integer 32-bit signed) | PR_MESSAGE_DOWNLOAD_TIME | [yellow-background]*Unknown*
+| 0x0e19 | 0x0014 (Integer 64-bit signed) | PR_CREATION_VERSION | [yellow-background]*Unknown*
+| 0x0e1a | 0x0014 (Integer 64-bit signed) | PR_MODIFY_VERSION | [yellow-background]*Unknown*
+| 0x0e1b | 0x000b (Boolean) | PR_HASATTACH | [yellow-background]*Unknown*
+| 0x0e1c | 0x0003 (Integer 32-bit signed) | PidTagBodyCrc +
+(PR_BODY_CRC) | Plain text message body checksum +
+Contains a weak 32-bit cyclic redundancy check (CRC32) value on the message text.
+| 0x0e1d | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidTagNormalizedSubject +
+(PR_NORMALIZED_SUBJECT) | Normalized subject +
+Contains the message subject with any prefix removed.
+| | | | 
+| 0x0e1f | 0x000b (Boolean)
+| PidTagRtfInSync +
+(PR_RTF_IN_SYNC) | Compressed RTF message body in sync with plain text +
+Contains TRUE if the PidTagRtfCompressed (PR_RTF_COMPRESSED) property has the same text content as the PidTagBody (PR_BODY) property for this message.
 |===
 
 * [yellow-background]*TODO: migrate documentation*
