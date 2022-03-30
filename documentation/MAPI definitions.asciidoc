@@ -869,6 +869,26 @@ Contains the message subject with any prefix removed.
 | PidTagRtfInSync +
 (PR_RTF_IN_SYNC) | Compressed RTF message body in sync with plain text +
 Contains TRUE if the PidTagRtfCompressed (PR_RTF_COMPRESSED) property has the same text content as the PidTagBody (PR_BODY) property for this message.
+| 0x0e20 | 0x0003 (Integer 32-bit signed) | PidTagAttachSize +
+(PR_ATTACH_SIZE) | Attachment size +
+Contains the sum, in bytes, of the sizes of all properties on an attachment. 
+| 0x0e21 | 0x0003 (Integer 32-bit signed) | PidTagAttachNumber +
+(PR_ATTACH_NUM) | Attachment number +
+Contains a number that uniquely identifies the attachment within its parent message. 
+| 0x0e22 | 0x000b (Boolean) | PidTagPreprocess +
+(PR_PREPROCESS) | Needs preprocessing +
+Contains TRUE if the message requires preprocessing.
+| 0x0e23 | 0x0003 (Integer 32-bit signed) | PidTagInternetArticleNumber +
+(PR_INTERNET_ARTICLE_NUMBER) | Internet article number +
+A number associated with an item in a message store.
+| 0x0e24 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_NEWSGROUP_NAME | [yellow-background]*Unknown*
+| 0x0e25 | 0x0102 (Binary data) | PR_ORIGINATING_MTA_CERTIFICATE | [yellow-background]*Unknown*
+| 0x0e26 | 0x0102 (Binary data) | PR_PROOF_OF_SUBMISSION | [yellow-background]*Unknown*
+| 0x0e27 | 0x0102 (Binary data) | PidTagSecurityDescriptor +
+(PR_NT_SECURITY_DESCRIPTOR, ptagNTSD) | Permissions (NT security descriptor) +
+Holds the NT security descriptors of the users or groups that can access the folder. +
+See section: <<security_desciptor_structure,The security descriptor structure>>
 |===
 
 * [yellow-background]*TODO: migrate documentation*
