@@ -795,7 +795,7 @@ Contains an ASCII list of the display names of any blind carbon copy (BCC) messa
 | 0x0e03 | 0x001e (ASCII string) +
 0x001f (Unicode string) | PidTagDisplayCc +
 (PR_DISPLAY_CC) | Display CC +
-Contains an ASCII list of the display names of any carbon copy (CC) message recipients, separated by semicolons (;). 
+Contains an ASCII list of the display names of any carbon copy (CC) message recipients, separated by semicolons (;).
 | 0x0e04 | 0x001e (ASCII string) +
 0x001f (Unicode string) | PidTagDisplayTo +
 (PR_DISPLAY_TO) | Display To +
@@ -806,7 +806,7 @@ Contains a list of the display names of the primary (To) message recipients, sep
 Contains the display name of the folder where a message was found during a search.
 | 0x0e06 | 0x0040 (Filetime) | PidTagOriginalDeliveryTime +
 (PR_MESSAGE_DELIVERY_TIME) | Message delivery time +
-Contains a copy of the original message's delivery date and time in a thread. 
+Contains a copy of the original message's delivery date and time in a thread.
 | 0x0e07 | 0x0003 (Integer 32-bit signed) | PidTagMessageFlags +
 (PR_MESSAGE_FLAGS) | Message flags +
 Contains a bitmask of flags that indicate the origin and current state of a message. +
@@ -833,7 +833,7 @@ Contains TRUE if the sender of a message requests the correlation feature of the
 Contains the message transfer system (MTS) identifier used in correlating reports with sent messages
 | 0x0e0e | 0x000b (Boolean) | PidTagDiscreteValues +
 (PR_DISCRETE_VALUES) | Report applies to specific members only +
-Contains TRUE if a nondelivery report applies only to discrete members of a distribution list rather than the entire list. 
+Contains TRUE if a nondelivery report applies only to discrete members of a distribution list rather than the entire list.
 | 0x0e0f | 0x000b (Boolean) | PidTagResponsibility +
 (PR_RESPONSIBILITY) | Transport provider has responsibility +
 Contains TRUE if some transport provider has already accepted responsibility for delivering the message to this recipient, and FALSE if the MAPI spooler considers that this transport provider should accept responsibility.
@@ -864,17 +864,17 @@ Contains a weak 32-bit cyclic redundancy check (CRC32) value on the message text
 0x001f (Unicode string) | PidTagNormalizedSubject +
 (PR_NORMALIZED_SUBJECT) | Normalized subject +
 Contains the message subject with any prefix removed.
-| | | | 
+| | | |
 | 0x0e1f | 0x000b (Boolean)
 | PidTagRtfInSync +
 (PR_RTF_IN_SYNC) | Compressed RTF message body in sync with plain text +
 Contains TRUE if the PidTagRtfCompressed (PR_RTF_COMPRESSED) property has the same text content as the PidTagBody (PR_BODY) property for this message.
 | 0x0e20 | 0x0003 (Integer 32-bit signed) | PidTagAttachSize +
 (PR_ATTACH_SIZE) | Attachment size +
-Contains the sum, in bytes, of the sizes of all properties on an attachment. 
+Contains the sum, in bytes, of the sizes of all properties on an attachment.
 | 0x0e21 | 0x0003 (Integer 32-bit signed) | PidTagAttachNumber +
 (PR_ATTACH_NUM) | Attachment number +
-Contains a number that uniquely identifies the attachment within its parent message. 
+Contains a number that uniquely identifies the attachment within its parent message.
 | 0x0e22 | 0x000b (Boolean) | PidTagPreprocess +
 (PR_PREPROCESS) | Needs preprocessing +
 Contains TRUE if the message requires preprocessing.
@@ -889,6 +889,23 @@ A number associated with an item in a message store.
 (PR_NT_SECURITY_DESCRIPTOR, ptagNTSD) | Permissions (NT security descriptor) +
 Holds the NT security descriptors of the users or groups that can access the folder. +
 See section: <<security_desciptor_structure,The security descriptor structure>>
+| 0x0e28 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_PRIMARY_SEND_ACCT +
+(PROP_ACCT_SEND_STAMP) | Primary send account identifier +
+Identifies the primary send account for a message.
+| 0x0e29 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_NEXT_SEND_ACCT +
+(PROP_ACCT_SEND_STAMP) | Secondary send account identifier +
+Identifies the secondary send account for a message.
+| 0x0e2a | 0x000b (Boolean) | | [yellow-background]*Unknown*
+| | | |
+| 0x0e30 | 0x0003 (Integer 32-bit signed) | PidTagReplItemid | Replication item identifier
+| | 0x0102 (Binary data) | PidTagReplItemid +
+(PR_REPL_ITEMID) | Replication item identifier +
+[yellow-background]*Contains a GUID that maps to the contents of the 9c table in a PST.*
+| 0x0e31 | 0x0102 (Binary data) | | [yellow-background]*Unknown*
+| | | |
+| 0x0e33 | 0x0014 (Integer 64-bit signed) | PidTagReplChangenum | Replication change number
 |===
 
 * [yellow-background]*TODO: migrate documentation*
