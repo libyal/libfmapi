@@ -906,6 +906,19 @@ Identifies the secondary send account for a message.
 | 0x0e31 | 0x0102 (Binary data) | | [yellow-background]*Unknown*
 | | | |
 | 0x0e33 | 0x0014 (Integer 64-bit signed) | PidTagReplChangenum | Replication change number
+| 0x0e34 | 0x0102 (Binary data) | PidTagReplVersionHistory | Replication version history +
+[yellow-background]*Contains an entry identifier*
+| | | | 
+| 0x0e37 | 0x0102 (Binary data) | | [yellow-background]*Unknown*
+| 0x0e38 | 0x0003 (32-bit integer) | PidTagReplFlags | Replication flags +
+[yellow-background]*TODO add specification*
+| | | | 
+| 0x0e3c | 0x0102 (Binary data) | PidTagReplCopiedfromVersionhistory | Replication version information
+| 0x0e3d | 0x0102 (Binary data) | PidTagReplCopiedfromItemid | Replication item identifier information
+| 0x0e3e | 0x0102 (Binary data) | | [yellow-background]*Unknown*
+| | | | 
+| 0x0e58 | 0x0102 (Binary data) | PR_CREATOR_SID | Creator (NT security identifier) +
+For more information see `[NTSID]`.
 |===
 
 * [yellow-background]*TODO: migrate documentation*
