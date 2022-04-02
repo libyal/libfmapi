@@ -919,6 +919,36 @@ Identifies the secondary send account for a message.
 | | | | 
 | 0x0e58 | 0x0102 (Binary data) | PR_CREATOR_SID | Creator (NT security identifier) +
 For more information see `[NTSID]`.
+| 0x0e59 | 0x0102 (Binary data) | PR_LAST_MODIFIER_SID | Last modifier (NT security identifier) +
+For more information see `[NTSID]`.
+| | | | 
+| 0x0e5e | 0x0048 (GUID) | PR_MIME_HANDLER_CLASSID | [yellow-background]*MIME handle class identifier*
+| | 0x1048 (Array of GUID values) | PR_MIME_HANDLER_CLASSIDS | [yellow-background]*MIME handle class identifiers*
+| | | | 
+| 0x0e61 | 0x0003 (Integer 32-bit signed) | PR_URL_COMP_NAME_POSTFIX | [yellow-background]*URL computer name postfix*
+| 0x0e62 | 0x000b (Boolean) | PR_URL_COMP_NAME_SET | [yellow-background]*URL computer name set*
+| 0x0e63 | 0x0003 (Integer 32-bit signed) | PR_SUBFOLDER_CT | [yellow-background]*Unknown*
+| 0x0e64 | 0x0003 (Integer 32-bit signed) | PR_DELETED_SUBFOLDER_CT | [yellow-background]*Unknown*
+| | | | 
+| 0x0e66 | 0x0040 (Filetime) | PR_DELETE_TIME | [yellow-background]*Unknown*
+| 0x0e67 | 0x0102 (Binary data) | PR_AGE_LIMIT | [yellow-background]*Unknown*
+| | | | 
+| 0x0e79 | 0x0003 (Integer 32-bit signed) | PR_TRUST_SENDER | [yellow-background]*Unknown*
+| | | | 
+| 0x0e96 | 0x0102 (Binary data) | PR_ATTACH_VIRUS_SCAN_INFO | [yellow-background]*Unknown*
+| | | | 
+| 0x0e99 | 0x0102 (Binary data) | | [yellow-background]*Unknown* +
+[yellow-background]*In IPM.ExtendedRule.Message*
+| 0x0e9a | 0x0102 (Binary data) | | [yellow-background]*Unknown* +
+[yellow-background]*In IPM.ExtendedRule.Message*
+| | | | 
+| 0x0ea0 | 0x0048 (GUID) | PR_ASSOCIATED_SHARING_PROVIDER PROP_TAG | [yellow-background]*Associated sharing provider identifier* +
+[yellow-background]*Used for SharePoint PST files*
+| | | | 
+| 0x0ea2 | 0x0003 (Integer 32-bit signed) | | [yellow-background]*Unknown*
+| 0x0ea3 | 0x0102 (Binary data) | PidTagProviderItemId +
+(PR_PROVIDER_ITEMID) | Provider identifier +
+Specifies an identifier for a folder or an item in a store.
 |===
 
 * [yellow-background]*TODO: migrate documentation*
