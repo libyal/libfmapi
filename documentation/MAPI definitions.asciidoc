@@ -908,50 +908,92 @@ Identifies the secondary send account for a message.
 | 0x0e33 | 0x0014 (Integer 64-bit signed) | PidTagReplChangenum | Replication change number
 | 0x0e34 | 0x0102 (Binary data) | PidTagReplVersionHistory | Replication version history +
 [yellow-background]*Contains an entry identifier*
-| | | | 
+| | | |
 | 0x0e37 | 0x0102 (Binary data) | | [yellow-background]*Unknown*
 | 0x0e38 | 0x0003 (32-bit integer) | PidTagReplFlags | Replication flags +
 [yellow-background]*TODO add specification*
-| | | | 
+| | | |
 | 0x0e3c | 0x0102 (Binary data) | PidTagReplCopiedfromVersionhistory | Replication version information
 | 0x0e3d | 0x0102 (Binary data) | PidTagReplCopiedfromItemid | Replication item identifier information
 | 0x0e3e | 0x0102 (Binary data) | | [yellow-background]*Unknown*
-| | | | 
+| | | |
 | 0x0e58 | 0x0102 (Binary data) | PR_CREATOR_SID | Creator (NT security identifier) +
 For more information see `[NTSID]`.
 | 0x0e59 | 0x0102 (Binary data) | PR_LAST_MODIFIER_SID | Last modifier (NT security identifier) +
 For more information see `[NTSID]`.
-| | | | 
+| | | |
 | 0x0e5e | 0x0048 (GUID) | PR_MIME_HANDLER_CLASSID | [yellow-background]*MIME handle class identifier*
 | | 0x1048 (Array of GUID values) | PR_MIME_HANDLER_CLASSIDS | [yellow-background]*MIME handle class identifiers*
-| | | | 
+| | | |
 | 0x0e61 | 0x0003 (Integer 32-bit signed) | PR_URL_COMP_NAME_POSTFIX | [yellow-background]*URL computer name postfix*
 | 0x0e62 | 0x000b (Boolean) | PR_URL_COMP_NAME_SET | [yellow-background]*URL computer name set*
 | 0x0e63 | 0x0003 (Integer 32-bit signed) | PR_SUBFOLDER_CT | [yellow-background]*Unknown*
 | 0x0e64 | 0x0003 (Integer 32-bit signed) | PR_DELETED_SUBFOLDER_CT | [yellow-background]*Unknown*
-| | | | 
+| | | |
 | 0x0e66 | 0x0040 (Filetime) | PR_DELETE_TIME | [yellow-background]*Unknown*
 | 0x0e67 | 0x0102 (Binary data) | PR_AGE_LIMIT | [yellow-background]*Unknown*
-| | | | 
+| | | |
 | 0x0e79 | 0x0003 (Integer 32-bit signed) | PR_TRUST_SENDER | [yellow-background]*Unknown*
-| | | | 
+| | | |
 | 0x0e96 | 0x0102 (Binary data) | PR_ATTACH_VIRUS_SCAN_INFO | [yellow-background]*Unknown*
-| | | | 
+| | | |
 | 0x0e99 | 0x0102 (Binary data) | | [yellow-background]*Unknown* +
 [yellow-background]*In IPM.ExtendedRule.Message*
 | 0x0e9a | 0x0102 (Binary data) | | [yellow-background]*Unknown* +
 [yellow-background]*In IPM.ExtendedRule.Message*
-| | | | 
+| | | |
 | 0x0ea0 | 0x0048 (GUID) | PR_ASSOCIATED_SHARING_PROVIDER PROP_TAG | [yellow-background]*Associated sharing provider identifier* +
 [yellow-background]*Used for SharePoint PST files*
-| | | | 
+| | | |
 | 0x0ea2 | 0x0003 (Integer 32-bit signed) | | [yellow-background]*Unknown*
 | 0x0ea3 | 0x0102 (Binary data) | PidTagProviderItemId +
 (PR_PROVIDER_ITEMID) | Provider identifier +
 Specifies an identifier for a folder or an item in a store.
+| 0x0ea4 | 0x0102 (Binary data) | PidTagProviderParentItemId +
+(PR_PROVIDER_PARENT_ITEMID) | Parent provider identifier +
+Specifies an identifier for the parent of a folder or an item in a store.
+| | | |
+| 0x0ff4 | 0x0003 (Integer 32-bit signed) | PidTagAccess +
+(PR_ACCESS) | Client access flags +
+Contains a bitmask of flags indicating the operations that are available to the client for the object. +
+See section: <<access_flags_definitions,Access flags definitions>>
+| 0x0ff5 | 0x0003 (Integer 32-bit signed) | PidTagRowType +
+(PR_ROW_TYPE) | Row type +
+See section: <<row_type_definitions,Row type definitions>>
+| 0x0ff6 | 0x0003 (Integer 32-bit signed) | PidTagInstanceKey +
+(PR_INSTANCE_KEY) | Instance key +
+Contains the row identifier
+| 0x0ff7 | 0x0003 (Integer 32-bit signed) | PidTagAccessLevel +
+(PR_ACCESS_LEVEL) | Client access level flags +
+See section: <<client_access_level_flags_definitions,Client access level flags definitions>>
+| 0x0ff8 | 0x0102 (Binary data) | PidTagMappingSignature +
+(PR_MAPPING_SIGNATURE) | Mapping signature +
+Contains the mapping signature for named properties of a particular MAPI object.
+| 0x0ff9 | 0x0102 (Binary data) | PidTagRecordKey +
+(PR_RECORD_KEY) | Record key +
+Contains a unique binary-comparable identifier for a specific object (GUID).
+| 0x0ffa | 0x0102 (Binary data) | PidTagStoreRecordKey +
+(PR_STORE_RECORD_KEY) | Message store record key +
+Contains the unique binary-comparable identifier (record key) of the message store in which an object resides.
+| 0x0ffb | 0x0102 (Binary data) | PidTagStoreEntryId +
+(PR_STORE_ENTRYID) | Message store entry identifier +
+Contains the unique entry identifier of the message store where an object resides. +
+See section: <<entry_identifier_structure,The entry identifier structure (ENTRYID)>>
+| 0x0ffc | 0x0102 (Binary data) | PidTagMiniIcon +
+(PR_MINI_ICON) | Mini icon bitmap +
+Contains a bitmap of a half-size icon (16 × 16 ICO) for a form.
+| 0x0ffd | 0x0102 (Binary data) | PidTagIcon +
+(PR_ICON) | Icon bitmap +
+Contains a bitmap of a full size icon (32 x 32 ICO) for a form.
+| 0x0ffe | 0x0003 (Integer 32-bit signed) | PidTagObjectType +
+(PR_OBJECT_TYPE) | Object type +
+Contains the type of an object. +
+See section <<object_type,Object type>>
+| 0x0fff | 0x0102 (Binary data) | PidTagEntryId +
+(PR_ENTRYID) | Entry identifier +
+Contains a MAPI entry identifier used to open and edit properties of a particular MAPI object. +
+See section: <<entry_identifier_structure,The entry identifier structure (ENTRYID)>>
 |===
-
-* [yellow-background]*TODO: migrate documentation*
 
 === Message content properties (0x1000 – 0x2fff)
 
