@@ -1073,6 +1073,36 @@ Specifies a RFC2822 message identifier.
 | | | |
 | 0x1040 | 0x001e (ASCII string) +
 0x001f (Unicode string) | PR_NNTP_XREF | [yellow-background]*Unknown*
+| 0x1041 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_INTERNET_PRECEDENCE | [yellow-background]*Unknown*
+| 0x1042 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_IN_REPLY_TO_ID | In-Reply-To
+| 0x1043 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_LIST_HELP | [yellow-background]*Unknown*
+| 0x1044 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_LIST_SUBSCRIBE | [yellow-background]*Unknown*
+| 0x1045 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_LIST_UNSUBSCRIBE | [yellow-background]*Unknown*
+| 0x1046 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidTagInternetReturnPath +
+(PR_INTERNET_RETURN_PATH) | Internet return path
+| 0x1046 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidTagOriginalMessageId +
+(ptagOriginalInternetMessageID, OriginalMessageId) | [yellow-background]*Unknown (Original message identifier)*
+| | | |
+| 0x1080 | 0x0003 (Integer 32-bit signed) | PidTagIconIndex +
+(PR_ICON_INDEX) | Icon index +
+Specifies which icon to use when to display a group of e-mail objects. +
+See section: <<icon_index_definitions,Icon index definitions>>
+| 0x1081 | 0x0003 (Integer 32-bit signed) | PidTagLastVerbExecuted +
+(PR_LAST_VERB_EXECUTED, PR_ACTION_FLAG) | Contains the last verb executed.
+| 0x1082 | 0x0040 (Filetime) | PidTagLastVerbExecutionTime +
+(PR_LAST_VERB_EXECUTION_TIME, PR_ACTION_DATE) | Contains the time when the last verb was executed.
+| | | |
+| 0x1090 | 0x0003 (Integer 32-bit signed) | PidTagFlagStatus +
+(PR_FLAG_STATUS) | Flag status +
+Specifies if a message is flagged or not. +
+See section: <<flag_status_definitions,Flag status definitions>>
 |===
 
 * [yellow-background]*TODO: migrate documentation*
