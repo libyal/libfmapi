@@ -1103,6 +1103,28 @@ See section: <<icon_index_definitions,Icon index definitions>>
 (PR_FLAG_STATUS) | Flag status +
 Specifies if a message is flagged or not. +
 See section: <<flag_status_definitions,Flag status definitions>>
+| 0x1091 | 0x0040 (Filetime) | PR_FLAG_COMPLETE | [yellow-background]*Unknown*
+| | | | 
+| 0x1095 | 0x0003 (Integer 32-bit signed) | PR_FLAG_ICON | [yellow-background]*Unknown (Flag icon index)*
+| 0x1096 | 0x0003 (Integer 32-bit signed) | PidTagBlockStatus +
+(PR_BLOCK_STATUS) | Block status +
+0 => Block external content (default) +
+[yellow-background]*See: `[MS-OXCSPAM]`, `[MS-OXCDATA]`*
+| 0x1097 | 0x0003 (Integer 32-bit signed) | PidTagItemTemporaryFlags | Temporary item flags
+| 0x1098 | 0x1102 (Array of Binary data values) | PidTagConflictItems +
+(PR_CONFLICT_ITEMS) | Conflict items +
+One or more entry identifiers of items that have been involved in an automatic conflict resolution. +
+See section: <<entry_identifier_structure,The entry identifier structure (ENTRYID)>>
+| | | | 
+| 0x10c0 | 0x0102 (Binary data) | PR_SMTP_TEMP_TBL_DATA | [yellow-background]*Unknown*
+| 0x10c1 | 0x0003 (Integer 32-bit signed) | PR_SMTP_TEMP_TBL_DATA_2 | [yellow-background]*Unknown*
+| 0x10c2 | 0x0102 (Binary data) | PR_SMTP_TEMP_TBL_DATA_3 | [yellow-background]*Unknown*
+| 0x10c3 | 0x0040 (Filetime) | PR_CAL_START_TIME | [yellow-background]*Unknown*
+| 0x10c4 | 0x0040 (Filetime) | PR_CAL_END_TIME | [yellow-background]*Unknown*
+| 0x10c5 | 0x0040 (Filetime) | PR_CAL_RECURRING_ID | [yellow-background]*Unknown*
+| 0x10c6 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_DAV_SUBMIT_DATA | [yellow-background]*Unknown*
+| 0x10c7 | 0x0003 (Integer 32-bit signed) | PR_CDO_EXPANSION_INDEX | [yellow-background]*Unknown*
 |===
 
 * [yellow-background]*TODO: migrate documentation*
