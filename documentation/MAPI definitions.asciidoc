@@ -1104,7 +1104,7 @@ See section: <<icon_index_definitions,Icon index definitions>>
 Specifies if a message is flagged or not. +
 See section: <<flag_status_definitions,Flag status definitions>>
 | 0x1091 | 0x0040 (Filetime) | PR_FLAG_COMPLETE | [yellow-background]*Unknown*
-| | | | 
+| | | |
 | 0x1095 | 0x0003 (Integer 32-bit signed) | PR_FLAG_ICON | [yellow-background]*Unknown (Flag icon index)*
 | 0x1096 | 0x0003 (Integer 32-bit signed) | PidTagBlockStatus +
 (PR_BLOCK_STATUS) | Block status +
@@ -1115,7 +1115,7 @@ See section: <<flag_status_definitions,Flag status definitions>>
 (PR_CONFLICT_ITEMS) | Conflict items +
 One or more entry identifiers of items that have been involved in an automatic conflict resolution. +
 See section: <<entry_identifier_structure,The entry identifier structure (ENTRYID)>>
-| | | | 
+| | | |
 | 0x10c0 | 0x0102 (Binary data) | PR_SMTP_TEMP_TBL_DATA | [yellow-background]*Unknown*
 | 0x10c1 | 0x0003 (Integer 32-bit signed) | PR_SMTP_TEMP_TBL_DATA_2 | [yellow-background]*Unknown*
 | 0x10c2 | 0x0102 (Binary data) | PR_SMTP_TEMP_TBL_DATA_3 | [yellow-background]*Unknown*
@@ -1125,9 +1125,27 @@ See section: <<entry_identifier_structure,The entry identifier structure (ENTRYI
 | 0x10c6 | 0x001e (ASCII string) +
 0x001f (Unicode string) | PR_DAV_SUBMIT_DATA | [yellow-background]*Unknown*
 | 0x10c7 | 0x0003 (Integer 32-bit signed) | PR_CDO_EXPANSION_INDEX | [yellow-background]*Unknown*
+| 0x10c8 | 0x0102 (Binary data) | PR_IFS_INTERNAL_DATA | [yellow-background]*Unknown*
+| | | |
+| 0x10ca | 0x0040 (Filetime) | PR_CAL_REMINDER_NEXT_TIME | [yellow-background]*Unknown*
+| | | |
+| 0x10f1 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_OWA_URL | [yellow-background]*Unknown*
+| 0x10f2 | 0x000b (Boolean) | PR_DISABLE_FULL_FIDELITY | Disable full fidelity
+| 0x10f3 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidTagUrlComponentName +
+(PR_URL_COMP_NAME) | URL computer name +
+The URL component name for a message.  Contains the .eml filename.
+| 0x10f4 | 0x000b (Boolean) | PidTagAttributeHidden +
+(PR_ATTR_HIDDEN) | [yellow-background]*Unknown (Attribute hidden)*
+| 0x10f5 | 0x000b (Boolean) | PidTagAttributeSystem +
+(PR_ATTR_SYSTEM) | [yellow-background]*Unknown (Attribute system)*
+| 0x10f6 | 0x000b (Boolean) | PidTagAttributeReadOnly +
+(PR_ATTR_READONLY) | [yellow-background]*Unknown (Attribute read only)*
+| | | |
+| 0x1100 | 0x0102 (Binary data) | PR_P1_CONTENT | [yellow-background]*Unknown*
+| 0x1101 | 0x0102 (Binary data) | PR_P1_CONTENT_TYPE | [yellow-background]*Unknown*
 |===
-
-* [yellow-background]*TODO: migrate documentation*
 
 === Common objects properties (0x3000 – 0x03ff)
 
