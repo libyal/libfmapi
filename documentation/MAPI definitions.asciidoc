@@ -1152,6 +1152,36 @@ The URL component name for a message.  Contains the .eml filename.
 [cols="1,1,1,5",options="header"]
 |===
 | Item | Value | Identifier | Description
+| 0x3000 | 0x0003 (Integer 32-bit signed) | PidTagRowid +
+(PR_ROWID) | Recipient row identifier +
+Contains a unique identifier for a recipient in a recipient table or status table.
+| 0x3001 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidTagDisplayName +
+(PR_DISPLAY_NAME) | Display name +
+Contains the display name for a given MAPI object.
+| 0x3002 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidTagAddressType +
+(PR_ADDRTYPE) | Address type +
+Contains the messaging user's e-mail address type. +
+See section: <<address_type_definitions,Address type definitions>>
+| 0x3003 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidTagEmailAddress +
+(PR_EMAIL_ADDRESS) | E-mail address +
+Contains the messaging user's e-mail address.
+| 0x3004 | 0x001e (ASCII string) +
+0x001f (Unicode string | PidTagComment +
+(PR_COMMENT) | Comment +
+Contains a comment about the purpose or content of an object.
+| 0x3005 | 0x0003 (Integer 32-bit signed) | PidTagDepth +
+(PR_DEPTH) | Hierarchy table depth +
+Contains an integer that represents the relative level of indentation, or depth, of an object in a hierarchy table.
+| 0x3006 | 0x001e (ASCII string) +
+0x001f (Unicode string | PidTagProviderDisplayName +
+(PR_PROVIDER_DISPLAY) | Service provider display name +
+Contains the display name of a provider.
+| 0x3007 | 0x0040 (Filetime) | PidTagCreationTime +
+(PR_CREATION_TIME) | Creation time +
+Contains the creation date and time of a message.
 |===
 
 * [yellow-background]*TODO: migrate documentation*
