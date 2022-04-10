@@ -1182,9 +1182,45 @@ Contains the display name of a provider.
 | 0x3007 | 0x0040 (Filetime) | PidTagCreationTime +
 (PR_CREATION_TIME) | Creation time +
 Contains the creation date and time of a message.
+| 0x3008 | 0x0040 (Filetime) | PidTagLastModificationTime +
+(PR_LAST_MODIFICATION_TIME) | Last modification time +
+Contains the date and time when the object or subobject was last modified.
+| 0x3009 | 0x0003 (Integer 32-bit signed) | PidTagResourceFlags +
+(PR_RESOURCE_FLAGS) | Resource flags +
+Contains a bitmask of flags for message services and providers. +
+See section: <<resource_flag_definitions,Resource flag definitions>>
+| 0x300a | 0x001e (ASCII string) +
+0x001f (Unicode string | PidTagProviderDisplay +
+(PR_PROVIDER_DLL_NAME) | Service provider DLL filename +
+Contains the vendor-defined display name for a service provider.
+| 0x300b | 0x0102 (Binary data) | PidTagSearchKey +
+(PR_SEARCH_KEY) | Search key +
+Contains a binary-comparable key that identifies correlated objects for a search.
+| 0x300c | 0x0102 (Binary data) | PidTagProviderUid +
+(PR_PROVIDER_UID) | Service provider identifier +
+Contains a MAPIUID structure of the service provider that is handling a message.
+| 0x300d | 0x0003 (Integer 32-bit signed) | PidTagProviderOrdinal +
+(PR_PROVIDER_ORDINAL) | Service provider table index +
+Contains the zero-based index of a service provider's position in the provider table.
+| | | |
+| 0x3301 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_FORM_VERSION | [yellow-background]*Unknown*
+| 0x3302 | 0x0048 (GUID) | PR_FORM_CLSID | [yellow-background]*Unknown*
+| 0x3303 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_FORM_CONTACT_NAME | [yellow-background]*Unknown*
+| 0x3304 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_FORM_CATEGORY | [yellow-background]*Unknown*
+| ASCII string or Unicode string
+| 0x3305 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_FORM_CATEGORY_SUB | [yellow-background]*Unknown*
+| ASCII string or Unicode string
+| 0x3306 | 0x1003 (Array of Integer 32-bit signed values) | PR_FORM_HOST_MAP | [yellow-background]*Unknown*
+| 0x3307 | 0x000b (Boolean) | PR_FORM_HIDDEN | [yellow-background]*Unknown*
+| 0x3308 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_FORM_DESIGNER_NAME | [yellow-background]*Unknown*
+| 0x3309 | 0x0048 (GUID) | PR_FORM_DESIGNER_GUID | [yellow-background]*Unknown*
+| 0x330a | 0x0003 (Integer 32-bit signed) | PR_FORM_MESSAGE_BEHAVIOR | [yellow-background]*Unknown*
 |===
-
-* [yellow-background]*TODO: migrate documentation*
 
 === Message store properties (0x3400 - 0x35ff)
 
