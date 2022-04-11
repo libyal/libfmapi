@@ -1227,6 +1227,33 @@ Contains the zero-based index of a service provider's position in the provider t
 [cols="1,1,1,5",options="header"]
 |===
 | Item | Value | Identifier | Description
+| 0x3400 | 0x000b (Boolean) | PR_DEFAULT_STORE | [yellow-background]*Unknown*
+| | | |
+| 0x340d | 0x0003 (Integer 32-bit signed) | PidTagStoreSupportMask +
+(PR_STORE_SUPPORT_MASK) | Message store characteristics mask +
+Contains a bitmask of flags that client applications should query to determine the characteristics of a message store. +
+See section: <<message_store_characteristics_mask_definitions,Message store characteristics mask definitions>>
+| 0x340e | 0x0003 (Integer 32-bit signed) | PR_STORE_STATE | [yellow-background]*Unknown*
+| | | |
+| 0x3410 | 0x0102 (Binary data) | PR_IPM_SUBTREE_SEARCH_KEY | [yellow-background]*Unknown*
+| 0x3411 | 0x0102 (Binary data) | PR_IPM_OUTBOX_SEARCH_KEY | [yellow-background]*Unknown*
+| 0x3412 | 0x0102 (Binary data) | PR_IPM_WASTEBASKET_SEARCH_KEY | [yellow-background]*Unknown*
+| 0x3413 | 0x0102 (Binary data) | PR_IPM_SENTMAIL_SEARCH_KEY | [yellow-background]*Unknown*
+| 0x3414 | 0x0102 (Binary data) | PidTagStoreProvider +
+(PR_MDB_PROVIDER) | Message store provider +
+Contains a provider-defined MAPIUID structure that indicates the type of the message store.
+| 0x3415 | 0x000d (Embedded object) | PR_RECEIVE_FOLDER_SETTINGS | [yellow-background]*Unknown*
+| 0x3416 | 0x0102 (Binary data) | | [yellow-background]*Unknown (Item proc search entry identifier)* +
+Contains Folder information reference to "ItemProcSearch"
+| | | |
+| 0x3419 | 0x0003 (Integer 32-bit signed) | PR_SEARCH_OWNER_ID +
+Search owner identifier +
+Contains the process identifier of the process that is sending notifications to the indexer about objects ready for indexing.
+| | | |
+| 0x35df | 0x0003 (Integer 32-bit signed) | PidTagValidFolderMask +
+(PR_VALID_FOLDER_MASK) | Valid folder mask +
+States which folders are valid for this message store +
+See section: <<valid_folder_mask_definitions,Valid folder mask definitions>>
 |===
 
 * [yellow-background]*TODO: migrate documentation*
