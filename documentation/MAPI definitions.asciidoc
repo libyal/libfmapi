@@ -1254,9 +1254,35 @@ Contains the process identifier of the process that is sending notifications to 
 (PR_VALID_FOLDER_MASK) | Valid folder mask +
 States which folders are valid for this message store +
 See section: <<valid_folder_mask_definitions,Valid folder mask definitions>>
+| 0x35e0 | 0x0102 (Binary data) | PidTagIpmSubtreeEntryId +
+(PR_IPM_SUBTREE_ENTRYID) | IPM sub tree root folder entry identifier +
+Contains the entry identifier of the root of the interpersonal message (IPM) folder subtree in the message store's folder tree. +
+See section: <<entry_identifier_structure,The entry identifier structure (ENTRYID)>>
+| | | |
+| 0x35e2 | 0x0102 (Binary data) | PidTagIpmOutboxEntryId +
+(PR_IPM_OUTBOX_ENTRYID) | Outbox entry folder identifier +
+Contains the entry identifier of the standard interpersonal message (IPM) Outbox folder. +
+See section: <<entry_identifier_structure,The entry identifier structure (ENTRYID)>>
+| 0x35e3 | 0x0102 (Binary data) | PidTagIpmWastebasketEntryId +
+(PR_IPM_WASTEBASKET_ENTRYID) | Wastebasket folder entry identifier +
+Contains the entry identifier of the standard interpersonal message (IPM) Deleted Items folder. +
+See section: <<entry_identifier_structure,The entry identifier structure (ENTRYID)>>
+| 0x35e4 | 0x0102 (Binary data) | PidTagIpmSentMailEntryId +
+(PR_IPM_SENTMAIL_ENTRYID) | Sent mail folder entry identifier +
+Contains the entry identifier of the standard interpersonal message (IPM) Sent Items folder. +
+See section: <<entry_identifier_structure,The entry identifier structure (ENTRYID)>>
+| 0x35e5 | 0x0102 (Binary data) | PidTagViewsEntryId +
+(PR_VIEWS_ENTRYID) | Views folder entry identifier +
+Contains the entry identifier of the user-defined Views folder.
+| 0x35e6 | 0x0102 (Binary data) | PidTagCommonViewsEntryId +
+(PR_COMMON_VIEWS_ENTRYID) | Common views folder entry identifier +
+Contains the entry identifier of the predefined common view folder. +
+See section: <<entry_identifier_structure,The entry identifier structure (ENTRYID)>>
+| 0x35e7 | 0x0102 (Binary data) | PidTagFinderEntryId +
+(PR_FINDER_ENTRYID) | Finder folder entry identifier +
+Contains the entry identifier for the folder where search results are typically created. +
+See section: <<entry_identifier_structure,The entry identifier structure (ENTRYID)>>
 |===
-
-* [yellow-background]*TODO: migrate documentation*
 
 === Folder and address book container properties (0x3600 – 0x36ff)
 
