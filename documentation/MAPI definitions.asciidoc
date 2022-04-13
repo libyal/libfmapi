@@ -1289,6 +1289,30 @@ See section: <<entry_identifier_structure,The entry identifier structure (ENTRYI
 [cols="1,1,1,5",options="header"]
 |===
 | Item | Value | Identifier | Description
+| 0x3600 | 0x0003 (Integer 32-bit signed) | PidTagContainerFlags +
+(PR_CONTAINER_FLAGS) | Address book container capabilities flags +
+Contains a bitmask of flags describing capabilities of an address book container.
+| See section: <<container_flag_definitions,Container flag definitions>>
+| 0x3601 | 0x0003 (Integer 32-bit signed) | PidTagFolderType +
+(PR_FOLDER_TYPE) | Folder type +
+Contains a constant that indicates the folder type
+| See section: <<folder_type_definitions,Folder type definitions>>
+| 0x3602 | 0x0003 (Integer 32-bit signed) | PidTagContentCount +
+(PR_CONTENT_COUNT) | Number of content items +
+Contains the number of messages in a folder, as computed by the message store.
+| 0x3603 | 0x0003 (Integer 32-bit signed) | PidTagContentUnreadCount +
+(PR_CONTENT_UNREAD) | Number of unread content items +
+Contains the number of unread messages in a folder, as computed by the message store.
+| 0x3604 | 0x000d (Embedded object) | PidTagCreateTemplates +
+(PR_CREATE_TEMPLATES) | Dialog box template entry identifiers +
+Contains an embedded table object that contains dialog box template entry identifiers.
+| 0x3605 | 0x000d (Embedded object) | PidTagDetailsTable +
+(PR_DETAILS_TABLE) | Display table object +
+Contains an embedded display table object.
+| | | |
+| 0x3607 | 0x000d (Embedded object) | PR_SEARCH | [yellow-background]*Unknown*
+| | | |
+| 0x3609 | 0x000b (Boolean) | PR_SELECTABLE | [yellow-background]*Unknown*
 |===
 
 * [yellow-background]*TODO: migrate documentation*
@@ -2026,7 +2050,7 @@ Seen in an Exchange database
 
 === [[aging_granularity_definitions]]Aging granularity definitions
 
-The folder type definitions are used by the following properties:
+The aging granularity definitions are used by the following properties:
 
 * 0x36ee (PR_AGING_GRANULARITY)
 
