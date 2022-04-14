@@ -1313,6 +1313,69 @@ Contains an embedded display table object.
 | 0x3607 | 0x000d (Embedded object) | PR_SEARCH | [yellow-background]*Unknown*
 | | | |
 | 0x3609 | 0x000b (Boolean) | PR_SELECTABLE | [yellow-background]*Unknown*
+| 0x360a | 0x000b (Boolean) | PidTagSubfolders +
+(PR_SUBFOLDERS) | Has sub folders +
+Contains TRUE if a folder contains subfolders.
+| 0x360b | 0x0003 (Integer 32-bit signed) | PR_STATUS | [yellow-background]*Unknown*
+| 0x360c | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_ANR | [yellow-background]*Unknown*
+| 0x360d | 0x0003 (Integer 32-bit signed) | PR_CONTENTS_SORT_ORDER | [yellow-background]*Unknown*
+| 0x360e | 0x000d (Embedded object) | PR_CONTAINER_HIERARCHY | Container hierarchy
+| 0x360f | 0x000d (Embedded object) | PR_CONTAINER_CONTENTS | [yellow-background]*Unknown*
+| 0x3610 | 0x000d (Embedded object) | PR_FOLDER_ASSOCIATED_CONTENTS | [yellow-background]*Unknown*
+| 0x3611 | 0x0102 (Binary data) | PR_DEF_CREATE_DL | [yellow-background]*Unknown*
+| 0x3612 | 0x0102 (Binary data) | PR_DEF_CREATE_MAILUSER | [yellow-background]*Unknown*
+| 0x3613 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidTagContainerClass +
+(PR_CONTAINER_CLASS) | Container class +
+Contains a text string describing the type of a folder. Although this property is generally ignored, versions of Exchange Server prior to Exchange Server 2003 Mailbox Manager expect this property to be present. +
+See section: <<container_class_definitions,Container class definitions>>
+| 0x3614 | 0x0014 (Integer 64-bit signed) | PR_CONTAINER_MODIFY_VERSION | [yellow-background]*Unknown*
+| 0x3615 | 0x0102 (Binary data) | PidTagAbProviderId +
+(PR_AB_PROVIDER_ID) | Address book provider +
+Contains an address book provider's MAPIUID structure.
+| 0x3616 | 0x0102 (Binary data) | PidTagDefaultViewEntryId +
+(PR_DEFAULT_VIEW_ENTRYID) | Default view entry identifier +
+Contains the entry identifier of the initial folder view. +
+See section: <<entry_identifier_structure,The entry identifier structure (ENTRYID)>>
+| 0x3617 | 0x0003 (Integer 32-bit signed) | PidTagAssociatedContentCount +
+(PR_ASSOC_CONTENT_COUNT) | Number of associated content items +
+Contains the count of items in the associated contents table of the folder.
+| | | |
+| 0x361c | 0x0102 (Binary data) | PR_PACKED_NAME_PROPS | [yellow-background]*Unknown* +
+Contains references to schema
+| | | |
+| 0x36d0 | 0x0102 (Binary data) | PidTagIpmAppointmentEntryId +
+(PR_IPM_APPOINTMENT_ENTRYID) | Calendar folder entry identifier +
+Contains the entry identifier of the Outlook Calendar folder. +
+See section: <<entry_identifier_structure,The entry identifier structure (ENTRYID)>>
+| 0x36d1 | 0x0102 (Binary data) | PidTagIpmContactEntryId +
+(PR_IPM_CONTACT_ENTRYID) | Contact folder entry identifier +
+Contains the entry identifier of the Outlook Contacts folder. +
+See section: <<entry_identifier_structure,The entry identifier structure (ENTRYID)>>
+| 0x36d2 | 0x0102 (Binary data) | PidTagIpmJournalEntryId +
+(PR_IPM_JOURNAL_ENTRYID) | Journal folder entry identifier +
+Contains the entry identifier of the Outlook Journal folder. +
+See section: <<entry_identifier_structure,The entry identifier structure (ENTRYID)>>
+| 0x36d3 | 0x0102 (Binary data) | PidTagIpmNoteEntryId +
+(PR_IPM_NOTE_ENTRYID) | Notes folder entry identifier +
+Contains the entry identifier of the Outlook Notes folder. +
+See section: <<entry_identifier_structure,The entry identifier structure (ENTRYID)>>
+| 0x36d4 | 0x0102 (Binary data) | PidTagIpmTaskEntryId +
+(PR_IPM_TASK_ENTRYID) | Tasks folder entry identifier +
+Contains the entry identifier of the Outlook Tasks folder. +
+See section: <<entry_identifier_structure,The entry identifier structure (ENTRYID)>>
+| 0x36d5 | 0x0102 (Binary data) | PidTagRemindersOnlineEntryId +
+(PR_REM_ONLINE_ENTRYID, ptagRemOnlineEntryId) | Online reminders folder entry identifier +
+Contains folder information reference to "Online Reminders" +
+See section: <<entry_identifier_structure,The entry identifier structure (ENTRYID)>>
+| 0x36d6 | 0x0102 (Binary data) | PR_REMINDERS_OFFLINE_ENTRYID | Offline reminders folder entry identifier +
+Contains folder information reference to "Offline Reminders" +
+See section: <<entry_identifier_structure,The entry identifier structure (ENTRYID)>>
+| 0x36d7 | 0x0102 (Binary data) | PidTagIpmDraftsEntryId +
+(PR_IPM_DRAFTS_ENTRYID) | Drafts folder entry identifier +
+Contains the entry identifier of the Outlook Drafts folder. +
+See section: <<entry_identifier_structure,The entry identifier structure (ENTRYID)>>
 |===
 
 * [yellow-background]*TODO: migrate documentation*
