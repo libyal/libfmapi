@@ -1376,6 +1376,37 @@ See section: <<entry_identifier_structure,The entry identifier structure (ENTRYI
 (PR_IPM_DRAFTS_ENTRYID) | Drafts folder entry identifier +
 Contains the entry identifier of the Outlook Drafts folder. +
 See section: <<entry_identifier_structure,The entry identifier structure (ENTRYID)>>
+| 0x36d8 | 0x1102 (Array of Binary data values) | PidTagAdditionalRenEntryIds +
+(PR_ADDITIONAL_REN_ENTRYIDS, ptagAdditionalRenEntryIds) +
+[yellow-background]*PR_OUTLOOK_2003_ENTRYIDS* | Additional REN folder entry identifiers +
+A multi-value property that specifies the entry identifiers of certain special folders. +
+See section: <<entry_identifier_structure,The entry identifier structure (ENTRYID)>> +
+The first five entries of this multi-value property are mapped to the following special folders, if they exist in the store: +
+(0) Conflicts folder, (1) Sync Issues folder, (2) Local Failures folder, (3) Server Failures folder, (4) Junk E-mail Folder
+| 0x36d9 | 0x0102 (Binary data) | PidTagAdditionalRenEntryIdsEx +
+(PR_ADDITIONAL_REN_ENTRYIDS_EX) | Additional REN folder entry identifiers +
+See section: <<persist_data_block_structure,Persist data block structure>>
+| 0x36da | 0x0102 (Binary data) | PidTagExtendedFolderFlags +
+(PR_EXTENDED_FOLDER_FLAGS) | Extended folder flags +
+Contains extended flags about a folder. +
+See section: <<extended_folder_flags_structure,The extended folder flags structure>>
+| 0x36db | 0x0040 (Filetime) | | [yellow-background]*Unknown (Found in Exchange)*
+| 0x36dc | 0x0102 (Binary data) | | [yellow-background]*Unknown (Found in Exchange)* +
+See section: <<entry_identifier_structure,The entry identifier structure (ENTRYID)>> +
+| | | |
+| 0x36de | 0x0003 (Integer 32-bit signed) | | [yellow-background]*Unknown (flags?)* +
+[yellow-background]*0x00000000 => most folders* +
+[yellow-background]*| 0x10000000 => set in sync issues/local failures* +
+[yellow-background]*| 0x10000000 => set in server failures* +
+[yellow-background]*| 0x40000000 => set in calendar*
+| 0x36df | 0x0102 (Binary data) | PidTagFolderWebViewInfo +
+(PR_FOLDER_WEBVIEWINFO) | Folder web view information +
+Contains the URL for the home page of a folder. +
+See section: <<folder_web_view_information_structure,The folder web view information structure>>
+| | | |
+| 0x36e0 | 0x0102 (Binary data) | PR_FOLDER_XVIEWINFO_E | [yellow-background]*Unknown* +
+Used internally by Outlook to remember its last-used view of a folder.
+| 0x36e1 | 0x0003 (Integer 32-bit signed) | PR_FOLDER_VIEWS_ONLY | [yellow-background]*Unknown*
 |===
 
 * [yellow-background]*TODO: migrate documentation*
