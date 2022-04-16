@@ -1407,15 +1407,36 @@ See section: <<folder_web_view_information_structure,The folder web view informa
 | 0x36e0 | 0x0102 (Binary data) | PR_FOLDER_XVIEWINFO_E | [yellow-background]*Unknown* +
 Used internally by Outlook to remember its last-used view of a folder.
 | 0x36e1 | 0x0003 (Integer 32-bit signed) | PR_FOLDER_VIEWS_ONLY | [yellow-background]*Unknown*
+| 0x36e2 | 0x0003 (Integer 32-bit signed) | PidTagOrdinalMost +
+(PR_ORDINAL_MOST) | Task ordinal maximum +
+[yellow-background]*Contains a positive number whose negative is less than or equal to the value of PidLidTaskOrdinal of all Task objects in the folder.*
+| | | |
+| 0x36e4 | 0x1102 (Array of Binary data values) | PidTagFreeBusyEntryIds +
+(PR_FREEBUSY_ENTRYIDS) | Free busy entry identifiers +
+Contains the entry identifiers for the delegate information message, the free/busy message of the logged in user, and the folder whose PidTagDisplayName (PR_DISPLAY_NAME) is equal to "FreeBusy Data."
+| 0x36e5 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_DEF_MSG_CLASS | [yellow-background]*Unknown*
+| 0x36e6 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_DEF_FORM_NAME | [yellow-background]*Unknown*
+| | | |
+| 0x36e9 | 0x000b (Boolean) | PR_GENERATE_EXCHANGE_VIEWS | [yellow-background]*Unknown*
+| | | |
+| 0x36eb | 0x0102 (Binary data) | PR_FOLDER_VIEWLIST | [yellow-background]*Unknown (Folder view list)* +
+Seen "00 00 00 00"
+| 0x36ec | 0x0003 (Integer 32-bit signed) | PR_AGING_PERIOD | Aging period +
+Represents the number of time units that is used in determining the length of time an item remains in a folder before the item is archived.
+| | | |
+| 0x36ee | 0x0003 (Integer 32-bit signed) | PR_AGING_GRANULARITY | Aging period granularity +
+Represents the time unit that is used in determining the length of time an item remains in a folder before the item is archived. +
+See section: <<aging_granularity_definitions,Aging granularity definitions>>
 |===
-
-* [yellow-background]*TODO: migrate documentation*
 
 === Attachment properties (0x3700 – 0x38ff)
 
 [cols="1,1,1,5",options="header"]
 |===
 | Item | Value | Identifier | Description
+| 0x3700 | 0x0102 (Binary data) | PR_ATTACHMENT_X400_PARAMETERS | [yellow-background]*Unknown*
 |===
 
 * [yellow-background]*TODO: migrate documentation*
