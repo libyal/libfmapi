@@ -1520,9 +1520,9 @@ See section: <<attachment_flag_definitions,Attachment flag definitions>>
 0x001f (Unicode string) | PidTagTextAttachmentCharset +
 (ptagTextAttachmentCharset) | Attachment character set
 | | | |
-| 0x380b | 0x0003 (Integer 32-bit signed) | | * [yellow-background]*Unknown (Found in Exchange)*
+| 0x380b | 0x0003 (Integer 32-bit signed) | | [yellow-background]*Unknown (Found in Exchange)*
 | | | |
-| 0x3880 | 0x0102 (Binary data) | PR_SYNCEVENT_SUPPRESS_GUID | * [yellow-background]*Unknown (Synchronization event suppress identifier)*
+| 0x3880 | 0x0102 (Binary data) | PR_SYNCEVENT_SUPPRESS_GUID | [yellow-background]*Unknown (Synchronization event suppress identifier)*
 |===
 
 === Address book properties (0x3900 – 0x39ff)
@@ -1530,9 +1530,32 @@ See section: <<attachment_flag_definitions,Attachment flag definitions>>
 [cols="1,1,1,5",options="header"]
 |===
 | Item | Value | Identifier | Description
+| 0x3900 | 0x0003 (Integer 32-bit signed) | PidTagDisplayType +
+(PR_DISPLAY_TYPE) | Icon display type +
+Contains a value used to associate an icon with a particular row of a table +
+See section: <<icon_display_type_definitions,Icon display type definitions>>
+| | | |
+| 0x3902 | 0x0102 (Binary data) | PidTagTemplateid +
+(PR_TEMPLATEID) | Service provider template entry identifier +
+Contains an entry identifier that can find the code associated with a service provider.
+| | | |
+| 0x3904 | 0x0102 (Binary data) | PidTagPrimaryCapability +
+(PR_PRIMARY_CAPABILITY) | [yellow-background]*Unknown (Primary capability)* +
+deprecated according to MSDN
+| 0x3905 | 0x0003 (Integer 32-bit signed) | PidTagDisplayTypeEx +
+(PR_DISPLAY_TYPE_EX) | Extended icon display type +
+Contains the type of an entry, with respect to how the entry should be displayed in a row in a table for the Global Address List. +
+See section: <<extended_icon_display_type_definitions,Extended icon display type definitions>>
+| | | |
+| 0x39fe | 0x001e (ASCII string) +
+0x001f ( Unicode string) | PidTagSmtpAddress +
+(PR_SMTP_ADDRESS) | SMTP address +
+Contains the SMTP address for the address book object.
+| 0x39ff | 0x001e (ASCII string) +
+0x001f ( Unicode string) | PidTag7BitDisplayName +
+(PR_7BIT_DISPLAY_NAME) | Messaging username +
+Contains a 7-bit ASCII representation of a messaging user's name.
 |===
-
-* [yellow-background]*TODO: migrate documentation*
 
 === Messaging user properties (0x3a00 – 0x3bff)
 
@@ -2403,7 +2426,213 @@ Note that MAC_ATTACH_ENCODING_APPLEDOUBLE (0x00600000) consists of 2 flags.
 
 === [[codepage_definitions]]Codepage definitions
 
-* [yellow-background]*TODO: migrate documentation*
+The codepage definitions are used by the following properties:
+
+* 0x3fde (PidTagInternetCodepage)
+* 0x3ffd (PidTagMessageCodepage)
+
+[cols="1,1,5",options="header"]
+|===
+| Codepage | Character Set | Description
+| 874 | windows-874 | Thai (ANSI/OEM) +
+The same as 28605 (ISO 8859-15)
+| | |
+| 932 | shift_jis +
+[yellow-background]*(iso-2022-jp)* | Japanese (ANSI/OEM, Shift-JIS)
+| 936 | gb2312 | Chinese Simplified (ANSI/OEM, GB2312) +
+PRC, Singapore
+| 949 | ks_c_5601-1987 | Korean (ANSI/OEM) +
+Unified Hangul Code
+| 950 | big5 | Chinese Traditional (ANSI/OEM, Big5) +
+Taiwan; Hong Kong SAR, PRC
+| | |
+| 1200 | utf16 +
+(unicode) | Unicode (UTF-16 little-endian) +
+ISO-10646 BMP +
+[yellow-background]*TODO: Either UTF-8 or UTF-16 little-endian. Not defined by MSDN but found in PST file created by ExMerge v6.5.7529.0.*
+| 1201 | unicodeFFFE | Unicode (UTF-16 bit-endian)
+| | |
+| 1250 | windows-1250 | Central European (ANSI)
+| 1251 | windows-1251 | Cyrillic (ANSI)
+| 1252 | windows-1252 | Western European (ANSI Latin 1)
+| 1253 | windows-1253 | Greek (ANSI)
+| 1254 | windows-1254 | Turkish (ANSI)
+| 1255 | windows-1255 | Hebrew (ANSI)
+| 1256 | windows-1256 | Arabic (ANSI)
+| 1257 | windows-1257 | Baltic (ANSI)
+| 1258 | windows-1258 | Vietnamese (ANSI/OEM)
+| | |
+| 12000 | utf-32 | Unicode (UTF-32 little-endian)
+| 12001 | utf-32BE | Unicode (UTF-32 big-endian)
+| | |
+| 20127 | us-ascii | US-ASCII
+| | |
+| 20866 | koi8-r | Russian (KOI8-R) +
+Cyrillic
+| 21866 | koi8-u | Ukrainian (KOI8-U) +
+Cyrillic
+| | |
+| 28591 | iso-8859-1 | Western European (ISO Latin 1) +
+[yellow-background]*MSDN does not define the control characters 0x80 - 0x9f*
+| 28592 | iso-8859-2 | Central European (ISO) +
+[yellow-background]*MSDN does not define the control characters 0x80 - 0x9f*
+| 28593 | iso-8859-3 | Latin 3 (ISO) +
+[yellow-background]*MSDN does not define the control characters 0x80 - 0x9f*
+| 28594 | iso-8859-4 | Baltic (ISO) +
+[yellow-background]*MSDN does not define the control characters 0x80 - 0x9f*
+| 28595 | iso-8859-5 | Cyrillic (ISO) +
+[yellow-background]*MSDN does not define the control characters 0x80 - 0x9f*
+| 28596 | iso-8859-6 | Arabic (ISO) +
+[yellow-background]*MSDN does not define the control characters 0x80 - 0x9f*
+| 28597 | iso-8859-7 | Greek (ISO) +
+[yellow-background]*MSDN does not define the control characters 0x80 - 0x9f*
+| 38598 | iso-8859-8 | Hebrew (ISO-Visual) +
+[yellow-background]*TODO: (iso-8859-8-i) ISO-Logical* +
+[yellow-background]*MSDN does not define the control characters 0x80 – 0x9f, 0xfd and 0xfe.*
+| 28599 | iso-8859-9 | Turkish (ISO) +
+[yellow-background]*MSDN does not define the control characters 0x80 - 0x9f*
+| 28603 | iso-8859-13 | Estonian (ISO)
+| 28604 | iso-8859-14 |
+| 28605 | iso-8859-15 | Latin 9 (ISO)
+[yellow-background]*MSDN does not define the control characters 0x80 - 0x9f*
+| 28606 | iso-8859-16 |
+| | |
+| 50220 | iso-2022-jp | Japanese (JIS)
+| 50221 | csISO2022JP | Japanese (JIS-Allow 1 byte Kana)
+| 51932 | euc-jp | Japanese (EUC)
+| 51949 | euc-kr | Korean (EUC)
+| 52936 | hz-gb-2312 | Chinese Simplified (HZ)
+| | |
+| 65000 | utf-7 | Unicode (UTF-7)
+| 65001 | utf-8 | Unicode (UTF-8)
+|===
+
+* [yellow-background]*TODO: What about MacRoman? The list above is probably
+incomplete. Use MSDN codepage definitions (below) to fill missing codepages.*
+
+[cols="1,1,5",options="header"]
+|===
+| Codepage | Character Set | Description
+| 037 | IBM037 | IBM EBCDIC US-Canada
+| 437 | IBM437 | OEM United States
+| 500 | IBM500 | IBM EBCDIC International
+| 708 | ASMO-708 | Arabic (ASMO 708)
+| 709 | | Arabic (ASMO-449+, BCON V4)
+| 710 | | Arabic - Transparent Arabic
+| 720 | DOS-720 | Arabic (Transparent ASMO); Arabic (DOS)
+| 737 | ibm737 | OEM Greek (formerly 437G); Greek (DOS)
+| 775 | ibm775 | OEM Baltic; Baltic (DOS)
+| 850 | ibm850 | OEM Multilingual Latin 1; Western European (DOS)
+| 852 | ibm852 | OEM Latin 2; Central European (DOS)
+| 855 | IBM855 | OEM Cyrillic (primarily Russian)
+| 857 | ibm857 | OEM Turkish; Turkish (DOS)
+| 858 | IBM00858 | OEM Multilingual Latin 1 + Euro symbol
+| 860 | IBM860 | OEM Portuguese; Portuguese (DOS)
+| 861 | ibm861 | OEM Icelandic; Icelandic (DOS)
+| 862 | DOS-862 | OEM Hebrew; Hebrew (DOS)
+| 863 | IBM863 | OEM French Canadian; French Canadian (DOS)
+| 864 | IBM864 | OEM Arabic; Arabic (864)
+| 865 | IBM865 | OEM Nordic; Nordic (DOS)
+| 866 | cp866 | OEM Russian; Cyrillic (DOS)
+| 869 | ibm869 | OEM Modern Greek; Greek, Modern (DOS)
+| 870 | IBM870 | IBM EBCDIC Multilingual/ROECE (Latin 2); IBM EBCDIC Multilingual Latin 2
+| 875 | cp875 | IBM EBCDIC Greek Modern
+| 1026 | IBM1026 | IBM EBCDIC Turkish (Latin 5)
+| 1047 | IBM01047 | IBM EBCDIC Latin 1/Open System
+| 1140 | IBM01140 | IBM EBCDIC US-Canada (037 + Euro symbol); IBM EBCDIC (US-Canada-Euro)
+| 1141 | IBM01141 | IBM EBCDIC Germany (20273 + Euro symbol); IBM EBCDIC (Germany-Euro)
+| 1142 | IBM01142 | IBM EBCDIC Denmark-Norway (20277 + Euro symbol); IBM EBCDIC (Denmark-Norway-Euro)
+| 1143 | IBM01143 | IBM EBCDIC Finland-Sweden (20278 + Euro symbol); IBM EBCDIC (Finland-Sweden-Euro)
+| 1144 | IBM01144 | IBM EBCDIC Italy (20280 + Euro symbol); IBM EBCDIC (Italy-Euro)
+| 1145 | IBM01145 | IBM EBCDIC Latin America-Spain (20284 + Euro symbol); IBM EBCDIC (Spain-Euro)
+| 1146 | IBM01146 | IBM EBCDIC United Kingdom (20285 + Euro symbol); IBM EBCDIC (UK-Euro)
+| 1147 | IBM01147 | IBM EBCDIC France (20297 + Euro symbol); IBM EBCDIC (France-Euro)
+| 1148 | IBM01148 | IBM EBCDIC International (500 + Euro symbol); IBM EBCDIC (International-Euro)
+| 1149 | IBM01149 | IBM EBCDIC Icelandic (20871 + Euro symbol); IBM EBCDIC (Icelandic-Euro)
+| 1361 | Johab | Korean (Johab)
+| 10000 | macintosh | MAC Roman; Western European (Mac)
+| 10001 | x-mac-japanese | Japanese (Mac)
+| 10002 | x-mac-chinesetrad | MAC Traditional Chinese (Big5); Chinese Traditional (Mac)
+| 10003 | x-mac-korean | Korean (Mac)
+| 10004 | x-mac-arabic | Arabic (Mac)
+| 10005 | x-mac-hebrew | Hebrew (Mac)
+| 10006 | x-mac-greek | Greek (Mac)
+| 10007 | x-mac-cyrillic | Cyrillic (Mac)
+| 10008 | x-mac-chinesesimp | MAC Simplified Chinese (GB 2312); Chinese Simplified (Mac)
+| 10010 | x-mac-romanian | Romanian (Mac)
+| 10017 | x-mac-ukrainian | Ukrainian (Mac)
+| 10021 | x-mac-thai | Thai (Mac)
+| 10029 | x-mac-ce | MAC Latin 2; Central European (Mac)
+| 10079 | x-mac-icelandic | Icelandic (Mac)
+| 10081 | x-mac-turkish | Turkish (Mac)
+| 10082 | x-mac-croatian | Croatian (Mac)
+| 20000 | x-Chinese_CNS | CNS Taiwan; Chinese Traditional (CNS)
+| 20001 | x-cp20001 | TCA Taiwan
+| 20002 | x_Chinese-Eten | Eten Taiwan; Chinese Traditional (Eten)
+| 20003 | x-cp20003 | IBM5550 Taiwan
+| 20004 | x-cp20004 | TeleText Taiwan
+| 20005 | x-cp20005 | Wang Taiwan
+| 20105 | x-IA5 | IA5 (IRV International Alphabet No. 5, 7-bit); Western European (IA5)
+| 20106 | x-IA5-German | IA5 German (7-bit)
+| 20107 | x-IA5-Swedish | IA5 Swedish (7-bit)
+| 20108 | x-IA5-Norwegian | IA5 Norwegian (7-bit)
+| 20127 | us-ascii | US-ASCII (7-bit)
+| 20261 | x-cp20261 | T.61
+| 20269 | x-cp20269 | ISO 6937 Non-Spacing Accent
+| 20273 | IBM273 | IBM EBCDIC Germany
+| 20277 | IBM277 | IBM EBCDIC Denmark-Norway
+| 20278 | IBM278 | IBM EBCDIC Finland-Sweden
+| 20280 | IBM280 | IBM EBCDIC Italy
+| 20284 | IBM284 | IBM EBCDIC Latin America-Spain
+| 20285 | IBM285 | IBM EBCDIC United Kingdom
+| 20290 | IBM290 | IBM EBCDIC Japanese Katakana Extended
+| 20297 | IBM297 | IBM EBCDIC France
+| 20420 | IBM420 | IBM EBCDIC Arabic
+| 20423 | IBM423 | IBM EBCDIC Greek
+| 20424 | IBM424 | IBM EBCDIC Hebrew
+| 20833 | x-EBCDIC-KoreanExtended | IBM EBCDIC Korean Extended
+| 20838 | IBM-Thai | IBM EBCDIC Thai
+| 20871 | IBM871 | IBM EBCDIC Icelandic
+| 20880 | IBM880 | IBM EBCDIC Cyrillic Russian
+| 20905 | IBM905 | IBM EBCDIC Turkish
+| 20924 | IBM00924 | IBM EBCDIC Latin 1/Open System (1047 + Euro symbol)
+| 20932 | EUC-JP | Japanese (JIS 0208-1990 and 0121-1990)
+| 20936 | x-cp20936 | Simplified Chinese (GB2312); Chinese Simplified (GB2312-80)
+| 20949 | x-cp20949 | Korean Wansung
+| 21025 | cp1025 | IBM EBCDIC Cyrillic Serbian-Bulgarian
+| 21027 | | (deprecated)
+| 29001 | x-Europa | Europa 3
+| 38598 | iso-8859-8-i | ISO 8859-8 Hebrew; Hebrew (ISO-Logical)
+| 50220 | iso-2022-jp | ISO 2022 Japanese with no halfwidth Katakana; Japanese (JIS)
+| 50221 | csISO2022JP | ISO 2022 Japanese with halfwidth Katakana; Japanese (JIS-Allow 1 byte Kana)
+| 50222 | iso-2022-jp | ISO 2022 Japanese JIS X 0201-1989; Japanese (JIS-Allow 1 byte Kana - SO/SI)
+| 50225 | iso-2022-kr | ISO 2022 Korean
+| 50227 | x-cp50227 | ISO 2022 Simplified Chinese; Chinese Simplified (ISO 2022)
+| 50229 | | ISO 2022 Traditional Chinese
+| 50930 | | EBCDIC Japanese (Katakana) Extended
+| 50931 | | EBCDIC US-Canada and Japanese
+| 50933 | | EBCDIC Korean Extended and Korean
+| 50935 | | EBCDIC Simplified Chinese Extended and Simplified Chinese
+| 50936 | | EBCDIC Simplified Chinese
+| 50937 | | EBCDIC US-Canada and Traditional Chinese
+| 50939 | | EBCDIC Japanese (Latin) Extended and Japanese
+| 51932 | euc-jp | EUC Japanese
+| 51936 | EUC-CN | EUC Simplified Chinese; Chinese Simplified (EUC)
+| 51949 | euc-kr | EUC Korean
+| 51950 | | EUC Traditional Chinese
+| 52936 | hz-gb-2312 | HZ-GB2312 Simplified Chinese; Chinese Simplified (HZ)
+| 54936 | GB18030 | Windows XP and later: GB18030 Simplified Chinese (4 byte); Chinese Simplified (GB18030)
+| 57002 | x-iscii-de | ISCII Devanagari
+| 57003 | x-iscii-be | ISCII Bengali
+| 57004 | x-iscii-ta | ISCII Tamil
+| 57005 | x-iscii-te | ISCII Telugu
+| 57006 | x-iscii-as | ISCII Assamese
+| 57007 | x-iscii-or | ISCII Oriya
+| 57008 | x-iscii-ka | ISCII Kannada
+| 57009 | x-iscii-ma | ISCII Malayalam
+| 57010 | x-iscii-gu | ISCII Gujarati
+| 57011 | x-iscii-pa | ISCII Punjabi
+|==
 
 === [[conflict_resolution_method_definitions]]Conflict resolution method definitions
 
