@@ -1437,9 +1437,93 @@ See section: <<aging_granularity_definitions,Aging granularity definitions>>
 |===
 | Item | Value | Identifier | Description
 | 0x3700 | 0x0102 (Binary data) | PR_ATTACHMENT_X400_PARAMETERS | [yellow-background]*Unknown*
+| 0x3701 | 0x000d (Embedded object) | PidTagAttachDataObject +
+(PR_ATTACH_DATA_OBJ) | Attachment data object +
+Contains an attachment object typically accessed through the Object Linking and Embedding (OLE) IStorage interface.
+| | 0x0102 (Binary data) | PidTagAttachDataBinary +
+(PR_ATTACH_DATA_BIN) | Attachment data +
+Contains binary attachment data typically accessed through the Object Linking and Embedding (OLE) IStream interface.
+| 0x3702 | 0x0102 (Binary data) | PidTagAttachEncoding +
+(PR_ATTACH_ENCODING) | Attachment encoding +
+Contains an ASN.1 object identifier that specifies the encoding for an attachment. +
+See section: <<mapi_x400_object_identifiers,MAPI X.400 object identifiers (MAPIOID)>>
+| 0x3703 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidTagAttachExtension +
+(PR_ATTACH_EXTENSION) | Attachment extension +
+Contains a file name extension that indicates the document type of an attachment.
+| 0x3704 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidTagAttachFilename +
+(PR_ATTACH_FILENAME) | Attachment (short) filename +
+Contains an attachment's base file name and extension, excluding path.
+| 0x3705 | 0x0003 (Integer 32-bit signed) | PidTagAttachMethod +
+(PR_ATTACH_METHOD) | Attachment method +
+Contains a MAPI-defined constant representing the way the contents of an attachment can be accessed. +
+See section: <<attachment_method_definitions,Attachment method definitions>>
+| | | |
+| 0x3707 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidTagAttachLongFilename +
+(PR_ATTACH_LONG_FILENAME) | Attachment long filename +
+Contains an attachment's long filename and extension, excluding path.
+| 0x3708 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidTagAttachPathname +
+(PR_ATTACH_PATHNAME) | Attachment (short) pathname
+| 0x3709 | 0x0102 (Binary data) | PidTagAttachRendering +
+(PR_ATTACH_RENDERING) | Attachment rendering information +
+Contains a Microsoft Windows metafile with rendering information for an attachment.
+| 0x370a | 0x0102 (Binary data) | PidTagAttachTag +
+(PR_ATTACH_TAG) | Attachment application tag +
+Contains an ASN.1 object identifier specifying the application that supplied an attachment. +
+See section: <<mapi_x400_object_identifiers,MAPI X.400 object identifiers (MAPIOID)>>
+| 0x370b | 0x0003 (Integer 32-bit signed) | PidTagRenderingPosition +
+(PR_RENDERING_POSITION) | Attachment rendering offset +
+Contains an offset, in characters, to use in rendering an attachment within the main message text. +
+When the supplied offset is -1 (0xffffffff), the attachment is not rendered by using this property. All values other than -1 indicate the position within the PidTagBody (PR_BODY) property at which the attachment is to be rendered.
+| 0x370c | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidTagAttachTransportName +
+(PR_ATTACH_TRANSPORT_NAME) | Attachment TNEF transport name +
+Contains the name of an attachment file modified so that it can be associated with TNEF messages.
+| 0x370d | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidTagAttachLongPathname +
+(PR_ATTACH_LONG_PATHNAME) | Attachment long pathname +
+Contains an attachment's fully-qualified long path and filename.
+| 0x370e | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidTagAttachMimeTag +
+(PR_ATTACH_MIME_TAG) | Attachment mime type +
+Contains formatting information about a Multipurpose Internet Mail Extensions (MIME) attachment.
+| 0x370f | 0x0102 (Binary data) | PidTagAttachAdditionalInformation +
+(PR_ATTACH_ADDITIONAL_INFO) | Attachment encoding information
+| 0x3710 | 0x0003 (Integer 32-bit signed) | PidTagAttachMimeSequence +
+(R_ATTACH_MIME_SEQUENCE) | Attachment MIME sequence number
+| 0x3711 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidTagAttachContentBase +
+(PR_ATTACH_CONTENT_BASE) | Attachment MIME content base header URI
+| 0x3712 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidTagAttachContentId +
+(PR_ATTACH_CONTENT_ID) | Attachment MIME content identifier header
+| 0x3713 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidTagAttachContentLocation +
+(PR_ATTACH_CONTENT_LOCATION) | Attachment MIME content location header
+| 0x3714 | 0x0003 (Integer 32-bit signed) | PidTagAttachFlags +
+(PR_ATTACH_FLAGS) | Attachment flags +
+See section: <<attachment_flag_definitions,Attachment flag definitions>>
+| | | |
+| 0x3716 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_ATTACH_CONTENT_DISPOSITION | *[yellow-background]*Unknown (Attachment content disposition)*
+| | | |
+| 0x3719 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidTagAttachPayloadProviderGuidString +
+(PR_ATTACH_PAYLOAD_PROV_GUID_STR) | Attachment MIME X-Payload-Provider-Guid header
+| 0x371a | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidTagAttachPayloadClass +
+(PR_ATTACH_PAYLOAD_CLASS) | Attachment MIME X-Payload-Class header
+| 0x371b | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidTagTextAttachmentCharset +
+(ptagTextAttachmentCharset) | Attachment character set
+| | | |
+| 0x380b | 0x0003 (Integer 32-bit signed) | | * [yellow-background]*Unknown (Found in Exchange)*
+| | | |
+| 0x3880 | 0x0102 (Binary data) | PR_SYNCEVENT_SUPPRESS_GUID | * [yellow-background]*Unknown (Synchronization event suppress identifier)*
 |===
-
-* [yellow-background]*TODO: migrate documentation*
 
 === Address book properties (0x3900 – 0x39ff)
 
