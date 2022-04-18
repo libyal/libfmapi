@@ -1657,6 +1657,111 @@ Used in contact item
 | 0x3a1f | 0x001e (ASCII string) +
 0x001f (Unicode string) | PidTagOtherTelephoneNumber +
 (PR_OTHER_TELEPHONE_NUMBER) | Alternate telephone number
+| 0x3a20 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidTagTransmittableDisplayName +
+(PR_TRANSMITTABLE_DISPLAY_NAME) | Transmittable display name +
+Contains a recipient's display name in a secure form that cannot be changed.
+| 0x3a21 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidTagPagerTelephoneNumber +
+(PR_PAGER_TELEPHONE_NUMBER) | Pager phone number
+| 0x3a22 | 0x0102 (Binary data) | PidTagUserCertificate +
+(PR_USER_CERTIFICATE) | User certificate +
+Contains an ASN.1 authentication certificate.
+| 0x3a23 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidTagPrimaryFaxNumber +
+(PR_PRIMARY_FAX_NUMBER) | Primary fax number
+| 0x3a24 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidTagBusinessFaxNumber +
+(PR_BUSINESS_FAX_NUMBER) | Business (office) fax number
+| 0x3a25 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidTagHomeFaxNumber +
+(PR_HOME_FAX_NUMBER) | Home fax number
+| 0x3a26 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidTagCountry +
+(PR_COUNTRY, PR_BUSINESS_ADDRESS_COUNTRY) | Country
+| 0x3a27 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidTagLocality  +
+(PR_LOCALITY, PR_BUSINESS_ADDRESS_LOCALITY, PR_BUSINESS_ADDRESS_CITY) | Locality (town or city)
+| 0x3a28 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidTagStateOrProvince +
+(PR_STATE_OR_PROVINCE, PR_BUSINESS_ADDRESS_STATE_OR_PROVINCE) | State or province
+| 0x3a29 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidTagStreetAddress +
+(PR_STREET_ADDRESS, PR_BUSINESS_ADDRESS_STREET) | Street
+| 0x3a2a | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidTagPostalCode +
+(PR_POSTAL_CODE, PR_BUSINESS_ADDRESS_POSTAL_CODE) | Postal code
+| 0x3a2b | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidTagPostOfficeBox +
+(PR_POST_OFFICE_BOX, PR_BUSINESS_ADDRESS_PO_BOX) | Post office box
+| 0x3a2c | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidTagTelexNumber +
+(PR_TELEX_NUMBER) | Telex number
+| 0x3a2d | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidTagIsdnNumber +
+(PR_ISDN_NUMBER) | ISDN number
+| 0x3a2e | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidTagAssistantTelephoneNumber +
+(PR_ASSISTANT_TELEPHONE_NUMBER) | Assistant phone number
+| 0x3a2f | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidTagHome2TelephoneNumber +
+(PR_HOME2_TELEPHONE_NUMBER) | Secondary home phone number
+| 0x3a30 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidTagAssistant +
+(PR_ASSISTANT) | Assistant name
+| | | |
+| 0x3a40 | 0x000b (Boolean) | PidTagSendRichInfo +
+(PR_SEND_RICH_INFO) | Can receive rich text (RTF, OLE) +
+Contains TRUE if the recipient can receive all message content, including Rich Text Format (RTF) and Object Linking and Embedding (OLE) objects
+| 0x3a41 | 0x0040 (Filetime) | PidTagWeddingAnniversary +
+(PR_WEDDING_ANNIVERSARY) | Wedding anniversary
+| 0x3a42 | 0x0040 (Filetime) | PidTagBirthday +
+(PR_BIRTHDAY) | Birthday
+| 0x3a43 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidTagHobbies +
+(PR_HOBBIES) | Hobbies
+| 0x3a44 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidTagMiddleName +
+(PR_MIDDLE_NAME) | Middle name(s)
+| 0x3a45 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidTagDisplayNamePrefix +
+(PR_DISPLAY_NAME_PREFIX) | Display name prefix (or Title) +
+Contains the contact title (such as Mr., Ms.)
+| 0x3a46 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidTagProfession +
+(PR_PROFESSION) | Profession
+| 0x3a47 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidTagPreferredByName +
+(PR_PREFERRED_BY_NAME) | Preferred name
+| 0x3a48 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidTagSpouseName +
+(PR_SPOUSE_NAME) | Name spouse
+| 0x3a49 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidTagComputerNetworkName +
+(PR_COMPUTER_NETWORK_NAME) | Computer network name
+| 0x3a4a | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidTagCustomerId +
+(PR_CUSTOMER_ID) | Customer identifier
+| 0x3a4b | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidTagTtyTddPhoneNumber +
+PidTagTelecommunicationsDeviceForDeafTelephoneNumber +
+(PR_TTYTDD_PHONE_NUMBER) | Text telephone (TTY) or telecommunication device for the deaf (TDD) phone number
+| 0x3a4c | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidTagFtpSite +
+(PR_FTP_SITE) | FTP site
+| 0x3a4d | 0x0002 (Integer 16-bit signed) | PidTagGender +
+(PR_GENDER) | Gender +
+Contains the gender of the messaging user. +
+See section: <<gender_definitions,Gender definitions>>
+| 0x3a4e | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidTagManagerName +
+(PR_MANAGER_NAME) | Name manager
+| 0x3a4f | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidTagNickname +
+(PR_NICKNAME) | Nickname
+| 0x3a50 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidTagPersonalHomePage +
+(PR_PERSONAL_HOME_PAGE) | Personal home page
 |===
 
 * [yellow-background]*TODO: migrate documentation*
