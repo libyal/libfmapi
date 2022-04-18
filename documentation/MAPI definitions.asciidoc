@@ -1548,11 +1548,11 @@ Contains the type of an entry, with respect to how the entry should be displayed
 See section: <<extended_icon_display_type_definitions,Extended icon display type definitions>>
 | | | |
 | 0x39fe | 0x001e (ASCII string) +
-0x001f ( Unicode string) | PidTagSmtpAddress +
+0x001f (Unicode string) | PidTagSmtpAddress +
 (PR_SMTP_ADDRESS) | SMTP address +
 Contains the SMTP address for the address book object.
 | 0x39ff | 0x001e (ASCII string) +
-0x001f ( Unicode string) | PidTag7BitDisplayName +
+0x001f (Unicode string) | PidTag7BitDisplayName +
 (PR_7BIT_DISPLAY_NAME) | Messaging username +
 Contains a 7-bit ASCII representation of a messaging user's name.
 |===
@@ -1562,6 +1562,101 @@ Contains a 7-bit ASCII representation of a messaging user's name.
 [cols="1,1,1,5",options="header"]
 |===
 | Item | Value | Identifier | Description
+| 0x3a00 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidTagAccount +
+(PR_ACCOUNT) | Recipient account name
+| 0x3a01 | 0x0102 (Binary data) | PidTagAlternateRecipient +
+(PR_ALTERNATE_RECIPIENT) | Alternate recipient entry identifiers +
+[yellow-background]*Contains: FLATENTRYLIST*
+| 0x3a02 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidTagCallbackTelephoneNumber +
+(PR_CALLBACK_TELEPHONE_NUMBER) | Callback telephone number
+| 0x3a03 | 0x000b (Boolean) | PidTagConversionProhibited +
+(PR_CONVERSION_PROHIBITED) | Conversion prohibited
+| 0x3a04 | 0x000b (Boolean) | PR_DISCLOSE_RECIPIENTS | Disclosure recipient
+| 0x3a05 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidTagGeneration +
+(PR_GENERATION) | Generational abbreviation (or name suffix)
+| 0x3a06 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidTagGivenName +
+(PR_GIVEN_NAME) | Given name
+| 0x3a07 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidTagGovernmentIdNumber +
+(PR_GOVERNMENT_ID_NUMBER) | Government identifier
+| 0x3a08 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidTagBusinessTelephoneNumber +
+(PR_BUSINESS_TELEPHONE_NUMBER, PR_OFFICE_TELEPHONE_NUMBER) | Primary business (office) phone number
+| 0x3a09 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidTagHomeTelephoneNumber +
+(PR_HOME_TELEPHONE_NUMBER) | Home phone number
+| 0x3a0a | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidTagInitials +
+(PR_INITIALS) | Initials
+| 0x3a0b | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidTagKeyword +
+(PR_KEYWORD) | Keyword
+| 0x3a0c | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidTagLanguage +
+(PR_LANGUAGE) | Language
+| 0x3a0d | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidTagLocation +
+(PR_LOCATION) | Location
+| 0x3a0e | 0x000b (Boolean) | PidTagMailPermission +
+(PR_MAIL_PERMISSION) | Permitted to send/receive messaged
+| 0x3a0f | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidTagMessageHandlingSystemCommonName +
+(PR_MHS_COMMON_NAME) | Message handling system (MHS) common name
+| 0x3a10 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidTagOrganizationalIdNumber +
+(PR_ORGANIZATIONAL_ID_NUMBER) | Organizational identification number
+| 0x3a11 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidTagSurname +
+(PR_SURNAME) | Surname (or last name)
+| 0x3a12 | 0x0102 (Binary data) | PidTagOriginalEntryId +
+(PR_ORIGINAL_ENTRY_ID) | Original entry identifier +
+Contains the original entry identifier for an entry copied from an address book to a personal address book or other writeable address book. +
+See section: <<entry_identifier_structure,The entry identifier structure (ENTRYID)>> +
+| 0x3a13 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidTagOriginalDisplayName +
+(PR_ORIGINAL_DISPLAY_NAME) | Original display name +
+Contains the original display name for an entry copied from an address book to a personal address book or other writable address book.
+| 0x3a14 | 0x0102 (Binary data) | PidTagOriginalSearchKey +
+(PR_ORIGINAL_SEARCH_KEY) | Original search key +
+Contains the original search key for an entry copied from an address book to a personal address book or other writeable address book.
+| 0x3a15 | 0x001e (ASCII string) +
+| 0x001f (Unicode string) | PidTagPostalAddress +
+(PR_POSTAL_ADDRESS) | Default Postal Address
+| 0x3a16 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidTagCompanyName +
+(PR_COMPANY_NAME) | Company name
+| 0x3a17 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidTagTitle +
+(PR_TITLE) | Job title (or profession)
+| 0x3a18 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidTagDepartmentName +
+(PR_DEPARTMENT_NAME) | Department name +
+Used in contact item
+| 0x3a19 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidTagOfficeLocation +
+(PR_OFFICE_LOCATION) | Office location
+| 0x3a1a | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidTagPrimaryTelephoneNumber +
+(PR_PRIMARY_TELEPHONE_NUMBER) | Primary Telephone
+| 0x3a1b | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidTagBusiness2TelephoneNumber +
+(PR_BUSINESS2_TELEPHONE_NUMBER, PR_OFFICE2_TELEPHONE_NUMBER) | Secondary business (office) phone number
+| 0x3a1c | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidTagMobileTelephoneNumber +
+(PR_MOBILE_TELEPHONE_NUMBER, PR_CELLULAR_TELEPHONE_NUMBER) | Mobile phone number
+| 0x3a1d | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidTagRadioTelephoneNumber +
+(PR_RADIO_TELEPHONE_NUMBER) | Radio phone number
+| 0x3a1e | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidTagCarTelephoneNumber +
+(PR_CAR_TELEPHONE_NUMBER) | Car phone number
+| 0x3a1f | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidTagOtherTelephoneNumber +
+(PR_OTHER_TELEPHONE_NUMBER) | Alternate telephone number
 |===
 
 * [yellow-background]*TODO: migrate documentation*
@@ -1571,6 +1666,7 @@ Contains a 7-bit ASCII representation of a messaging user's name.
 [cols="1,1,1,5",options="header"]
 |===
 | Item | Value | Identifier | Description
+| | | |
 |===
 
 === Profile properties (0x3d00 – 0x3dff)
