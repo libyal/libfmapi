@@ -1764,7 +1764,72 @@ See section: <<gender_definitions,Gender definitions>>
 (PR_PERSONAL_HOME_PAGE) | Personal home page
 |===
 
-* [yellow-background]*TODO: migrate documentation*
+| 0x3a51 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidTagBusinessHomePage +
+(PR_BUSINESS_HOME_PAGE) | Business home page
+| 0x3a52 | 0x0048 (GUID) | PidTagContactVersion +
+(PR_CONTACT_VERSION) | Contact version +
+Contains the version of the contact information. +
+[yellow-background]*Contains a GUID?*
+| 0x3a53 | 0x1102 (Array of Binary data values) | PR_CONTACT_ENTRYIDS | [yellow-background]*Unknown (Contact entry identifiers)* +
+[yellow-background]*Contains ENTRYID?*
+| 0x3a54 | 0x101e (Array of ASCII string values) +
+0x101f (Array of Unicode string values) | PidTagContactAddressTypes +
+(PR_CONTACT_ADDRTYPES) | Contact address types +
+Contains a list of address types for a contact.
+| 0x3a55 | 0x0003 (Integer 32-bit signed) | PR_CONTACT_DEFAULT_ADDRESS_INDEX | [yellow-background]*Unknown (Contact default address index)*
+| 0x3a56 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_CONTACT_EMAIL_ADDRESSES | [yellow-background]*Unknown (Contact email addresses)*
+| 0x3a57 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidTagCompanyMainTelephoneNumber +
+(PR_COMPANY_MAIN_PHONE_NUMBER) | Company main phone number
+| 0x3a58 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidTagChildrensNames +
+(PR_CHILDRENS_NAMES) | Name(s) of children
+| 0x3a59 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidTagHomeAddressCity +
+(PR_HOME_ADDRESS_CITY) | City of home address
+| 0x3a5a | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidTagHomeAddressCountry +
+(PR_HOME_ADDRESS_COUNTRY) | Country of home address
+| 0x3a5b | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidTagHomeAddressPostalCode +
+(PR_HOME_ADDRESS_POSTAL_CODE) | Postal code of home address
+| 0x3a5c | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidTagHomeAddressStateOrProvince +
+(PR_HOME_ADDRESS_STATE_OR_PROVINCE) | State or province of home address
+| 0x3a5d | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidTagHomeAddressStreet +
+(PR_HOME_ADDRESS_STREET) | Street of home address
+| 0x3a5e | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidTagHomeAddressPostOfficeBox +
+(PR_HOME_ADDRESS_POST_OFFICE_BOX) | Post office box of home address
+| 0x3a5f | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidTagOtherAddressCity +
+(PR_OTHER_ADDRESS_CITY) | City of other address
+| 0x3a60 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidTagOtherAddressCountry +
+(PR_OTHER_ADDRESS_COUNTRY) | Country of other address
+| 0x3a61 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidTagOtherAddressPostalCode +
+(PR_OTHER_ADDRESS_POSTAL_CODE) | Postal code of other address
+| 0x3a62 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidTagOtherAddressStateOrProvince +
+(PR_OTHER_ADDRESS_STATE_OR_PROVINCE) | State or province of of other address
+| 0x3a63 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidTagOtherAddressStreet +
+(PR_OTHER_ADDRESS_STREET) | Street of other address
+| 0x3a64 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidTagOtherAddressPostOfficeBox +
+(PR_OTHER_ADDRESS_POST_OFFICE_BOX) | Post office box of other address
+| | | |
+| 0x3a70 | 0x1102 (Array of Binary data) | PidTagUserX509Certificate +
+(PR_USER_X509_CERTIFICATE) | User X.509 certificate +
+Contains a list of X.509 certificates
+| 0x3a71 | 0x0003 (Integer 32-bit signed) | PidTagSendInternetEncoding +
+(PR_SEND_INTERNET_ENCODING) | Message encoding preference flags +
+See section: <<encoding_preference_flag_definitions,Encoding preference flag definitions>>
+|===
 
 === Distribution list properties (0x3c00 – 0x3cff)
 
