@@ -702,9 +702,11 @@ Contains transport-specific message envelope information. These contain the SMTP
 Contains a value that correlates a Transport Neutral Encapsulation Format (TNEF) attachment with a message. +
 [yellow-background]*Contains a single byte 0x00*
 | 0x0080 | 0x001e (ASCII string) +
-0x001f (Unicode string) | "displayed" | [yellow-background]*Unknown (found in a message delivery report item)*
+0x001f (Unicode string) | | [yellow-background]*Unknown (found in a message delivery report item)* +
+Seen: "displayed"
 | 0x0081 | 0x001e (ASCII string) +
-0x001f (Unicode string) | "automatic-action/MDN-sent-automatically" | [yellow-background]*Unknown (found in a message delivery report item)*
+0x001f (Unicode string) | | [yellow-background]*Unknown (found in a message delivery report item)* +
+Seen: "automatic-action/MDN-sent-automatically"
 | | | |
 | 0x0083 | 0x101e (Array of ASCII string) +
 0x101f (Array of Unicode string) | | [yellow-background]*Unknown (Contains sender name)*
@@ -1210,7 +1212,6 @@ Contains the zero-based index of a service provider's position in the provider t
 0x001f (Unicode string) | PR_FORM_CONTACT_NAME | [yellow-background]*Unknown*
 | 0x3304 | 0x001e (ASCII string) +
 0x001f (Unicode string) | PR_FORM_CATEGORY | [yellow-background]*Unknown*
-| ASCII string or Unicode string
 | 0x3305 | 0x001e (ASCII string) +
 0x001f (Unicode string) | PR_FORM_CATEGORY_SUB | [yellow-background]*Unknown*
 | ASCII string or Unicode string
@@ -1246,8 +1247,7 @@ Contains a provider-defined MAPIUID structure that indicates the type of the mes
 | 0x3416 | 0x0102 (Binary data) | | [yellow-background]*Unknown (Item proc search entry identifier)* +
 Contains Folder information reference to "ItemProcSearch"
 | | | |
-| 0x3419 | 0x0003 (Integer 32-bit signed) | PR_SEARCH_OWNER_ID +
-Search owner identifier +
+| 0x3419 | 0x0003 (Integer 32-bit signed) | PR_SEARCH_OWNER_ID | Search owner identifier +
 Contains the process identifier of the process that is sending notifications to the indexer about objects ready for indexing.
 | | | |
 | 0x35df | 0x0003 (Integer 32-bit signed) | PidTagValidFolderMask +
@@ -1291,12 +1291,12 @@ See section: <<entry_identifier_structure,The entry identifier structure (ENTRYI
 | Item | Value | Identifier | Description
 | 0x3600 | 0x0003 (Integer 32-bit signed) | PidTagContainerFlags +
 (PR_CONTAINER_FLAGS) | Address book container capabilities flags +
-Contains a bitmask of flags describing capabilities of an address book container.
-| See section: <<container_flag_definitions,Container flag definitions>>
+Contains a bitmask of flags describing capabilities of an address book container. +
+See section: <<container_flag_definitions,Container flag definitions>>
 | 0x3601 | 0x0003 (Integer 32-bit signed) | PidTagFolderType +
 (PR_FOLDER_TYPE) | Folder type +
-Contains a constant that indicates the folder type
-| See section: <<folder_type_definitions,Folder type definitions>>
+Contains a constant that indicates the folder type +
+See section: <<folder_type_definitions,Folder type definitions>>
 | 0x3602 | 0x0003 (Integer 32-bit signed) | PidTagContentCount +
 (PR_CONTENT_COUNT) | Number of content items +
 Contains the number of messages in a folder, as computed by the message store.
@@ -1624,7 +1624,7 @@ Contains the original display name for an entry copied from an address book to a
 (PR_ORIGINAL_SEARCH_KEY) | Original search key +
 Contains the original search key for an entry copied from an address book to a personal address book or other writeable address book.
 | 0x3a15 | 0x001e (ASCII string) +
-| 0x001f (Unicode string) | PidTagPostalAddress +
+0x001f (Unicode string) | PidTagPostalAddress +
 (PR_POSTAL_ADDRESS) | Default Postal Address
 | 0x3a16 | 0x001e (ASCII string) +
 0x001f (Unicode string) | PidTagCompanyName +
@@ -1762,8 +1762,6 @@ See section: <<gender_definitions,Gender definitions>>
 | 0x3a50 | 0x001e (ASCII string) +
 0x001f (Unicode string) | PidTagPersonalHomePage +
 (PR_PERSONAL_HOME_PAGE) | Personal home page
-|===
-
 | 0x3a51 | 0x001e (ASCII string) +
 0x001f (Unicode string) | PidTagBusinessHomePage +
 (PR_BUSINESS_HOME_PAGE) | Business home page
