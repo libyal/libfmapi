@@ -1392,13 +1392,13 @@ Contains extended flags about a folder. +
 See section: <<extended_folder_flags_structure,The extended folder flags structure>>
 | 0x36db | 0x0040 (Filetime) | | [yellow-background]*Unknown (Found in Exchange)*
 | 0x36dc | 0x0102 (Binary data) | | [yellow-background]*Unknown (Found in Exchange)* +
-See section: <<entry_identifier_structure,The entry identifier structure (ENTRYID)>> +
+See section: <<entry_identifier_structure,The entry identifier structure (ENTRYID)>>
 | | | |
 | 0x36de | 0x0003 (Integer 32-bit signed) | | [yellow-background]*Unknown (flags?)* +
 [yellow-background]*0x00000000 => most folders* +
-[yellow-background]*| 0x10000000 => set in sync issues/local failures* +
-[yellow-background]*| 0x10000000 => set in server failures* +
-[yellow-background]*| 0x40000000 => set in calendar*
+[yellow-background]*0x10000000 => set in sync issues/local failures* +
+[yellow-background]*0x10000000 => set in server failures* +
+[yellow-background]*0x40000000 => set in calendar*
 | 0x36df | 0x0102 (Binary data) | PidTagFolderWebViewInfo +
 (PR_FOLDER_WEBVIEWINFO) | Folder web view information +
 Contains the URL for the home page of a folder. +
@@ -1839,7 +1839,42 @@ See section: <<encoding_preference_flag_definitions,Encoding preference flag def
 
 === Profile properties (0x3d00 – 0x3dff)
 
-* [yellow-background]*TODO: migrate documentation*
+[cols="1,1,1,5",options="header"]
+|===
+| Item | Value | Identifier | Description
+| 0x3d00 | 0x0102 (Binary data) | PR_STORE_PROVIDERS | [yellow-background]*Unknown*
+| 0x3d01 | 0x0102 (Binary data) | PR_AB_PROVIDERS | [yellow-background]*Unknown*
+| 0x3d02 | 0x0102 (Binary data) | PR_TRANSPORT_PROVIDERS | [yellow-background]*Unknown*
+| | | |
+| 0x3d04 | 0x000b (Boolean) | PR_DEFAULT_PROFILE | [yellow-background]*Unknown*
+| 0x3d05 | 0x1102 (Array of Binary data values) | PR_AB_SEARCH_PATH | [yellow-background]*Unknown*
+| 0x3d06 | 0x0102 (Binary data) | PR_AB_DEFAULT_DIR | [yellow-background]*Unknown*
+| 0x3d07 | 0x0102 (Binary data) | PR_AB_DEFAULT_PAB | [yellow-background]*Unknown*
+| 0x3d08 | 0x0102 (Binary data) | PR_FILTERING_HOOKS | [yellow-background]*Unknown*
+| 0x3d09 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_SERVICE_NAME | [yellow-background]*Unknown*
+| 0x3d0a | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_SERVICE_DLL_NAME | [yellow-background]*Unknown*
+| 0x3d0b | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_SERVICE_ENTRY_NAME | [yellow-background]*Unknown*
+| 0x3d0c | 0x0102 (Binary data) | PR_SERVICE_UID | [yellow-background]*Unknown*
+| 0x3d0d | 0x0102 (Binary data) | PR_SERVICE_EXTRA_UIDS | [yellow-background]*Unknown*
+| 0x3d0e | 0x0102 (Binary data) | PR_SERVICES | [yellow-background]*Unknown*
+| 0x3d0f | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_SERVICE_SUPPORT_FILES | [yellow-background]*Unknown*
+| 0x3d10 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_SERVICE_DELETE_FILES | [yellow-background]*Unknown*
+| 0x3d11 | 0x0102 (Binary data) | PR_AB_SEARCH_PATH_UPDATE | [yellow-background]*Unknown*
+| 0x3d12 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_PROFILE_NAME | [yellow-background]*Unknown*
+| 0x3d13 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_SERVICE_INSTALL_ID | [yellow-background]*Unknown*
+| | | |
+| 0x3d21 | 0x0102 (Binary data) | ptagAdminNTSD +
+(PR_ADMIN_SECURITY_DESCRIPTOR) | Administrator permissions (NT security descriptor) +
+Holds the NT security descriptors of the Administrative users or groups that can access the folder. +
+See section: <<security_desciptor_structure,The security descriptor structure>>
+|===
 
 === Status object properties (0x3e00 – 0x3fff)
 
@@ -2896,7 +2931,7 @@ incomplete. Use MSDN codepage definitions (below) to fill missing codepages.*
 | 57009 | x-iscii-ma | ISCII Malayalam
 | 57010 | x-iscii-gu | ISCII Gujarati
 | 57011 | x-iscii-pa | ISCII Punjabi
-|==
+|===
 
 === [[conflict_resolution_method_definitions]]Conflict resolution method definitions
 
@@ -4041,7 +4076,7 @@ Column definition entry
 | 4 | 4 | | [yellow-background]*Unknown* +
 0x80 0x04 0x03 0x00 +
 0x80 0x02 0x00 0x00 +
-| 0x00 0x01 0x00 0x00
+0x00 0x01 0x00 0x00
 | 8 | 4 | | [yellow-background]*Unknown* +
 0x00 0x06 0x00 0x00 +
 0x00 0x09 0x00 0x00 +
