@@ -1878,6 +1878,62 @@ See section: <<security_desciptor_structure,The security descriptor structure>>
 
 === Status object properties (0x3e00 – 0x3fff)
 
+[cols="1,1,1,5",options="header"]
+|===
+| Item | Value | Identifier | Description
+| 0x3e00 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_IDENTITY_DISPLAY | [yellow-background]*Unknown*
+| 0x3e01 | 0x0102 (Binary data) | PR_IDENTITY_ENTRYID | [yellow-background]*Unknown* +
+See section: <<entry_identifier_structure,The entry identifier structure (ENTRYID)>>
+| 0x3e02 | 0x0003 (Integer 32-bit signed) | PR_RESOURCE_METHODS | [yellow-background]*Unknown*
+| 0x3e03 | 0x0003 (Integer 32-bit signed) | PR_RESOURCE_TYPE | [yellow-background]*Unknown*
+| 0x3e04 | 0x0003 (Integer 32-bit signed) | PR_STATUS_CODE | [yellow-background]*Unknown*
+| 0x3e05 | 0x0102 (Binary data) | PR_IDENTITY_SEARCH_KEY | [yellow-background]*Unknown*
+| 0x3e06 | 0x0102 (Binary data) | PR_OWN_STORE_ENTRYID | [yellow-background]*Unknown* +
+See section: <<entry_identifier_structure,The entry identifier structure (ENTRYID)>>
+| 0x3e07 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_RESOURCE_PATH | [yellow-background]*Unknown*
+| 0x3e08 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_STATUS_STRING | [yellow-background]*Unknown*
+| 0x3e09 | 0x000b (Boolean) | PR_X400_DEFERRED_DELIVERY_CANCEL | [yellow-background]*Unknown*
+| 0x3e0a | 0x0102 (Binary data) | PR_HEADER_FOLDER_ENTRYID | [yellow-background]*Unknown* +
+See section: <<entry_identifier_structure,The entry identifier structure (ENTRYID)>>
+| 0x3e0b | 0x0003 (Integer 32-bit signed) | PR_REMOTE_PROGRESS | [yellow-background]*Unknown*
+| 0x3e0c | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_REMOTE_PROGRESS_TEXT | [yellow-background]*Unknown*
+| 0x3e0e | 0x000b (Boolean) | PR_REMOTE_VALIDATE_OK | [yellow-background]*Unknown*
+| | | |
+| 0x3f00 | 0x0003 (Integer 32-bit signed) | PR_CONTROL_FLAGS | [yellow-background]*Unknown*
+| 0x3f01 | 0x0102 (Binary data) | PR_CONTROL_STRUCTURE | [yellow-background]*Unknown*
+| 0x3f02 | 0x0003 (Integer 32-bit signed) | PR_CONTROL_TYPE | [yellow-background]*Unknown*
+| 0x3f03 | 0x0003 (Integer 32-bit signed) | PR_DELTAX | [yellow-background]*Unknown*
+| 0x3f04 | 0x0003 (Integer 32-bit signed) | PR_DELTAY | [yellow-background]*Unknown*
+| 0x3f05 | 0x0003 (Integer 32-bit signed) | PR_XPOS | [yellow-background]*Unknown*
+| 0x3f06 | 0x0003 (Integer 32-bit signed) | PR_YPOS | [yellow-background]*Unknown*
+| 0x3f07 | 0x0102 (Binary data) | PR_CONTROL_ID | [yellow-background]*Unknown*
+| 0x3f08 | 0x0003 (Integer 32-bit signed) | PR_INITIAL_DETAILS_PANE | [yellow-background]*Unknown*
+| | | |
+| 0x3f80 | 0x0014 (Integer 64-bit signed) | PR_DID | [yellow-background]*Unknown*
+| 0x3f81 | 0x0014 (Integer 64-bit signed) | PR_SEQID | [yellow-background]*Unknown*
+| 0x3f82 | 0x0014 (Integer 64-bit signed) | PR_DRAFTID | [yellow-background]*Unknown*
+| 0x3f83 | 0x0040 (Filetime) | PR_CHECK_IN_TIME | [yellow-background]*Unknown*
+| 0x3f84 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_CHECK_IN_COMMENT | [yellow-background]*Unknown*
+| 0x3f85 | 0x0003 (Integer 32-bit signed) | PR_VERSION_OP_CODE | [yellow-background]*Unknown*
+| 0x3f86 | 0x0102 (Binary data) | PR_VERSION_OP_DATA | [yellow-background]*Unknown*
+| 0x3f87 | 0x0003 (Integer 32-bit signed) | PR_VERSION_SEQUENCE_NUMBER | [yellow-background]*Unknown*
+| 0x3f88 | 0x0014 (Integer 64-bit signed) | PR_ATTACH_ID | [yellow-background]*Unknown*
+| | | |
+| 0x3f8d | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_PKM_DOC_STATUS | [yellow-background]*Unknown*
+| 0x3f8e | 0x101e (Array of ASCII string values) +
+0x101f (Array of Unicode string values) | PR_MV_PKM_OPERATION_REQ | [yellow-background]*Unknown*
+| 0x3f8f | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_PKM_DOC_INTERNAL_STATE | [yellow-background]*Unknown*
+| | | |
+| 0x3f90 | 0x0002 (Integer 16-bit signed) | PR_VERSIONING_FLAGS | [yellow-background]*Unknown*
+|===
+
 * [yellow-background]*TODO: migrate documentation*
 
 === Message envelope properties (0x4000 – 0x57ff)
