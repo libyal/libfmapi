@@ -1932,6 +1932,40 @@ See section: <<entry_identifier_structure,The entry identifier structure (ENTRYI
 0x001f (Unicode string) | PR_PKM_DOC_INTERNAL_STATE | [yellow-background]*Unknown*
 | | | |
 | 0x3f90 | 0x0002 (Integer 16-bit signed) | PR_VERSIONING_FLAGS | [yellow-background]*Unknown*
+| 0x3f91 | 0x0102 (Binary data) | PR_PKM_LAST_UNAPPROVED_VID | [yellow-background]*Unknown*
+| 0x3f92 | 0x101e (Array of ASCII string values) +
+0x101f (Array of Unicode string values) | PR_MV_PKM_VERSION_LABELS | [yellow-background]*Unknown*
+| 0x3f93 | 0x101e (Array of ASCII string values) +
+0x101f (Array of Unicode string values) | PR_MV_PKM_VERSION_STATUS | [yellow-background]*Unknown*
+| 0x3f94 | 0x0102 (Binary data) | PR_PKM_INTERNAL_DATA | [yellow-background]*Unknown*
+| | | |
+| 0x3fc9 | 0x0102 (Binary data) | PR_LAST_CONFLICT | [yellow-background]*Unknown*
+| 0x3fca | 0x0102 (Binary data) | PR_CONFLICT_MSG_KEY | [yellow-background]*Unknown*
+| | | |
+| 0x3fd0 | 0x0102 (Binary data) | PR_REPL_HEADER | [yellow-background]*Unknown*
+| 0x3fd1 | 0x0102 (Binary data) | PR_REPL_STATUS | [yellow-background]*Unknown*
+| 0x3fd2 | 0x0102 (Binary data) | PR_REPL_CHANGES | [yellow-background]*Unknown*
+| 0x3fd3 | 0x0102 (Binary data) | PR_REPL_RGM | [yellow-background]*Unknown*
+| 0x3fd4 | 0x0102 (Binary data) | PR_RMI | [yellow-background]*Unknown*
+| 0x3fd5 | 0x0102 (Binary data) | PR_INTERNAL_POST_REPLY | [yellow-background]*Unknown*
+| 0x3fd6 | 0x0040 (Filetime) | PR_NTSD_MODIFICATION_TIME | [yellow-background]*Unknown* +
+[yellow-background]*Last modification date and time of the NT security descriptor 0x0e27 (ptagNTSD)?*
+| | | |
+| 0x3fd8 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_PREVIEW_UNREAD | [yellow-background]*Unknown*
+| 0x3fd9 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_PREVIEW | [yellow-background]*Unknown*
+| 0x3fda | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_ABSTRACT | [yellow-background]*Unknown*
+| 0x3fdb | 0x0003 (Integer 32-bit signed) | PR_DL_REPORT_FLAGS | [yellow-background]*Unknown*
+| 0x3fdc | 0x0102 (Binary data) | PR_BILATERAL_INFO | [yellow-background]*Unknown*
+| 0x3fdd | 0x0003 (Integer 32-bit signed) | PR_MSG_BODY_ID | [yellow-background]*Unknown*
+| 0x3fde | 0x0003 (Integer 32-bit signed) | PidTagInternetCodepage +
+(PR_INTERNET_CPID) | Message body codepage +
+Indicates the code page used for PR_BODY (PidTagBody) or PR_BODY_HTML (PidTagBodyHtml) properties. +
+See section: <<codepage_definitions,Codepage definitions>>
+| 0x3fdf | 0x0003 (Integer 32-bit signed) | PidTagAutoResponseSuppress +
+(PR_AUTO_RESPONSE_SUPPRESS, ptagAutoResponseSuppress) | [yellow-background]*Unknown (Suppress auto response)*
 |===
 
 * [yellow-background]*TODO: migrate documentation*
