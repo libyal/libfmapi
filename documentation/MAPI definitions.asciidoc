@@ -1966,9 +1966,67 @@ Indicates the code page used for PR_BODY (PidTagBody) or PR_BODY_HTML (PidTagBod
 See section: <<codepage_definitions,Codepage definitions>>
 | 0x3fdf | 0x0003 (Integer 32-bit signed) | PidTagAutoResponseSuppress +
 (PR_AUTO_RESPONSE_SUPPRESS, ptagAutoResponseSuppress) | [yellow-background]*Unknown (Suppress auto response)*
+| 0x3fe0 | 0x000d (Embedded object) | PR_ACL_TABLE | Access control list table object +
+Seen in Exchange 5.5
+| | 0x0102 (Binary data) | PR_ACL_DATA | Access control list data
+| 0x3fe1 | 0x000d (Embedded object) | PidTagRulesTable +
+(PR_RULES_TABLE) | Folder rules table +
+Contains a reference to the (folder) rules table object.
+| | 0x0102 (Binary data) | PidTagRulesData +
+(PR_RULES_DATA) | Folder rules data +
+Contains a reference to the (folder) rules data.
+| 0x3fe2 | 0x0003 (Integer 32-bit signed) | PR_FOLDER_DESIGN_FLAGS | [yellow-background]*Unknown*
+| 0x3fe3 | 0x000b (Boolean) | PR_DELEGATED_BY_RULE | [yellow-background]*Unknown*
+| 0x3fe4 | 0x000b (Boolean) | PR_DESIGN_IN_PROGRESS | [yellow-background]*Unknown*
+| 0x3fe5 | 0x000b (Boolean) | PR_SECURE_ORIGINATION | [yellow-background]*Unknown*
+| 0x3fe6 | 0x000b (Boolean) | PR_PUBLISH_IN_ADDRESS_BOOK | [yellow-background]*Unknown*
+| 0x3fe7 | 0x0003 (Integer 32-bit signed) | PidTagResolveMethod +
+(PR_RESOLVE_METHOD) | Conflict resolution method +
+Contains a folder's conflict resolution value. +
+See section: <<conflict_resolution_method_definitions,Conflict resolution method definitions>>
+| 0x3fe8 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_ADDRESS_BOOK_DISPLAY_NAME | [yellow-background]*Unknown*
+| 0x3fe9 | 0x0003 (Integer 32-bit signed) | PR_EFORMS_LOCALE_ID | [yellow-background]*Unknown*
+| 0x3fea | 0x000b (Boolean) | PR_HAS_DAMS | [yellow-background]*Unknown*
+| 0x3feb | 0x0003 (Integer 32-bit signed) | PR_DEFERRED_SEND_NUMBER | [yellow-background]*Unknown*
+| 0x3fec | 0x0003 (Integer 32-bit signed) | PR_DEFERRED_SEND_UNITS | [yellow-background]*Unknown*
+| 0x3fed | 0x0003 (Integer 32-bit signed) | PR_EXPIRY_NUMBER | [yellow-background]*Unknown*
+| 0x3fee | 0x0003 (Integer 32-bit signed) | PR_EXPIRY_UNITS | [yellow-background]*Unknown*
+| 0x3fef | 0x0040 (Filetime) | PR_DEFERRED_SEND_TIME | [yellow-background]*Unknown*
+| 0x3ff0 | 0x0102 (Binary data) | PidTagConflictEntryId +
+(PR_CONFLICT_ENTRYID) | Conflict entry identifier +
+Contains the entry identifier of the conflict resolution message. +
+See section: <<entry_identifier_structure,The entry identifier structure (ENTRYID)>>
+| 0x3ff1 | 0x0003 (Integer 32-bit signed) | PidTagMessageLocaleId +
+(PR_MESSAGE_LOCALE_ID) | Message locale identifier +
+Contains the LCID of the user who created the message. +
+See section: <<lcid_structure,The LCID structure>>
+| 0x3ff2 | 0x0102 (Binary data) | PR_RULE_TRIGGER_HISTORY | [yellow-background]*Unknown*
+| 0x3ff3 | 0x0102 (Binary data) | PR_MOVE_TO_STORE_ENTRYID | [yellow-background]*Unknown* +
+See section: <<entry_identifier_structure,The entry identifier structure (ENTRYID)>>
+| 0x3ff4 | 0x0003 (Integer 32-bit signed) | PR_MOVE_TO_FOLDER_ENTRYID | [yellow-background]*Unknown* +
+See section: <<entry_identifier_structure,The entry identifier structure (ENTRYID)>>
+| 0x3ff5 | 0x0003 (Integer 32-bit signed) | PR_STORAGE_QUOTA_LIMIT | [yellow-background]*Unknown*
+| 0x3ff6 | 0x0003 (Integer 32-bit signed) | PR_EXCESS_STORAGE_USED | [yellow-background]*Unknown*
+| 0x3ff7 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_SVR_GENERATING_QUOTA_MSG | [yellow-background]*Unknown*
+| 0x3ff8 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_CREATOR_NAME | [yellow-background]*Unknown*
+| 0x3ff9 | 0x0102 (Binary data) | PR_CREATOR_ENTRYID | [yellow-background]*Unknown* +
+See section: <<entry_identifier_structure,The entry identifier structure (ENTRYID)>>
+| 0x3ffa | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_LAST_MODIFIER_NAME | Last modifier name
+| 0x3ffb | 0x0102 (Binary data) | PR_LAST_MODIFIER_ENTRYID | Last modifier entry identifier +
+See section: <<entry_identifier_structure,The entry identifier structure (ENTRYID)>>
+| 0x3ffc | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_REPLY_RECIPIENT_SMTP_PROXIES | [yellow-background]*Unknown*
+| 0x3ffd | 0x0003 (Integer 32-bit signed) | PidTagMessageCodepage +
+(PR_MESSAGE_CODEPAGE) | Message codepage +
+Contains the codepage that is used for the message. +
+See section: <<codepage_definitions,Codepage definitions>>
+| 0x3ffe | 0x0102 (Binary data) | PR_EXTENDED_ACL_DATA | Extended ACL data
+| 0x3fff | 0x000b (Boolean) | PR_FROM_I_HAVE | [yellow-background]*Unknown*
 |===
-
-* [yellow-background]*TODO: migrate documentation*
 
 === Message envelope properties (0x4000 – 0x57ff)
 
