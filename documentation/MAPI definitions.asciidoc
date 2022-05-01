@@ -2030,6 +2030,43 @@ See section: <<codepage_definitions,Codepage definitions>>
 
 === Message envelope properties (0x4000 – 0x57ff)
 
+[cols="1,1,1,5",options="header"]
+|===
+| Item | Value | Identifier | Description
+| 0x4000 | 0x0003 (Integer 32-bit signed) | PR_NEW_ATTACH | [yellow-background]*Unknown*
+| 0x4001 | 0x0003 (Integer 32-bit signed) | PR_START_EMBED | [yellow-background]*Unknown*
+| 0x4002 | 0x0003 (Integer 32-bit signed) | PR_END_EMBED | [yellow-background]*Unknown*
+| 0x4003 | 0x0003 (Integer 32-bit signed) | PR_START_RECIP | [yellow-background]*Unknown*
+| 0x4004 | 0x0003 (Integer 32-bit signed) | PR_END_RECIP | [yellow-background]*Unknown*
+| 0x4005 | 0x0003 (Integer 32-bit signed) | PR_END_CC_RECIP | [yellow-background]*Unknown*
+| 0x4006 | 0x0003 (Integer 32-bit signed) | PR_END_BCC_RECIP | [yellow-background]*Unknown*
+| 0x4007 | 0x0003 (Integer 32-bit signed) | PR_END_P1_RECIP | [yellow-background]*Unknown*
+| | | |
+| 0x4009 | 0x0003 (Integer 32-bit signed) | PR_START_TOP_FLD | [yellow-background]*Unknown*
+| 0x400a | 0x0003 (Integer 32-bit signed) | PR_START_SUB_FLD | [yellow-background]*Unknown*
+| 0x400b | 0x0003 (Integer 32-bit signed) | PR_END_FOLDER | [yellow-background]*Unknown*
+| 0x400c | 0x0003 (Integer 32-bit signed) | PR_START_MESSAGE | [yellow-background]*Unknown*
+| 0x400d | 0x0003 (Integer 32-bit signed) | PR_END_MESSAGE | [yellow-background]*Unknown*
+| 0x400e | 0x0003 (Integer 32-bit signed) | PR_END_ATTACH | [yellow-background]*Unknown*
+| 0x400f | 0x0003 (Integer 32-bit signed) | PR_EC_WARNING | [yellow-background]*Unknown*
+| 0x4010 | 0x0003 (Integer 32-bit signed) | PR_START_FAI_MSG | [yellow-background]*Unknown*
+| 0x4011 | 0x0102 (Binary data) | PR_NEW_FX_FOLDER | [yellow-background]*Unknown*
+| 0x4012 | 0x0003 (Integer 32-bit signed) | PR_INCR_SYNC_CHG | [yellow-background]*Unknown*
+| 0x4013 | 0x0003 (Integer 32-bit signed) | PR_INCR_SYNC_DEL | [yellow-background]*Unknown*
+| 0x4014 | 0x0003 (Integer 32-bit signed) | PR_INCR_SYNC_END | [yellow-background]*Unknown*
+| 0x4015 | 0x0003 (Integer 32-bit signed) | PR_INCR_SYNC_MSG | [yellow-background]*Unknown*
+| 0x4016 | 0x0003 (Integer 32-bit signed) | PR_FX_DEL_PROP | [yellow-background]*Unknown*
+| 0x4017 | 0x0003 (Integer 32-bit signed) | PR_IDSET_GIVEN | [yellow-background]*Unknown*
+| | | |
+| 0x4019 | 0x0003 (Integer 32-bit signed) | PR_SENDER_FLAGS | [yellow-background]*Unknown (Sender flags)*
+| 0x401a | 0x0003 (Integer 32-bit signed) | PR_SENT_REPRESENTING_FLAGS | [yellow-background]*Unknown (Sent representing flags)*
+| 0x401b | 0x0003 (Integer 32-bit signed) | PR_RCVD_BY_FLAGS | [yellow-background]*Unknown (Received by flags)*
+| 0x401c | 0x0003 (Integer 32-bit signed) | PR_RCVD_REPRESENTING_FLAGS | [yellow-background]*Unknown (Received representing flags)*
+| 0x401d | 0x0003 (Integer 32-bit signed) | PR_ORIGINAL_SENDER_FLAGS | [yellow-background]*Unknown (Original sender flags)*
+| 0x401e | 0x0003 (Integer 32-bit signed) | PR_ORIGINAL_SENT_REPRESENTING_FLAGS | [yellow-background]*Unknown (Original sent representing flags)*
+| 0x401f | 0x0003 (Integer 32-bit signed) | PR_REPORT_FLAGS | [yellow-background]*Unknown*
+|===
+
 * [yellow-background]*TODO: migrate documentation*
 
 === Recipient properties (0x5800 - 0x5fff)
