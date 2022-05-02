@@ -2065,9 +2065,42 @@ See section: <<codepage_definitions,Codepage definitions>>
 | 0x401d | 0x0003 (Integer 32-bit signed) | PR_ORIGINAL_SENDER_FLAGS | [yellow-background]*Unknown (Original sender flags)*
 | 0x401e | 0x0003 (Integer 32-bit signed) | PR_ORIGINAL_SENT_REPRESENTING_FLAGS | [yellow-background]*Unknown (Original sent representing flags)*
 | 0x401f | 0x0003 (Integer 32-bit signed) | PR_REPORT_FLAGS | [yellow-background]*Unknown*
+| 0x4020 | 0x0003 (Integer 32-bit signed) | PR_READ_RECEIPT_FLAGS | [yellow-background]*Unknown*
+| 0x4021 | 0x000b (Boolean) | PR_SOFT_DELETES | [yellow-background]*Unknown*
+| | | |
+| 0x402c | 0x0102 (Binary data) | PR_MESSAGE_SUBMISSION_ID_FROM_CLIENT | [yellow-background]*Unknown*
+| | | |
+| 0x4030 | 0x001f (ASCII string) +
+0x001f (Unicode string) | PR_SENDER_SIMPLE_DISP_NAME | [yellow-background]*Unknown*
+| 0x4031 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_SENT_REPRESENTING_SIMPLE_DISP_NAME | [yellow-background]*Unknown*
+| | | |
+| 0x4038 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_CREATOR_SIMPLE_DISP_NAME | [yellow-background]*Unknown*
+| | | |
+| 0x403d | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_ORG_ADDR_TYPE | Original e-mail address type +
+[yellow-background]*(Or does ORG stand for something else?)*
+| 0x403e | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_ORG_EMAIL_ADDR | Original e-mail address +
+[yellow-background]*(Or does ORG stand for something else?)*
+| | | |
+| 0x4059 | 0x0003 (Integer 32-bit signed) | PR_CREATOR_FLAGS | [yellow-background]*Unknown*
+| 0x405a | 0x0003 (Integer 32-bit signed) | PR_MODIFIER_FLAGS | [yellow-background]*Unknown*
+| 0x405b | 0x0003 (Integer 32-bit signed) | PR_ORIGINATOR_FLAGS | [yellow-background]*Unknown*
+| 0x405c | 0x0003 (Integer 32-bit signed) | PR_REPORT_DESTINATION_FLAGS | [yellow-background]*Unknown*
+| 0x405d | 0x0003 (Integer 32-bit signed) | PR_ORIGINAL_AUTHOR_FLAGS | [yellow-background]*Unknown (Original author flags)*
+| | | |
+| 0x4061 | 0x0102 (Binary data) | PR_ORIGINATOR_SEARCH_KEY | [yellow-background]*Unknown*
+| | | |
+| 0x4064 | 0x0102 (Binary data) | PR_REPORT_DESTINATION_SEARCH_KEY | [yellow-background]*Unknown*
+| 0x4065 | 0x0003 (Integer 32-bit signed) | PR_ER_FLAG | [yellow-background]*Unknown*
+| | | |
+| 0x4068 | 0x0102 (Binary data) | PR_INTERNET_SUBJECT | [yellow-background]*Unknown*
+| 0x4069 | 0x0102 (Binary data) | PR_INTERNET_SENT_REPRESENTING_NAME | [yellow-background]*Unknown*
+| | | |
+| 0x4076 | 0x0003 (Integer 32-bit signed) | PR_CONTENT_FILTER_SCL | [yellow-background]*Unknown*
 |===
-
-* [yellow-background]*TODO: migrate documentation*
 
 === Recipient properties (0x5800 - 0x5fff)
 
