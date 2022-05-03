@@ -2104,7 +2104,37 @@ See section: <<codepage_definitions,Codepage definitions>>
 
 === Recipient properties (0x5800 - 0x5fff)
 
-* [yellow-background]*TODO: migrate documentation*
+[cols="1,1,1,5",options="header"]
+|===
+| Item | Value | Identifier | Description
+| 0x5902 | 0x0003 (Integer 32-bit signed) | PR_INET_MAIL_OVERRIDE_FORMAT | [yellow-background]*Unknown*
+| | | |
+| 0x5909 | 0x0003 (Integer 32-bit signed) | PidTagMessageEditorFormat +
+(PR_MSG_EDITOR_FORMAT) | Message editor format +
+Specifies the format for an editor to use to display a message. +
+See section: <<message_editor_format_definitions,Message editor format definitions>>
+| | | |
+| 0x5fde | 0x0003 (Integer 32-bit signed) | | [yellow-background]*Unknown*
+| 0x5fdf | 0x0003 (Integer 32-bit signed) | | [yellow-background]*Unknown (Found in NK2 file)*
+| | | |
+| 0x5feb | 0x0003 (Integer 32-bit signed) | | [yellow-background]*Unknown (Found in NK2 file)*
+| | | |
+| 0x5fef | 0x0003 (Integer 32-bit signed) | | [yellow-background]*Unknown (Found in NK2 file)*
+| | | |
+| 0x5ff2 | 0x0003 (Integer 32-bit signed) | | [yellow-background]*Unknown (Found in NK2 file)*
+| | | |
+| 0x5ff5 | 0x0003 (Integer 32-bit signed) | | [yellow-background]*Unknown (Found in NK2 file)*
+| 0x5ff6 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_RECIPIENT_DISPLAY_NAME | [yellow-background]*Unknown*
+| 0x5ff7 | 0x0102 (Binary data) | PR_RECIPIENT_ENTRYID | [yellow-background]*Unknown* +
+See section: <<entry_identifier_structure,The entry identifier structure (ENTRYID)>>
+| | | |
+| 0x5ffb | 0x0040 (Filetime) | PR_RECIPIENT_TRACKSTATUS_ME | [yellow-background]*Unknown*
+| | | |
+| 0x5ffd | 0x0003 (Integer 32-bit signed) | PR_RECIPIENTS_FLAGS | [yellow-background]*Unknown*
+| | | |
+| 0x5fff | 0x0003 (Integer 32-bit signed) | PR_RECIPIENT_TRACKSTATUS | [yellow-background]*Unknown*
+|===
 
 === Non-transmittable message properties (0x6000 - 0x65ff)
 
