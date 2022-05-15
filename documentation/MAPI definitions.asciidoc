@@ -2138,6 +2138,74 @@ See section: <<entry_identifier_structure,The entry identifier structure (ENTRYI
 
 === Non-transmittable message properties (0x6000 - 0x65ff)
 
+[cols="1,1,1,5",options="header"]
+|===
+| Item | Value | Identifier | Description
+| 0x6001 | 0x0003 (Integer 32-bit signed) | PR_DOTSTUFF_STATE | [yellow-background]*Unknown*
+| | 0x001e (ASCII string) +
+0x001f (Unicode string) | | Alias (Found in NK2 file)
+| 0x6002 | 0x000b (Boolean) | | [yellow-background]*Unknown (Found in NK2 file)*
+| 0x6003 | 0x001e (ASCII string) +
+0x001f (Unicode string) | | [yellow-background]*Unknown (Found in NK2 file)* +
+Contains e-mail address and name
+| 0x6004 | 0x0003 (Integer 32-bit signed) | | [yellow-background]*Unknown (Found in NK2 file)*
+| | | |
+| 0x6100 | 0x0003 (Integer 32-bit signed) | | [yellow-background]*Unknown* +
+Found in IPM.ExtendedRule.Message
+| 0x6101 | 0x0003 (Integer 32-bit signed) | | [yellow-background]*Unknown* +
+Found in IPM.ExtendedRule.Message
+| 0x6102 | 0x0003 (Integer 32-bit signed) | | [yellow-background]*Unknown* +
+Found in IPM.ExtendedRule.Message
+| 0x6103 | 0x0003 (Integer 32-bit signed) | | [yellow-background]*Unknown* +
+Found in IPM.ExtendedRule.Message
+| 0x6104 | 0x001e (ASCII string) +
+0x001f (Unicode string) | | [yellow-background]*Unknown* +
+Found in IPM.ExtendedRule.Message
+| 0x6105 | 0x001e (ASCII string) +
+0x001f (Unicode string) | | [yellow-background]*Unknown* +
+| Found in IPM.ExtendedRule.Message
+| | | |
+| 0x6107 | 0x000b (Boolean) | | [yellow-background]*Unknown* +
+| Found in IPM.ExtendedRule.Message
+| | | |
+| 0x65a0 | 0x0014  (Integer 64-bit signed) | PR_RULE_SERVER_RULE_ID | [yellow-background]*Unknown*
+| | | |
+| 0x65c2 | 0x0102 (Binary data) | PR_REPLY_TEMPLATE_ID | [yellow-background]*Unknown*
+| | | |
+| 0x65c6 | 0x0003 (Integer 32-bit signed) | PidTagSecureSubmitFlags | Secure submit flags +
+[yellow-background]*TODO add specification*
+| | | |
+| 0x65e0 | 0x0102 (Binary data) | PidTagSourceKey +
+(PR_SOURCE_KEY) | Source key +
+Contains the global identifier (GID) of the item.
+| 0x65e1 | 0x0102 (Binary data) | PidTagParentSourceKey +
+(PR_PARENT_SOURCE_KEY) | Parent source key +
+Contains the global identifier (GID) of the parent folder of the item.
+| 0x65e2 | 0x0102 (Binary data) | PidTagChangeKey +
+(PR_CHANGE_KEY) | Change key +
+Contains a global identifier (GID) indicating the last change to the object. +
+See section: <<change_key_structure,The change key structure>>
+| 0x65e3 | 0x0102 (Binary data) | PidTagPredecessorChangeList +
+(PR_PREDECESSOR_CHANGE_LIST) | Predecessor change list +
+Contains a serialized representation of a PredecessorChangeList structure. +
+See section: <<change_list_structure,The change list structure>>
+| 0x65e4 | 0x0003 (Integer 32-bit signed) | PR_SYNCHRONIZE_FLAGS | [yellow-background]*Unknown*
+| 0x65e5 | 0x000b (Boolean) | PR_AUTO_ADD_NEW_SUBS | [yellow-background]*Unknown*
+| 0x65e6 | 0x000b (Boolean) | PR_NEW_SUBS_GET_AUTO_ADD | [yellow-background]*Unknown*
+| 0x65e7 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_MESSAGE_SITE_NAME | [yellow-background]*Unknown*
+| 0x65e8 | 0x000b (Boolean) | PR_MESSAGE_PROCESSED | [yellow-background]*Unknown*
+| 0x65e9 | 0x0003 (Integer 32-bit signed) | PR_RULE_MSG_STATE | [yellow-background]*Unknown*
+| 0x65ea | 0x0003 (Integer 32-bit signed) | PR_RULE_MSG_USER_FLAGS | [yellow-background]*Unknown*
+| 0x65eb | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_RULE_MSG_PROVIDER | [yellow-background]*Unknown*
+| 0x65ec | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_RULE_MSG_NAME | [yellow-background]*Unknown*
+| 0x65ed | 0x0003 (Integer 32-bit signed) | PR_RULE_MSG_LEVEL | [yellow-background]*Unknown*
+| 0x65ee | 0x0102 (Binary data) | PR_RULE_MSG_PROVIDER_DATA | [yellow-background]*Unknown*
+| 0x65ef | 0x0102 (Binary data) | PR_RULE_MSG_ACTIONS | [yellow-background]*Unknown*
+|===
+
 * [yellow-background]*TODO: migrate documentation*
 
 === Non-transmittable properties (0x6600 – 0x67ff)
@@ -3745,7 +3813,7 @@ The change list structure consists of a variable size:
 | 16 | ... | | [yellow-background]*Data*
 |===
 
-=== [[change_list_structure]] The change list structure
+=== [[change_list_structure]]The change list structure
 
 The change list (PredecessorChangeList) structure has a value type of 0x0102
 (Binary data) and is used by:
