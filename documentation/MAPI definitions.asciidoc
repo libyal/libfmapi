@@ -2163,10 +2163,10 @@ Found in IPM.ExtendedRule.Message
 Found in IPM.ExtendedRule.Message
 | 0x6105 | 0x001e (ASCII string) +
 0x001f (Unicode string) | | [yellow-background]*Unknown* +
-| Found in IPM.ExtendedRule.Message
+Found in IPM.ExtendedRule.Message
 | | | |
 | 0x6107 | 0x000b (Boolean) | | [yellow-background]*Unknown* +
-| Found in IPM.ExtendedRule.Message
+Found in IPM.ExtendedRule.Message
 | | | |
 | 0x65a0 | 0x0014  (Integer 64-bit signed) | PR_RULE_SERVER_RULE_ID | [yellow-background]*Unknown*
 | | | |
@@ -2204,11 +2204,131 @@ See section: <<change_list_structure,The change list structure>>
 | 0x65ed | 0x0003 (Integer 32-bit signed) | PR_RULE_MSG_LEVEL | [yellow-background]*Unknown*
 | 0x65ee | 0x0102 (Binary data) | PR_RULE_MSG_PROVIDER_DATA | [yellow-background]*Unknown*
 | 0x65ef | 0x0102 (Binary data) | PR_RULE_MSG_ACTIONS | [yellow-background]*Unknown*
+| 0x65f0 | 0x0102 (Binary data) | PR_RULE_MSG_CONDITION | [yellow-background]*Unknown*
+| 0x65f1 | 0x0003 (Integer 32-bit signed) | PR_RULE_MSG_CONDITION_LCID | [yellow-background]*Unknown* +
+The LCID of the rule message condition (PR_RULE_MSG_CONDITION) +
+See section: <<lcid_structure,The LCID structure>>
+| 0x65f2 | 0x0002 (Integer 16-bit signed | PR_RULE_MSG_VERSION | [yellow-background]*Unknown*
+| 0x65f3 | 0x0003 (Integer 32-bit signed) | PR_RULE_MSG_SEQUENCE | [yellow-background]*Unknown*
+| 0x65f4 | 0x000b (Boolean) | PR_PREVENT_MSG_CREATE | [yellow-background]*Unknown*
+| 0x65f5 | 0x0040 (GUID) | PR_IMAP_INTERNAL_DATE | [yellow-background]*Unknown*
+| 0x65f6 | 0x0102 (Binary data) | | [yellow-background]*Unknown (Found in Exchange)*
 |===
 
-* [yellow-background]*TODO: migrate documentation*
-
 === Non-transmittable properties (0x6600 – 0x67ff)
+
+[cols="1,1,1,5",options="header"]
+|===
+| Item | Value | Identifier | Description
+| 0x6600 | 0x0003 (Integer 32-bit signed) | PR_PROFILE_VERSION | [yellow-background]*Unknown*
+| 0x6601 | 0x0003 (Integer 32-bit signed) | PR_PROFILE_CONFIG_FLAGS | [yellow-background]*Unknown*
+| 0x6602 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_PROFILE_HOME_SERVER | [yellow-background]*Unknown*
+| 0x6603 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_PROFILE_USER | [yellow-background]*Unknown*
+| 0x6604 | 0x0003 (Integer 32-bit signed) | PR_PROFILE_CONNECT_FLAGS | Profile connection flags
+| 0x6605 | 0x0003 (Integer 32-bit signed) | PR_PROFILE_TRANSPORT_FLAGS | [yellow-background]*Unknown*
+| 0x6606 | 0x0003 (Integer 32-bit signed) | PR_PROFILE_UI_STATE | [yellow-background]*Unknown*
+| 0x6607 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_PROFILE_UNRESOLVED_NAME | [yellow-background]*Unknown*
+| 0x6608 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_PROFILE_UNRESOLVED_SERVER | [yellow-background]*Unknown*
+| | 0x0102 (Binary data) | | [yellow-background]*Unknown*
+| 0x6609 | 0x0003 (Integer 32-bit signed) | PR_PROFILE_OPEN_FLAGS | [yellow-background]*Unknown*
+| | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_PROFILE_BINDING_ORDER | [yellow-background]*Unknown*
+| | 0x0102 (Binary data) | | [yellow-background]*Unknown*
+| 0x660a | 0x0003 (Integer 32-bit signed) | PR_PROFILE_TYPE | [yellow-background]*Unknown*
+| | 0x0102 (Binary data) | | [yellow-background]*Unknown*
+| 0x660b | 0x0003 (Integer 32-bit signed) | | [yellow-background]*Unknown*
+| | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_PROFILE_MAILBOX | [yellow-background]*Unknown*
+| 0x660c | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_PROFILE_SERVER | [yellow-background]*Unknown*
+| 0x660d | 0x0003 (Integer 32-bit signed) | PR_PROFILE_MAX_RESTRICT | [yellow-background]*Unknown*
+| 0x660e | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_PROFILE_AB_FILES_PATH | [yellow-background]*Unknown*
+| 0x660f | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_PROFILE_FAVFLD_DISPLAY_NAME | [yellow-background]*Unknown*
+| 0x6610 | 0x0003 (Integer 32-bit signed) | PR_INTERNET_MESSAGE_FORMAT | [yellow-background]*Unknown*
+| | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_PROFILE_OFFLINE_STORE_PATH | [yellow-background]*Unknown*
+| 0x6611 | 0x0003 (Integer 32-bit signed) | PidTagContactAddressBookStoreSupportMask +
+(PR_CONTAB_STORE_SUPPORT_MASK) | Contact address book store support flags +
+Contains the PidTagStoreSupportMask (PR_STORE_SUPPORT_MASK) property obtained from the store that contains the Contacts folder. +
+See section: <<message_store_characteristics_mask_definitions,Message store characteristics mask definitions>>
+| | 0x0102 (Binary data) | PR_PROFILE_OFFLINE_INFO | [yellow-background]*Unknown*
+| 0x6612 | 0x0003 (Integer 32-bit signed) | PR_INTERNET_WRAPPING_LENGTH | [yellow-background]*Unknown*
+| | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_PROFILE_HOME_SERVER_DN | [yellow-background]*Unknown*
+| 0x6613 | 0x0040 (Filetime) | | [yellow-background]*Unknown*
+| | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_PROFILE_HOME_SERVER_ADDRS | [yellow-background]*Unknown*
+| 0x6614 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_PROFILE_SERVER_DN | [yellow-background]*Unknown*
+| | 0x0102 (Binary data) | | [yellow-background]*Unknown*
+| 0x6615 | 0x0048 (GUID) | | [yellow-background]*Unknown* +
+Found in message store contains GUID of PFF file used in entry identifiers
+| | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_PROFILE_FAVFLD_COMMENT | [yellow-background]*Unknown*
+| 0x6616 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_PROFILE_ALLPUB_DISPLAY_NAME | [yellow-background]*Unknown*
+| 0x6617 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_PROFILE_ALLPUB_COMMENT | [yellow-background]*Unknown*
+| 0x6618 | 0x0003 (Integer 32-bit signed) | PR_DISABLE_WINSOCK | [yellow-background]*Unknown*
+| | 0x000b (Boolean) | PR_IN_TRANSIT | [yellow-background]*Unknown*
+| | 0x0048 (GUID) | | [yellow-background]*Unknown* +
+Found in attachment
+| 0x6619 | 0x0003 (Integer 32-bit signed) | PR_PROFILE_AUTH_PACKAGE | [yellow-background]*Unknown*
+| | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidTagPstBodyPrefix | Body prefix +
+Contains the first part of the e-mail body contents (short preview)
+| | 0x0102 (Binary data) | PR_USER_ENTRYID | [yellow-background]*Unknown* +
+See section: <<entry_identifier_structure,The entry identifier structure (ENTRYID)>>
+| 0x661a | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_USER_NAME | [yellow-background]*Unknown*
+| 0x661b | 0x0102 (Binary data) | PR_MAILBOX_OWNER_ENTRYID | [yellow-background]*Unknown* +
+See section: <<entry_identifier_structure,The entry identifier structure (ENTRYID)>>
+| 0x661c | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_MAILBOX_OWNER_NAME | [yellow-background]*Unknown*
+| | 0x0102 (Binary data) | | [yellow-background]*Unknown*
+| 0x661d | 0x0003 (Integer 32-bit signed) | PidTagPstBestBodyProptag | [yellow-background]*Unknown*
+| | 0x000b (Boolean) | PR_OOF_STATE | [yellow-background]*Unknown*
+| 0x661e | 0x0102 (Binary data) | PR_SCHEDULE_FOLDER_ENTRYID | [yellow-background]*Unknown* +
+See section: <<entry_identifier_structure,The entry identifier structure (ENTRYID)>>
+| 0x661f | 0x0014 (Integer 64-bit signed) | | [yellow-background]*Unknown* +
+Found in message store and sync issues with similar value as PRQ_ID_SECURE4 +
+For sync issues this value relates to the PRQ_ID_SECURE4 value of the messages in this folder. Could it be the PRQ_ID_SECURE4 value for the next new message.
+| | 0x0102 (Binary data) | PR_IPM_DAF_ENTRYID | [yellow-background]*Unknown* +
+See section: <<entry_identifier_structure,The entry identifier structure (ENTRYID)>>
+| 0x6620 | 0x0003 (Integer 32-bit signed) | | [yellow-background]*Unknown* +
+Found in message store and sync issues folder
+| | 0x0102 (Binary data) | PidTagNonIpmSubtreeEntryId +
+(PR_NON_IPM_SUBTREE_ENTRYID) | Non-IPM subtree entry identifier +
+Shows the entry identifier of the NON_IPM_SUBTREE folder in an Exchange Public Folder store. +
+See section: <<entry_identifier_structure,The entry identifier structure (ENTRYID)>>
+| | 0x1102 (Array of Binary data values) | PidTagContactAddressBookFolderEntryIds +
+(PR_CONTAB_FOLDER_ENTRYIDS) | Contact address book entry identifiers +
+Contains identifiers for the Contacts folders in the message stores where mail users are kept.
+| 0x6621 | 0x0102 (Binary data) | PR_EFORMS_REGISTRY_ENTRYID | [yellow-background]*Unknown* +
+See section: <<entry_identifier_structure,The entry identifier structure (ENTRYID)>>
+| | 0x1103 (Array of Integer 32-bit signed values) | PidTagContactAddressBookStoreSupportMasks +
+(PR_CONTAB_STORE_SUPPORT_MASKS) | Contact address book store support flags +
+Contains flags indicating the store's supported features. +
+See section: <<message_store_characteristics_mask_definitions,Message store characteristics mask definitions>>
+| 0x6622 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_INTERNET_MIME_HEADERS | MIME headers
+| | 0x0040 (Filetime) | | [yellow-background]*Unknown*
+| | 0x0102 (Binary data) | PR_SPLUS_FREE_BUSY_ENTRYID | [yellow-background]*Unknown* +
+See section: <<entry_identifier_structure,The entry identifier structure (ENTRYID)>>
+| 0x6623 | 0x0003 (Integer 32-bit signed) | PR_ROH_FLAGS | RPC over HTTP flags +
+Contains the settings in a profile used by Microsoft Office Outlook to connect to Microsoft Exchange Server by using a remote procedure call (RPC) over Hypertext Transfer Protocol (HTTP). +
+See section: <<rpc_over_http_flag_definitions,RPC over HTTP flag definitions>>
+| | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_HIERARCHY_SERVER | [yellow-background]*Unknown*
+| | 0x0102 (Binary data) | PR_OFFLINE_ADDRBOOK_ENTRYID | [yellow-background]*Unknown* +
+See section: <<entry_identifier_structure,The entry identifier structure (ENTRYID)>>
+|===
 
 * [yellow-background]*TODO: migrate documentation*
 
@@ -3368,9 +3488,9 @@ The appointment sequence definitions are used by the following properties:
 [cols="1,1,5",options="header"]
 |===
 | Value | Identifier | Description
-| 0x00000001 | asfMeeting (M) | This flag indicates that the object is a meeting object or a meeting-related object.
-| 0x00000002 | asfReceived (R) | This flag indicates that the represented object was received from someone else.
-| 0x00000004 | asfCanceled (C) | This flag indicates that the meeting object represented by the object has been canceled.
+| 0x00000001 | asfMeeting `(M)` | This flag indicates that the object is a meeting object or a meeting-related object.
+| 0x00000002 | asfReceived `(R)` | This flag indicates that the represented object was received from someone else.
+| 0x00000004 | asfCanceled `(C)` | This flag indicates that the meeting object represented by the object has been canceled.
 |===
 
 === [[appointment_color_definitions]]Appointment color definitions
