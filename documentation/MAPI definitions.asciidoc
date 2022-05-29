@@ -2328,6 +2328,31 @@ See section: <<rpc_over_http_flag_definitions,RPC over HTTP flag definitions>>
 0x001f (Unicode string) | PR_HIERARCHY_SERVER | [yellow-background]*Unknown*
 | | 0x0102 (Binary data) | PR_OFFLINE_ADDRBOOK_ENTRYID | [yellow-background]*Unknown* +
 See section: <<entry_identifier_structure,The entry identifier structure (ENTRYID)>>
+| 0x6624 | 0x0102 (Binary data) | PR_EFORMS_FOR_LOCALE_ENTRYID | [yellow-background]*Unknown* +
+See section: <<entry_identifier_structure,The entry identifier structure (ENTRYID)>>
+| 0x6625 | 0x0102 (Binary data) | PR_FREE_BUSY_FOR_LOCAL_SITE_ENTRYID | [yellow-background]*Unknown* +
+See section: <<entry_identifier_structure,The entry identifier structure (ENTRYID)>>
+| 0x6626 | 0x0102 (Binary data) | PR_ADDRBOOK_FOR_LOCAL_SITE_ENTRYID | [yellow-background]*Unknown* +
+See section: <<entry_identifier_structure,The entry identifier structure (ENTRYID)>>
+| 0x6627 | 0x0003 (Integer 32-bit signed) | PR_ROH_PROXY_AUTH_SCHEME | RPC over HTTP proxy authentication scheme +
+Represents the authentication protocol to be used for this profile. +
+See section: <<rpc_over_http_authentication_scheme_definitions,RPC over HTTP authentication scheme definitions>>
+| | 0x0102 (Binary data) | PR_OFFLINE_MESSAGE_ENTRYID | [yellow-background]*Unknown* +
+See section: <<entry_identifier_structure,The entry identifier structure (ENTRYID)>>
+| 0x6628 | 0x0003 (Integer 32-bit signed) | PR_INTERNET_CONTENT_MD5 | [yellow-background]*Unknown*
+| | 0x0014 (Integer 64-bit signed) | | [yellow-background]*Unknown*
+| | 0x0102 (Binary data) | PR_GW_MTSIN_ENTRYID +
+PR_MTSInFolder | [yellow-background]*Unknown* +
+See section: <<entry_identifier_structure,The entry identifier structure (ENTRYID)>>
+| 0x6629 | 0x0102 (Binary data) | PR_GW_MTSOUT_ENTRYID | [yellow-background]*Unknown* +
+See section: <<entry_identifier_structure,The entry identifier structure (ENTRYID)>>
+| 0x662a | 0x000b (Boolean) | PR_TRANSFER_ENABLED | [yellow-background]*Unknown*
+| 0x662b | 0x0102 (Binary data) | PR_TEST_LINE_SPEED | [yellow-background]*Unknown*
+| 0x662c | 0x000d (Embedded object) | PR_HIERARCHY_SYNCHRONIZER | [yellow-background]*Unknown*
+| 0x662d | 0x000d (Embedded object) | PR_CONTENTS_SYNCHRONIZER | [yellow-background]*Unknown* +
+Reference to the IExchangeExportChanges object
+| 0x662e | 0x000d (Embedded object) | PR_COLLECTOR | [yellow-background]*Unknown*
+| 0x662f | 0x000d (Embedded object) | PR_FAST_TRANSFER | [yellow-background]*Unknown*
 |===
 
 * [yellow-background]*TODO: migrate documentation*
