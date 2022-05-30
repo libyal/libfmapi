@@ -2353,6 +2353,22 @@ See section: <<entry_identifier_structure,The entry identifier structure (ENTRYI
 Reference to the IExchangeExportChanges object
 | 0x662e | 0x000d (Embedded object) | PR_COLLECTOR | [yellow-background]*Unknown*
 | 0x662f | 0x000d (Embedded object) | PR_FAST_TRANSFER | [yellow-background]*Unknown*
+| 0x6630 | 0x0102 (Binary data) | PR_IPM_FAVORITES_ENTRYID | [yellow-background]*Unknown* +
+See section: <<entry_identifier_structure,The entry identifier structure (ENTRYID)>>
+| 0x6631 | 0x0102 (Binary data) | PR_IPM_PUBLIC_FOLDERS_ENTRYID | [yellow-background]*Unknown* +
+See section: <<entry_identifier_structure,The entry identifier structure (ENTRYID)>>
+| 0x6632 | 0x0003 (Integer 32-bit signed) | | [yellow-background]*Unknown*
+| | 0x000b (Boolean) | PR_STORE_OFFLINE | [yellow-background]*Unknown*
+| 0x6633 | 0x000b (Boolean) | PidTagPstLrnorestrictions | [yellow-background]*Unknown*
+| 0x6634 | 0x000d (Embedded object) | PR_CHANGE_ADVISOR | [yellow-background]*Unknown*
+| | 0x0014 (Integer 64-bit signed) | | [yellow-background]*Unknown*
+| 0x6635 | 0x0003 (Integer 32-bit signed) | PidTagPstHiddenCount | Number of hidden items
+| | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_FAVORITES_DEFAULT_NAME | [yellow-background]*Unknown*
+| 0x6636 | 0x0003 (Integer 32-bit signed) | PidTagPstHiddenUnread | Number of unread hidden items
+| | 0x0102 (Binary data) | PR_SYS_CONFIG_FOLDER_ENTRYID | [yellow-background]*Unknown* +
+See section: <<entry_identifier_structure,The entry identifier structure (ENTRYID)>>
+| 0x6637 | 0x0048 (GUID) | PR_CHANGE_NOTIFICATION_GUID | [yellow-background]*Unknown*
 |===
 
 * [yellow-background]*TODO: migrate documentation*
