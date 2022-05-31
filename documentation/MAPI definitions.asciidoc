@@ -2369,6 +2369,21 @@ See section: <<entry_identifier_structure,The entry identifier structure (ENTRYI
 | | 0x0102 (Binary data) | PR_SYS_CONFIG_FOLDER_ENTRYID | [yellow-background]*Unknown* +
 See section: <<entry_identifier_structure,The entry identifier structure (ENTRYID)>>
 | 0x6637 | 0x0048 (GUID) | PR_CHANGE_NOTIFICATION_GUID | [yellow-background]*Unknown*
+| 0x6638 | 0x0003 (Integer 32-bit signed) | PR_FOLDER_CHILD_COUNT | Number of sub folders
+| 0x6639 | 0x0003 (Integer 32-bit signed) | PR_RIGHTS | [yellow-background]*Unknown*
+| 0x663a | 0x000b (Boolean) | PidTagHasRules +
+(PR_HAS_RULES) | Has email rules
+| 0x663b | 0x0102 (Binary data) | PidTagAddressBookEntryId +
+(PR_ADDRESS_BOOK_ENTRYID) | Address book entry identifier +
+See section: <<entry_identifier_structure,The entry identifier structure (ENTRYID)>>
+| 0x663c | 0x0102 (Binary data) | PR_PUBLIC_FOLDER_ENTRYID | [yellow-background]*Unknown* +
+See section: <<entry_identifier_structure,The entry identifier structure (ENTRYID)>>
+| 0x663d | 0x0003 (Integer 32-bit signed) | PR_OFFLINE_FLAGS | [yellow-background]*Unknown*
+| 0x663e | 0x0003 (Integer 32-bit signed) | PidTagHierarchyChangeNumber +
+(PR_HIERARCHY_CHANGE_NUM) | Hierarchy change number +
+Contains a number that increases every time a sub folder is added to or deleted from the folder.
+| 0x663f | 0x0003 (Integer 32-bit signed) | | [yellow-background]*Unknown (Found in Exchange)*
+| | 0x000b (Boolean) | PR_HAS_MODERATOR_RULES | [yellow-background]*Unknown*
 |===
 
 * [yellow-background]*TODO: migrate documentation*
