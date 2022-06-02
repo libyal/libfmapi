@@ -2384,16 +2384,32 @@ See section: <<entry_identifier_structure,The entry identifier structure (ENTRYI
 Contains a number that increases every time a sub folder is added to or deleted from the folder.
 | 0x663f | 0x0003 (Integer 32-bit signed) | | [yellow-background]*Unknown (Found in Exchange)*
 | | 0x000b (Boolean) | PR_HAS_MODERATOR_RULES | [yellow-background]*Unknown*
-| 0x6640 | 0x0003 (Integer 32-bit signed) | PR_DELETED_MSG_COUNT | yellow-background]*Unknown*
-| 0x6641 | 0x0003 (Integer 32-bit signed) | PR_DELETED_FOLDER_COUNT | yellow-background]*Unknown*
-| 0x6642 | 0x0040 (Filetime) | PR_OLDEST_DELETED_ON | yellow-background]*Unknown*
-| 0x6643 | 0x0003 (Integer 32-bit signed) | PR_DELETED_ASSOC_MSG_COUNT | yellow-background]*Unknown*
+| 0x6640 | 0x0003 (Integer 32-bit signed) | PR_DELETED_MSG_COUNT | [yellow-background]*Unknown*
+| 0x6641 | 0x0003 (Integer 32-bit signed) | PR_DELETED_FOLDER_COUNT | [yellow-background]*Unknown*
+| 0x6642 | 0x0040 (Filetime) | PR_OLDEST_DELETED_ON | [yellow-background]*Unknown*
+| 0x6643 | 0x0003 (Integer 32-bit signed) | PR_DELETED_ASSOC_MSG_COUNT | [yellow-background]*Unknown*
 | 0x6644 | 0x001e (ASCII string) +
-0x001f (Unicode string) | PR_REPLICA_SERVER | yellow-background]*Unknown*
-| 0x6645 | 0x0102 (Binary data) | PR_CLIENT_ACTIONS | yellow-background]*Unknown*
-| 0x6646 | 0x0102 (Binary data) | PR_DAM_ORIGINAL_ENTRYID | yellow-background]*Unknown* +
+0x001f (Unicode string) | PR_REPLICA_SERVER | [yellow-background]*Unknown*
+| 0x6645 | 0x0102 (Binary data) | PR_CLIENT_ACTIONS | [yellow-background]*Unknown*
+| 0x6646 | 0x0102 (Binary data) | PR_DAM_ORIGINAL_ENTRYID | [yellow-background]*Unknown* +
 See section: <<entry_identifier_structure,The entry identifier structure (ENTRYID)>>
-| 0x6647 | 0x000b (Boolean) | PR_DAM_BACK_PATCHED | yellow-background]*Unknown*
+| 0x6647 | 0x000b (Boolean) | PR_DAM_BACK_PATCHED | [yellow-background]*Unknown*
+| 0x6648 | 0x0003 (Integer 32-bit signed) | PR_RULE_ERROR | [yellow-background]*Unknown*
+| 0x6649 | 0x0003 (Integer 32-bit signed) | PR_RULE_ACTION_TYPE | [yellow-background]*Unknown*
+| 0x664a | 0x000b (Boolean) | PR_HAS_NAMED_PROPERTIES | [yellow-background]*Unknown*
+| 0x664b | 0x0014 (Integer 64-bit signed) | PR_REPLICA_VERSION | [yellow-background]*Unknown*
+| | | |
+| 0x6650 | 0x0003 (Integer 32-bit signed) | PR_RULE_ACTION_NUMBER | [yellow-background]*Unknown*
+| 0x6651 | 0x0102 (Binary data) | PR_RULE_FOLDER_ENTRYID | [yellow-background]*Unknown* +
+See section: <<entry_identifier_structure,The entry identifier structure (ENTRYID)>>
+| 0x6652 | 0x0102 (Binary data) | PR_ACTIVE_USER_ENTRYID | [yellow-background]*Unknown* +
+See section: <<entry_identifier_structure,The entry identifier structure (ENTRYID)>>
+| 0x6653 | 0x0003 (Integer 32-bit signed) | PR_0X400_ENVELOPE_TYPE | [yellow-background]*Unknown*
+| 0x6654 | 0x0040 (Filetime) | PR_MSG_FOLD_TIME | [yellow-background]*Unknown*
+| 0x6655 | 0x0102 (Binary data) | PR_ICS_CHANGE_KEY | [yellow-background]*Unknown*
+| 0x6656 | 0x0102 (Binary data) | | [yellow-background]*Unknown (found in Exchange)*
+| | | |
+| 0x6658 | 0x0003 (Integer 32-bit signed) | PR_GW_ADMIN_OPERATIONS | [yellow-background]*Unknown*
 |===
 
 * [yellow-background]*TODO: migrate documentation*
