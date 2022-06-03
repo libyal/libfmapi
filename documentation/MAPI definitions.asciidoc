@@ -2410,7 +2410,28 @@ See section: <<entry_identifier_structure,The entry identifier structure (ENTRYI
 | 0x6656 | 0x0102 (Binary data) | | [yellow-background]*Unknown (found in Exchange)*
 | | | |
 | 0x6658 | 0x0003 (Integer 32-bit signed) | PR_GW_ADMIN_OPERATIONS | [yellow-background]*Unknown*
-|===
+| 0x6659 | 0x0102 (Binary data) | PR_INTERNET_CONTENT | [yellow-background]*Unknown*
+| 0x665a | 0x000b (Boolean) | PR_HAS_ATTACH_FROM_IMAIL | [yellow-background]*Unknown*
+| 0x665b | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_ORIGINATOR_NAME | [yellow-background]*Unknown*
+| 0x665c | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_ORIGINATOR_ADDR | [yellow-background]*Unknown*
+| 0x665d | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_ORIGINATOR_ADDRTYPE | [yellow-background]*Unknown*
+| 0x665e | 0x0102 (Binary data) | PR_ORIGINATOR_ENTRYID | [yellow-background]*Unknown* +
+See section: <<entry_identifier_structure,The entry identifier structure (ENTRYID)>>
+| 0x665f | 0x0040 (Filetime) | PR_ARRIVAL_TIME | [yellow-background]*Unknown*
+| 0x6660 | 0x0102 (Binary data) | PR_TRACE_INFO | [yellow-background]*Unknown*
+| 0x6661 | 0x0102 (Binary data) | PR_SUBJECT_TRACE_INFO | [yellow-background]*Unknown*
+| 0x6662 | 0x0003 (Integer 32-bit signed) | PR_RECIPIENT_NUMBER | [yellow-background]*Unknown*
+| 0x6663 | 0x0102 (Binary data) | PR_MTS_SUBJECT_ID | [yellow-background]*Unknown*
+| 0x6664 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_REPORT_DESTINATION_NAME | [yellow-background]*Unknown*
+| 0x6665 | 0x0102 (Binary data) | PR_REPORT_DESTINATION_ENTRYID | [yellow-background]*Unknown* +
+See section: <<entry_identifier_structure,The entry identifier structure (ENTRYID)>>
+| 0x6666 | 0x0102 (Binary data) | PR_CONTENT_SEARCH_KEY | [yellow-background]*Unknown*
+| 0x6667 | 0x0102 (Binary data) | PR_FOREIGN_ID | [yellow-background]*Unknown*
+}===
 
 * [yellow-background]*TODO: migrate documentation*
 
