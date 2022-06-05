@@ -2439,6 +2439,24 @@ See section: <<entry_identifier_structure,The entry identifier structure (ENTRYI
 | 0x666d | 0x0003 (Integer 32-bit signed) | | [yellow-background]*Unknown*
 | | | | 
 | 0x6670 | 0x0102 (Binary data) | PR_LONGTERM_ENTRYID_FROM_TABLE | [yellow-background]*Unknown*
+| 0x6671 | 0x0014 (Integer 64-bit signed) | PR_MEMBER_ID | [yellow-background]*Unknown*
+| 0x6672 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_MEMBER_NAME | [yellow-background]*Unknown*
+| 0x6673 | 0x0003 (Integer 32-bit signed) | PR_MEMBER_RIGHTS | [yellow-background]*Unknown*
+| 0x6674 | 0x0014 (Integer 64-bit signed) | PR_RULE_ID | [yellow-background]*Unknown*
+| 0x6675 | 0x0102 (Binary data) | PR_RULE_IDS | [yellow-background]*Unknown*
+| 0x6676 | 0x0003 (Integer 32-bit signed) | PR_RULE_SEQUENCE | [yellow-background]*Unknown*
+| 0x6677 | 0x0003 (Integer 32-bit signed) | PR_RULE_STATE | [yellow-background]*Unknown*
+| 0x6678 | 0x0003 (Integer 32-bit signed) | PR_RULE_USER_FLAGS | [yellow-background]*Unknown*
+| 0x6679 | 0x000d (Embedded object) | PR_RULE_CONDITION | [yellow-background]*Unknown*
+| | | | 
+| 0x667b | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_PROFILE_MOAB | [yellow-background]*Unknown*
+| 0x667c | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_PROFILE_MOAB_GUID | [yellow-background]*Unknown*
+| 0x667d | 0x0003 (Integer 32-bit signed) | PR_PROFILE_MOAB_SEQ | [yellow-background]*Unknown*
+| | | | 
+| 0x667f | 0x1102 (Array of Binary data values) | PR_IMPLIED_RESTRICTIONS | [yellow-background]*Unknown*
 |===
 
 * [yellow-background]*TODO: migrate documentation*
