@@ -2457,6 +2457,29 @@ See section: <<entry_identifier_structure,The entry identifier structure (ENTRYI
 | 0x667d | 0x0003 (Integer 32-bit signed) | PR_PROFILE_MOAB_SEQ | [yellow-background]*Unknown*
 | | | | 
 | 0x667f | 0x1102 (Array of Binary data values) | PR_IMPLIED_RESTRICTIONS | [yellow-background]*Unknown*
+| 0x6680 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_RULE_ACTIONS | [yellow-background]*Unknown*
+| 0x6681 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_RULE_PROVIDER | [yellow-background]*Unknown*
+| 0x6682 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_RULE_NAME | [yellow-background]*Unknown*
+| 0x6683 | 0x0003 (Integer 32-bit signed) | PR_RULE_LEVEL | [yellow-background]*Unknown*
+| 0x6684 | 0x0102 (Binary data) | PR_RULE_PROVIDER_DATA | [yellow-background]*Unknown*
+| 0x6685 | 0x0040 (Filetime) | PR_LAST_FULL_BACKUP | [yellow-background]*Unknown (Last full backup time)*
+| | | | 
+| 0x6687 | 0x0102 (Binary data) | PR_PROFILE_ADDR_INFO | [yellow-background]*Unknown*
+| | | | 
+| 0x6689 | 0x0102 (Binary data) | PR_PROFILE_OPTIONS_DATA | [yellow-background]*Unknown*
+| 0x668a | 0x0102 (Binary data) | PR_EVENTS_ROOT_FOLDER_ENTRYID | [yellow-background]*Unknown* +
+See section: <<entry_identifier_structure,The entry identifier structure (ENTRYID)>>
+| | | | 
+| 0x668d | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_INBOUND_NEWSFEED_DN | [yellow-background]*Unknown*
+| 0x668e | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_OUTBOUND_NEWSFEED_DN | [yellow-background]*Unknown*
+| 0x668f | 0x0040 (Filetime) | PidTagDeletedOn +
+(PR_DELETED_ON) | Soft-deletion time +
+Specifies the date and time when the item was soft deleted.
 |===
 
 * [yellow-background]*TODO: migrate documentation*
