@@ -2480,6 +2480,21 @@ See section: <<entry_identifier_structure,The entry identifier structure (ENTRYI
 | 0x668f | 0x0040 (Filetime) | PidTagDeletedOn +
 (PR_DELETED_ON) | Soft-deletion time +
 Specifies the date and time when the item was soft deleted.
+| 0x6690 | 0x0003 (Integer 32-bit signed) | PR_REPLICATION_STYLE | [yellow-background]*Unknown*
+| 0x6691 | 0x0102 (Binary data) | PR_REPLICATION_SCHEDULE | [yellow-background]*Unknown*
+| 0x6692 | 0x0003 (Integer 32-bit signed) | PR_REPLICATION_MESSAGE_PRIORITY | [yellow-background]*Unknown*
+| 0x6693 | 0x0003 (Integer 32-bit signed) | PR_OVERALL_MSG_AGE_LIMIT | [yellow-background]*Unknown*
+| 0x6694 | 0x0003 (Integer 32-bit signed) | PR_REPLICATION_ALWAYS_INTERVAL | [yellow-background]*Unknown*
+| 0x6695 | 0x0003 (Integer 32-bit signed) | PR_REPLICATION_MSG_SIZE | [yellow-background]*Unknown*
+| 0x6696 | 0x000b (Boolean) | PR_IS_NEWSGROUP_ANCHOR | [yellow-background]*Unknown*
+| 0x6697 | 0x000b (Boolean) | PR_IS_NEWSGROUP | [yellow-background]*Unknown*
+| 0x6698 | 0x0102 (Binary data) | PR_REPLICA_LIST | [yellow-background]*Unknown*
+| 0x6699 | 0x0003 (Integer 32-bit signed) | PR_OVERALL_AGE_LIMIT | [yellow-background]*Unknown*
+| 0x669a | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_INTERNET_CHARSET | [yellow-background]*Unknown*
+| 0x669b | 0x0014 (Integer 64-bit signed) | PR_DELETED_MESSAGE_SIZE_EXTENDED | [yellow-background]*Unknown*
+| 0x669c | 0x0014 (Integer 64-bit signed) | PR_DELETED_NORMAL_MESSAGE_SIZE_EXTENDED | [yellow-background]*Unknown*
+| 0x669d | 0x0014 (Integer 64-bit signed) | PR_DELETED_ASSOC_MESSAGE_SIZE_EXTENDED | [yellow-background]*Unknown*
 |===
 
 * [yellow-background]*TODO: migrate documentation*
