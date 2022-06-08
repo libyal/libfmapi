@@ -2495,6 +2495,23 @@ Specifies the date and time when the item was soft deleted.
 | 0x669b | 0x0014 (Integer 64-bit signed) | PR_DELETED_MESSAGE_SIZE_EXTENDED | [yellow-background]*Unknown*
 | 0x669c | 0x0014 (Integer 64-bit signed) | PR_DELETED_NORMAL_MESSAGE_SIZE_EXTENDED | [yellow-background]*Unknown*
 | 0x669d | 0x0014 (Integer 64-bit signed) | PR_DELETED_ASSOC_MESSAGE_SIZE_EXTENDED | [yellow-background]*Unknown*
+| 0x669e | 0x000b (Boolean) | PR_SECURE_IN_SITE | [yellow-background]*Unknown*
+| | | |
+| 0x66a0 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_NT_USER_NAME | [yellow-background]*Unknown*
+| | 0x0102 (Binary data) | | [yellow-background]*Unknown (Found in Exchange)* +
+Contains an NT security identifier +
+Mailbox user's SID? +
+For more information see `[NTSID]`.
+| 0x66a1 | 0x0003 (Integer 32-bit signed) | PR_LOCALE_ID | [yellow-background]*Unknown*
+| 0x66a2 | 0x0040 (Filetime) | PR_LAST_LOGON_TIME | [yellow-background]*Unknown*
+| 0x66a3 | 0x0040 (Filetime) | PR_LAST_LOGOFF_TIME | [yellow-background]*Unknown*
+| 0x66a4 | 0x0003 (Integer 32-bit signed) | PR_STORAGE_LIMIT_INFORMATION | [yellow-background]*Unknown*
+| 0x66a5 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_NEWSGROUP_COMPONENT | [yellow-background]*Unknown*
+| 0x66a6 | 0x0102 (Binary data) | PR_NEWSFEED_INFO | [yellow-background]*Unknown*
+| 0x66a7 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_INTERNET_NEWSGROUP_NAME | [yellow-background]*Unknown*
 |===
 
 * [yellow-background]*TODO: migrate documentation*
