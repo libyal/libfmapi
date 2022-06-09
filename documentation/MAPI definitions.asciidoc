@@ -2512,6 +2512,24 @@ For more information see `[NTSID]`.
 | 0x66a6 | 0x0102 (Binary data) | PR_NEWSFEED_INFO | [yellow-background]*Unknown*
 | 0x66a7 | 0x001e (ASCII string) +
 0x001f (Unicode string) | PR_INTERNET_NEWSGROUP_NAME | [yellow-background]*Unknown*
+| 0x66a8 | 0x0003 (Integer 32-bit signed) | PR_FOLDER_FLAGS | [yellow-background]*Unknown*
+| 0x66a9 | 0x0040 (Filetime) | PR_LAST_ACCESS_TIME | Last access time
+| 0x66aa | 0x0003 (Integer 32-bit signed) | PR_RESTRICTION_COUNT | [yellow-background]*Unknown*
+| 0x66ab | 0x0003 (Integer 32-bit signed) | PR_CATEG_COUNT | [yellow-background]*Unknown*
+| 0x66ac | 0x0003 (Integer 32-bit signed) | PR_CACHED_COLUMN_COUNT | [yellow-background]*Unknown*
+| 0x66ad | 0x0003 (Integer 32-bit signed) | PR_NORMAL_MSG_W_ATTACH_COUNT | [yellow-background]*Unknown (Number of messages with attachments in folder?)*
+| 0x66ae | 0x0003 (Integer 32-bit signed) | PR_ASSOC_MSG_W_ATTACH_COUNT | [yellow-background]*Unknown (Number of associated messages with attachments in folder?)*
+| 0x66af | 0x0003 (Integer 32-bit signed) | PR_RECIPIENT_ON_NORMAL_MSG_COUNT | [yellow-background]*Unknown*
+| 0x66b0 | 0x0003 (Integer 32-bit signed) | PR_RECIPIENT_ON_ASSOC_MSG_COUNT | [yellow-background]*Unknown*
+| 0x66b1 | 0x0003 (Integer 32-bit signed) | PR_ATTACH_ON_NORMAL_MSG_COUNT | [yellow-background]*Unknown*
+| 0x66b2 | 0x0003 (Integer 32-bit signed) | PR_ATTACH_ON_ASSOC_MSG_COUNT | [yellow-background]*Unknown*
+| 0x66b3 | 0x0003 (Integer 32-bit signed) | PR_NORMAL_MESSAGE_SIZE | [yellow-background]*Unknown*
+| | 0x0014 (Integer 64-bit signed) | PR_NORMAL_MESSAGE_SIZE_EXTENDED | [yellow-background]*Unknown*
+| 0x66b4 | 0x0003 (Integer 32-bit signed) | PR_ASSOC_MESSAGE_SIZE | [yellow-background]*Unknown*
+| | 0x0014 (Integer 64-bit signed) | PR_ASSOC_MESSAGE_SIZE_EXTENDED | [yellow-background]*Unknown*
+| 0x66b5 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_FOLDER_PATHNAME | [yellow-background]*Unknown*
+| 0x66b6 | 0x0003 (Integer 32-bit signed) | PR_OWNER_COUNT | [yellow-background]*Unknown*
 |===
 
 * [yellow-background]*TODO: migrate documentation*
