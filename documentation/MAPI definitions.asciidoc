@@ -2562,6 +2562,17 @@ Contains the date and time when the folder was committed to the database or the 
 Contains the date and time when any items in the folder were last changed
 | 0x670b | 0x0003 (Integer 32-bit signed) | PR_DELETED_COUNT_TOTAL | [yellow-background]*Unknown (Total deleted item count)* +
 The number of items that have been deleted from the folder since the folder was created.
+| 0x670c | 0x0048 (GUID) | PR_AUTO_RESET | [yellow-background]*Unknown*
+| | | |
+| 0x6710 | 0x0003 (Integer 32-bit signed) | PR_URL_COMP_NAME_HASH | [yellow-background]*Unknown*
+| 0x6711 | 0x0003 (Integer 32-bit signed) | PR_MSG_FOLDER_TEMPLATE_RES_2 | [yellow-background]*Unknown*
+| 0x6712 | 0x0003 (Integer 32-bit signed) | PR_RANK | [yellow-background]*Unknown*
+| | 0x0102 (Binary data) | | [yellow-background]*Unknown (Found in Exchange)*
+| 0x6713 | 0x000b (Boolean) | PR_MSG_FOLDER_TEMPLATE_RES_4 | [yellow-background]*Unknown*
+| 0x6714 | 0x000b (Boolean) | PR_MSG_FOLDER_TEMPLATE_RES_5 | [yellow-background]*Unknown*
+| 0x6715 | 0x000b (Boolean) | PR_MSG_FOLDER_TEMPLATE_RES_6 | [yellow-background]*Unknown*
+| 0x6716 | 0x0102 (Binary data) | PR_MSG_FOLDER_TEMPLATE_RES_7 | [yellow-background]*Unknown*
+| 0x6717 | 0x0102 (Binary data) | PR_MSG_FOLDER_TEMPLATE_RES_8 | [yellow-background]*Unknown*
 |===
 
 * [yellow-background]*TODO: migrate documentation*
