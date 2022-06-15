@@ -2573,6 +2573,18 @@ The number of items that have been deleted from the folder since the folder was 
 | 0x6715 | 0x000b (Boolean) | PR_MSG_FOLDER_TEMPLATE_RES_6 | [yellow-background]*Unknown*
 | 0x6716 | 0x0102 (Binary data) | PR_MSG_FOLDER_TEMPLATE_RES_7 | [yellow-background]*Unknown*
 | 0x6717 | 0x0102 (Binary data) | PR_MSG_FOLDER_TEMPLATE_RES_8 | [yellow-background]*Unknown*
+| 0x6718 | 0x0102 (Binary data) | PR_MSG_FOLDER_TEMPLATE_RES_9 | [yellow-background]*Unknown*
+| 0x6719 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_MSG_FOLDER_TEMPLATE_RES_10 | [yellow-background]*Unknown*
+| 0x671a | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_MSG_FOLDER_TEMPLATE_RES_11 | [yellow-background]*Unknown*
+| 0x671b | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_MSG_FOLDER_TEMPLATE_RES_12 | [yellow-background]*Unknown*
+| 0x671c | 0x001e (ASCII string) +
+| 0x001f (Unicode string) | | [yellow-background]*Unknown (Found in Exchange)*
+| 0x671d | 0x0102 (Binary data) | | [yellow-background]*Unknown (Found in Exchange)*
+| 0x671e | 0x000b (Boolean) | PR_PF_PLATINUM_HOME_MDB | [yellow-background]*Unknown*
+| 0x671f | 0x000b (Boolean) | PR_PF_PROXY_REQUIRED | [yellow-background]*Unknown*
 |===
 
 * [yellow-background]*TODO: migrate documentation*
