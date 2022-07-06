@@ -2585,6 +2585,148 @@ The number of items that have been deleted from the folder since the folder was 
 | 0x671d | 0x0102 (Binary data) | | [yellow-background]*Unknown (Found in Exchange)*
 | 0x671e | 0x000b (Boolean) | PR_PF_PLATINUM_HOME_MDB | [yellow-background]*Unknown*
 | 0x671f | 0x000b (Boolean) | PR_PF_PROXY_REQUIRED | [yellow-background]*Unknown*
+| 0x6720 | 0x0102 (Binary data) | PR_INTERNET_FREE_DOC_INFO | [yellow-background]*Unknown* +
+Contains textual data about MIME type
+| 0x6721 | 0x0003 (Integer 32-bit signed) | PR_PF_OVER_HARD_QUOTA_LIMIT | [yellow-background]*Unknown*
+| 0x6722 | 0x0003 (Integer 32-bit signed) | PR_PF_MSG_SIZE_LIMIT | [yellow-background]*Unknown*
+| 0x6723 | 0x000b (Boolean) | | [yellow-background]*Unknown (Found in Exchange)*
+| | | | 
+| 0x672d | 0x0003 (Integer 32-bit signed) | | [yellow-background]*Unknown*
+| | | | 
+| 0x6731 | 0x0003 (Integer 32-bit signed) | | [yellow-background]*Unknown*
+| 0x6732 | 0x001e (ASCII string) +
+0x001f (Unicode string) | | [yellow-background]*Unknown*
+| 0x6733 | 0x001e (ASCII string) +
+0x001f (Unicode string) | | [yellow-background]*Unknown*
+| | | | 
+| 0x6740 | | | [yellow-background]*Unknown (Found in Exchange)* +
+[yellow-background]*Has unknown MAPIDB value type 'V'*
+| 0x6741 | 0x0003 (Integer 32-bit signed) | | [yellow-background]*Unknown*
+| | | | 
+| 0x6743 | 0x0003 (Integer 32-bit signed) | PR_CONNECTION_MODULUS | [yellow-background]*Unknown*
+| | 0x0014 (Integer 64-bit signed) | PR_CONNECTION_MODULUS_EXTENDED | [yellow-background]*Unknown*
+| 0x6744 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_DELIVER_TO_DN | [yellow-background]*Unknown*
+| 0x6745 | 0x0102 (Binary data) | | [yellow-background]*Unknown*
+| 0x6746 | 0x0003 (Integer 32-bit signed) | PR_MIME_SIZE | [yellow-background]*Unknown*
+| 0x6747 | 0x0014 (Integer 64-bit signed) | PR_FILE_SIZE_EXTENDED | [yellow-background]*Unknown*
+| 0x6748 | 0x0014 (Integer 64-bit signed) | PidTagFolderId +
+(PR_FID, ptagFID) | Folder identifier +
+See section: <<folder_identifier_structure,The folder identifier structure>>
+| 0x6749 | 0x0014 (Integer 64-bit signed) | PidTagParentFolderId +
+(PR_PARENT_FID, ptagParentFID) | Parent folder identifier +
+See section: <<folder_identifier_structure,The folder identifier structure>>
+| 0x674a | 0x0014 (Integer 64-bit signed) | PidTagMid +
+(PR_MID, ptagMID) | Message identifier +
+See section: <<message_identifier_structure,The message identifier structure>>
+| 0x674b | 0x0014 (Integer 64-bit signed) | PR_CATEG_ID | [yellow-background]*Unknown (Exchange category identifier)*
+| 0x674c | 0x0014 (Integer 64-bit signed) | PR_PARENT_CATEG_ID | [yellow-background]*Unknown (Exchange parent category identifier)*
+| 0x674d | 0x0014 (Integer 64-bit signed) | PR_INST_ID | [yellow-background]*Unknown*
+| 0x674e | 0x0003 (Integer 32-bit signed) | PR_INSTANCE_NUM | [yellow-background]*Unknown*
+| 0x674f | 0x0014 (Integer 64-bit signed) | PR_ADDRBOOK_MID | [yellow-background]*Unknown*
+| 0x6750 | 0x0003 (Integer 32-bit signed) | PR_ICS_NOTIF | [yellow-background]*Unknown*
+| 0x6751 | 0x0003 (Integer 32-bit signed) | PR_ARTICLE_NUM_NEXT | [yellow-background]*Unknown*
+| 0x6752 | 0x0003 (Integer 32-bit signed) | PR_IMAP_LAST_ARTICLE_ID | [yellow-background]*Unknown*
+| 0x6753 | 0x000b (Boolean) | PR_NOT_822_RENDERABLE | [yellow-background]*Unknown*
+| | | | 
+| 0x6758 | 0x0102 (Binary data) | PR_LTID | [yellow-background]*Unknown*
+| 0x6759 | 0x0102 (Binary data) | PR_CN_EXPORT | [yellow-background]*Unknown*
+| 0x675a | 0x0102 (Binary data) | PR_PCL_EXPORT | [yellow-background]*Unknown*
+| 0x675b | 0x1102 (Array of Binary data values) | PR_CN_MV_EXPORT | [yellow-background]*Unknown*
+| | | | 
+| 0x675d | 0x0003 (Integer 32-bit signed) | | [yellow-background]*Unknown (Found in Exchange)*
+| 0x675e | 0x0003 (Integer 32-bit signed) | | [yellow-background]*Unknown (Found in Exchange)*
+| | | | 
+| 0x6760 | 0x0003 (Integer 32-bit signed) | | [yellow-background]*Unknown (Found in Exchange)*
+| 0x6761 | 0x0102 (Binary data) | | [yellow-background]*Unknown (Found in Exchange)*
+| 0x6762 | 0x0102 (Binary data) | | [yellow-background]*Unknown (Found in Exchange)* +
+Contains a GUID
+| 0x6763 | 0x0102 (Binary data) | | [yellow-background]*Unknown (Found in Exchange)*
+| 0x6764 | 0x0014 (Integer 64-bit signed) | | [yellow-background]*Unknown (Exchange mailbox identifier)*
+| 0x6765 | 0x0014 (Integer 64-bit signed) | | [yellow-background]*Unknown (Found in Exchange)*
+| 0x6766 | 0x0102 (Binary data) | | [yellow-background]*Unknown (Found in Exchange)*
+| 0x6767 | 0x0003 (Integer 32-bit signed) | | [yellow-background]*Unknown (Found in Exchange)*
+| 0x6768 | 0x0102 (Binary data) | | [yellow-background]*Unknown (Found in Exchange)* +
+Contains a string containing a X500 address
+| 0x6769 | 0x0002 (Integer 16-bit signed) | | [yellow-background]*Unknown (Found in Exchange)*
+| 0x676a | 0x0102 (Binary data) | | [yellow-background]*Unknown (Found in Exchange)* +
+Contains a GUID
+| 0x676b | 0x0003 (Integer 32-bit signed) | | [yellow-background]*Unknown (Found in Exchange)*
+| | 0x001e (ASCII string) +
+0x001f (Unicode string) | | [yellow-background]*Unknown (Found in Exchange)* +
+Mailbox system name?
+| 0x676c | 0x0102 (Binary data) | | [yellow-background]*Unknown (Found in Exchange)* +
+Contains a GUID
+| 0x676d | 0x000b (Boolean) | | [yellow-background]*Unknown (Found in Exchange)*
+| 0x676e | 0x0003 (Integer 32-bit signed) | | [yellow-background]*Unknown (Found in Exchange)*
+| 0x676f | 0x001e (ASCII string) +
+0x001f (Unicode string) | | [yellow-background]*Unknown (Found in Exchange)*
+| 0x6770 | 0x0003 (Integer 32-bit signed) | PidTagPstConfigurationFlags +
+(PR_PST_CONFIG_FLAGS) | Personal storage table configuration flags +
+See section: <<personal_storage_table_configuration_flags_definitions,Personal storage table configuration flags definitions>>
+| | 0x000b (Boolean) | | [yellow-background]*Unknown (Found in Exchange)*
+| 0x6771 | 0x0003 (Integer 32-bit signed) | | [yellow-background]*Unknown (Found in Exchange)*
+| 0x6772 | 0x0003 (Integer 32-bit signed) | PidTagPstSubtreeContainer | [yellow-background]*Unknown*
+| | 0x000b (Boolean) | | [yellow-background]*Unknown (Found in Exchange)*
+| 0x6773 | 0x0003 (Integer 32-bit signed) | | [yellow-background]*Unknown (Found in Exchange)*
+| | 0x001e (ASCII string) +
+0x001f (Unicode string) | | [yellow-background]*Unknown (Found in Exchange)* +
+Mailbox user's fullname?
+| 0x6774 | 0x0014 (Integer 64-bit signed) | | [yellow-background]*Unknown (Found in Exchange)*
+| 0x6775 | 0x001e (ASCII string) +
+0x001f (Unicode string) | | [yellow-background]*Unknown (Found in Exchange)* +
+Contains mailbox user's lastname
+| | 0x0102 (Binary data) | | [yellow-background]*Unknown (Found in Exchange)*
+| 0x6776 | 0x001e (ASCII string) +
+0x001f (Unicode string) | | [yellow-background]*Unknown (Found in Exchange)* +
+Contains mailbox user's firstname
+| | 0x0102 (Binary data) | | [yellow-background]*Unknown (Found in Exchange)*
+| 0x6777 | 0x0003 (Integer 32-bit signed) | | [yellow-background]*Unknown (Found in Exchange)*
+| 0x6778 | 0x0003 (Integer 32-bit signed) | | [yellow-background]*Unknown (Found in Exchange)*
+| | 0x001e (ASCII string) +
+0x001f (Unicode string) | | [yellow-background]*Unknown (Found in Exchange)* +
+Contains mailbox user's fullname
+| 0x6779 | 0x0003 (Integer 32-bit signed) | PR_PF_QUOTA_STYLE | [yellow-background]*Unknown (Found in Exchange)*
+| 0x677a | 0x0003 (Integer 32-bit signed) | | [yellow-background]*Unknown (Found in Exchange)*
+| 0x677b | 0x0003 (Integer 32-bit signed) | PR_PF_STORAGE_QUOTA | [yellow-background]*Unknown*
+| 0x677c | 0x0003 (Integer 32-bit signed) | | [yellow-background]*Unknown (Found in Exchange)*
+| | | | 
+| 0x677e | 0x0102 (Binary data) | | [yellow-background]*Unknown (Found in Exchange)*
+| 0x677f | 0x0102 (Binary data) | | [yellow-background]*Unknown (Found in Exchange)*
+| 0x6780 | 0x0003 (Integer 32-bit signed) | | [yellow-background]*Unknown (Found in Exchange)*
+| 0x6781 | 0x0102 (Binary data) | | [yellow-background]*Unknown (Found in Exchange)*
+| 0x6782 | 0x0003 (Integer 32-bit signed) | | [yellow-background]*Unknown (Found in Exchange)*
+| 0x6783 | 0x0003 (Integer 32-bit signed) | PR_SEARCH_FLAGS | [yellow-background]*Unknown (Found in Exchange)*
+| | 0x0102 (Binary data) | PR_USER_SID | [yellow-background]*Unknown*
+| 0x6784 | 0x0102 (Binary data) | | [yellow-background]*Unknown (Found in Exchange)*
+| 0x6785 | 0x0102 (Binary data) | | [yellow-background]*Unknown (Found in Exchange)*
+| 0x6786 | 0x0102 (Binary data) | | [yellow-background]*Unknown (Found in Exchange)*
+| 0x6787 | 0x0102 (Binary data) | | [yellow-background]*Unknown (Found in Exchange)*
+| 0x6788 | 0x0003 (Integer 32-bit signed) | | [yellow-background]*Unknown (Found in Exchange)*
+| | | | 
+| 0x678a | 0x0102 (Binary data) | | [yellow-background]*Unknown (Found in Exchange)*
+| 0x678b | 0x0102 (Binary data) | | [yellow-background]*Unknown (Found in Exchange)*
+| 0x678c | 0x0102 (Binary data) | | [yellow-background]*Unknown (Found in Exchange)*
+| 0x678d | 0x001e (ASCII string) +
+0x001f (Unicode string) | | [yellow-background]*Unknown (Found in Exchange)*
+| | 0x0102 (Binary data) | | [yellow-background]*Unknown (Found in Exchange)*
+| | | | 
+| 0x678f | 0x0102 (Binary data) | | [yellow-background]*Unknown (Found in Exchange)*
+| 0x6788 | 0x0003 (Integer 32-bit signed) | | [yellow-background]*Unknown (Found in Exchange)*
+| | | | 
+| 0x678a | 0x0102 (Binary data) | | [yellow-background]*Unknown (Found in Exchange)*
+| 0x678b | 0x0102 (Binary data) | | [yellow-background]*Unknown (Found in Exchange)*
+| 0x678c | 0x0102 (Binary data) | | [yellow-background]*Unknown (Found in Exchange)*
+| 0x678d | 0x001e (ASCII string) +
+0x001f (Unicode string) | | [yellow-background]*Unknown (Found in Exchange)*
+| | 0x0102 (Binary data) | | [yellow-background]*Unknown (Found in Exchange)*
+| | | | 
+| 0x678f | 0x0102 (Binary data) | | [yellow-background]*Unknown (Found in Exchange)*
+| 0x6790 | 0x0102 (Binary data) | | [yellow-background]*Unknown (Found in Exchange)*
+| 0x6791 | 0x0014 (Integer 64-bit signed) | | [yellow-background]*Unknown (Found in Exchange)* +
+Some kind of identifier
+| 0x6792 | 0x0102 (Binary data) | | [yellow-background]*Unknown (Found in Exchange)*
+| 0x6793 | 0x0102 (Binary data) | | [yellow-background]*Unknown (Found in Exchange)*
 |===
 
 * [yellow-background]*TODO: migrate documentation*
