@@ -2590,19 +2590,19 @@ Contains textual data about MIME type
 | 0x6721 | 0x0003 (Integer 32-bit signed) | PR_PF_OVER_HARD_QUOTA_LIMIT | [yellow-background]*Unknown*
 | 0x6722 | 0x0003 (Integer 32-bit signed) | PR_PF_MSG_SIZE_LIMIT | [yellow-background]*Unknown*
 | 0x6723 | 0x000b (Boolean) | | [yellow-background]*Unknown (Found in Exchange)*
-| | | | 
+| | | |
 | 0x672d | 0x0003 (Integer 32-bit signed) | | [yellow-background]*Unknown*
-| | | | 
+| | | |
 | 0x6731 | 0x0003 (Integer 32-bit signed) | | [yellow-background]*Unknown*
 | 0x6732 | 0x001e (ASCII string) +
 0x001f (Unicode string) | | [yellow-background]*Unknown*
 | 0x6733 | 0x001e (ASCII string) +
 0x001f (Unicode string) | | [yellow-background]*Unknown*
-| | | | 
+| | | |
 | 0x6740 | | | [yellow-background]*Unknown (Found in Exchange)* +
 [yellow-background]*Has unknown MAPIDB value type 'V'*
 | 0x6741 | 0x0003 (Integer 32-bit signed) | | [yellow-background]*Unknown*
-| | | | 
+| | | |
 | 0x6743 | 0x0003 (Integer 32-bit signed) | PR_CONNECTION_MODULUS | [yellow-background]*Unknown*
 | | 0x0014 (Integer 64-bit signed) | PR_CONNECTION_MODULUS_EXTENDED | [yellow-background]*Unknown*
 | 0x6744 | 0x001e (ASCII string) +
@@ -2628,15 +2628,15 @@ See section: <<message_identifier_structure,The message identifier structure>>
 | 0x6751 | 0x0003 (Integer 32-bit signed) | PR_ARTICLE_NUM_NEXT | [yellow-background]*Unknown*
 | 0x6752 | 0x0003 (Integer 32-bit signed) | PR_IMAP_LAST_ARTICLE_ID | [yellow-background]*Unknown*
 | 0x6753 | 0x000b (Boolean) | PR_NOT_822_RENDERABLE | [yellow-background]*Unknown*
-| | | | 
+| | | |
 | 0x6758 | 0x0102 (Binary data) | PR_LTID | [yellow-background]*Unknown*
 | 0x6759 | 0x0102 (Binary data) | PR_CN_EXPORT | [yellow-background]*Unknown*
 | 0x675a | 0x0102 (Binary data) | PR_PCL_EXPORT | [yellow-background]*Unknown*
 | 0x675b | 0x1102 (Array of Binary data values) | PR_CN_MV_EXPORT | [yellow-background]*Unknown*
-| | | | 
+| | | |
 | 0x675d | 0x0003 (Integer 32-bit signed) | | [yellow-background]*Unknown (Found in Exchange)*
 | 0x675e | 0x0003 (Integer 32-bit signed) | | [yellow-background]*Unknown (Found in Exchange)*
-| | | | 
+| | | |
 | 0x6760 | 0x0003 (Integer 32-bit signed) | | [yellow-background]*Unknown (Found in Exchange)*
 | 0x6761 | 0x0102 (Binary data) | | [yellow-background]*Unknown (Found in Exchange)*
 | 0x6762 | 0x0102 (Binary data) | | [yellow-background]*Unknown (Found in Exchange)* +
@@ -2690,7 +2690,7 @@ Contains mailbox user's fullname
 | 0x677a | 0x0003 (Integer 32-bit signed) | | [yellow-background]*Unknown (Found in Exchange)*
 | 0x677b | 0x0003 (Integer 32-bit signed) | PR_PF_STORAGE_QUOTA | [yellow-background]*Unknown*
 | 0x677c | 0x0003 (Integer 32-bit signed) | | [yellow-background]*Unknown (Found in Exchange)*
-| | | | 
+| | | |
 | 0x677e | 0x0102 (Binary data) | | [yellow-background]*Unknown (Found in Exchange)*
 | 0x677f | 0x0102 (Binary data) | | [yellow-background]*Unknown (Found in Exchange)*
 | 0x6780 | 0x0003 (Integer 32-bit signed) | | [yellow-background]*Unknown (Found in Exchange)*
@@ -2703,24 +2703,24 @@ Contains mailbox user's fullname
 | 0x6786 | 0x0102 (Binary data) | | [yellow-background]*Unknown (Found in Exchange)*
 | 0x6787 | 0x0102 (Binary data) | | [yellow-background]*Unknown (Found in Exchange)*
 | 0x6788 | 0x0003 (Integer 32-bit signed) | | [yellow-background]*Unknown (Found in Exchange)*
-| | | | 
+| | | |
 | 0x678a | 0x0102 (Binary data) | | [yellow-background]*Unknown (Found in Exchange)*
 | 0x678b | 0x0102 (Binary data) | | [yellow-background]*Unknown (Found in Exchange)*
 | 0x678c | 0x0102 (Binary data) | | [yellow-background]*Unknown (Found in Exchange)*
 | 0x678d | 0x001e (ASCII string) +
 0x001f (Unicode string) | | [yellow-background]*Unknown (Found in Exchange)*
 | | 0x0102 (Binary data) | | [yellow-background]*Unknown (Found in Exchange)*
-| | | | 
+| | | |
 | 0x678f | 0x0102 (Binary data) | | [yellow-background]*Unknown (Found in Exchange)*
 | 0x6788 | 0x0003 (Integer 32-bit signed) | | [yellow-background]*Unknown (Found in Exchange)*
-| | | | 
+| | | |
 | 0x678a | 0x0102 (Binary data) | | [yellow-background]*Unknown (Found in Exchange)*
 | 0x678b | 0x0102 (Binary data) | | [yellow-background]*Unknown (Found in Exchange)*
 | 0x678c | 0x0102 (Binary data) | | [yellow-background]*Unknown (Found in Exchange)*
 | 0x678d | 0x001e (ASCII string) +
 0x001f (Unicode string) | | [yellow-background]*Unknown (Found in Exchange)*
 | | 0x0102 (Binary data) | | [yellow-background]*Unknown (Found in Exchange)*
-| | | | 
+| | | |
 | 0x678f | 0x0102 (Binary data) | | [yellow-background]*Unknown (Found in Exchange)*
 | 0x6790 | 0x0102 (Binary data) | | [yellow-background]*Unknown (Found in Exchange)*
 | 0x6791 | 0x0014 (Integer 64-bit signed) | | [yellow-background]*Unknown (Found in Exchange)* +
@@ -2734,27 +2734,136 @@ Some kind of identifier
 Contains a set of synchronization item change numbers that previously have been communicated to a client and are now reflected in the clients local replica.
 | 0x6797 | 0x0102 (Binary data) | | [yellow-background]*Unknown (Found in Exchange)*
 | 0x6798 | 0x0102 (Binary data) | | [yellow-background]*Unknown (Found in Exchange)*
+| 0x6799 | 0x0003 (Integer 32-bit signed) | | [yellow-background]*Unknown (Found in Exchange)*
+| | | |
+| 0x679b | 0x000b (Boolean) | | [yellow-background]*Unknown (Found in Exchange)*
+| 0x679c | 0x001e (ASCII string) +
+0x001f (Unicode string) | | [yellow-background]*Unknown (Found in Exchange)*
+| 0x679d | 0x0003 (Integer 32-bit signed) | | [yellow-background]*Unknown (Found in Exchange)*
+| 0x679e | 0x0040 (Filetime) | | [yellow-background]*Unknown (Found in Exchange)*
+| 0x679f | 0x0002 (Integer 16-bit signed) | | [yellow-background]*Unknown (Found in Exchange)*
+| 0x67a0 | 0x0002 (Integer 16-bit signed) | | [yellow-background]*Unknown (Found in Exchange)*
+| 0x67a1 | 0x0014 (Integer 64-bit signed) | | [yellow-background]*Unknown (Found in Exchange)*
+| 0x67a2 | 0x0002 (Integer 16-bit signed) | | [yellow-background]*Unknown (Found in Exchange)*
+| 0x67a3 | 0x0002 (Integer 16-bit signed) | | [yellow-background]*Unknown (Found in Exchange)*
+| 0x67a4 | 0x0014 (Integer 64-bit signed) | PidTagChangeNumber +
+(ptagCn) | Synchronization change number +
+Contains the identifier of the last change to the message or folder that is being synchronized.
+| 0x67a5 | 0x0102 (Binary data) | | [yellow-background]*Unknown (Found in Exchange)*
+| 0x67a6 | 0x1014 (Array of integer 64-bit signed values) | | [yellow-background]*Unknown (Found in Exchange)*
+| 0x67a7 | 0x0014 (Integer 64-bit signed) | | [yellow-background]*Unknown (Found in Exchange)*
+| | | |
+| 0x67aa | 0x000b (Boolean) | PR_ASSOCIATED | [yellow-background]*Unknown (Is associated?)*
+| | | |
+| 0x67b0 | 0x0102 (Binary data) | | [yellow-background]*Unknown (Found in Exchange)*
+
+| 0x67b1 | 0x0003 (Integer 32-bit signed) | | [yellow-background]*Unknown (Found in Exchange)*
+| 0x67b2 | 0x0102 (Binary data) | | [yellow-background]*Unknown (Found in Exchange)*
+| 0x67b3 | 0x0102 (Binary data) | | [yellow-background]*Unknown (Found in Exchange)*
+| | | |
+| 0x67b5 | 0x0102 (Binary data) | | [yellow-background]*Unknown (Found in Exchange)*
+| 0x67b6 | 0x0102 (Binary data) | | [yellow-background]*Unknown (Found in Exchange)*
+| | | |
+| 0x67e2 | 0x0003 (Integer 32-bit signed) | | [yellow-background]*Unknown*
+| | | |
+| 0x67c4 | 0x0002 (Integer 16-bit signed) | | [yellow-background]*Unknown (Found in Exchange)*
+| | | |
+| 0x67c7 | 0x101e (Array of ASCII string values) +
+0x101f (Array of Unicode string values) | | [yellow-background]*Unknown (found in Exchange)*
+| 0x67c8 | 0x0003 (Integer 32-bit signed) | | [yellow-background]*Unknown (Found in Exchange)*
+| | | |
+| 0x67ce | 0x0102 (Binary data) | | [yellow-background]*Unknown (Found in Exchange)*
+| | | |
+| 0x67d1 | 0x0040 (Filetime) | | [yellow-background]*Unknown (Found in Exchange)*
+| | | |
+| 0x67d3 | 0x0102 (Binary data) | | [yellow-background]*Unknown (Found in Exchange)*
+| | | |
+| 0x67d9 | 0x0102 (Binary data) | | [yellow-background]*Unknown (Found in Exchange)*
+| 0x67da | 0x0102 (Binary data) | PidTagCnsetSeenFAI +
+(ptagCnsetSeenFAI) | Seen folder associated information synchronization change number set +
+Contains a set of folder associated information (FAI) messages synchronization change numbers.
+| 0x67db | 0x0102 (Binary data) | | [yellow-background]*Unknown (Found in Exchange)*
+| 0x67dc | 0x0003 (Integer 32-bit signed) | | [yellow-background]*Unknown (Found in Exchange)*
+| 0x67dd | 0x0003 (Integer 32-bit signed) | | [yellow-background]*Unknown (Found in Exchange)*
+| | | |
+| 0x67e1 | 0x0040 (Filetime) | | [yellow-background]*Unknown (Found in Exchange)*
+| | | |
+| 0x67ec | 0x001e (ASCII string) + 0x001f (Unicode string) | | [yellow-background]*Unknown (Found in Exchange)*
+| | 0x0102 (Binary data) | | [yellow-background]*Unknown (Found in Exchange)*
+| 0x67ed | 0x0003 (Integer 32-bit signed) | | [yellow-background]*Unknown (Found in Exchange)*
+| 0x67ee | 0x0102 (Binary data) | | [yellow-background]*Unknown (Found in Exchange)*
+| 0x67ef | 0x0003 (Integer 32-bit signed) | | [yellow-background]*Unknown (Found in Exchange)*
+| 0x67f0 | 0x0102 (Binary data) | PR_PROFILE_SECURE_MAILBOX | [yellow-background]*Unknown*
+| 0x67f1 | 0x0002 (Integer 16-bit signed) | | [yellow-background]*Unknown (Found in Exchange)*
+| | 0x0003 (Integer 32-bit signed) | PidTagLtpParentNid | Parent node identifier
+| 0x67f2 | 0x0003 (Integer 32-bit signed) | PidTagLtpRowId | Row identifier
+| | 0x0102 (Binary data) | | [yellow-background]*Unknown (Found in Exchange)*
+| 0x67f3 | 0x0003 (Integer 32-bit signed) | PidTagLtpRowVer | Row version
+| 0x67f4 | 0x000b (Boolean) | | [yellow-background]*Unknown (Found in Exchange)*
+| | 0x0014 (Integer 64-bit signed) | PRQ_ID_SECURE4 | [yellow-background]*Unknown* +
+Some kind of identifier related to 8c table in PFF format
+| 0x67f5 | 0x0003 (Integer 32-bit signed) | PR_PropNameHash +
+PR_CopyRefCt | [yellow-background]*Unknown*
+| | 0x000b (Boolean) | | [yellow-background]*Unknown*
+| | | |
+| 0x67fb | 0x0003 (Integer 32-bit signed) | | [yellow-background]*Unknown (Found in Exchange)* +
+Although value indicated as Integer 32-bit signed data is larger than 4 bytes
+| 0x67fc | 0x0102 (Binary data) | | [yellow-background]*Unknown (Found in Exchange)*
+| | | |
+| 0x67ff | 0x0003 (Integer 32-bit signed) | PidTagPstPassword +
+(PR_PST_PASSWORD) | Password checksum +
+Contains a weak CRC of the password or zero if no password is set
+| | 0x0102 (Binary data) | | [yellow-background]*Unknown (Found in Exchange)*
 |===
 
-* [yellow-background]*TODO: migrate documentation*
-
 === Message content properties for custom message classes (0x6800 – 0x7bff)
+
+[cols="1,1,1,5",options="header"]
+|===
+| Item | Value | Identifier | Description
+| 0x6800 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidTagOfflineAddressBookName +
+(PR_OAB_NAME) | Offline address book name +
+Contains the display name of the address list.
+| | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_MAILBEAT_BOUNCE_SERVER | [yellow-background]*Unknown* +
+Is this an alternate usage of item 0x6800?
+|===
 
 * [yellow-background]*TODO: migrate documentation*
 
 === IPM.Microsoft.WunderBar.Link
 
+[cols="1,1,1,5",options="header"]
+|===
+| Item | Value | Identifier | Description
+|===
+
 * [yellow-background]*TODO: migrate documentation*
 
 === IPM.Microsoft.WunderBar.SFInfo
+
+[cols="1,1,1,5",options="header"]
+|===
+| Item | Value | Identifier | Description
+|===
 
 * [yellow-background]*TODO: migrate documentation*
 
 === IPM.RuleOrganizer
 
-* [yellow-background]*TODO: migrate documentation*
+[cols="1,1,1,5",options="header"]
+|===
+| Item | Value | Identifier | Description
+| 0x6802 | 0x0102 (Binary data) | | [yellow-background]*Unknown (Rule element?)*
+|===
 
 === Non-transmittable properties for custom message classes (0x7c00 – 0x7fff)
+
+[cols="1,1,1,5",options="header"]
+|===
+| Item | Value | Identifier | Description
+|===
 
 * [yellow-background]*TODO: migrate documentation*
 
