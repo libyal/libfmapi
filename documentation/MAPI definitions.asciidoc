@@ -2828,6 +2828,58 @@ Contains the display name of the address list.
 | | 0x001e (ASCII string) +
 0x001f (Unicode string) | PR_MAILBEAT_BOUNCE_SERVER | [yellow-background]*Unknown* +
 Is this an alternate usage of item 0x6800?
+| 0x6801 | 0x0040 (Filetime) | PR_MAILBEAT_REQUEST_SENT | [yellow-background]*Unknown*
+| 0x6802 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_USENET_SITE_NAME | [yellow-background]*Unknown*
+| 0x6803 | 0x000b (Boolean) | PidTagSendOutlookRecallReport | [yellow-background]*Unknown (Send recall report?)*
+| | 0x0040 (Filetime) | PR_MAILBEAT_REQUEST_RECEIVED | [yellow-background]*Unknown*
+| 0x6804 | 0x0040 (Filetime) | PR_MAILBEAT_REQUEST_PROCESSED | [yellow-background]*Unknown*
+| | 0x0102 (Binary data) | | [yellow-background]*Unknown (Found in Exchange)*
+| 0x6805 | 0x0003 (Integer 32-bit signed) | PR_SHUTOFFQUOTA | [yellow-background]*Unknown*
+| | 0x1003 (Array of integer 32-bit signed values) | PidTagOfflineAddressBookTruncatedProperties +
+(PR_OAB_TRUNCATED_PROPS) | Offline address book truncated properties +
+Contains a list of the property tags that have been truncated or limited by the server.
+| 0x6806 | 0x0003 (Integer 32-bit signed) | | [yellow-background]*Unknown (Found in Exchange)*
+| | 0x0040 (Filetime) | PR_MAILBEAT_REPLY_SENT | [yellow-background]*Unknown*
+| 0x6807 | 0x0040 (Filetime) | PR_MAILBEAT_REPLY_SUBMIT | [yellow-background]*Unknown*
+| 0x6808 | 0x0003 (Integer 32-bit signed) | PidTagOfflineAddressBookFileType +
+(PR_OAB_FILETYPE) | Offline address book file type
+| | 0x0040 (Filetime) | PR_MAILBEAT_REPLY_RECEIVED | [yellow-background]*Unknown*
+| 0x6809 | 0x0040 (Filetime) | PR_MAILBEAT_REPLY_PROCESSED | [yellow-background]*Unknown*
+| | | |
+| 0x680b | 0x000b (Boolean) | | [yellow-background]*Unknown (Found in Exchange)*
+| 0x680c | 0x0040 (Filetime) | | [yellow-background]*Unknown (Found in Exchange)*
+| 0x680d | 0x0003 (Integer 32-bit signed) | | [yellow-background]*Unknown (Found in Exchange)*
+| | | |
+| 0x6810 | 0x0003 (Integer 32-bit signed) | | [yellow-background]*Unknown (Found in Exchange)*
+| | | |
+| 0x6813 | 0x0040 (Filetime) | | [yellow-background]*Unknown (Found in Exchange)*
+| | | |
+| 0x6816 | 0x0102 (Binary data) | | [yellow-background]*Unknown (Found in Exchange)*
+| 0x6817 | 0x0002 (Integer 16-bit signed) | | [yellow-background]*Unknown (Found in Exchange)*
+| | 0x0040 (Filetime) | | [yellow-background]*Unknown (Found in Exchange)*
+| | | |
+| 0x681c | 0x0014 (Integer 64-bit signed) | | [yellow-background]*Unknown (Found in Exchange)*
+| 0x681d | 0x0048 (GUID) | | [yellow-background]*Unknown (Found in Exchange)*
+| | | |
+| 0x682f | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidTagMapiFormComposeCommand | [yellow-background]*Unknown (found in `[MS-PST]`)*
+| | | |
+| 0x6833 | 0x0048 (GUID) | PR_VIEW_CLSID | View class identifier +
+See section: <<view_class_identifier_definitions,View class identifier definitions>>
+| 0x6834 | 0x0003 (Integer 32-bit signed) | PR_VIEW_STYLE | [yellow-background]*Unknown (View style)*
+| 0x6835 | 0x0102 (Binary data) | | [yellow-background]*Unknown (Binary view data)*
+| | | |
+| 0x683a | 0x0003 (Integer 32-bit signed) | PR_VIEW_MAJORVERSION | [yellow-background]*Unknown (View major version)*
+| | | |
+| 0x683c | 0x0102 (Binary data) | | [yellow-background]*Unknown (XML view data)*
+| 0x683d | 0x0040 (Filetime) | | [yellow-background]*Unknown*
+| | | |
+| 0x683f | 0x0102 (Binary data) | | [yellow-background]*Unknown* +
+Contains a GUID similar to value in 0x6833
+| | | |
+| 0x6841 | 0x0003 (Integer 32-bit signed) | PR_SCHDINFO_RESOURCE_TYPE +
+PR_WB_SF_TEMPLATE_ID | [yellow-background]*Unknown*
 |===
 
 * [yellow-background]*TODO: migrate documentation*
