@@ -2944,9 +2944,29 @@ PR_VD_VERSION | View descriptor version
 [cols="1,1,1,5",options="header"]
 |===
 | Item | Value | Identifier | Description
+| 0x6847 | 0x0003 (Integer 32-bit signed) | | [yellow-background]*Unknown*
+| | | | 
+| 0x6849 | 0x0003 (Integer 32-bit signed) | | [yellow-background]*Unknown*
+| 0x684a | 0x0003 (Integer 32-bit signed) | | [yellow-background]*Unknown*
+| 0x684b | 0x0102 (Binary data) | | [yellow-background]*Unknown* +
+Contains 1 byte
+| 0x684c | 0x0102 (Binary data) | | [yellow-background]*Unknown* +
+Contains ENTRYID
+| 0x684d | 0x0102 (Binary data) | | [yellow-background]*Unknown* +
+Contains ENTRYID or 4 bytes value 0x82 0x81 0x00 0x00
+| 0x684e | 0x0102 (Binary data) | | [yellow-background]*Unknown* +
+Contains ENTRYID
+| 0x684f | 0x0102 (Binary data) | | [yellow-background]*Unknown* +
+Contains GUID
+| 0x6850 | 0x0102 (Binary data) | | [yellow-background]*Unknown* +
+Contains GUID
+| 0x6851 | 0x001e (ASCII string) +
+0x001f (Unicode string) | | [yellow-background]*Unknown*
+| 0x6852 | 0x0003 (Integer 32-bit signed) | | [yellow-background]*Unknown*
+| | | | 
+| 0x6890 | 0x0102 (Binary data) | | [yellow-background]*Unknown* +
+Contains GUID
 |===
-
-* [yellow-background]*TODO: migrate documentation*
 
 === IPM.Microsoft.WunderBar.SFInfo
 
