@@ -2973,9 +2973,18 @@ Contains GUID
 [cols="1,1,1,5",options="header"]
 |===
 | Item | Value | Identifier | Description
+| 0x6834 | 0x0003 (Integer 32-bit signed) | | [yellow-background]*Unknown*
+| | | | 
+| 0x683a | 0x0003 (Integer 32-bit signed) | | [yellow-background]*Unknown*
+| | | | 
+| 0x6841 | 0x0003 (Integer 32-bit signed) | | [yellow-background]*Unknown*
+| 0x6842 | 0x0102 (Binary data) | | [yellow-background]*Unknown*
+| | | | 
+| 0x6845 | 0x0102 (Binary data) | | [yellow-background]*Unknown*
+| 0x6846 | 0x0003 (Integer 32-bit signed) | | [yellow-background]*Unknown*
+| 0x6847 | 0x0003 (Integer 32-bit signed) | | [yellow-background]*Unknown*
+| 0x6848 | 0x0003 (Integer 32-bit signed) | | [yellow-background]*Unknown*
 |===
-
-* [yellow-background]*TODO: migrate documentation*
 
 === IPM.RuleOrganizer
 
