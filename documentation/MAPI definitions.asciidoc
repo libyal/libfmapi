@@ -2999,9 +2999,45 @@ Contains GUID
 [cols="1,1,1,5",options="header"]
 |===
 | Item | Value | Identifier | Description
+| 0x7c00 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_FAV_DISPLAY_NAME | [yellow-background]*Unknown*
+| | | | 
+| 0x7c02 | 0x0102 (Binary data) | PR_FAV_PUBLIC_SOURCE_KEY | [yellow-background]*Unknown*
+| | | | 
+| 0x7c04 | 0x0102 (Binary data) | PR_OST_OSTID | Offline storage table identifier +
+Contains the GUID of the OST file corresponding to the Exchange server
+| | | | 
+| 0x7c06 | 0x101e (Array of ASCII string values) +
+0x101f (Array of Unicode string values) | | [yellow-background]*Unknown*
+| 0x7c07 | 0x0102 (Binary data) | | [yellow-background]*Unknown (Top of folders RecID)* +
+Contains an ENTRYID
+| | | | 
+| 0x7c0a | 0x000b (Boolean) | PR_STORE_SLOWLINK | [yellow-background]*Unknown*
+| | | | | 0x7c0c | 0x0003 (Integer 32-bit signed) | | [yellow-background]*Unknown*
+| 0x7c0d | 0x0014 (Integer 64-bit signed) | | [yellow-background]*Unknown*
+| 0x7c0e | 0x0003 (Integer 32-bit signed) | | [yellow-background]*Unknown*
+| 0x7c0f | 0x0003 (Integer 32-bit signed) | | [yellow-background]*Unknown*
+| | | | 
+| 0x7c11 | 0x000b (Boolean) | | [yellow-background]*Unknown*
+| | | | 
+| 0x7c13 | 0x0003 (Integer 32-bit signed) | | [yellow-background]*Unknown*
+| | | | 
+| 0x7d01 | 0x0003 (Integer 32-bit signed) | PR_FAV_AUTOSUBFOLDERS | [yellow-background]*Unknown*
+| | 0x000b (Boolean) | PR_PROCESSED | [yellow-background]*Unknown*
+| 0x7d02 | 0x0102 (Binary data) | PR_FAV_PARENT_SOURCE_KEY | [yellow-background]*Unknown*
+| 0x7d03 | 0x0003 (Integer 32-bit signed) | PR_FAV_LEVEL_MASK | [yellow-background]*Unknown*
+| | | | 
+| 0x7d07 | 0x0003 (Integer 32-bit signed) | PR_FAV_INHERIT_AUTO | [yellow-background]*Unknown*
+| 0x7d08 | 0x0102 (Binary data) | PR_FAV_DEL_SUBS | [yellow-background]*Unknown*
+| | | | 
+| 0x7ff9 | 0x0040 (Filetime) | | [yellow-background]*Unknown*
+| 0x7ffa | 0x0003 (Integer 32-bit signed) | PR_ATTACHMENT_LINKID | Attachment link identifier
+| 0x7ffb | 0x0040 (Filetime) | PR_EXCEPTION_STARTTIME | Exception start time
+| 0x7ffc | 0x0040 (Filetime) | PR_EXCEPTION_ENDTIME | Exception end time
+| 0x7ffd | 0x0003 (Integer 32-bit signed) | PR_ATTACHMENT_FLAGS | Attachment flags
+| 0x7ffe | 0x000b (Boolean) | PR_ATTACHMENT_HIDDEN | Hidden attachment
+| 0x7fff | 0x000b (Boolean) | | [yellow-background]*Unknown*
 |===
-
-* [yellow-background]*TODO: migrate documentation*
 
 === IPM.Configuration
 
