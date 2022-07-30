@@ -3049,9 +3049,28 @@ Found in:
 * IPM.Configuration.RssRule
 * IPM.Configuration.WorkHours
 
-* [yellow-background]*TODO: migrate documentation*
+[cols="1,1,1,5",options="header"]
+|===
+| Item | Value | Identifier | Description
+| 0x7c06 | 0x0003 (Integer 32-bit signed) | | [yellow-background]*Unknown* +
+2 => value 0x7c08 is set +
+4 => value 0x7c07 is set
+| 0x7c07 | 0x0102 (Binary data) | | [yellow-background]*Unknown* +
+contains XML data
+| 0x7c08 | 0x0102 (Binary data) | | [yellow-background]*Unknown* +
+contains XML data
+|===
 
 === Named properties (0x8000 – 0xfffe)
+
+[NOTE]
+The actual meaning of these item types can be overwritten by thei
+name-to-id map.
+
+[cols="1,1,1,5",options="header"]
+|===
+| Item | Value | Identifier | Description
+|===
 
 * [yellow-background]*TODO: migrate documentation*
 
