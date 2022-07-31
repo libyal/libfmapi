@@ -3064,12 +3064,55 @@ contains XML data
 === Named properties (0x8000 – 0xfffe)
 
 [NOTE]
-The actual meaning of these item types can be overwritten by thei
+The actual meaning of these item types can be overwritten by the
 name-to-id map.
 
 [cols="1,1,1,5",options="header"]
 |===
 | Item | Value | Identifier | Description
+| 0x8001 | 0x000b (Boolean) | PR_EMS_AB_DISPLAY_NAME_OVERRIDE | [yellow-background]*Unknown*
+| | | | 
+| 0x8003 | 0x0003 (Integer 32-bit signed) | | [yellow-background]*Unknown (Found in Exchange)*
+| | 0x1102 (Array of Binary data values) | PR_EMS_AB_CA_CERTIFICATE | [yellow-background]*Unknown*
+| 0x8004 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_EMS_AB_FOLDER_PATHNAME | [yellow-background]*Unknown*
+| 0x8005 | 0x000d (Embedded object) | PR_EMS_AB_MANAGER | [yellow-background]*Unknown*
+| | 0x001e (ASCII string) | 0x001f (Unicode string) +
+PR_EMS_AB_MANAGER_T | [yellow-background]*Unknown*
+| 0x8006 | 0x000d (Embedded object) | PR_EMS_AB_HOME_MDB_O | [yellow-background]*Unknown*
+| | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_EMS_AB_HOME_MDB | [yellow-background]*Unknown*
+| 0x8007 | 0x000d (Embedded object) | PR_EMS_AB_HOME_MTA_O | [yellow-background]*Unknown*
+| | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_EMS_AB_HOME_MTA | [yellow-background]*Unknown*
+| 0x8008 | 0x000d (Embedded object) | PR_EMS_AB_IS_MEMBER_OF_DL | [yellow-background]*Unknown*
+| | 0x001e (ASCII string) +
+| 0x001f (Unicode string) | PR_EMS_AB_IS_MEMBER_OF_DL_T | [yellow-background]*Unknown*
+| 0x8009 | 0x000d (Embedded object) | PR_EMS_AB_MEMBER | [yellow-background]*Unknown*
+| | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_EMS_AB_MEMBER_T | [yellow-background]*Unknown*
+| 0x800a | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_EMS_AB_AUTOREPLY_MESSAGE | [yellow-background]*Unknown*
+| 0x800b | 0x000b (Boolean) | PR_EMS_AB_AUTOREPLY | [yellow-background]*Unknown*
+| 0x800c | 0x000d (Embedded object) | PR_EMS_AB_OWNER_O | [yellow-background]*Unknown*
+| | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_EMS_AB_OWNER | [yellow-background]*Unknown*
+| 0x800d | 0x000d (Embedded object) | PR_EMS_AB_KM_SERVER_O | [yellow-background]*Unknown*
+| | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_EMS_AB_KM_SERVER | [yellow-background]*Unknown*
+| | 0x101e (Array of ASCII string values) +
+0x101f (Array of Unicode string values) | | [yellow-background]*Unknown (found in Exchange)*
+| 0x800e | 0x000d (Embedded object) | PidTagAddressBookReports +
+(R_EMS_AB_REPORTS) | Address book reports +
+Contains list (table) of mail user's report
+| | 0x101e (Array of ASCII string values) +
+0x101f (Array of Unicode string values) | | [yellow-background]*Unknown (found in Exchange)*
+| 0x800f | 0x001e (ASCII string) +
+0x001f (Unicode string) | | [yellow-background]*Unknown (found in Exchange)*
+| | 0x101e (Array of ASCII string values) +
+0x101f (Array of Unicode string values) | PidTagAddressBookProxyAddresses +
+(PR_EMS_AB_PROXY_ADDRESSES) | Address book proxy addresses +
+Contains alternate e-mail addresses for the Address Book object.
 |===
 
 * [yellow-background]*TODO: migrate documentation*
