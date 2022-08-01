@@ -3113,6 +3113,24 @@ Contains list (table) of mail user's report
 0x101f (Array of Unicode string values) | PidTagAddressBookProxyAddresses +
 (PR_EMS_AB_PROXY_ADDRESSES) | Address book proxy addresses +
 Contains alternate e-mail addresses for the Address Book object.
+| | 0x0102 (Binary data) | PR_EMS_AB_HELP_DATA32 | [yellow-background]*Unknown*
+| 0x8011 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_EMS_AB_TARGET_ADDRESS | [yellow-background]*Unknown*
+| 0x8012 | 0x101e (Array of ASCII string values) +
+0x101f (Array of Unicode string values) | PR_EMS_AB_TELEPHONE_NUMBER | [yellow-background]*Unknown*
+| 0x8013 | 0x0102 (Binary data) | PR_EMS_AB_NT_SECURITY_DESCRIPTOR | [yellow-background]*Unknown*
+| 0x8014 | 0x000d (Embedded object) | PR_EMS_AB_HOME_MDB_BL_O | [yellow-background]*Unknown*
+| | 0x101e (Array of ASCII string values) +
+0x101f (Array of Unicode string values) | PR_EMS_AB_HOME_MDB_BL | [yellow-background]*Unknown*
+| 0x8015 | 0x000d (Embedded object) | PR_EMS_AB_PUBLIC_DELEGATES | [yellow-background]*Unknown*
+| | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_EMS_AB_PUBLIC_DELEGATES_T | [yellow-background]*Unknown*
+| 0x8016 | 0x0102 (Binary data) | PR_EMS_AB_CERTIFICATE_REVOCATION_LIST | [yellow-background]*Unknown*
+| 0x8017 | 0x0102 (Binary data) | PR_EMS_AB_ADDRESS_ENTRY_DISPLAY_TABLE | [yellow-background]*Unknown*
+| 0x8018 | 0x0102 (Binary data) | PR_EMS_AB_ADDRESS_SYNTAX | [yellow-background]*Unknown*
+| | | | 
+| 0x8021 | 0x101e (Array of ASCII string values) +
+0x101f (Array of Unicode string values) | | [yellow-background]*Unknown (Found in Exchange)*
 |===
 
 * [yellow-background]*TODO: migrate documentation*
