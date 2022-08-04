@@ -3149,6 +3149,21 @@ Contains alternate e-mail addresses for the Address Book object.
 0x001f (Unicode string) | PR_EMS_AB_EXTENSION_ATTRIBUTE_2 | [yellow-background]*Unknown*
 | 0x802f | 0x001e (ASCII string) +
 0x001f (Unicode string) | PR_EMS_AB_EXTENSION_ATTRIBUTE_3 | [yellow-background]*Unknown*
+| 0x8030 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_EMS_AB_EXTENSION_ATTRIBUTE_4 | [yellow-background]*Unknown*
+| 0x8031 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_EMS_AB_EXTENSION_ATTRIBUTE_5 | [yellow-background]*Unknown*
+| 0x8032 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_EMS_AB_EXTENSION_ATTRIBUTE_6 | [yellow-background]*Unknown*
+| 0x8033 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_EMS_AB_EXTENSION_ATTRIBUTE_7 | [yellow-background]*Unknown*
+| 0x8034 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_EMS_AB_EXTENSION_ATTRIBUTE_8 | [yellow-background]*Unknown*
+| 0x8035 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_EMS_AB_EXTENSION_ATTRIBUTE_9 | [yellow-background]*Unknown*
+| 0x8036 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_EMS_AB_EXTENSION_ATTRIBUTE_10 | [yellow-background]*Unknown*
+| 0x8037 | 0x1102 (Array of Binary data values) | PR_EMS_AB_SECURITY_PROTOCOL | [yellow-background]*Unknown*
 |===
 
 * [yellow-background]*TODO: migrate documentation*
