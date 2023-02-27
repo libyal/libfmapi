@@ -2883,7 +2883,7 @@ PR_WB_SF_TEMPLATE_ID | [yellow-background]*Unknown*
 | 0x6842 | 0x0102 (Binary data) | PidTagSearchFolderId +
 (PR_WB_SF_ID) | Search folder identifier +
 Contains a globally unique identifier (GUID) that identifies the search folder.
-| | | | 
+| | | |
 | 0x6844 | 0x101e (Array of ASCII string values) +
 0x101f (Array of Unicode string values) | PR_DELEGATES_DISPLAY_NAMES | [yellow-background]*Unknown*
 | 0x6845 | 0x0102 (Binary data) | PR_DELEGATES_ENTRYID | [yellow-background]*Unknown* +
@@ -2899,7 +2899,7 @@ See section: <<extended_folder_flags_structure,The extended folder flags structu
 | 0x6849 | 0x001e (ASCII string) +
 0x001f (Unicode string) | PR_FREEBUSY_EMAIL_ADDRESS | [yellow-background]*Unknown*
 | 0x684f | 0x1003 (Array of Integer 32-bit signed values) | PR_FREEBUSY_ALL_MONTHS | [yellow-background]*Unknown*
-| | | | 
+| | | |
 | 0x6850 | 0x1102 (Array of Binary data values) | PR_FREEBUSY_ALL_EVENTS | [yellow-background]*Unknown*
 | 0x6851 | 0x1003 (Array of Integer 32-bit signed values) | PR_FREEBUSY_TENTATIVE_MONTHS | [yellow-background]*Unknown*
 | 0x6852 | 0x1102 (Array of Binary data values) | PR_FREEBUSY_TENTATIVE_EVENTS | [yellow-background]*Unknown*
@@ -2907,22 +2907,22 @@ See section: <<extended_folder_flags_structure,The extended folder flags structu
 | 0x6854 | 0x1102 (Array of Binary data values) | PR_FREEBUSY_BUSY_EVENTS | [yellow-background]*Unknown*
 | 0x6855 | 0x1003 (Array of Integer 32-bit signed values) | PR_FREEBUSY_OOF_MONTHS | [yellow-background]*Unknown*
 | 0x6856 | 0x1102 (Array of Binary data values) | PR_FREEBUSY_OOF_EVENTS | [yellow-background]*Unknown*
-| | | | 
+| | | |
 | 0x6868 | 0x0040 (Filetime) | PR_FREEBUSY_LAST_MODIFIED | [yellow-background]*Unknown*
 | 0x6869 | 0x0003 (Integer 32-bit signed) | PR_FREEBUSY_NUM_MONTHS | [yellow-background]*Unknown*
-| | | | 
+| | | |
 | 0x686b | 0x1003 (Array of Integer 32-bit signed values) | PR_DELEGATES_SEE_PRIVATE | [yellow-background]*Unknown*
 | 0x686c | 0x0102 (Binary data) | PR_PERSONAL_FREEBUSY | [yellow-background]*Unknown*
 | 0x686d | 0x000b (Boolean) | PR_PROCESS_MEETING_REQUESTS | [yellow-background]*Unknown*
 | 0x686e | 0x000b (Boolean) | PR_DECLINE_RECURRING_MEETING_REQUESTS | [yellow-background]*Unknown*
 | 0x686f | 0x000b (Boolean) | PR_DECLINE_CONFLICTING_MEETING_REQUESTS | [yellow-background]*Unknown*
-| | | | 
+| | | |
 | 0x6909 | 0x0003 (Integer 32-bit signed) | | [yellow-background]*Unknown*
-| | | | 
+| | | |
 | 0x6f02 | | | Secure HTML Body
-| | | | 
+| | | |
 | 0x6f04 | | | Secure Text Body
-| | | | 
+| | | |
 | 0x7001 | 0x0102 (Binary data) | PR_VD_BINARY | [yellow-background]*Unknown*
 | 0x7002 | 0x001e (ASCII string) +
 0x001f (Unicode string) | PR_VD_STRINGS | [yellow-background]*Unknown*
@@ -2945,7 +2945,7 @@ PR_VD_VERSION | View descriptor version
 |===
 | Item | Value | Identifier | Description
 | 0x6847 | 0x0003 (Integer 32-bit signed) | | [yellow-background]*Unknown*
-| | | | 
+| | | |
 | 0x6849 | 0x0003 (Integer 32-bit signed) | | [yellow-background]*Unknown*
 | 0x684a | 0x0003 (Integer 32-bit signed) | | [yellow-background]*Unknown*
 | 0x684b | 0x0102 (Binary data) | | [yellow-background]*Unknown* +
@@ -2963,7 +2963,7 @@ Contains GUID
 | 0x6851 | 0x001e (ASCII string) +
 0x001f (Unicode string) | | [yellow-background]*Unknown*
 | 0x6852 | 0x0003 (Integer 32-bit signed) | | [yellow-background]*Unknown*
-| | | | 
+| | | |
 | 0x6890 | 0x0102 (Binary data) | | [yellow-background]*Unknown* +
 Contains GUID
 |===
@@ -2974,12 +2974,12 @@ Contains GUID
 |===
 | Item | Value | Identifier | Description
 | 0x6834 | 0x0003 (Integer 32-bit signed) | | [yellow-background]*Unknown*
-| | | | 
+| | | |
 | 0x683a | 0x0003 (Integer 32-bit signed) | | [yellow-background]*Unknown*
-| | | | 
+| | | |
 | 0x6841 | 0x0003 (Integer 32-bit signed) | | [yellow-background]*Unknown*
 | 0x6842 | 0x0102 (Binary data) | | [yellow-background]*Unknown*
-| | | | 
+| | | |
 | 0x6845 | 0x0102 (Binary data) | | [yellow-background]*Unknown*
 | 0x6846 | 0x0003 (Integer 32-bit signed) | | [yellow-background]*Unknown*
 | 0x6847 | 0x0003 (Integer 32-bit signed) | | [yellow-background]*Unknown*
@@ -3001,35 +3001,35 @@ Contains GUID
 | Item | Value | Identifier | Description
 | 0x7c00 | 0x001e (ASCII string) +
 0x001f (Unicode string) | PR_FAV_DISPLAY_NAME | [yellow-background]*Unknown*
-| | | | 
+| | | |
 | 0x7c02 | 0x0102 (Binary data) | PR_FAV_PUBLIC_SOURCE_KEY | [yellow-background]*Unknown*
-| | | | 
+| | | |
 | 0x7c04 | 0x0102 (Binary data) | PR_OST_OSTID | Offline storage table identifier +
 Contains the GUID of the OST file corresponding to the Exchange server
-| | | | 
+| | | |
 | 0x7c06 | 0x101e (Array of ASCII string values) +
 0x101f (Array of Unicode string values) | | [yellow-background]*Unknown*
 | 0x7c07 | 0x0102 (Binary data) | | [yellow-background]*Unknown (Top of folders RecID)* +
 Contains an ENTRYID
-| | | | 
+| | | |
 | 0x7c0a | 0x000b (Boolean) | PR_STORE_SLOWLINK | [yellow-background]*Unknown*
 | | | | | 0x7c0c | 0x0003 (Integer 32-bit signed) | | [yellow-background]*Unknown*
 | 0x7c0d | 0x0014 (Integer 64-bit signed) | | [yellow-background]*Unknown*
 | 0x7c0e | 0x0003 (Integer 32-bit signed) | | [yellow-background]*Unknown*
 | 0x7c0f | 0x0003 (Integer 32-bit signed) | | [yellow-background]*Unknown*
-| | | | 
+| | | |
 | 0x7c11 | 0x000b (Boolean) | | [yellow-background]*Unknown*
-| | | | 
+| | | |
 | 0x7c13 | 0x0003 (Integer 32-bit signed) | | [yellow-background]*Unknown*
-| | | | 
+| | | |
 | 0x7d01 | 0x0003 (Integer 32-bit signed) | PR_FAV_AUTOSUBFOLDERS | [yellow-background]*Unknown*
 | | 0x000b (Boolean) | PR_PROCESSED | [yellow-background]*Unknown*
 | 0x7d02 | 0x0102 (Binary data) | PR_FAV_PARENT_SOURCE_KEY | [yellow-background]*Unknown*
 | 0x7d03 | 0x0003 (Integer 32-bit signed) | PR_FAV_LEVEL_MASK | [yellow-background]*Unknown*
-| | | | 
+| | | |
 | 0x7d07 | 0x0003 (Integer 32-bit signed) | PR_FAV_INHERIT_AUTO | [yellow-background]*Unknown*
 | 0x7d08 | 0x0102 (Binary data) | PR_FAV_DEL_SUBS | [yellow-background]*Unknown*
-| | | | 
+| | | |
 | 0x7ff9 | 0x0040 (Filetime) | | [yellow-background]*Unknown*
 | 0x7ffa | 0x0003 (Integer 32-bit signed) | PR_ATTACHMENT_LINKID | Attachment link identifier
 | 0x7ffb | 0x0040 (Filetime) | PR_EXCEPTION_STARTTIME | Exception start time
@@ -3071,7 +3071,7 @@ name-to-id map.
 |===
 | Item | Value | Identifier | Description
 | 0x8001 | 0x000b (Boolean) | PR_EMS_AB_DISPLAY_NAME_OVERRIDE | [yellow-background]*Unknown*
-| | | | 
+| | | |
 | 0x8003 | 0x0003 (Integer 32-bit signed) | | [yellow-background]*Unknown (Found in Exchange)*
 | | 0x1102 (Array of Binary data values) | PR_EMS_AB_CA_CERTIFICATE | [yellow-background]*Unknown*
 | 0x8004 | 0x001e (ASCII string) +
@@ -3128,7 +3128,7 @@ Contains alternate e-mail addresses for the Address Book object.
 | 0x8016 | 0x0102 (Binary data) | PR_EMS_AB_CERTIFICATE_REVOCATION_LIST | [yellow-background]*Unknown*
 | 0x8017 | 0x0102 (Binary data) | PR_EMS_AB_ADDRESS_ENTRY_DISPLAY_TABLE | [yellow-background]*Unknown*
 | 0x8018 | 0x0102 (Binary data) | PR_EMS_AB_ADDRESS_SYNTAX | [yellow-background]*Unknown*
-| | | | 
+| | | |
 | 0x8021 | 0x101e (Array of ASCII string values) +
 0x101f (Array of Unicode string values) | | [yellow-background]*Unknown (Found in Exchange)*
 | 0x8022 | 0x101e (Array of ASCII string values) +
@@ -3142,7 +3142,7 @@ Contains alternate e-mail addresses for the Address Book object.
 | 0x8027 | 0x0102 (Binary data) | PR_EMS_AB_ASSOC_NT_ACCOUNT | [yellow-background]*Unknown*
 | 0x8028 | 0x0040 (Filetime) | PR_EMS_AB_EXPIRATION_TIME | [yellow-background]*Unknown*
 | 0x8029 | 0x0003 (Integer 32-bit signed) | PR_EMS_AB_USN_CHANGED | [yellow-background]*Unknown*
-| | | | 
+| | | |
 | 0x802d | 0x001e (ASCII string) +
 0x001f (Unicode string) | PR_EMS_AB_EXTENSION_ATTRIBUTE_1 | [yellow-background]*Unknown*
 | 0x802e | 0x001e (ASCII string) +
@@ -3164,6 +3164,55 @@ Contains alternate e-mail addresses for the Address Book object.
 | 0x8036 | 0x001e (ASCII string) +
 0x001f (Unicode string) | PR_EMS_AB_EXTENSION_ATTRIBUTE_10 | [yellow-background]*Unknown*
 | 0x8037 | 0x1102 (Array of Binary data values) | PR_EMS_AB_SECURITY_PROTOCOL | [yellow-background]*Unknown*
+| 0x8038 | 0x000d (Embedded object) | PR_EMS_AB_PF_CONTACTS_O | [yellow-background]*Unknown*
+| | 0x101e (Array of ASCII string values) +
+0x101f (Array of Unicode string values) | PR_EMS_AB_PF_CONTACTS | [yellow-background]*Unknown*
+| | | |
+| 0x803a | 0x0102 (Binary data) | PR_EMS_AB_HELP_DATA16 | [yellow-background]*Unknown*
+| 0x803b | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_EMS_AB_HELP_FILE_NAME | [yellow-background]*Unknown*
+| 0x803c | 0x000d (Embedded object) | PR_EMS_AB_OBJ_DIST_NAME_O | [yellow-background]*Unknown*
+| | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidTagAddressBookObjectDistinguishedName +
+(PR_EMS_AB_OBJ_DIST_NAME) | Address book object distinguished name
+| 0x803d | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_EMS_AB_ENCRYPT_ALG_SELECTED_OTHER | [yellow-background]*Unknown*
+| 0x803e | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_EMS_AB_AUTOREPLY_SUBJECT | [yellow-background]*Unknown*
+| 0x803f | 0x000d (Embedded object) | PR_EMS_AB_HOME_PUBLIC_SERVER_O | [yellow-background]*Unknown*
+| | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_EMS_AB_HOME_PUBLIC_SERVER | [yellow-background]*Unknown*
+| 0x8040 | 0x101e (Array of ASCII string values) +
+0x101f (Array of Unicode string values) | PR_EMS_AB_ENCRYPT_ALG_LIST_NA | [yellow-background]*Unknown*
+| 0x8041 | 0x101e (Array of ASCII string values) +
+0x101f (Array of Unicode string values) | PR_EMS_AB_ENCRYPT_ALG_LIST_OTHER | [yellow-background]*Unknown*
+| 0x8042 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_EMS_AB_IMPORTED_FROM | [yellow-background]*Unknown*
+| 0x8043 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_EMS_AB_ENCRYPT_ALG_SELECTED_NA | [yellow-background]*Unknown*
+| 0x8044 | 0x0003 (Integer 32-bit signed) | PR_EMS_AB_ACCESS_CATEGORY | [yellow-background]*Unknown*
+| 0x8045 | 0x0102 (Binary data) | PR_EMS_AB_ACTIVATION_SCHEDULE | [yellow-background]*Unknown*
+| 0x8046 | 0x0003 (Integer 32-bit signed) | PR_EMS_AB_ACTIVATION_STYLE | [yellow-background]*Unknown*
+| 0x8047 | 0x0102 (Binary data) | PR_EMS_AB_ADDRESS_ENTRY_DISPLAY_TABLE_MSDOS | [yellow-background]*Unknown*
+| 0x8048 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_EMS_AB_ADDRESS_TYPE | [yellow-background]*Unknown*
+| 0x8049 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_EMS_AB_ADMD | [yellow-background]*Unknown*
+| 0x804a | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_EMS_AB_ADMIN_DESCRIPTION | [yellow-background]*Unknown*
+| 0x804b | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_EMS_AB_ADMIN_DISPLAY_NAME | [yellow-background]*Unknown*
+| 0x804c | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_EMS_AB_ADMIN_EXTENSION_DLL | [yellow-background]*Unknown*
+| 0x804d | 0x000d (Embedded object) | PR_EMS_AB_ALIASED_OBJECT_NAME_O | [yellow-background]*Unknown*
+| | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_EMS_AB_ALIASED_OBJECT_NAME | [yellow-background]*Unknown*
+| 0x804e | 0x000d (Embedded object) | PR_EMS_AB_ALT_RECIPIENT_O | [yellow-background]*Unknown*
+| | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_EMS_AB_ALT_RECIPIENT | [yellow-background]*Unknown*
+| 0x804f | 0x000d (Embedded object) | PR_EMS_AB_ALT_RECIPIENT_BL_O | [yellow-background]*Unknown*
+| | 0x101e (Array of ASCII string values) +
+0x101f (Array of Unicode string values) | PR_EMS_AB_ALT_RECIPIENT_BL | [yellow-background]*Unknown*
 |===
 
 * [yellow-background]*TODO: migrate documentation*
