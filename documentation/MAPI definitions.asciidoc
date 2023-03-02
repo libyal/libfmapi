@@ -3327,6 +3327,54 @@ Contains "D", "u" or "h"
 | 0x808d | 0x0003 (Integer 32-bit signed) | PR_EMS_AB_DXA_PREV_EXCHANGE_OPTIONS | [yellow-background]*Unknown*
 | 0x808e | 0x000b (Boolean) | PR_EMS_AB_DXA_PREV_EXPORT_NATIVE_ONLY | [yellow-background]*Unknown*
 | 0x808f | 0x0003 (Integer 32-bit signed) | PR_EMS_AB_DXA_PREV_IN_EXCHANGE_SENSITIVITY | [yellow-background]*Unknown*
+| 0x8090 | 0x000d (Embedded object) | PR_EMS_AB_DXA_PREV_REMOTE_ENTRIES_O | [yellow-background]*Unknown*
+| | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_EMS_AB_DXA_PREV_REMOTE_ENTRIES | [yellow-background]*Unknown*
+| 0x8091 | 0x0003 (Integer 32-bit signed) | PR_EMS_AB_DXA_PREV_REPLICATION_SENSITIVITY | [yellow-background]*Unknown*
+| 0x8092 | 0x0003 (Integer 32-bit signed) | PR_EMS_AB_DXA_PREV_TEMPLATE_OPTIONS | [yellow-background]*Unknown*
+| 0x8093 | 0x0003 (Integer 32-bit signed) | PR_EMS_AB_DXA_PREV_TYPES | [yellow-background]*Unknown*
+| 0x8094 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_EMS_AB_DXA_RECIPIENT_CP | [yellow-background]*Unknown*
+| 0x8095 | 0x000d (Embedded object) | PR_EMS_AB_DXA_REMOTE_CLIENT_O | [yellow-background]*Unknown*
+| | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_EMS_AB_DXA_REMOTE_CLIENT | [yellow-background]*Unknown*
+| 0x8096 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_EMS_AB_DXA_REQ_SEQ | [yellow-background]*Unknown*
+| 0x8097 | 0x0040 (Filetime) | PR_EMS_AB_DXA_REQ_SEQ_TIME | [yellow-background]*Unknown*
+| 0x8098 | 0x0003 (Integer 32-bit signed) | PR_EMS_AB_DXA_REQ_SEQ_USN | [yellow-background]*Unknown*
+| 0x8099 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_EMS_AB_DXA_REQNAME | [yellow-background]*Unknown*
+| 0x809a | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_EMS_AB_DXA_SVR_SEQ | [yellow-background]*Unknown*
+| 0x809b | 0x0040 (Filetime) | PR_EMS_AB_DXA_SVR_SEQ_TIME | [yellow-background]*Unknown*
+| 0x809c | 0x0003 (Integer 32-bit signed) | PR_EMS_AB_DXA_SVR_SEQ_USN | [yellow-background]*Unknown*
+| 0x809d | 0x0003 (Integer 32-bit signed) | PR_EMS_AB_DXA_TASK | [yellow-background]*Unknown*
+| 0x809e | 0x0003 (Integer 32-bit signed) | PR_EMS_AB_DXA_TEMPLATE_OPTIONS | [yellow-background]*Unknown*
+| 0x809f | 0x0040 (Filetime) | PR_EMS_AB_DXA_TEMPLATE_TIMESTAMP | [yellow-background]*Unknown*
+| 0x80a0 | 0x0003 (Integer 32-bit signed) | PR_EMS_AB_DXA_TYPES | [yellow-background]*Unknown*
+| 0x80a1 | 0x000d (Embedded object) | PR_EMS_AB_DXA_UNCONF_CONTAINER_LIST_O | [yellow-background]*Unknown*
+| | 0x101e (Array of ASCII string values) +
+0x101f (Array of Unicode string values) | PR_EMS_AB_DXA_UNCONF_CONTAINER_LIST | [yellow-background]*Unknown*
+| 0x80a2 | 0x0003 (Integer 32-bit signed) | PR_EMS_AB_ENCAPSULATION_METHOD | [yellow-background]*Unknown*
+| 0x80a3 | 0x000b (Boolean) | PR_EMS_AB_ENCRYPT | [yellow-background]*Unknown*
+| 0x80a4 | 0x000b (Boolean) | PR_EMS_AB_EXPAND_DLS_LOCALLY | [yellow-background]*Unknown*
+| 0x80a5 | 0x000d (Embedded object) | PR_EMS_AB_EXPORT_CONTAINERS_O | [yellow-background]*Unknown*
+| 0x80a5 | 0x101e (Array of ASCII string values) +
+0x101f (Array of Unicode string values) | PR_EMS_AB_EXPORT_CONTAINERS | [yellow-background]*Unknown*
+| 0x80a6 | 0x000b (Boolean) | PR_EMS_AB_EXPORT_CUSTOM_RECIPIENTS | [yellow-background]*Unknown*
+| 0x80a7 | 0x000b (Boolean) | PR_EMS_AB_EXTENDED_CHARS_ALLOWED | [yellow-background]*Unknown*
+| 0x80a8 | 0x1102 (Array of Binary data values) | PR_EMS_AB_EXTENSION_DATA | [yellow-background]*Unknown*
+| 0x80a9 | 0x101e (Array of ASCII string values) +
+0x101f (Array of Unicode string values) | PR_EMS_AB_EXTENSION_NAME | [yellow-background]*Unknown*
+| 0x80aa | 0x101e (Array of ASCII string values) +
+0x101f (Array of Unicode string values) | PR_EMS_AB_EXTENSION_NAME_INHERITED | [yellow-background]*Unknown*
+| 0x80ab | 0x1102 (Array of Binary data values) | PR_EMS_AB_FACSIMILE_TELEPHONE_NUMBER | [yellow-background]*Unknown*
+| 0x80ac | 0x0102 (Binary data) | PR_EMS_AB_FILE_VERSION | [yellow-background]*Unknown*
+| 0x80ad | 0x000b (Boolean) | PR_EMS_AB_FILTER_LOCAL_ADDRESSES | [yellow-background]*Unknown*
+| 0x80ae | 0x000d (Embedded object) | PR_EMS_AB_FOLDERS_CONTAINER_O | [yellow-background]*Unknown*
+| | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_EMS_AB_FOLDERS_CONTAINER | [yellow-background]*Unknown*
+| 0x80af | 0x0003 (Integer 32-bit signed) | PR_EMS_AB_GARBAGE_COLL_PERIOD | [yellow-background]*Unknown*
 |===
 
 * [yellow-background]*TODO: migrate documentation*
