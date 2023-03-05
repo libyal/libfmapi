@@ -3492,6 +3492,58 @@ Contains "D", "u" or "h"
 | 0x80fd | 0x0102 (Binary data) | PR_EMS_AB_OM_OBJECT_CLASS | [yellow-background]*Unknown*
 | 0x80fe | 0x0003 (Integer 32-bit signed) | PR_EMS_AB_OM_SYNTAX | [yellow-background]*Unknown*
 | 0x80ff | 0x000b (Boolean) | PR_EMS_AB_OOF_REPLY_TO_ORIGINATOR | [yellow-background]*Unknown*
+| 0x8100 | 0x0003 (Integer 32-bit signed) | PR_EMS_AB_OPEN_RETRY_INTERVAL | [yellow-background]*Unknown*
+| 0x8101 | 0x101e (Array of ASCII string values) +
+0x101f (Array of Unicode string values) | PR_EMS_AB_ORGANIZATION_NAME | [yellow-background]*Unknown*
+| 0x8102 | 0x101e (Array of ASCII string values) +
+0x101f (Array of Unicode string values) | PR_EMS_AB_ORGANIZATIONAL_UNIT_NAME | [yellow-background]*Unknown*
+| 0x8103 | 0x0102 (Binary data) | PR_EMS_AB_ORIGINAL_DISPLAY_TABLE | [yellow-background]*Unknown*
+| 0x8104 | 0x0102 (Binary data) | PR_EMS_AB_ORIGINAL_DISPLAY_TABLE_MSDOS | [yellow-background]*Unknown*
+| 0x8105 | 0x000d (Embedded object) | PR_EMS_AB_OUTBOUND_SITES_O | [yellow-background]*Unknown*
+| | 0x101e (Array of ASCII string values) +
+0x101f (Array of Unicode string values) | PR_EMS_AB_OUTBOUND_SITES | [yellow-background]*Unknown*
+| 0x8106 | 0x0102 (Binary data) | PR_EMS_AB_P_SELECTOR | [yellow-background]*Unknown*
+| 0x8107 | 0x0102 (Binary data) | PR_EMS_AB_P_SELECTOR_INBOUND | [yellow-background]*Unknown*
+| 0x8108 | 0x0102 (Binary data) | PR_EMS_AB_PER_MSG_DIALOG_DISPLAY_TABLE | [yellow-background]*Unknown*
+| 0x8109 | 0x0102 (Binary data) | PR_EMS_AB_PER_RECIP_DIALOG_DISPLAY_TABLE | [yellow-background]*Unknown*
+| 0x810a | 0x0102 (Binary data) | PR_EMS_AB_PERIOD_REP_SYNC_TIMES | [yellow-background]*Unknown*
+| 0x810b | 0x0003 (Integer 32-bit signed) | PR_EMS_AB_PERIOD_REPL_STAGGER | [yellow-background]*Unknown*
+| 0x810c | 0x1102 (Array of Binary data values) | PR_EMS_AB_POSTAL_ADDRESS | [yellow-background]*Unknown*
+| 0x810d | 0x1003 (Array of Integer 32-bit signed values) | PR_EMS_AB_PREFERRED_DELIVERY_METHOD | [yellow-background]*Unknown*
+| 0x810e | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_EMS_AB_PRMD | [yellow-background]*Unknown*
+| 0x810f | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_EMS_AB_PROXY_GENERATOR_DLL | [yellow-background]*Unknown*
+| 0x8110 | 0x000d (Embedded object) | PR_EMS_AB_PUBLIC_DELEGATES_BL_O | [yellow-background]*Unknown*
+| | 0x101e (Array of ASCII string values) +
+0x101f (Array of Unicode string values) | PR_EMS_AB_PUBLIC_DELEGATES_BL | [yellow-background]*Unknown*
+| 0x8111 | 0x0102 (Binary data) | PR_EMS_AB_QUOTA_NOTIFICATION_SCHEDULE | [yellow-background]*Unknown*
+| 0x8112 | 0x0003 (Integer 32-bit signed) | PR_EMS_AB_QUOTA_NOTIFICATION_STYLE | [yellow-background]*Unknown*
+| 0x8113 | 0x0003 (Integer 32-bit signed) | PR_EMS_AB_RANGE_LOWER | [yellow-background]*Unknown*
+| 0x8114 | 0x0003 (Integer 32-bit signed) | PR_EMS_AB_RANGE_UPPER | [yellow-background]*Unknown*
+| 0x8115 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_EMS_AB_RAS_CALLBACK_NUMBER | [yellow-background]*Unknown*
+| 0x8116 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_EMS_AB_RAS_PHONE_NUMBER | [yellow-background]*Unknown*
+| 0x8117 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_EMS_AB_RAS_PHONEBOOK_ENTRY_NAME | [yellow-background]*Unknown*
+| 0x8118 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_EMS_AB_RAS_REMOTE_SRVR_NAME | [yellow-background]*Unknown*
+| 0x8119 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_CE_SIGNATURE | Text signature
+| | 0x1102 (Array of Binary data values) | PR_EMS_AB_REGISTERED_ADDRESS | [yellow-background]*Unknown*
+| 0x811a | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_EMS_AB_REMOTE_BRIDGE_HEAD | [yellow-background]*Unknown*
+| 0x811b | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_EMS_AB_REMOTE_BRIDGE_HEAD_ADDRESS | [yellow-background]*Unknown*
+| 0x811c | 0x000d (Embedded object) | PR_EMS_AB_REMOTE_OUT_BH_SERVER_O | [yellow-background]*Unknown*
+| | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_EMS_AB_REMOTE_OUT_BH_SERVER | [yellow-background]*Unknown*
+| 0x811d | 0x000d (Embedded object) | PR_EMS_AB_REMOTE_SITE_O | [yellow-background]*Unknown*
+| | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_EMS_AB_REMOTE_SITE | [yellow-background]*Unknown*
+| 0x811e | 0x0003 (Integer 32-bit signed) | PR_EMS_AB_REPLICATION_SENSITIVITY | [yellow-background]*Unknown*
+| 0x811f | 0x0003 (Integer 32-bit signed) | PR_EMS_AB_REPLICATION_STAGGER | [yellow-background]*Unknown*
 |===
 
 * [yellow-background]*TODO: migrate documentation*
