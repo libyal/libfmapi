@@ -28,7 +28,7 @@ Which should allow existing Open Source forensic tooling to be able to process t
 == License
 
 ....
-Copyright (C) 2008-2022, Joachim Metz <joachim.metz@gmail.com>.
+Copyright (C) 2008-2023, Joachim Metz <joachim.metz@gmail.com>.
 Permission is granted to copy, distribute and/or modify this document under the
 terms of the GNU Free Documentation License, Version 1.3 or any later version
 published by the Free Software Foundation; with no Invariant Sections, no
@@ -83,6 +83,7 @@ Additional information about MAPI properties
 | 0.0.29 | J.B. Metz | August 2013 | Additional information with thanks to J. Lohman.
 | 0.0.30 | J.B. Metz | November 2016 | Switched to asciidoc format.
 | 0.0.31 | J.B. Metz | February 2022 | Migrated documentation and changes to formatting.
+| 0.0.32 | J.B. Metz | March 2023 | Migrated documentation and changes to formatting.
 |===
 
 :numbered:
@@ -3742,7 +3743,7 @@ Contains a list of names by which a server is known to the various transports in
 | 0x818a | 0x0102 (Binary data) | PR_EMS_AB_CONTROL_MSG_RULES | [yellow-background]*Unknown*
 | 0x818b | 0x001e (ASCII string) +
 0x001f (Unicode string) | PR_EMS_AB_AVAILABLE_DISTRIBUTIONS | [yellow-background]*Unknown*
-| | | | 
+| | | |
 | 0x818d | 0x0102 (Binary data) | PR_EMS_AB_OUTBOUND_HOST | [yellow-background]*Unknown*
 | 0x818e | 0x101e (Array of ASCII string values) +
 0x101f (Array of Unicode string values) | PR_EMS_AB_INBOUND_HOST | [yellow-background]*Unknown*
@@ -3766,9 +3767,9 @@ Contains a list of names by which a server is known to the various transports in
 0x001f (Unicode string) | PR_EMS_AB_AUTHENTICATION_TO_USE | [yellow-background]*Unknown*
 | 0x819b | 0x000b (Boolean) | PR_EMS_AB_HTTP_PUB_GAL | [yellow-background]*Unknown*
 | 0x819c | 0x0003 (Integer 32-bit signed) | PR_EMS_AB_HTTP_PUB_GAL_LIMIT | [yellow-background]*Unknown*
-| | | | 
+| | | |
 | 0x819e | 0x1102 (Array of Binary data values) | PR_EMS_AB_HTTP_PUB_PF | [yellow-background]*Unknown*
-| | | | 
+| | | |
 | 0x81a1 | 0x001e (ASCII string) +
 0x001f (Unicode string) | PR_EMS_AB_X500_RDN | [yellow-background]*Unknown*
 | 0x81a2 | 0x001e (ASCII string) +
@@ -3782,19 +3783,78 @@ Contains a list of names by which a server is known to the various transports in
 | 0x81a6 | 0x000d (Embedded object) | PR_EMS_AB_NNTP_NEWSFEEDS_O | [yellow-background]*Unknown*
 | | 0x101e (Array of ASCII string values) +
 0x101f (Array of Unicode string values) | PR_EMS_AB_NNTP_NEWSFEEDS | [yellow-background]*Unknown*
-| | | | 
+| | | |
 | 0x81a8 | 0x000b (Boolean) | PR_EMS_AB_ENABLED_PROTOCOL_CFG | [yellow-background]*Unknown*
 | 0x81a9 | 0x101e (Array of ASCII string values) +
 0x101f (Array of Unicode string values) | PR_EMS_AB_HTTP_PUB_AB_ATTRIBUTES | [yellow-background]*Unknown*
-| | | | 
+| | | |
 | 0x81ab | 0x101e (Array of ASCII string values) +
 0x101f (Array of Unicode string values) | PR_EMS_AB_HTTP_SERVERS | [yellow-background]*Unknown*
 | 0x81ac | 0x000b (Boolean) | PR_EMS_AB_MODERATED | [yellow-background]*Unknown*
-| | | | 
+| | | |
 | 0x81ad | 0x001e (ASCII string) +
 0x001f (Unicode string) | PR_EMS_AB_RAS_ACCOUNT | [yellow-background]*Unknown*
 | 0x81ae | 0x0102 (Binary data) | PR_EMS_AB_RAS_PASSWORD | [yellow-background]*Unknown*
 | 0x81af | 0x0102 (Binary data) | PR_EMS_AB_INCOMING_PASSWORD | [yellow-background]*Unknown*
+| 0x81b0 | 0x000b (Boolean) | PR_EMS_AB_OUTBOUND_HOST_TYPE | [yellow-background]*Unknown*
+| 0x81b1 | 0x000b (Boolean) | PR_EMS_AB_PROXY_GENERATION_ENABLED | [yellow-background]*Unknown*
+| 0x81b2 | 0x0102 (Binary data) | PR_EMS_AB_ROOT_NEWSGROUPS_FOLDER_ID | [yellow-background]*Unknown*
+| 0x81b3 | 0x000b (Boolean) | PR_EMS_AB_CONNECTION_TYPE | [yellow-background]*Unknown*
+| 0x81b4 | 0x0003 (Integer 32-bit signed) | PR_EMS_AB_CONNECTION_LIST_FILTER_TYPE | [yellow-background]*Unknown*
+| 0x81b5 | 0x0003 (Integer 32-bit signed) | PR_EMS_AB_PORT_NUMBER | [yellow-background]*Unknown*
+| 0x81b6 | 0x101e (Array of ASCII string values) +
+0x101f (Array of Unicode string values) | PR_EMS_AB_PROTOCOL_SETTINGS | [yellow-background]*Unknown*
+| 0x81b7 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_EMS_AB_GROUP_BY_ATTR_1 | [yellow-background]*Unknown*
+| 0x81b8 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_EMS_AB_GROUP_BY_ATTR_2 | [yellow-background]*Unknown*
+| 0x81b9 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_EMS_AB_GROUP_BY_ATTR_3 | [yellow-background]*Unknown*
+| 0x81ba | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_EMS_AB_GROUP_BY_ATTR_4 | [yellow-background]*Unknown*
+| | | |
+| 0x81be | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_EMS_AB_VIEW_SITE | [yellow-background]*Unknown*
+| 0x81bf | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_EMS_AB_VIEW_CONTAINER_1 | [yellow-background]*Unknown*
+| 0x81c0 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_EMS_AB_VIEW_CONTAINER_2 | [yellow-background]*Unknown*
+| 0x81c1 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_EMS_AB_VIEW_CONTAINER_3 | [yellow-background]*Unknown*
+| 0x81c2 | 0x0040 (Filetime) | PR_EMS_AB_PROMO_EXPIRATION | [yellow-background]*Unknown*
+| 0x81c3 | 0x101e (Array of ASCII string values) +
+0x101f (Array of Unicode string values) | PR_EMS_AB_DISABLED_GATEWAY_PROXY | [yellow-background]*Unknown*
+| 0x81c4 | 0x0102 (Binary data) | PR_EMS_AB_COMPROMISED_KEY_LIST | [yellow-background]*Unknown*
+| 0x81c5 | 0x000d (Embedded object) | PR_EMS_AB_INSADMIN_O | [yellow-background]*Unknown*
+| | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_EMS_AB_INSADMIN | [yellow-background]*Unknown*
+| 0x81c6 | 0x000b (Boolean) | PR_EMS_AB_OVERRIDE_NNTP_CONTENT_FORMAT | [yellow-background]*Unknown*
+| 0x81c7 | 0x000d (Embedded object) | PR_EMS_AB_OBJ_VIEW_CONTAINERS_O | [yellow-background]*Unknown*
+| | 0x101e (Array of ASCII string values) +
+0x101f (Array of Unicode string values) | PR_EMS_AB_OBJ_VIEW_CONTAINERS | [yellow-background]*Unknown*
+| | | |
+| 0x81e9 | 0x0003 (Integer 32-bit signed) | | [yellow-background]*Unknown (Found in Exchange)*
+| | | |
+| 0x81fe | 0x001e (ASCII string) +
+0x001f (Unicode string) | | [yellow-background]*Unknown (Found in Exchange)*
+| | | |
+| 0x84da | 0x001e (ASCII string) +
+0x001f (Unicode string) | | [yellow-background]*Unknown (Found in Exchange)*
+| | | |
+| 0x8c18 | 0x0003 (Integer 32-bit signed) | PR_EMS_AB_VIEW_FLAGS | [yellow-background]*Unknown*
+| 0x8c19 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_EMS_AB_GROUP_BY_ATTR_VALUE_STR | [yellow-background]*Unknown*
+| ASCII or Unicode string
+| 0x8c1a | 0x000d (Embedded object) | PR_EMS_AB_GROUP_BY_ATTR_VALUE_DN_O | [yellow-background]*Unknown*
+| | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_EMS_AB_GROUP_BY_ATTR_VALUE_DN | [yellow-background]*Unknown*
+| 0x8c1b | 0x1102 (Array of Binary data values) | PR_EMS_AB_VIEW_DEFINITION | [yellow-background]*Unknown*
+| 0x8c1c | 0x0102 (Binary data) | PR_EMS_AB_MIME_TYPES | [yellow-background]*Unknown*
+| 0x8c1d | 0x0003 (Integer 32-bit signed) | PR_EMS_AB_LDAP_SEARCH_CFG | [yellow-background]*Unknown*
+| 0x8c1e | 0x000d (Embedded object) | PR_EMS_AB_INBOUND_DN_O | [yellow-background]*Unknown*
+| | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_EMS_AB_INBOUND_DN | [yellow-background]*Unknown*
+| 0x8c1f | 0x000b (Boolean) | PR_EMS_AB_INBOUND_NEWSFEED_TYPE | [yellow-background]*Unknown*
 |===
 
 * [yellow-background]*TODO: migrate documentation*
