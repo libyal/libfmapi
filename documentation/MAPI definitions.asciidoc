@@ -3855,17 +3855,64 @@ Contains a list of names by which a server is known to the various transports in
 | | 0x001e (ASCII string) +
 0x001f (Unicode string) | PR_EMS_AB_INBOUND_DN | [yellow-background]*Unknown*
 | 0x8c1f | 0x000b (Boolean) | PR_EMS_AB_INBOUND_NEWSFEED_TYPE | [yellow-background]*Unknown*
+| 0x8c20 | 0x000b (Boolean) | PR_EMS_AB_INBOUND_ACCEPT_ALL | [yellow-background]*Unknown*
+| 0x8c21 | 0x000b (Boolean) | PR_EMS_AB_ENABLED | [yellow-background]*Unknown*
+| 0x8c22 | 0x000b (Boolean) | PR_EMS_AB_PRESERVE_INTERNET_CONTENT | [yellow-background]*Unknown*
+| 0x8c23 | 0x000b (Boolean) | PR_EMS_AB_DISABLE_DEFERRED_COMMIT | [yellow-background]*Unknown*
+| 0x8c24 | 0x000b (Boolean) | PR_EMS_AB_CLIENT_ACCESS_ENABLED | [yellow-background]*Unknown*
+| 0x8c25 | 0x000b (Boolean) | PR_EMS_AB_REQUIRE_SSL | [yellow-background]*Unknown*
+| 0x8c26 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_EMS_AB_ANONYMOUS_ACCOUNT | [yellow-background]*Unknown*
+| 0x8c27 | 0x0102 (Binary data) | PR_EMS_AB_CERTIFICATE_CHAIN_V3 | [yellow-background]*Unknown*
+| 0x8c28 | 0x0102 (Binary data) | PR_EMS_AB_CERTIFICATE_REVOCATION_LIST_V3 | [yellow-background]*Unknown*
+| 0x8c29 | 0x0102 (Binary data) | PR_EMS_AB_CERTIFICATE_REVOCATION_LIST_V1 | [yellow-background]*Unknown*
+| | | |
+| 0x8c30 | 0x1102 (Array of Binary data values) | PR_EMS_AB_CROSS_CERTIFICATE_CRL | [yellow-background]*Unknown*
+| 0x8c31 | 0x000b (Boolean) | PR_EMS_AB_SEND_EMAIL_MESSAGE | [yellow-background]*Unknown*
+| 0x8c32 | 0x000b (Boolean) | PR_EMS_AB_ENABLE_COMPATIBILITY | [yellow-background]*Unknown*
+| 0x8c33 | 0x101e (Array of ASCII string values) +
+0x101f (Array of Unicode string values) | PR_EMS_AB_SMIME_ALG_LIST_NA | [yellow-background]*Unknown*
+| 0x8c34 | 0x101e (Array of ASCII string values) +
+0x101f (Array of Unicode string values) | PR_EMS_AB_SMIME_ALG_LIST_OTHER | [yellow-background]*Unknown*
+| 0x8c35 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_EMS_AB_SMIME_ALG_SELECTED_NA | [yellow-background]*Unknown*
+| 0x8c36 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_EMS_AB_SMIME_ALG_SELECTED_OTHER | [yellow-background]*Unknown*
+| 0x8c37 | 0x000b (Boolean) | PR_EMS_AB_DEFAULT_MESSAGE_FORMAT | [yellow-background]*Unknown*
+| 0x8c38 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_EMS_AB_TYPE | [yellow-background]*Unknown*
+| | | |
+| 0x8c3a | 0x0003 (Integer 32-bit signed) | PR_EMS_AB_DO_OAB_VERSION | [yellow-background]*Unknown*
+| 0x8c3b | 0x0102 (Binary data) | PR_EMS_AB_VOICE_MAIL_SYSTEM_GUID | [yellow-background]*Unknown*
+| 0x8c3c | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_EMS_AB_VOICE_MAIL_USER_ID | [yellow-background]*Unknown*
+| 0x8c3d | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_EMS_AB_VOICE_MAIL_PASSWORD | [yellow-background]*Unknown*
+| 0x8c3e | 0x0102 (Binary data) | PR_EMS_AB_VOICE_MAIL_RECORDED_NAME | [yellow-background]*Unknown*
+| 0x8c3f | 0x101e (Array of ASCII string values) +
+0x101f (Array of Unicode string values) | PR_EMS_AB_VOICE_MAIL_GREETINGS | [yellow-background]*Unknown*
 |===
 
 * [yellow-background]*TODO: migrate documentation*
 
 === Special error value (0xffff)
 
-* [yellow-background]*TODO: migrate documentation*
+[cols="1,1,1,5",options="header"]
+|===
+| Item | Value | Identifier | Description
+| 0xffff | | PROP_ID_INVALID | Invalid property
+|===
 
 === Named properties in the name-to-id map
 
-* [yellow-background]*TODO: migrate documentation*
+The MAPI defines multiple types of property names:
+
+* The MAPI property identifiers (PR_) which contain a 16-bit item type (PidTag). These properties are also referred to as tagged properties.
+* Properties identified by name, e.g. X-Originating-IP (PidName). These properties are also referred to as named properties with string identifiers.
+* The MAPI long (property) identifiers (LID_) which contain a 32-bit item type (PidLid). These properties are also referred to as named properties with numerical identifiers.
+
+In a PFF these properties are mapped to named property values using the
+name-to-id map.
 
 === Class identifiers
 
