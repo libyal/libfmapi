@@ -3891,6 +3891,35 @@ Contains a list of names by which a server is known to the various transports in
 | 0x8c3e | 0x0102 (Binary data) | PR_EMS_AB_VOICE_MAIL_RECORDED_NAME | [yellow-background]*Unknown*
 | 0x8c3f | 0x101e (Array of ASCII string values) +
 0x101f (Array of Unicode string values) | PR_EMS_AB_VOICE_MAIL_GREETINGS | [yellow-background]*Unknown*
+| 0x8c40 | 0x1102 (Array of Binary data values) | PR_EMS_AB_VOICE_MAIL_FLAGS | [yellow-background]*Unknown*
+| 0x8c41 | 0x0003 (Integer 32-bit signed) | PR_EMS_AB_VOICE_MAIL_VOLUME | [yellow-background]*Unknown*
+| 0x8c42 | 0x0003 (Integer 32-bit signed) | PR_EMS_AB_VOICE_MAIL_SPEED | [yellow-background]*Unknown*
+| 0x8c43 | 0x1003 (Array of Integer 32-bit signed values) | PR_EMS_AB_VOICE_MAIL_RECORDING_LENGTH
+| [yellow-background]*Unknown*
+| 0x8c44 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_EMS_AB_DISPLAY_NAME_SUFFIX | [yellow-background]*Unknown*
+| 0x8c45 | 0x1102 (Array of Binary data values) | PR_EMS_AB_ATTRIBUTE_CERTIFICATE | [yellow-background]*Unknown*
+| 0x8c46 | 0x1102 (Array of Binary data values) | PR_EMS_AB_DELTA_REVOCATION_LIST | [yellow-background]*Unknown*
+| 0x8c47 | 0x1102 (Array of Binary data values) | PR_EMS_AB_SECURITY_POLICY | [yellow-background]*Unknown*
+| 0x8c48 | 0x000b (Boolean) | PR_EMS_AB_SUPPORT_SMIME_SIGNATURES | [yellow-background]*Unknown*
+| 0x8c49 | 0x000b (Boolean) | PR_EMS_AB_DELEGATE_USER | [yellow-background]*Unknown*
+| 0x8c50 | 0x000b (Boolean) | PR_EMS_AB_LIST_PUBLIC_FOLDERS | [yellow-background]*Unknown*
+| 0x8c51 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_EMS_AB_LABELEDURI | [yellow-background]*Unknown*
+| 0x8c52 | 0x000b (Boolean) | PR_EMS_AB_RETURN_EXACT_MSG_SIZE | [yellow-background]*Unknown*
+| 0x8c53 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_EMS_AB_GENERATION_QUALIFIER | [yellow-background]*Unknown*
+| 0x8c54 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_EMS_AB_HOUSE_IDENTIFIER | [yellow-background]*Unknown*
+| 0x8c55 | 0x0102 (Binary data) | PR_EMS_AB_SUPPORTED_ALGORITHMS | [yellow-background]*Unknown*
+| 0x8c56 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_EMS_AB_DMD_NAME | [yellow-background]*Unknown*
+| 0x8c57 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_EMS_AB_EXTENSION_ATTRIBUTE_11 | [yellow-background]*Unknown*
+| 0x8c58 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_EMS_AB_EXTENSION_ATTRIBUTE_12 | [yellow-background]*Unknown*
+| 0x8c59 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_EMS_AB_EXTENSION_ATTRIBUTE_13 | [yellow-background]*Unknown*
 |===
 
 * [yellow-background]*TODO: migrate documentation*
