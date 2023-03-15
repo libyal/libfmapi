@@ -3920,6 +3920,49 @@ Contains a list of names by which a server is known to the various transports in
 0x001f (Unicode string) | PR_EMS_AB_EXTENSION_ATTRIBUTE_12 | [yellow-background]*Unknown*
 | 0x8c59 | 0x001e (ASCII string) +
 0x001f (Unicode string) | PR_EMS_AB_EXTENSION_ATTRIBUTE_13 | [yellow-background]*Unknown*
+| 0x8c60 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_EMS_AB_EXTENSION_ATTRIBUTE_14 | [yellow-background]*Unknown*
+| 0x8c61 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_EMS_AB_EXTENSION_ATTRIBUTE_15 | [yellow-background]*Unknown*
+| 0x8c62 | 0x0003 (Integer 32-bit signed) | PR_EMS_AB_REPLICATED_OBJECT_VERSION | [yellow-background]*Unknown*
+| 0x8c63 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_EMS_AB_MAIL_DROP +
+PR_EMS_AB_FORWARDING_ADDRESS | [yellow-background]*Unknown*
+| 0x8c65 | 0x0102 (Binary data) | PR_EMS_AB_FORM_DATA | [yellow-background]*Unknown*
+| 0x8c66 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_EMS_AB_OWA_SERVER | [yellow-background]*Unknown*
+| 0x8c67 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_EMS_AB_EMPLOYEE_NUMBER | [yellow-background]*Unknown*
+| 0x8c68 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_EMS_AB_TELEPHONE_PERSONAL_PAGER | [yellow-background]*Unknown*
+| 0x8c69 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_EMS_AB_EMPLOYEE_TYPE | [yellow-background]*Unknown*
+| 0x8c6a | 0x1102 (Array of Binary data values) | PR_EMS_AB_TAGGED_X509_CERT | [yellow-background]*Unknown*
+| 0x8c6b | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_EMS_AB_PERSONAL_TITLE | [yellow-background]*Unknown*
+| 0x8c6c | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_EMS_AB_LANGUAGE_ISO639 | [yellow-background]*Unknown*
+| | | |
+| 0x8c6d | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_EMS_AB_OBJECT_GUID | [yellow-background]*Unknown*
+| | | |
+| 0x8c8e | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_EMS_AB_PHONETIC_GIVEN_NAME | [yellow-background]*Unknown*
+| 0x8c8f | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_EMS_AB_PHONETIC_SURNAME | [yellow-background]*Unknown*
+| 0x8c90 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_EMS_AB_PHONETIC_DEPARTMENT_NAME | [yellow-background]*Unknown*
+| 0x8c91 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_EMS_AB_PHONETIC_COMPANY_NAME | [yellow-background]*Unknown*
+| 0x8c92 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_EMS_AB_PHONETIC_DISPLAY_NAME | [yellow-background]*Unknown*
+| | | |
+| 0x8c96 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_EMS_AB_ROOM_CONTAINERS | [yellow-background]*Unknown*
+| | | |
+| 0x8f01 | 0x0102 (Binary data) | | [yellow-background]*Unknown* +
+Found in PST file contains UTF-16 little-endian string with the address of the POP server?
+| | | |
 |===
 
 * [yellow-background]*TODO: migrate documentation*
