@@ -3963,9 +3963,26 @@ PR_EMS_AB_FORWARDING_ADDRESS | [yellow-background]*Unknown*
 | 0x8f01 | 0x0102 (Binary data) | | [yellow-background]*Unknown* +
 Found in PST file contains UTF-16 little-endian string with the address of the POP server?
 | | | |
+| 0xe100 | 0x0003 (Integer 32-bit signed) | | [yellow-background]*Unknown (Found in PAB file)*
+| 0xe101 | 0x0102 (Binary data) | | [yellow-background]*Unknown (Found in PAB file)*
+Contains GUID
+| | | |
+| 0xe400 | 0x0003 (Integer 32-bit signed) | | [yellow-background]*Unknown (Found in PAB file)*
+| | | |
+| 0xf000 | 0x000d (Embedded object) | PR_EMS_AB_OTHER_RECIPS | [yellow-background]*Unknown*
+| | | |
+| 0xfff8 | 0x101e (Array of ASCII string values) +
+0x101f (Array of Unicode string values) | PR_EMS_AB_CHILD_RDNS | [yellow-background]*Unknown*
+| 0xfff9 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_EMS_AB_HIERARCHY_PATH | [yellow-background]*Unknown*
+| 0xfffa | 0x0102 (Binary data) | PR_EMS_AB_OBJECT_OID | [yellow-background]*Unknown*
+| 0xfffb | 0x000b (Boolean) | PR_EMS_AB_IS_MASTER | [yellow-background]*Unknown*
+| 0xfffc | 0x0102 (Binary data) | PR_EMS_AB_PARENT_ENTRYID | [yellow-background]*Unknown* +
+See section: <<entry_identifier_structure,The entry identifier structure (ENTRYID)>>
+| 0xfffd | 0x0003 (Integer 32-bit signed) | PR_EMS_AB_CONTAINERID | [yellow-background]*Unknown*
+| 0xfffe | 0x001e (ASCII string) +
+0x001f (Unicode string) | PR_EMS_AB_SERVER | [yellow-background]*Unknown*
 |===
-
-* [yellow-background]*TODO: migrate documentation*
 
 === Special error value (0xffff)
 
