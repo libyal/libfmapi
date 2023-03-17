@@ -4005,7 +4005,183 @@ name-to-id map.
 
 === Class identifiers
 
-* [yellow-background]*TODO: migrate documentation*
+The name-to-id map maps properties from COM interfaces to the PFF items. The
+COM interfaces are identified by their class identifier (CLSID) which is
+formatted as a GUID.
+
+[cols="1,5",options="header"]
+|===
+| Class identifier | Interface
+| 00020300-0000-0000-c000-000000000046 | (IID_IMAPISession)
+| 00020301-0000-0000-c000-000000000046 | (IID_IMAPITable)
+| 00020302-0000-0000-c000-000000000046 | (IID_IMAPIAdviseSink)
+| 00020303-0000-0000-c000-000000000046 | (IID_IMAPIProp)
+| 00020304-0000-0000-c000-000000000046 | (IID_IProfSect)
+| 00020305-0000-0000-c000-000000000046 | (IID_IMAPIStatus)
+| 00020306-0000-0000-c000-000000000046 | (IID_IMsgStore)
+| 00020307-0000-0000-c000-000000000046 | (IID_IMessage)
+| 00020308-0000-0000-c000-000000000046 | (IID_IAttachment)
+| 00020309-0000-0000-c000-000000000046 | (IID_IAddrBook)
+| 0002030a-0000-0000-c000-000000000046 | (IID_IMailUser)
+| 0002030b-0000-0000-c000-000000000046 | (IID_IMAPIContainer)
+| 0002030c-0000-0000-c000-000000000046 | (IID_IMAPIFolder)
+| 0002030d-0000-0000-c000-000000000046 | (IID_IABContainer)
+| 0002030e-0000-0000-c000-000000000046 | (IID_IDistList)
+| 0002030f-0000-0000-c000-000000000046 | (IID_IMAPISup)
+| 00020310-0000-0000-c000-000000000046 | (IID_IMSProvider)
+| 00020311-0000-0000-c000-000000000046 | (IID_IABProvider)
+| 00020312-0000-0000-c000-000000000046 | (IID_IXPProvider)
+| 00020313-0000-0000-c000-000000000046 | (IID_IMSLogon)
+| 00020314-0000-0000-c000-000000000046 | (IID_IABLogon)
+| 00020315-0000-0000-c000-000000000046 | (IID_IXPLogon)
+| 00020316-0000-0000-c000-000000000046 | (IID_IMAPITableData)
+| 00020317-0000-0000-c000-000000000046 | (IID_IMAPISpoolerInit)
+| 00020318-0000-0000-c000-000000000046 | (IID_IMAPISpoolerSession)
+| 00020319-0000-0000-c000-000000000046 | (IID_ITNEF)
+| 0002031a-0000-0000-c000-000000000046 | (IID_IMAPIPropData)
+| 0002031b-0000-0000-c000-000000000046 | (IID_IMAPIControl)
+| 0002031c-0000-0000-c000-000000000046 | (IID_IProfAdmin)
+| 0002031d-0000-0000-c000-000000000046 | (IID_IMsgServiceAdmin)
+| 0002031e-0000-0000-c000-000000000046 | (IID_IMAPISpoolerService)
+| 0002031f-0000-0000-c000-000000000046 | (IID_IMAPIProgress)
+| 00020320-0000-0000-c000-000000000046 | (IID_ISpoolerHook)
+| 00020321-0000-0000-c000-000000000046 | (IID_IMAPIViewContext)
+| 00020322-0000-0000-c000-000000000046 | (IID_IMAPIFormMgr)
+| 00020323-0000-0000-c000-000000000046 | (IID_IEnumMAPIFormProp)
+| 00020324-0000-0000-c000-000000000046 | (IID_IMAPIFormInfo)
+| 00020325-0000-0000-c000-000000000046 | (IID_IProviderAdmin)
+| |
+| 00020327-0000-0000-c000-000000000046 | (IID_IMAPIForm)
+| 00020328-0000-0000-c000-000000000046 | MAPI (PS_MAPI)
+| 00020329-0000-0000-c000-000000000046 | Public stings (PS_PUBLIC_STRINGS)
+| 0002032a-0000-0000-c000-000000000046 | (IID_IPersistMessage)
+| 0002032b-0000-0000-c000-000000000046 | (IID_IMAPIViewAdviseSink)
+| 0002032c-0000-0000-c000-000000000046 | (IID_IStreamDocfile)
+| 0002032d-0000-0000-c000-000000000046 | (IID_IMAPIFormProp)
+| 0002032e-0000-0000-c000-000000000046 | (IID_IMAPIFormContainer)
+| 0002032f-0000-0000-c000-000000000046 | (IID_IMAPIFormAdviseSink)
+| 00020330-0000-0000-c000-000000000046 | (IID_IStreamTnef)
+| |
+| 00020350-0000-0000-c000-000000000046 | (IID_IMAPIFormFactory)
+| |
+| 00020370-0000-0000-c000-000000000046 | (IID_IMAPIMessageSite)
+| |
+| 00020380-0000-0000-c000-000000000046 | (PS_ROUTING_EMAIL_ADDRESSES)
+| 00020381-0000-0000-c000-000000000046 | (PS_ROUTING_ADDRTYPE)
+| 00020382-0000-0000-c000-000000000046 | (PS_ROUTING_DISPLAY_NAME)
+| 00020383-0000-0000-c000-000000000046 | (PS_ROUTING_ENTRYID)
+| 00020384-0000-0000-c000-000000000046 | (PS_ROUTING_SEARCH_KEY)
+| 00020385-0000-0000-c000-000000000046 | (MUID_PROFILE_INSTANCE )
+| 00020386-0000-0000-c000-000000000046 | Internet headers (PS_INTERNET_HEADERS)
+| |
+| 00020387-0000-0000-c000-000000000046 - 000203ff-0000-0000-c000-000000000046 | [yellow-background]*Unknown (Reserved for MAPI use)*
+| |
+| 0002038a-0000-0000-c000-000000000046 | (IID_IMessageRaw)
+| |
+| 00062000-0000-0000-c000-000000000046 | [yellow-background]*Unknown*
+| |
+| 00062002-0000-0000-c000-000000000046 | Appointment (PSETID_Appointment)
+| 00062003-0000-0000-c000-000000000046 | Task (PSETID_Task)
+| 00062004-0000-0000-c000-000000000046 | Address (PSETID_Address)
+| |
+| 00062008-0000-0000-c000-000000000046 | Common (PSETID_Common)
+| |
+| 0006200a-0000-0000-c000-000000000046 | Journal (PSETID_Log)
+| 0006200b-0000-0000-c000-000000000046 | [yellow-background]*Unknown*
+| |
+| 0006200e-0000-0000-c000-000000000046 | Sticky note (PSETID_Note)
+| |
+| 00062013-0000-0000-c000-000000000046 | [yellow-background]*Unknown*
+| 00062014-0000-0000-c000-000000000046 | [yellow-background]*Unknown*
+| |
+| 00062040-0000-0000-c000-000000000046 | Sharing (PSETID_Sharing)
+| 00062041-0000-0000-c000-000000000046 | RSS feed (PSETID_PostRSS)
+| |
+| 29f3ab52-554d-11d0-a97c-00a0c911f50a | [yellow-background]*Unknown*
+| 29f3ab53-554d-11d0-a97c-00a0c911f50a | [yellow-background]*Unknown*
+| |
+| 29f3ab55-554d-11d0-a97c-00a0c911f50a | [yellow-background]*Unknown*
+| 29f3ab56-554d-11d0-a97c-00a0c911f50a | [yellow-background]*Unknown*
+| |
+| 29f3ab60-554d-11d0-a97c-00a0c911f50a | [yellow-background]*Unknown*
+| |
+| 41564737-3200-10a1-989b-0000e87b4fb1 | [yellow-background]*Unknown*
+| |
+| 4442858e-a9e3-4e80-b900-317a210cc15b | Unified messaging (PSETID_UnifiedMessaging)
+| |
+| 49691c90-7e17-101a-a91c-08002b2ecda9 | [yellow-background]*Unknown*
+| |
+| 4e3a7680-b77a-11d0-9da5-00c04fd65685 | [yellow-background]*Unknown*
+| |
+| 6ed8da90-450b-101b-98da-00aa003f1305 | Calendar (PSETID_Meeting)
+| |
+| 71035549-0739-4dcb-9163-00f0580dbbdf | Air Sync (PSETID_AirSync)
+| |
+| 94faef10-f947-11d0-800e-00a0c90dc8db | [yellow-background]*Unknown*
+| |
+| 96357f7f-59e1-47d0-99a7-46515c183b54 | Attachment (PSETID_Attachment)
+| |
+| a417bc12-7be1-11ce-ad82-00aa006ec559 | [yellow-background]*Unknown*
+| |
+| b725f130-47ef-101a-a5f1-02608c9eebac | [yellow-background]*Unknown*
+| |
+| c671a7cb-d1a9-47cb-8c1e-c978c8c69f94 | [yellow-background]*Unknown*
+|===
+
+A certain property set is defined for these interfaces.
+
+==== Notes
+
+....
+Class identifier: 20    : 560c36c0-503a-11cf-baa1-00004c752a9a (Unknown)
+Class identifier: 21    : c82bf596-b831-11d0-b733-00aa00a1ebd2 (Unknown)
+Class identifier: 22    : 0b63e350-9ccc-11d0-bcdb-00805fccce04 (Unknown)
+Class identifier: 23    : 0b63e343-9ccc-11d0-bcdb-00805fccce04 (Unknown)
+Class identifier: 24    : d1b5d3f0-c0b3-11cf-9a92-00a0c908dbf1 (Unknown)
+Class identifier: 25    : 70eb7a10-55d9-11cf-b75b-00aa0051fe20 (Unknown)
+Class identifier: 26    : 31f400a0-fd07-11cf-b9bd-00aa003db18e (Unknown)
+Class identifier: 27    : f29f85e0-4ff9-1068-ab91-08002b27b3d9 (Unknown)
+Class identifier: 28    : d5cdd502-2e9c-101b-9397-08002b2cf9ae (Unknown)
+
+Class identifier: 10	: 11000e07-b51b-40d6-af21-caa85edab1d0 (Unknown)
+Class identifier: 11	: 0006200b-0000-0000-c000-000000000046 (Unknown)
+Class identifier: 12	: 29f3ab56-554d-11d0-a97c-00a0c911f50a (Unknown)
+Class identifier: 13	: 4e3a7680-b77a-11d0-9da5-00c04fd65685 (Unknown)
+Class identifier: 15	: 00062013-0000-0000-c000-000000000046 (Unknown)
+Class identifier: 16	: 94faef10-f947-11d0-800e-00a0c90dc8db (Unknown)
+
+Class identifier: 21	: b725f130-47ef-101a-a5f1-02608c9eebac (Unknown)
+Class identifier: 22	: 49691c90-7e17-101a-a91c-08002b2ecda9 (Unknown)
+Class identifier: 23	: 560c36c0-503a-11cf-baa1-00004c752a9a (Unknown)
+Class identifier: 24	: c82bf596-b831-11d0-b733-00aa00a1ebd2 (Unknown)
+Class identifier: 25	: 0b63e350-9ccc-11d0-bcdb-00805fccce04 (Unknown)
+Class identifier: 26	: 0b63e343-9ccc-11d0-bcdb-00805fccce04 (Unknown)
+Class identifier: 27	: d1b5d3f0-c0b3-11cf-9a92-00a0c908dbf1 (Unknown)
+Class identifier: 28	: 70eb7a10-55d9-11cf-b75b-00aa0051fe20 (Unknown)
+Class identifier: 29	: 31f400a0-fd07-11cf-b9bd-00aa003db18e (Unknown)
+Class identifier: 30	: f29f85e0-4ff9-1068-ab91-08002b27b3d9 (Unknown)
+Class identifier: 31	: d5cdd502-2e9c-101b-9397-08002b2cf9ae (Unknown)
+
+Class identifier: 03    : 00062014-0000-0000-c000-000000000046 (Unknown)
+Class identifier: 10    : 11000e07-b51b-40d6-af21-caa85edab1d0 (Unknown)
+Class identifier: 11    : 0006200b-0000-0000-c000-000000000046 (Unknown)
+
+Class identifier: 13    : 00062013-0000-0000-c000-000000000046 (Unknown)
+Class identifier: 14    : 4e3a7680-b77a-11d0-9da5-00c04fd65685 (Unknown)
+Class identifier: 15    : 94faef10-f947-11d0-800e-00a0c90dc8db (Unknown)
+
+Class identifier: 21    : b725f130-47ef-101a-a5f1-02608c9eebac (Unknown)
+Class identifier: 22    : 49691c90-7e17-101a-a91c-08002b2ecda9 (Unknown)
+Class identifier: 23    : 560c36c0-503a-11cf-baa1-00004c752a9a (Unknown)
+Class identifier: 24    : c82bf596-b831-11d0-b733-00aa00a1ebd2 (Unknown)
+Class identifier: 25    : 0b63e350-9ccc-11d0-bcdb-00805fccce04 (Unknown)
+Class identifier: 26    : 0b63e343-9ccc-11d0-bcdb-00805fccce04 (Unknown)
+Class identifier: 27    : d1b5d3f0-c0b3-11cf-9a92-00a0c908dbf1 (Unknown)
+Class identifier: 28    : 70eb7a10-55d9-11cf-b75b-00aa0051fe20 (Unknown)
+Class identifier: 29    : 31f400a0-fd07-11cf-b9bd-00aa003db18e (Unknown)
+Class identifier: 30    : f29f85e0-4ff9-1068-ab91-08002b27b3d9 (Unknown)
+Class identifier: 31    : d5cdd502-2e9c-101b-9397-08002b2cf9ae (Unknown)
+....
 
 === Calendar property set (0x0000000 - 0x00000ff)
 
