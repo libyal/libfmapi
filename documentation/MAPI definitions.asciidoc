@@ -3606,7 +3606,6 @@ Contains "D", "u" or "h"
 | 0x8143 | 0x1102 (Array of Binary data values) | PR_EMS_AB_TELETEX_TERMINAL_IDENTIFIER | [yellow-background]*Unknown*
 | 0x8144 | 0x0003 (Integer 32-bit signed) | PR_EMS_AB_TEMP_ASSOC_THRESHOLD | [yellow-background]*Unknown*
 | 0x8145 | 0x0003 (Integer 32-bit signed) | PR_EMS_AB_TOMBSTONE_LIFETIME | [yellow-background]*Unknown*
-| Integer 32-bit signed
 | 0x8146 | 0x001e (ASCII string) +
 0x001f (Unicode string) | PR_EMS_AB_TRACKING_LOG_PATH_NAME | [yellow-background]*Unknown*
 | 0x8147 | 0x0003 (Integer 32-bit signed) | PR_EMS_AB_TRANS_RETRY_MINS | [yellow-background]*Unknown*
@@ -3623,7 +3622,6 @@ Contains "D", "u" or "h"
 | 0x8152 | 0x000d (Embedded object) | PR_EMS_AB_UNAUTH_ORIG_BL_O | [yellow-background]*Unknown*
 | | 0x101e (Array of ASCII string values) +
 0x101f (Array of Unicode string values) | PR_EMS_AB_UNAUTH_ORIG_BL | [yellow-background]*Unknown*
-| Array of ASCII or Unicode string values
 | 0x8153 | 0x1102 (Array of Binary data values) | PR_EMS_AB_USER_PASSWORD | [yellow-background]*Unknown*
 | 0x8154 | 0x0003 (Integer 32-bit signed) | PR_EMS_AB_USN_CREATED | [yellow-background]*Unknown*
 | | 0x001e (ASCII string) +
@@ -3844,7 +3842,6 @@ Contains a list of names by which a server is known to the various transports in
 | 0x8c18 | 0x0003 (Integer 32-bit signed) | PR_EMS_AB_VIEW_FLAGS | [yellow-background]*Unknown*
 | 0x8c19 | 0x001e (ASCII string) +
 0x001f (Unicode string) | PR_EMS_AB_GROUP_BY_ATTR_VALUE_STR | [yellow-background]*Unknown*
-| ASCII or Unicode string
 | 0x8c1a | 0x000d (Embedded object) | PR_EMS_AB_GROUP_BY_ATTR_VALUE_DN_O | [yellow-background]*Unknown*
 | | 0x001e (ASCII string) +
 0x001f (Unicode string) | PR_EMS_AB_GROUP_BY_ATTR_VALUE_DN | [yellow-background]*Unknown*
@@ -4183,39 +4180,108 @@ Class identifier: 30    : f29f85e0-4ff9-1068-ab91-08002b27b3d9 (Unknown)
 Class identifier: 31    : d5cdd502-2e9c-101b-9397-08002b2cf9ae (Unknown)
 ....
 
-=== Calendar property set (0x0000000 - 0x00000ff)
+=== Calendar property set (0x0000 - 0x00ff)
+
+Named properties mapped to the Calendar interface GUID:
+6ed8da90-450b-101b-98da-00aa003f1305.
+
+[cols="1,1,1,5",options="header"]
+|===
+| Item | Value | Identifier | Description
+| 0x0001 | 0x0040 (Filetime) | PidLidAttendeeCriticalChange +
+(LID_ATTENDEE_CRITICAL_CHANGE) | Attendee critical change
+| 0x0002 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidLidWhere +
+(LID_WHERE) | Location
+| 0x0003 | 0x0102 (Binary data) | PidLidGlobalObjectId +
+(LID_GLOBAL_OBJID) | Global object identifier
+| 0x0004 | 0x000b (Boolean) | PidLidIsSilent +
+(LID_IS_SILENT) | Is silent
+| 0x0005 | 0x000b (Boolean) | PidLidIsRecurring +
+(LID_IS_RECURRING) | Is recurring +
+| Specifies whether or not the object is associated with a recurring series.
+| 0x0006 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidLidRequiredAttendees +
+(LID_REQUIRED_ATTENDEES) | Required attendees
+| 0x0007 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidLidOptionalAttendees +
+(LID_OPTIONAL_ATTENDEES) | Optional attendees
+| 0x0008 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidLidResourceAttendees +
+(LID_RESOURCE_ATTENDEES) | Resource attendees
+| 0x0009 | 0x000b (Boolean) | PidLidDelegateMail +
+(LID_DELEGATE_MAIL) | Delegate mail
+| 0x000a | 0x000b (Boolean) | PidLidIsException +
+(LID_IS_EXCEPTION) | Is exception
+| 0x000b | 0x000b (Boolean) | PidLidSingleInvite +
+(LID_SINGLE_INVITE) | Single invite
+| 0x000c | 0x0003 (Integer 32-bit signed) | PidLidTimeZone +
+(LID_TIME_ZONE) | Time zone
+| | | |
+| 0x0011 | 0x0002 (Integer 16-bit signed) | PidLidDayInterval +
+(LID_DAY_INTERVAL) | Day interval
+| 0x0012 | 0x0002 (Integer 16-bit signed) | PidLidWeekInterval +
+(LID_WEEK_INTERVAL) | Week interval
+| 0x0013 | 0x0002 (Integer 16-bit signed) | PidLidMonthInterval +
+(LID_MONTH_INTERVAL) | Month interval
+| 0x0014 | 0x0002 (Integer 16-bit signed) | PidLidYearInterval +
+(LID_YEAR_INTERVAL) | Year interval
+| | | |
+| 0x001a | 0x0040 (Filetime) | PidLidOwnerCriticalChange +
+(LID_OWNER_CRITICAL_CHANGE) | Owner critical change
+| | | |
+| 0x001c | 0x0003 (Integer 32-bit signed) | PidLidCalendarType +
+(LID_CALENDAR_TYPE) | Calendar type
+| 0x001d | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidLidAllAttendeesList +
+(LID_ALL_ATTENDEES_LIST) | Resource attendees
+| | | |
+| 0x0021 | 0x0003 (Integer 32-bit signed) | | [yellow-background]*Unknown*
+| | | |
+| 0x0023 | 0x0102 (Binary data) | PidLidCleanGlobalObjId | Clean global object identifier
+| 0x0024 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidLidApptMessageClass | Appointment message class
+| | | |
+| 0x0026 | 0x0003 (Integer 32-bit signed) | PidLidMeetingType | Meeting type
+| | | |
+| 0x0028 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidLidOldLocation | Location before update
+| 0x0029 | 0x0040 (Filetime) | PidLidOldWhenStartWhole | Start time before update
+| 0x002a | 0x0040 (Filetime) | PidLidOldWhenEndWhole | End time before update
+|===
+
+=== Address property set (0x8000 - 0x80ff)
+
+Named properties mapped to the Address interface GUID:
+00062004-0000-0000-c000-000000000046.
 
 * [yellow-background]*TODO: migrate documentation*
 
-=== Address property set (0x0008000 - 0x00080ff)
+=== Task property set (0x8100 - 0x81ff)
 
 * [yellow-background]*TODO: migrate documentation*
 
-=== Task property set (0x0008100 - 0x00081ff)
+=== Appointment property set (0x8200 - 0x82ff)
 
 * [yellow-background]*TODO: migrate documentation*
 
-=== Appointment property set (0x0008200 - 0x00082ff)
+=== Common property set (0x8500 - 0x85ff)
 
 * [yellow-background]*TODO: migrate documentation*
 
-=== Common property set (0x0008500 - 0x00085ff)
+=== Journal property set (0x8700 - 0x87ff)
 
 * [yellow-background]*TODO: migrate documentation*
 
-=== Journal property set (0x0008700 - 0x00087ff)
+=== RSS feed property set (0x8900 - 0x89ff)
 
 * [yellow-background]*TODO: migrate documentation*
 
-=== RSS feed property set (0x0008900 - 0x00089ff)
+=== Sharing property set (0x8a00 - 0x8aff)
 
 * [yellow-background]*TODO: migrate documentation*
 
-=== Sharing property set (0x0008a00 - 0x0008aff)
-
-* [yellow-background]*TODO: migrate documentation*
-
-=== Sticky note property set (0x0008b00 - 0x0008bff)
+=== Sticky note property set (0x8b00 - 0x8bff)
 
 * [yellow-background]*TODO: migrate documentation*
 
