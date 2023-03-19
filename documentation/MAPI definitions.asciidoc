@@ -4199,7 +4199,7 @@ Named properties mapped to the Calendar interface GUID:
 (LID_IS_SILENT) | Is silent
 | 0x0005 | 0x000b (Boolean) | PidLidIsRecurring +
 (LID_IS_RECURRING) | Is recurring +
-| Specifies whether or not the object is associated with a recurring series.
+Specifies whether or not the object is associated with a recurring series.
 | 0x0006 | 0x001e (ASCII string) +
 0x001f (Unicode string) | PidLidRequiredAttendees +
 (LID_REQUIRED_ATTENDEES) | Required attendees
@@ -4254,6 +4254,54 @@ Named properties mapped to the Calendar interface GUID:
 
 Named properties mapped to the Address interface GUID:
 00062004-0000-0000-c000-000000000046.
+
+[cols="1,1,1,5",options="header"]
+|===
+| Item | Value | Identifier | Description
+| 0x8002 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidLidYomiCompanyName | [yellow-background]*Unknown*
+| | | |
+| 0x8005 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidLidFileUnder | File under (FTK: File as)
+| 0x8006 | 0x0003 (Integer 32-bit signed) | PidLidFileUnderID | File under identifier
+| 0x8007 | 0x1003 (Array of Integer 32-bit signed values) | PidLidContactItemData | [yellow-background]*Unknown*
+| | | |
+| 0x800e | 0x001e (ASCII string) +
+0x001f (Unicode string) | | [yellow-background]*Unknown (found in PST)*
+| | | |
+| 0x8010 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidLidDepartment | Department
+| | | |
+| 0x8015 | 0x000b (Boolean) | PidLidHasPicture | Has picture
+| | | |
+| 0x801a | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidLidHomeAddress | Home Address
+| 0x801b | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidLidWorkAddress | Business Address
+| 0x801c | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidLidOtherAddress | Other Address
+| | | |
+| 0x8022 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidLidPostalAddressId | Selected Mailing Address
+| 0x8023 | 0x0003 (Integer 32-bit signed) | PidLidContactCharacterSet | [yellow-background]*Unknown*
+| | | |
+| 0x8025 | 0x000b (Boolean) | PidLidAutoLog | Journal +
+Specifies to create a journal for each action associated with this contact.
+| 0x8026 | 0x1003 (Array of Integer 32-bit signed values) | PidLidFileUnderList | [yellow-background]*Unknown*
+| 0x8027 | 0x1003 (Array of Integer 32-bit signed values) | PidLidEmailList | [yellow-background]*Unknown*
+| 0x8028 | 0x1003 (Array of Integer 32-bit signed values) | PidLidAddressBookProviderEmailList | [yellow-background]*Unknown*
+| 0x8029 | 0x0003 (Integer 32-bit signed) | PidLidAddressBookProviderArrayType | Address book provider types +
+Specifies the state of the contact’s electronic addresses and represents a set of bit flags. +
+See section: <<address_book_provider_type_definitions,Address book provider type definitions>>
+| | | |
+| 0x802b | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidLidHtml | Webpage
+| 0x802c | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidLidYomiFirstName | [yellow-background]*Unknown*
+| 0x802d | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidLidYomiLastName | [yellow-background]*Unknown*
+| | | |
+|===
 
 * [yellow-background]*TODO: migrate documentation*
 
