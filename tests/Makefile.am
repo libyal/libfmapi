@@ -24,6 +24,7 @@ EXTRA_DIST = \
 	$(check_SCRIPTS)
 
 check_PROGRAMS = \
+	fmapi_test_checksum \
 	fmapi_test_entry_identifier \
 	fmapi_test_error \
 	fmapi_test_one_off_entry_identifier \
@@ -31,6 +32,16 @@ check_PROGRAMS = \
 	fmapi_test_support \
 	fmapi_test_value_type \
 	fmapi_test_x400_object_identifier
+
+fmapi_test_checksum_SOURCES = \
+	fmapi_test_checksum.c \
+	fmapi_test_libcerror.h \
+	fmapi_test_libfmapi.h \
+	fmapi_test_unused.h
+
+fmapi_test_checksum_LDADD = \
+	../libfmapi/libfmapi.la \
+	@LIBCERROR_LIBADD@
 
 fmapi_test_entry_identifier_SOURCES = \
 	fmapi_test_entry_identifier.c \

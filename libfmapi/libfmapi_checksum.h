@@ -25,14 +25,21 @@
 #include <common.h>
 #include <types.h>
 
+#include "libfmapi_extern.h"
 #include "libfmapi_libcerror.h"
 
 #if defined( __cplusplus )
 extern "C" {
 #endif
 
+LIBFMAPI_EXTERN_VARIABLE \
+uint32_t libfmapi_checksum_crc32_table[ 256 ];
+
+LIBFMAPI_EXTERN_VARIABLE \
+int libfmapi_checksum_crc32_table_computed;
+
 void libfmapi_checksum_initialize_crc32_table(
-      void );
+      int );
 
 int libfmapi_checksum_calculate_crc32(
      uint32_t *checksum,

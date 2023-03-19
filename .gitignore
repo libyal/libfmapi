@@ -124,6 +124,7 @@ stamp-h[1-9]
 /libfmapi/libfmapi.rc
 /libfmapi/libfmapi_definitions.h
 /tests/*.exe
+/tests/fmapi_test_checksum
 /tests/fmapi_test_entry_identifier
 /tests/fmapi_test_error
 /tests/fmapi_test_one_off_entry_identifier
