@@ -4301,6 +4301,47 @@ See section: <<address_book_provider_type_definitions,Address book provider type
 | 0x802d | 0x001e (ASCII string) +
 0x001f (Unicode string) | PidLidYomiLastName | [yellow-background]*Unknown*
 | | | |
+| 0x8040 | 0x0102 (Binary data) | PidLidBusinessCardDisplayDefinition | [yellow-background]*Unknown*
+| 0x8041 | 0x0102 (Binary data) | PidLidBusinessCardCardPicture | [yellow-background]*Unknown*
+| | | |
+| 0x8045 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidLidWorkAddressStreet | Business Address City
+| 0x8046 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidLidWorkAddressCity | Business Address Street
+| 0x8047 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidLidWorkAddressState | Business Address State
+| 0x8048 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidLidWorkAddressPostalCode | Business Address Postal Code
+| 0x8049 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidLidWorkAddressCountry | Business Address Country
+| 0x804a | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidLidWorkAddressPostOfficeBox | [yellow-background]*Unknown*
+| | | |
+| 0x804c | 0x0003 (Integer 32-bit signed) | PidLidDistributionListChecksum | Distribution list checksum +
+Specifies the 32-bit cyclic redundancy check (CRC-32) polynomial checksum for a personal distribution list. +
+[yellow-background]*TODO the checksum of what data? Weak CRC?*
+| 0x804d | 0x0102 (Binary data) | PidLidBirthdayEventEntryId | [yellow-background]*Unknown*
+| 0x804e | 0x0102 (Binary data) | PidLidAnniversaryEventEntryId | [yellow-background]*Unknown*
+| 0x804f | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidLidContactUserField1 | [yellow-background]*Unknown*
+| 0x8050 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidLidContactUserField2 | [yellow-background]*Unknown*
+| 0x8051 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidLidContactUserField3 | [yellow-background]*Unknown*
+| 0x8052 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidLidContactUserField4 | [yellow-background]*Unknown*
+| 0x8053 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidLidDistributionListName | Distribution list name
+| 0x8054 | 0x1102 (Array of Binary data values) | PidLidDistributionListOneOffMembers | Distribution list member one-off entry identifiers +
+Specifies the list of one-off entry identifiers of the members of the personal distribution list. +
+See section: <<entry_identifier_structure,The entry identifier structure (ENTRYID)>>
+| 0x8055 | 0x1102 (Array of Binary data values) | PidLidDistributionListMembers | Distribution list member entry identifiers +
+Specifies the list of entry identifiers of the members of the personal distribution list. +
+See section: <<entry_identifier_structure,The entry identifier structure (ENTRYID)>>
+| | | |
+| 0x8062 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidLidInstantMessagingAddress | IM Address
+| | | |
 |===
 
 * [yellow-background]*TODO: migrate documentation*
