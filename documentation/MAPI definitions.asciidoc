@@ -4342,11 +4342,93 @@ See section: <<entry_identifier_structure,The entry identifier structure (ENTRYI
 | 0x8062 | 0x001e (ASCII string) +
 0x001f (Unicode string) | PidLidInstantMessagingAddress | IM Address
 | | | |
+| 0x8080 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidLidEmail1DisplayName | E-mail1 Display Name
+| 0x8081 | 0x0102 (Binary Data) | PidLidEmail1EntryId | E-mail1 entry identifier +
+See section: <<entry_identifier_structure,The entry identifier structure (ENTRYID)>>
+| 0x8082 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidLidEmail1AddressType | E-mail1 Address Type
+| 0x8083 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidLidEmail1EmailAddress | E-mail1 Address
+| 0x8084 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidLidEmail1OriginalDisplayName | E-mail1 Display Name
+| 0x8085 | 0x0102 (Binary Data) | PidLidEmail1OriginalEntryId | E-mail1 original entry identifier +
+See section: <<entry_identifier_structure,The entry identifier structure (ENTRYID)>>
+| | | |
+| 0x8087 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidLidEmail1EmailType | E-mail1 type
+| | | |
+| 0x8090 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidLidEmail2DisplayName | E-mail2 display name
+| 0x8091 | 0x0102 (Binary Data) | PidLidEmail2EntryId | E-mail2 entry identifier +
+See section: <<entry_identifier_structure,The entry identifier structure (ENTRYID)>>
+| 0x8092 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidLidEmail2AddressType | E-mail2 address type
+| 0x8093 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidLidEmail2EmailAddress | E-mail2 e-mail address
+| 0x8094 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidLidEmail2OriginalDisplayName | E-mail2 original display name
+| 0x8095 | 0x0102 (Binary Data) | PidLidEmail2OriginalEntryId | E-mail2 original entry identifier +
+See section: <<entry_identifier_structure,The entry identifier structure (ENTRYID)>>
+| | | |
+| 0x80a0 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidLidEmail3DisplayName | E-mail3 display name
+| 0x80a1 | 0x0102 (Binary Data) | PidLidEmail3EntryId | E-mail3 entry identifier +
+See section: <<entry_identifier_structure,The entry identifier structure (ENTRYID)>>
+| 0x80a2 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidLidEmail3AddressType | E-mail3 address type
+| 0x80a3 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidLidEmail3EmailAddress | E-mail3 e-mail address
+| 0x80a4 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidLidEmail3OriginalDisplayName | E-mail3 original display name
+| 0x80a5 | 0x0102 (Binary Data) | PidLidEmail3OriginalEntryId | E-mail3 original entry identifier +
+See section: <<entry_identifier_structure,The entry identifier structure (ENTRYID)>>
+| | | |
+| 0x80b2 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidLidFax1AddressType | Fax1 Address Type
+| 0x80b3 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidLidFax1EmailAddress | Fax1 Email Address
+| 0x80b4 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidLidFax1OriginalDisplayName | Fax1 original display name
+| 0x80b5 | 0x0102 (Binary data) | PidLidFax1OriginalEntryId | Fax1 original entry identifier +
+See section: <<entry_identifier_structure,The entry identifier structure (ENTRYID)>>
+| | | |
+| 0x80c2 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidLidFax2AddressType | Fax2 Address Type
+| 0x80c3 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidLidFax2EmailAddress | Fax2 Email Address
+| 0x80c4 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidLidFax2OriginalDisplayName | Fax2 original display name
+| 0x80c5 | 0x0102 (Binary data) | PidLidFax2OriginalEntryId | Fax2 original entry identifier +
+See section: <<entry_identifier_structure,The entry identifier structure (ENTRYID)>>
+| | | |
+| 0x80d2 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidLidFax3AddressType | Fax3 Address Type
+| 0x80d3 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidLidFax3EmailAddress | Fax3 Email Address
+| 0x80d4 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidLidFax3OriginalDisplayName | Fax3 original display name
+| 0x80d5 | 0x0102 (Binary data) | PidLidFax3OriginalEntryId | Fax3 original entry identifier +
+See section: <<entry_identifier_structure,The entry identifier structure (ENTRYID)>>
+| | | |
+| 0x80d8 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidLidFreeBusyLocation | [yellow-background]*Unknown*
+| | | | 
+| 0x80da | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidLidHomeAddressCountryCode | Home address country code
+| 0x80db | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidLidWorkAddressCountryCode | Work address country code
+| 0x80dc | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidLidOtherAddressCountryCode | Other address country code
+| 0x80dd | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidLidAddressCountryCode | Mailing address country code
+| Specifies the country code of the contact’s mailing address.
 |===
 
-* [yellow-background]*TODO: migrate documentation*
-
 === Task property set (0x8100 - 0x81ff)
+
+Named properties mapped to the Task interface GUID:
+00062003-0000-0000-c000-000000000046.
 
 * [yellow-background]*TODO: migrate documentation*
 
