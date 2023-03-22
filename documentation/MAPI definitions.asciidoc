@@ -4413,7 +4413,7 @@ See section: <<entry_identifier_structure,The entry identifier structure (ENTRYI
 | | | |
 | 0x80d8 | 0x001e (ASCII string) +
 0x001f (Unicode string) | PidLidFreeBusyLocation | [yellow-background]*Unknown*
-| | | | 
+| | | |
 | 0x80da | 0x001e (ASCII string) +
 0x001f (Unicode string) | PidLidHomeAddressCountryCode | Home address country code
 | 0x80db | 0x001e (ASCII string) +
@@ -4430,9 +4430,62 @@ See section: <<entry_identifier_structure,The entry identifier structure (ENTRYI
 Named properties mapped to the Task interface GUID:
 00062003-0000-0000-c000-000000000046.
 
-* [yellow-background]*TODO: migrate documentation*
+[cols="1,1,1,5",options="header"]
+|===
+| Item | Value | Identifier | Description
+| 0x8101 | 0x0003 (Integer 32-bit signed) | PidLidTaskStatus | Status +
+0x0 => Not started +
+[yellow-background]*TODO: add more values*
+| 0x8102 | 0x0005 (Floating point double precision (64-bit)) | PidLidPercentComplete | Percent Complete
+| 0x8103 | 0x000b (Boolean) | PidLidTeamTask | Is team task
+| 0x8104 | 0x0040 (Filetime) | PidLidTaskStartDate | Start date
+| 0x8105 | 0x0040 (Filetime) | PidLidTaskDueDate | Due date
+| | | |
+| 0x8107 | 0x000b (Boolean) | PidLidTaskResetReminder | [yellow-background]*Unknown*
+| 0x8108 | 0x000b (Boolean) | PidLidTaskAccepted | [yellow-background]*Unknown*
+| 0x8109 | 0x000b (Boolean) | PidLidTaskDeadOccurrence | [yellow-background]*Unknown*
+| | | |
+| 0x810f | 0x0040 (Filetime) | PidLidTaskDateCompleted | Date completed
+| 0x8110 | 0x0003 (Integer 32-bit signed) | PidLidTaskActualEffort | Actual effort in minutes
+| 0x8111 | 0x0003 (Integer 32-bit signed) | PidLidTaskEstimatedEffort | Total effort in minutes
+| 0x8112 | 0x0003 (Integer 32-bit signed) | PidLidTaskVersion | Task version (FTK: Access count)
+| 0x8113 | 0x0003 (Integer 32-bit signed) | PidLidTaskState | [yellow-background]*Unknown*
+| | | |
+| 0x8115 | 0x0040 (Filetime) | PidLidTaskLastUpdate | [yellow-background]*Unknown*
+| 0x8116 | 0x0102 (Binary data) | PidLidTaskRecurrence | [yellow-background]*Unknown*
+| 0x8117 | 0x0102 (Binary data) | PidLidTaskAssigners | [yellow-background]*Unknown*
+| | | |
+| 0x8119 | 0x000b (Boolean) | PidLidTaskStatusOnComplete | [yellow-background]*Unknown*
+| 0x811a | 0x0003 (Integer 32-bit signed) | PidLidTaskHistory | [yellow-background]*Unknown*
+| 0x811b | 0x000b (Boolean) | PidLidTaskUpdates | [yellow-background]*Unknown*
+| 0x811c | 0x000b (Boolean) | PidLidTaskComplete | Complete
+| | | |
+| 0x811e | 0x000b (Boolean) | PidLidTaskFCreator | [yellow-background]*Unknown*
+| 0x811f | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidLidTaskOwner | Owner
+| 0x8120 | 0x0003 (Integer 32-bit signed) | PidLidTaskMultipleRecipients | [yellow-background]*Unknown*
+| 0x8121 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidLidTaskAssigner | Delegator
+| 0x8122 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidLidTaskLastUser | [yellow-background]*Unknown*
+| 0x8123 | 0x0003 (Integer 32-bit signed) | PidLidTaskOrdinal | Ordinal
+| 0x8124 | 0x000b (Boolean) | PidLidTaskNoCompute | [yellow-background]*Unknown*
+| 0x8125 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidLidTaskLastDelegate | [yellow-background]*Unknown*
+| 0x8126 | 0x000b (Boolean) | PidLidTaskFRecurring | Is recurring
+| 0x8127 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidLidTaskRole | Role
+| | | |
+| 0x8129 | 0x0003 (Integer 32-bit signed) | PidLidTaskOwnership | Ownership
+| 0x812a | 0x0003 (Integer 32-bit signed) | PidLidAcceptanceState | Delegation State
+| | | |
+| 0x812c | 0x000b (Boolean) | PidLidTaskFFixOffline | [yellow-background]*Unknown*
+|===
 
 === Appointment property set (0x8200 - 0x82ff)
+
+Named properties mapped to the Appointment interface GUID:
+00062002-0000-0000-c000-000000000046.
 
 * [yellow-background]*TODO: migrate documentation*
 
