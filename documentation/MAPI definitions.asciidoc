@@ -4487,6 +4487,53 @@ Named properties mapped to the Task interface GUID:
 Named properties mapped to the Appointment interface GUID:
 00062002-0000-0000-c000-000000000046.
 
+[cols="1,1,1,5",options="header"]
+|===
+| Item | Value | Identifier | Description
+| 0x8200 | 0x000b (Boolean) | PidLidSendMeetingAsIcal | Send As ICAL +
+Specifies if a meeting request should be sent as an iCal message.
+| 0x8201 | 0x0003 (Integer 32-bit signed) | PidLidAppointmentSequence | Appointment sequence +
+Specifies a bit field that describes the state of the object. +
+See section: <<appointment_sequence_definitions,Appointment sequence definitions>>
+| 0x8202 | 0x0040 (Filetime) | PidLidAppointmentSequenceTime | Appointment sequence last modification date and time +
+Specifies the date and time at which this property was last modified.
+| 0x8203 | 0x0003 (Integer 32-bit signed) | PidLidAppointmentLastSequence | Appointment last sequence number +
+Indicates to the organizer the last sequence number that was sent to any attendee.
+| 0x8204 | 0x0003 (Integer 32-bit signed) | PidLidChangeHighlight | [yellow-background]*Unknown*
+| 0x8205 | 0x0003 (Integer 32-bit signed) | PidLidBusyStatus | Busy Status +
+0x02 => Show time as busy +
+[yellow-background]*TODO: add more values*
+| 0x8206 | 0x000b (Boolean) | PidLidFExceptionalBody | [yellow-background]*Unknown*
+| 0x8207 | 0x0003 (Integer 32-bit signed) | PidLidAppointmentAuxiliaryFlags | [yellow-background]*Unknown*
+| 0x8208 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidLidLocation | Location +
+Represents the location of an appointment.
+| 0x8209 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidLidMeetingWorkspaceUrl | [yellow-background]*Unknown*
+| 0x820a | 0x000b (Boolean) | PidLidForwardInstance | [yellow-background]*Unknown*
+| | | |
+| 0x820c | 0x1102 (Array of Binary data values) | PidLidLinkedTaskItems | [yellow-background]*Unknown*
+| 0x820d | 0x0040 (Filetime) | PidLidAppointmentStartWhole | Start time
+| 0x820e | 0x0040 (Filetime) | PidLidAppointmentEndWhole | End time
+| 0x820f | 0x0040 (Filetime) | | [yellow-background]*Unknown*
+| 0x8210 | 0x0040 (Filetime) | | [yellow-background]*Unknown*
+| 0x8211 | 0x0040 (Filetime) | | [yellow-background]*Unknown*
+| 0x8212 | 0x0040 (Filetime) | | [yellow-background]*Unknown*
+| 0x8213 | 0x0003 (Integer 32-bit signed) | PidLidAppointmentDuration | Duration in minutes +
+Represents the length of time, in minutes, when an appointment is scheduled.
+| 0x8214 | 0x0003 (Integer 32-bit signed) | PidLidAppointmentColor | Color (FTK: Label) +
+Specifies the color to use when displaying the calendar. +
+See section: <<appointment_color_definitions,Appointment color definitions>>
+| 0x8215 | 0x0003 (Integer 32-bit signed) | | [yellow-background]*Unknown*
+| | 0x000b (Boolean) | PidLidAppointmentSubType | Sub type (FTK: All Day Event)
+| 0x8216 | 0x0102 (Binary data) | PidLidAppointmentRecur | [yellow-background]*Unknown*
+| 0x8217 | 0x0003 (Integer 32-bit signed) | PidLidAppointmentStateFlags | Meeting status +
+[yellow-background]*TODO: add definitions*
+| 0x8218 | 0x0003 (Integer 32-bit signed) | PidLidResponseStatus | Response status +
+[yellow-background]*TODO: add definitions*
+| | | |
+|===
+
 * [yellow-background]*TODO: migrate documentation*
 
 === Common property set (0x8500 - 0x85ff)
