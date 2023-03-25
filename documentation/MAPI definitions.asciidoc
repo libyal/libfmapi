@@ -4532,6 +4532,57 @@ See section: <<appointment_color_definitions,Appointment color definitions>>
 | 0x8218 | 0x0003 (Integer 32-bit signed) | PidLidResponseStatus | Response status +
 [yellow-background]*TODO: add definitions*
 | | | |
+| 0x8220 | 0x0040 (Filetime) | PidLidAppointmentReplyTime | [yellow-background]*Unknown*
+| | | |
+| 0x8223 | 0x0003 (Integer 32-bit signed) | | [yellow-background]*Unknown*
+| | 0x000b (Boolean) | PidLidRecurring +
+(PR_RECURRING) | Is recurrent +
+Specifies whether an appointment message is recurrent.
+| 0x8224 | 0x0003 (Integer 32-bit signed) | PidLidIntendedBusyStatus | [yellow-background]*Unknown*
+| | | |
+| 0x8228 | 0x0040 (Filetime) | PidLidExceptionReplaceTime | Recurrence base
+| 0x8229 | 0x0003 (Integer 32-bit signed) | | [yellow-background]*Unknown*
+| | 0x000b (Boolean) | PidLidFInvited | [yellow-background]*Unknown*
+| | | |
+| 0x822b | 0x000b (Boolean) | PidLidFExceptionalAttendees | [yellow-background]*Unknown*
+| | | |
+| 0x8230 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidLidAppointmentReplyName | [yellow-background]*Unknown*
+| 0x8231 | 0x0003 (Integer 32-bit signed) | PidLidRecurrenceType | Recurrence Type
+| 0x8232 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidLidRecurrencePattern | Recurrence Pattern
+| 0x8233 | 0x0102 (Binary data) | PidLidTimeZoneStruct | [yellow-background]*Unknown*
+| 0x8234 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidLidTimeZoneDescription | Time zone
+| 0x8235 | 0x0040 (Filetime) | PidLidClipStart | First effective time
+| 0x8236 | 0x0040 (Filetime) | PidLidClipEnd | Last effective time
+| 0x8237 | 0x0102 (Binary data) | PidLidOriginalStoreEntryId | [yellow-background]*Unknown*
+| 0x8238 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidLidAllAttendeesString | All Attendees
+| | | |
+| 0x823a | 0x000b (Boolean) | PidLidAutoFillLocation | [yellow-background]*Unknown*
+| 0x823b | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidLidToAttendeesString | To Attendees
+| 0x823c | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidLidCcAttendeesString | CC Attendees
+| 0x823d | 0x0003 (Integer 32-bit signed) | PidLidAppointmentUnsendableRecipients | [yellow-background]*Unknown*
+| | | |
+| 0x8240 | 0x000b (Boolean) | PidLidConferencingCheck | Is an online meeting
+| 0x8241 | 0x0003 (Integer 32-bit signed) | PidLidConferencingType | Net meeting type
+| 0x8242 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidLidDirectory | Net meeting server
+| 0x8243 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidLidOrganizerAlias | Net meeting organizer alias
+| 0x8244 | 0x000b (Boolean) | PidLidAutoStartCheck | Net meeting auto start
+| 0x8245 | 0x0003 (Integer 32-bit signed) | PidLidAutoStartWhen | [yellow-background]*Unknown*
+| 0x8246 | 0x000b (Boolean) | PidLidAllowExternalCheck | Conference server allow external
+| 0x8247 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidLidCollaborateDoc | Net meeting document path name
+| 0x8248 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidLidNetShowUrl | Net show URL
+| 0x8249 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidLidOnlinePassword | Conference server password
+| | | |
 |===
 
 * [yellow-background]*TODO: migrate documentation*
