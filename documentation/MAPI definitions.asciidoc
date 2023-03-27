@@ -4664,19 +4664,124 @@ Specifies the filename of the sound that a client should play when the reminder 
 | 0x853a | 0x101e (Array of ASCII string values) +
 0x101f (Array of Unicode string values) | PidLidContacts | Contacts
 | | | |
+| 0x8543 | 0x1003 (Array of Integer 32-bit signed values) | PidLidNonSendToTrackStatus | [yellow-background]*Unknown*
+| 0x8544 | 0x1003 (Array of Integer 32-bit signed values) | PidLidNonSendCcTrackStatus | [yellow-background]*Unknown*
+| 0x8545 | 0x1003 (Array of Integer 32-bit signed values) | PidLidNonSendBccTrackStatus | [yellow-background]*Unknown*
+| | | |
+| 0x8552 | 0x0003 (Integer 32-bit signed) | PidLidCurrentVersion | Outlook Internal Version
+| | | |
+| 0x8554 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidLidCurrentVersionName | Outlook Version
+| | | |
+| 0x8560 | 0x0040 (Filetime) | PidLidReminderSignalTime | Reminder signal time
+| | | |
+| 0x8580 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidLidInternetAccountName | E-mail account name +
+Specifies the user-visible e-mail account name through which the e-mail message is sent.
+| 0x8581 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidLidInternetAccountStamp | E-mail account identifier +
+Specifies the e-mail account identifier to through which the e-mail message is sent.
+| 0x8582 | 0x000b (Boolean) | PidLidUseTnef | Use TNEF +
+Specifies whether Transport Neutral Encapsulation Format (TNEF) should be included on a message when that message is converted from MAPI to Multipurpose Internet Mail Extensions (MIME) or Simple Mail Transfer Protocol (SMTP) format.
+| 0x8583 | 0x001e (ASCII string) +
+0x001f (Unicode string) | | [yellow-background]*Unknown* +
+Contains the value of the SPAN class definition in the RTF body
+| 0x8584 | 0x0102 (Binary data) | PidLidContactLinkSearchKey | [yellow-background]*Unknown*
+| 0x8585 | 0x0102 (Binary data) | PidLidContactLinkEntry | [yellow-background]*Unknown*
+| 0x8586 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidLidContactLinkName | [yellow-background]*Unknown*
+| | | |
+| 0x859c | 0x0102 (Binary data) | PidLidSpamOriginalFolder | [yellow-background]*Unknown (Related to change key (0x65e2)/list (0x65e3)?)*
+| | | |
+| 0x85a0 | 0x0040 (Filetime) | PidLidToDoOrdinalDate | [yellow-background]*Unknown*
+| 0x85a1 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidLidToDoSubOrdinal | [yellow-background]*Unknown*
+| | | |
+| 0x85a4 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidLidToDoTitle | [yellow-background]*Unknown*
+| | | |
+| 0x85b1 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidLidInfoPathFormName | [yellow-background]*Unknown*
+| | | |
+| 0x85b5 | 0x000b (Boolean) | PidLidClassified | [yellow-background]*Unknown*
+| 0x85b6 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidLidClassification | [yellow-background]*Unknown*
+| 0x85b7 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidLidClassificationDescription | [yellow-background]*Unknown*
+| 0x85b8 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidLidClassificationGuid | [yellow-background]*Unknown*
+| | | |
+| 0x85ba | 0x000b (Boolean) | PidLidClassificationKeep | [yellow-background]*Unknown*
+| | | |
+| 0x85bd | 0x0102 (Binary data) | PidLidReferenceEntryId | [yellow-background]*Unknown*
+| | | |
+| 0x85bf | 0x0040 (Filetime) | PidLidValidFlagStringProof | [yellow-background]*Unknown* +
+Validates whether the meeting request status was set by an agent who knew the value of the message delivery time (PidTagMessageDeliveryTime).
+| 0x85c0 | 0x0003 (Integer 32-bit signed) | PidLidFlagString | [yellow-background]*Unknown*
+| | | |
+| 0x85c2 | 0x0102 (Binary data) | | [yellow-background]*Unknown* +
+Contains a ZIP file
+| 0x85c3 | 0x0102 (Binary data) | | [yellow-background]*Unknown* +
+| Contains an XML file
 |===
-
-* [yellow-background]*TODO: migrate documentation*
 
 === Journal property set (0x8700 - 0x87ff)
 
-* [yellow-background]*TODO: migrate documentation*
+Named properties mapped to the Journal interface GUID:
+0006200a-0000-0000-c000-000000000046
+
+[cols="1,1,1,5",options="header"]
+|===
+| Item | Value | Identifier | Description
+| 0x8700 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidLidLogType | Type
+| | | |
+| 0x8706 | 0x0040 (Filetime) | PidLidLogStart | Start
+| 0x8707 | 0x0003 (Integer 32-bit signed) | PidLidLogDuration | Duration
+| 0x8708 | 0x0040 (Filetime) | PidLidLogEnd | End
+| | | |
+| 0x870c | 0x0003 (Integer 32-bit signed) | PidLidLogFlags | LogFlags
+| | | |
+| 0x870e | 0x000b (Boolean) | PidLidDocumentPrinted | DocPrinted
+| 0x870f | 0x000b (Boolean) | PidLidDocumentSaved | DocSaved
+| 0x8710 | 0x000b (Boolean) | PidLidDocumentRouted | DocRouted
+| 0x8711 | 0x000b (Boolean) | PidLidDocumentPosted | DocPosted
+| 0x8712 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidLidLogTypeDesc | TypeDescription
+|===
 
 === RSS feed property set (0x8900 - 0x89ff)
 
-* [yellow-background]*TODO: migrate documentation*
+Named properties mapped to the RSS feed interface GUID:
+00062041-0000-0000-c000-000000000046.
+
+[cols="1,1,1,5",options="header"]
+|===
+| Item | Value | Identifier | Description
+| 0x8900 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidLidPostRssChannelLink | Channel
+| 0x8901 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidLidPostRssItemLink | Item link
+| 0x8902 | 0x0003 (Integer 32-bit signed) | PidLidPostRssItemHash | Item hash
+| 0x8903 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidLidPostRssItemGuid | Item GUID
+| 0x8904 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidLidPostRssChannel | Channel GUID
+| 0x8905 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidLidPostRssItemXml | Item XML
+| 0x8906 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidLidPostRssSubscription | Subscription
+|===
 
 === Sharing property set (0x8a00 - 0x8aff)
+
+Named properties mapped to the Sharing interface GUID:
+00062040-0000-0000-c000-000000000046.
+
+[cols="1,1,1,5",options="header"]
+|===
+| Item | Value | Identifier | Description
+|===
 
 * [yellow-background]*TODO: migrate documentation*
 
