@@ -4781,6 +4781,73 @@ Named properties mapped to the Sharing interface GUID:
 [cols="1,1,1,5",options="header"]
 |===
 | Item | Value | Identifier | Description
+| 0x8a00 | 0x0003 (Integer 32-bit signed) | PidLidSharingStatus | [yellow-background]*Unknown*
+| 0x8a01 | 0x0102 (Binary data) | PidLidSharingProviderGuid | [yellow-background]*Unknown*
+| 0x8a02 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidLidSharingProviderName | [yellow-background]*Unknown*
+| 0x8a03 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidLidSharingProviderUrl | [yellow-background]*Unknown*
+| 0x8a04 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidLidSharingRemotePath | [yellow-background]*Unknown*
+| 0x8a05 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidLidSharingRemoteName | [yellow-background]*Unknown*
+| 0x8a06 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidLidSharingRemoteUid | [yellow-background]*Unknown*
+| 0x8a07 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidLidSharingInitiatorName | [yellow-background]*Unknown*
+| 0x8a08 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidLidSharingInitiatorSmtp | [yellow-background]*Unknown*
+| 0x8a09 | 0x0102 (Binary data) | PidLidSharingInitiatorEntryId | [yellow-background]*Unknown*
+| 0x8a0a | 0x0003 (Integer 32-bit signed) | PidLidSharingFlags | [yellow-background]*Unknown*
+| 0x8a0b | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidLidSharingProviderExtension | [yellow-background]*Unknown*
+| 0x8a0c | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidLidSharingRemoteUser | [yellow-background]*Unknown*
+| 0x8a0d | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidLidSharingRemotePass | [yellow-background]*Unknown*
+| 0x8a0e | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidLidSharingLocalPath | [yellow-background]*Unknown*
+| 0x8a0f | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidLidSharingLocalName | [yellow-background]*Unknown*
+| 0x8a10 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidLidSharingLocalUid | [yellow-background]*Unknown*
+| | | |
+| 0x8a13 | 0x0102 (Binary data) | PidLidSharingFilter | [yellow-background]*Unknown*
+| 0x8a14 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidLidSharingLocalType | [yellow-background]*Unknown*
+| 0x8a15 | 0x0102 (Binary data) | PidLidSharingFolderEntryId | [yellow-background]*Unknown*
+| | | |
+| 0x8a17 | 0x0003 (Integer 32-bit signed) | PidLidSharingCapabilities | [yellow-background]*Unknown*
+| 0x8a18 | 0x0003 (Integer 32-bit signed) | PidLidSharingFlavor | [yellow-background]*Unknown*
+| 0x8a19 | 0x0003 (Integer 32-bit signed) | PidLidSharingAnonymity | [yellow-background]*Unknown*
+| 0x8a1a | 0x0003 (Integer 32-bit signed) | PidLidSharingReciprocation | [yellow-background]*Unknown*
+| 0x8a1b | 0x0003 (Integer 32-bit signed) | PidLidSharingPermissions | [yellow-background]*Unknown*
+| 0x8a1c | 0x0102 (Binary data) | PidLidSharingInstanceGuid | [yellow-background]*Unknown*
+| 0x8a1d | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidLidSharingRemoteType | [yellow-background]*Unknown*
+| 0x8a1e | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidLidSharingParticipants | [yellow-background]*Unknown*
+| 0x8a1f | 0x0040 (Filetime) | PidLidSharingLastSyncTime | [yellow-background]*Unknown*
+| | | |
+| 0x8a21 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidLidSharingExtensionXml | [yellow-background]*Unknown*
+| 0x8a22 | 0x0040 (Filetime) | PidLidSharingRemoteLastModificationTime | [yellow-background]*Unknown*
+| 0x8a23 | 0x0040 (Filetime) | PidLidSharingLocalLastModificationTime | [yellow-background]*Unknown*
+| 0x8a24 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidLidSharingConfigurationUrl | [yellow-background]*Unknown*
+| 0x8a25 | 0x0040 (Filetime) | PidLidSharingStart | [yellow-background]*Unknown*
+| 0x8a26 | 0x0040 (Filetime) | PidLidSharingStop | [yellow-background]*Unknown*
+| 0x8a27 | 0x0003 (Integer 32-bit signed) | PidLidSharingResponseType | [yellow-background]*Unknown*
+| 0x8a28 | 0x0040 (Filetime) | PidLidSharingResponseTime | [yellow-background]*Unknown*
+| 0x8a29 | 0x0102 (Binary data) | PidLidSharingOriginalMessageEntryId | [yellow-background]*Unknown*
+| 0x8a2a | 0x0003 (Integer 32-bit signed) | PidLidSharingSyncInterval | [yellow-background]*Unknown*
+| 0x8a2b | 0x0003 (Integer 32-bit signed) | PidLidSharingDetail | [yellow-background]*Unknown*
+| 0x8a2c | 0x0003 (Integer 32-bit signed) | PidLidSharingTimeToLive | [yellow-background]*Unknown*
+| 0x8a2d | 0x0102 (Binary data) | PidLidSharingBindingEntryId | [yellow-background]*Unknown*
+| 0x8a2e | 0x0102 (Binary data) | PidLidSharingIndexEntryId | [yellow-background]*Unknown*
+| 0x8a2f | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidLidSharingRemoteComment | [yellow-background]*Unknown*
+| | | |
 |===
 
 * [yellow-background]*TODO: migrate documentation*
