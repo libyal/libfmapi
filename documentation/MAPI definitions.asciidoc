@@ -315,7 +315,7 @@ some types, it refers to the direct use of embedded object instead of data types
 
 [cols="1,1,1,5",options="header"]
 |===
-| Item | Value | Identifier | Description
+| Item type | Value type | Identifier | Description
 | 0x0000 | 0x0001 (NULL) | PidTagNull +
 (PR_NULL) | NULL value +
 Represents a null value or setting of a property or reserves array space.
@@ -325,7 +325,7 @@ Represents a null value or setting of a property or reserves array space.
 
 [cols="1,1,1,5",options="header"]
 |===
-| Item | Value | Identifier | Description
+| Item type | Value type | Identifier | Description
 | 0x0001 | 0x0003 (Integer 32-bit signed) | PidTagAcknowledgementMode +
 (PR_ACKNOWLEDGEMENT_MODE) | Acknowledgment mode +
 Contains the identifier of the mode for message acknowledgment. +
@@ -719,7 +719,7 @@ Seen: "automatic-action/MDN-sent-automatically"
 
 [cols="1,1,1,5",options="header"]
 |===
-| Item | Value | Identifier | Description
+| Item type | Value type | Identifier | Description
 | 0x0c00 | 0x0102 (Binary data) | PR_CONTENT_INTEGRITY_CHECK | [yellow-background]*Unknown*
 | 0x0c01 | 0x0003 (Integer 32-bit signed) | PR_EXPLICIT_CONVERSION | [yellow-background]*Unknown*
 | 0x0c02 | 0x000b (Boolean) | PidTagIpmReturnRequested +
@@ -784,7 +784,7 @@ Contains the message sender's e-mail address.
 
 [cols="1,1,1,5",options="header"]
 |===
-| Item | Value | Identifier | Description
+| Item type | Value type | Identifier | Description
 | 0x0e00 | 0x0014 (Integer 64-bit signed) | PidTagCurrentVersion +
 (PR_CURRENT_VERSION) | Message store verion +
 Contain the current version of a message store.
@@ -1002,7 +1002,7 @@ See section: <<entry_identifier_structure,The entry identifier structure (ENTRYI
 
 [cols="1,1,1,5",options="header"]
 |===
-| Item | Value | Identifier | Description
+| Item type | Value type | Identifier | Description
 | 0x1000 | 0x001e (ASCII string) +
 0x001f (Unicode string) | PidTagBody +
 (PR_BODY) | Plain text message body +
@@ -1154,7 +1154,7 @@ The URL component name for a message.  Contains the .eml filename.
 
 [cols="1,1,1,5",options="header"]
 |===
-| Item | Value | Identifier | Description
+| Item type | Value type | Identifier | Description
 | 0x3000 | 0x0003 (Integer 32-bit signed) | PidTagRowid +
 (PR_ROWID) | Recipient row identifier +
 Contains a unique identifier for a recipient in a recipient table or status table.
@@ -1228,7 +1228,7 @@ Contains the zero-based index of a service provider's position in the provider t
 
 [cols="1,1,1,5",options="header"]
 |===
-| Item | Value | Identifier | Description
+| Item type | Value type | Identifier | Description
 | 0x3400 | 0x000b (Boolean) | PR_DEFAULT_STORE | [yellow-background]*Unknown*
 | | | |
 | 0x340d | 0x0003 (Integer 32-bit signed) | PidTagStoreSupportMask +
@@ -1289,7 +1289,7 @@ See section: <<entry_identifier_structure,The entry identifier structure (ENTRYI
 
 [cols="1,1,1,5",options="header"]
 |===
-| Item | Value | Identifier | Description
+| Item type | Value type | Identifier | Description
 | 0x3600 | 0x0003 (Integer 32-bit signed) | PidTagContainerFlags +
 (PR_CONTAINER_FLAGS) | Address book container capabilities flags +
 Contains a bitmask of flags describing capabilities of an address book container. +
@@ -1436,7 +1436,7 @@ See section: <<aging_granularity_definitions,Aging granularity definitions>>
 
 [cols="1,1,1,5",options="header"]
 |===
-| Item | Value | Identifier | Description
+| Item type | Value type | Identifier | Description
 | 0x3700 | 0x0102 (Binary data) | PR_ATTACHMENT_X400_PARAMETERS | [yellow-background]*Unknown*
 | 0x3701 | 0x000d (Embedded object) | PidTagAttachDataObject +
 (PR_ATTACH_DATA_OBJ) | Attachment data object +
@@ -1530,7 +1530,7 @@ See section: <<attachment_flag_definitions,Attachment flag definitions>>
 
 [cols="1,1,1,5",options="header"]
 |===
-| Item | Value | Identifier | Description
+| Item type | Value type | Identifier | Description
 | 0x3900 | 0x0003 (Integer 32-bit signed) | PidTagDisplayType +
 (PR_DISPLAY_TYPE) | Icon display type +
 Contains a value used to associate an icon with a particular row of a table +
@@ -1562,7 +1562,7 @@ Contains a 7-bit ASCII representation of a messaging user's name.
 
 [cols="1,1,1,5",options="header"]
 |===
-| Item | Value | Identifier | Description
+| Item type | Value type | Identifier | Description
 | 0x3a00 | 0x001e (ASCII string) +
 0x001f (Unicode string) | PidTagAccount +
 (PR_ACCOUNT) | Recipient account name
@@ -1834,7 +1834,7 @@ See section: <<encoding_preference_flag_definitions,Encoding preference flag def
 
 [cols="1,1,1,5",options="header"]
 |===
-| Item | Value | Identifier | Description
+| Item type | Value type | Identifier | Description
 | | | |
 |===
 
@@ -1842,7 +1842,7 @@ See section: <<encoding_preference_flag_definitions,Encoding preference flag def
 
 [cols="1,1,1,5",options="header"]
 |===
-| Item | Value | Identifier | Description
+| Item type | Value type | Identifier | Description
 | 0x3d00 | 0x0102 (Binary data) | PR_STORE_PROVIDERS | [yellow-background]*Unknown*
 | 0x3d01 | 0x0102 (Binary data) | PR_AB_PROVIDERS | [yellow-background]*Unknown*
 | 0x3d02 | 0x0102 (Binary data) | PR_TRANSPORT_PROVIDERS | [yellow-background]*Unknown*
@@ -1881,7 +1881,7 @@ See section: <<security_desciptor_structure,The security descriptor structure>>
 
 [cols="1,1,1,5",options="header"]
 |===
-| Item | Value | Identifier | Description
+| Item type | Value type | Identifier | Description
 | 0x3e00 | 0x001e (ASCII string) +
 0x001f (Unicode string) | PR_IDENTITY_DISPLAY | [yellow-background]*Unknown*
 | 0x3e01 | 0x0102 (Binary data) | PR_IDENTITY_ENTRYID | [yellow-background]*Unknown* +
@@ -2033,7 +2033,7 @@ See section: <<codepage_definitions,Codepage definitions>>
 
 [cols="1,1,1,5",options="header"]
 |===
-| Item | Value | Identifier | Description
+| Item type | Value type | Identifier | Description
 | 0x4000 | 0x0003 (Integer 32-bit signed) | PR_NEW_ATTACH | [yellow-background]*Unknown*
 | 0x4001 | 0x0003 (Integer 32-bit signed) | PR_START_EMBED | [yellow-background]*Unknown*
 | 0x4002 | 0x0003 (Integer 32-bit signed) | PR_END_EMBED | [yellow-background]*Unknown*
@@ -2107,7 +2107,7 @@ See section: <<codepage_definitions,Codepage definitions>>
 
 [cols="1,1,1,5",options="header"]
 |===
-| Item | Value | Identifier | Description
+| Item type | Value type | Identifier | Description
 | 0x5902 | 0x0003 (Integer 32-bit signed) | PR_INET_MAIL_OVERRIDE_FORMAT | [yellow-background]*Unknown*
 | | | |
 | 0x5909 | 0x0003 (Integer 32-bit signed) | PidTagMessageEditorFormat +
@@ -2141,7 +2141,7 @@ See section: <<entry_identifier_structure,The entry identifier structure (ENTRYI
 
 [cols="1,1,1,5",options="header"]
 |===
-| Item | Value | Identifier | Description
+| Item type | Value type | Identifier | Description
 | 0x6001 | 0x0003 (Integer 32-bit signed) | PR_DOTSTUFF_STATE | [yellow-background]*Unknown*
 | | 0x001e (ASCII string) +
 0x001f (Unicode string) | | Alias (Found in NK2 file)
@@ -2220,7 +2220,7 @@ See section: <<lcid_structure,The LCID structure>>
 
 [cols="1,1,1,5",options="header"]
 |===
-| Item | Value | Identifier | Description
+| Item type | Value type | Identifier | Description
 | 0x6600 | 0x0003 (Integer 32-bit signed) | PR_PROFILE_VERSION | [yellow-background]*Unknown*
 | 0x6601 | 0x0003 (Integer 32-bit signed) | PR_PROFILE_CONFIG_FLAGS | [yellow-background]*Unknown*
 | 0x6602 | 0x001e (ASCII string) +
@@ -2822,7 +2822,7 @@ Contains a weak CRC of the password or zero if no password is set
 
 [cols="1,1,1,5",options="header"]
 |===
-| Item | Value | Identifier | Description
+| Item type | Value type | Identifier | Description
 | 0x6800 | 0x001e (ASCII string) +
 0x001f (Unicode string) | PidTagOfflineAddressBookName +
 (PR_OAB_NAME) | Offline address book name +
@@ -2945,7 +2945,7 @@ PR_VD_VERSION | View descriptor version
 
 [cols="1,1,1,5",options="header"]
 |===
-| Item | Value | Identifier | Description
+| Item type | Value type | Identifier | Description
 | 0x6847 | 0x0003 (Integer 32-bit signed) | | [yellow-background]*Unknown*
 | | | |
 | 0x6849 | 0x0003 (Integer 32-bit signed) | | [yellow-background]*Unknown*
@@ -2974,7 +2974,7 @@ Contains GUID
 
 [cols="1,1,1,5",options="header"]
 |===
-| Item | Value | Identifier | Description
+| Item type | Value type | Identifier | Description
 | 0x6834 | 0x0003 (Integer 32-bit signed) | | [yellow-background]*Unknown*
 | | | |
 | 0x683a | 0x0003 (Integer 32-bit signed) | | [yellow-background]*Unknown*
@@ -2992,7 +2992,7 @@ Contains GUID
 
 [cols="1,1,1,5",options="header"]
 |===
-| Item | Value | Identifier | Description
+| Item type | Value type | Identifier | Description
 | 0x6802 | 0x0102 (Binary data) | | [yellow-background]*Unknown (Rule element?)*
 |===
 
@@ -3000,7 +3000,7 @@ Contains GUID
 
 [cols="1,1,1,5",options="header"]
 |===
-| Item | Value | Identifier | Description
+| Item type | Value type | Identifier | Description
 | 0x7c00 | 0x001e (ASCII string) +
 0x001f (Unicode string) | PR_FAV_DISPLAY_NAME | [yellow-background]*Unknown*
 | | | |
@@ -3053,7 +3053,7 @@ Found in:
 
 [cols="1,1,1,5",options="header"]
 |===
-| Item | Value | Identifier | Description
+| Item type | Value type | Identifier | Description
 | 0x7c06 | 0x0003 (Integer 32-bit signed) | | [yellow-background]*Unknown* +
 2 => value 0x7c08 is set +
 4 => value 0x7c07 is set
@@ -3071,7 +3071,7 @@ name-to-id map.
 
 [cols="1,1,1,5",options="header"]
 |===
-| Item | Value | Identifier | Description
+| Item type | Value type | Identifier | Description
 | 0x8001 | 0x000b (Boolean) | PR_EMS_AB_DISPLAY_NAME_OVERRIDE | [yellow-background]*Unknown*
 | | | |
 | 0x8003 | 0x0003 (Integer 32-bit signed) | | [yellow-background]*Unknown (Found in Exchange)*
@@ -3985,7 +3985,7 @@ See section: <<entry_identifier_structure,The entry identifier structure (ENTRYI
 
 [cols="1,1,1,5",options="header"]
 |===
-| Item | Value | Identifier | Description
+| Item type | Value type | Identifier | Description
 | 0xffff | | PROP_ID_INVALID | Invalid property
 |===
 
@@ -4187,7 +4187,7 @@ Named properties mapped to the Calendar interface GUID:
 
 [cols="1,1,1,5",options="header"]
 |===
-| Item | Value | Identifier | Description
+| Item type | Value type | Identifier | Description
 | 0x0001 | 0x0040 (Filetime) | PidLidAttendeeCriticalChange +
 (LID_ATTENDEE_CRITICAL_CHANGE) | Attendee critical change
 | 0x0002 | 0x001e (ASCII string) +
@@ -4257,7 +4257,7 @@ Named properties mapped to the Address interface GUID:
 
 [cols="1,1,1,5",options="header"]
 |===
-| Item | Value | Identifier | Description
+| Item type | Value type | Identifier | Description
 | 0x8002 | 0x001e (ASCII string) +
 0x001f (Unicode string) | PidLidYomiCompanyName | [yellow-background]*Unknown*
 | | | |
@@ -4432,7 +4432,7 @@ Named properties mapped to the Task interface GUID:
 
 [cols="1,1,1,5",options="header"]
 |===
-| Item | Value | Identifier | Description
+| Item type | Value type | Identifier | Description
 | 0x8101 | 0x0003 (Integer 32-bit signed) | PidLidTaskStatus | Status +
 0x0 => Not started +
 [yellow-background]*TODO: add more values*
@@ -4489,7 +4489,7 @@ Named properties mapped to the Appointment interface GUID:
 
 [cols="1,1,1,5",options="header"]
 |===
-| Item | Value | Identifier | Description
+| Item type | Value type | Identifier | Description
 | 0x8200 | 0x000b (Boolean) | PidLidSendMeetingAsIcal | Send As ICAL +
 Specifies if a meeting request should be sent as an iCal message.
 | 0x8201 | 0x0003 (Integer 32-bit signed) | PidLidAppointmentSequence | Appointment sequence +
@@ -4604,7 +4604,7 @@ Named properties mapped to the Common interface GUID:
 
 [cols="1,1,1,5",options="header"]
 |===
-| Item | Value | Identifier | Description
+| Item type | Value type | Identifier | Description
 | 0x8570 | 0x0003 (Integer 32-bit signed) | | [yellow-background]*Unknown*
 | 0x8501 | 0x0003 (Integer 32-bit signed) | PidLidReminderDelta | Reminder minutes before start +
 Specifies the interval, in minutes, between the time when the reminder first becomes overdue and the start time of the calendar object.
@@ -4732,7 +4732,7 @@ Named properties mapped to the Journal interface GUID:
 
 [cols="1,1,1,5",options="header"]
 |===
-| Item | Value | Identifier | Description
+| Item type | Value type | Identifier | Description
 | 0x8700 | 0x001e (ASCII string) +
 0x001f (Unicode string) | PidLidLogType | Type
 | | | |
@@ -4757,7 +4757,7 @@ Named properties mapped to the RSS feed interface GUID:
 
 [cols="1,1,1,5",options="header"]
 |===
-| Item | Value | Identifier | Description
+| Item type | Value type | Identifier | Description
 | 0x8900 | 0x001e (ASCII string) +
 0x001f (Unicode string) | PidLidPostRssChannelLink | Channel
 | 0x8901 | 0x001e (ASCII string) +
@@ -4780,7 +4780,7 @@ Named properties mapped to the Sharing interface GUID:
 
 [cols="1,1,1,5",options="header"]
 |===
-| Item | Value | Identifier | Description
+| Item type | Value type | Identifier | Description
 | 0x8a00 | 0x0003 (Integer 32-bit signed) | PidLidSharingStatus | [yellow-background]*Unknown*
 | 0x8a01 | 0x0102 (Binary data) | PidLidSharingProviderGuid | [yellow-background]*Unknown*
 | 0x8a02 | 0x001e (ASCII string) +
@@ -4848,15 +4848,85 @@ Named properties mapped to the Sharing interface GUID:
 | 0x8a2f | 0x001e (ASCII string) +
 0x001f (Unicode string) | PidLidSharingRemoteComment | [yellow-background]*Unknown*
 | | | |
+| 0x8a40 | 0x0040 (Filetime) | PidLidSharingWorkingHoursStart | [yellow-background]*Unknown*
+| 0x8a41 | 0x0040 (Filetime) | PidLidSharingWorkingHoursEnd | [yellow-background]*Unknown*
+| 0x8a42 | 0x0003 (Integer 32-bit signed) | PidLidSharingWorkingHoursDay | [yellow-background]*Unknown*
+| 0x8a43 | 0x0102 (Binary data) | PidLidSharingWorkingHoursTimeZone | [yellow-background]*Unknown*
+| 0x8a44 | 0x0040 (Filetime) | PidLidSharingDataRangeStart | [yellow-background]*Unknown*
+| 0x8a45 | 0x0040 (Filetime) | PidLidSharingDataRangeEnd | [yellow-background]*Unknown*
+| 0x8a46 | 0x0003 (Integer 32-bit signed) | PidLidSharingRangeStart | [yellow-background]*Unknown*
+| 0x8a47 | 0x0003 (Integer 32-bit signed) | PidLidSharingRangeEnd | [yellow-background]*Unknown*
+| 0x8a48 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidLidSharingRemoteStoreUid | [yellow-background]*Unknown*
+| 0x8a49 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidLidSharingLocalStoreUid | [yellow-background]*Unknown*
+| | | |
+| 0x8a4b | 0x0003 (Integer 32-bit signed) | PidLidSharingRemoteByteSize | [yellow-background]*Unknown*
+| 0x8a4c | 0x0003 (Integer 32-bit signed) | PidLidSharingRemoteCrc | [yellow-background]*Unknown*
+| 0x8a4d | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidLidSharingLocalComment | [yellow-background]*Unknown*
+| 0x8a4e | 0x0003 (Integer 32-bit signed) | PidLidSharingRoamLog | [yellow-background]*Unknown*
+| 0x8a4f | 0x0003 (Integer 32-bit signed) | PidLidSharingRemoteMessageCount | [yellow-background]*Unknown*
+| | | |
+| 0x8a51 | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidLidSharingBrowseUrl | [yellow-background]*Unknown*
+| | | |
+| 0x8a55 | 0x0040 (Filetime) | PidLidSharingLastAutoSyncTime | [yellow-background]*Unknown*
+| 0x8a56 | 0x0003 (Integer 32-bit signed) | PidLidSharingTimeToLiveAuto | [yellow-background]*Unknown*
+| | | |
+| 0x8a5b | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidLidSharingRemoteVersion | [yellow-background]*Unknown*
+| 0x8a5c | 0x0102 (Binary data) | PidLidSharingParentBindingEntryId | [yellow-background]*Unknown*
+| | | |
+| 0x8a60 | 0x0003 (Integer 32-bit signed) | PidLidSharingSyncFlags | [yellow-background]*Unknown*
 |===
-
-* [yellow-background]*TODO: migrate documentation*
 
 === Sticky note property set (0x8b00 - 0x8bff)
 
-* [yellow-background]*TODO: migrate documentation*
+Named properties mapped to the Sticky note interface GUID:
+0006200e-0000-0000-c000-000000000046.
+
+[cols="1,1,1,5",options="header"]
+|===
+| Item type | Value type | Identifier | Description
+| 0x8b00 | 0x0003 (Integer 32-bit signed) | PidLidNoteColor | Color
+| | | |
+| 0x8b02 | 0x0003 (Integer 32-bit signed) | PidLidNoteWidth | Width
+| 0x8b03 | 0x0003 (Integer 32-bit signed) | PidLidNoteHeight | Height
+| 0x8b04 | 0x0003 (Integer 32-bit signed) | PidLidNoteX | Left
+| 0x8b05 | 0x0003 (Integer 32-bit signed) | PidLidNoteY | Top
+|===
 
 === Public strings property set
+
+Named properties mapped to the public strings interface GUID:
+ 00020329-0000-0000-c000-000000000046
+
+[cols="1,1,1,5",options="header"]
+|===
+| Item type | Value type | Identifier | Description
+| 0x2328 | 0x101e (Array of ASCII string values) +
+0x101f (Array of Unicode string values) | PidLidCategories | Categories
+|===
+
+[cols="1,1,1,5",options="header"]
+|===
+| Item name | Value type | Identifier | Description
+| AppName | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidNameApplicationName | Application name
+| Author | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidNameAuthor | Author
+| ByteCount | 0x0003 (Integer 32-bit signed) | PidNameByteCount | Byte size
+| Category | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidNameCategory | Category
+| CharCount | 0x0003 (Integer 32-bit signed) | PidNameCharacterCount | Number of characters
+| Comments | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidNameComments | Comments
+| Company | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidNameCompany | Company
+| CreateDtmRo | 0x0040 (Filetime) | PidNameCreateDateTimeReadOnly | Read only creation time
+| DRMLicense | 0x1102 (Array of Binary data values) | PidNameRightsManagementLicense | Digital rights management license
+|===
 
 * [yellow-background]*TODO: migrate documentation*
 
