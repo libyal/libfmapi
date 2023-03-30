@@ -4926,9 +4926,49 @@ Named properties mapped to the public strings interface GUID:
 0x001f (Unicode string) | PidNameCompany | Company
 | CreateDtmRo | 0x0040 (Filetime) | PidNameCreateDateTimeReadOnly | Read only creation time
 | DRMLicense | 0x1102 (Array of Binary data values) | PidNameRightsManagementLicense | Digital rights management license
+| EditTime | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidNameEditTime | [yellow-background]*Unknown*
+| `http://schemas.microsoft.com/exchange/junkemailmovestamp`
+| 0x0003 (Integer 32-bit signed) | PidNameJunkEmailMoveStamp | [yellow-background]*Unknown*
+| HiddenCount | 0x0003 (Integer 32-bit signed) | PidNameHiddenCount | [yellow-background]*Unknown*
+| Keywords | 0x101e (Array of ASCII string values) +
+0x101f (Array of Unicode string values) | PidNameKeywords | Keywords
+| LastAuthor | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidNameLastAuthor | [yellow-background]*Unknown*
+| LastPrinted | 0x0040 (Filetime) | PidNameLastPrinted | [yellow-background]*Unknown*
+| LastSaveDtm | 0x0040 (Filetime) | PidNameLastSaveDateTime | [yellow-background]*Unknown*
+| LineCount | 0x0003 (Integer 32-bit signed) | PidNameLineCount | [yellow-background]*Unknown*
+| Manager | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidNameManager | [yellow-background]*Unknown*
+| MMClipCount | 0x0003 (Integer 32-bit signed) | PidNameMultimediaClipCount | [yellow-background]*Unknown*
+| NoteCount | 0x0003 (Integer 32-bit signed) | PidNameNoteCount | [yellow-background]*Unknown*
+| OMSAccountGuid | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidNameOMSAccountGuid | [yellow-background]*Unknown*
+| OMSMobileModel | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidNameOMSMobileModel | [yellow-background]*Unknown*
+| OMSScheduleTime | 0x0040 (Filetime) | PidNameOMSGScheduleTime | [yellow-background]*Unknown*
+| OMSServiceType | 0x0003 (Integer 32-bit signed) | PidNameOMSServiceType | [yellow-background]*Unknown*
+| OMSSourceType | 0x0003 (Integer 32-bit signed) | PidNameOMSSourceType | [yellow-background]*Unknown*
+| `http://schemas.microsoft.com/outlook/phishingstamp` | 0x0003 (Integer 32-bit signed) | PidNamePhishingStamp | [yellow-background]*Unknown*
+| PageCount | 0x0003 (Integer 32-bit signed) | PidNamePageCount | [yellow-background]*Unknown*
+| ParCount | 0x0003 (Integer 32-bit signed) | PidNameParagraphCount | [yellow-background]*Unknown*
+| PresFormat | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidNamePresentationFormat | [yellow-background]*Unknown*
+| Security | 0x0003 (Integer 32-bit signed) | PidNameSecurity | [yellow-background]*Unknown*
+| SlideCount | 0x0003 (Integer 32-bit signed) | PidNameSlideCount | [yellow-background]*Unknown*
+| Subject | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidNameSubject | [yellow-background]*Unknown*
+| Template | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidNameTemplate | [yellow-background]*Unknown*
+| Title | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidNameTitle | [yellow-background]*Unknown*
+| WordCount | 0x0003 (Integer 32-bit signed) | PidNameWordCount | [yellow-background]*Unknown*
+| `urn:schemas:contacts:fileas` | 0x001e (ASCII string) +
+0x001f (Unicode string) | | [yellow-background]*Unknown*
+| `urn:schemas:calendar:sequence` | 0x0003 (Integer 32-bit signed) | | [yellow-background]*Unknown*
+| `urn:schemas:calendar:version` | 0x001e (ASCII string) +
+0x001f (Unicode string) | | [yellow-background]*Unknown*
 |===
-
-* [yellow-background]*TODO: migrate documentation*
 
 === Internet headers property set
 
