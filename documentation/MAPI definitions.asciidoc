@@ -4972,6 +4972,64 @@ Named properties mapped to the public strings interface GUID:
 
 === Internet headers property set
 
+Named properties mapped to the Internet headers interface GUID:
+00020386-0000-0000-c000-000000000046.
+
+[cols="1,1,1,5",options="header"]
+|===
+| Item name | Value type | Identifier | Description
+| Accept-Language |  0x001e (ASCII string) +
+0x001f (Unicode string) | PidNameAcceptLanguage | Accept language
+| Content-Base |  0x001e (ASCII string) +
+0x001f (Unicode string) | PidNameBodyContentBase | Body content base
+| Content-Class |  0x001e (ASCII string) +
+0x001f (Unicode string) | PidNameContentClass | Content class
+| Content-Transfer-Encoding |  0x001e (ASCII string) +
+0x001f (Unicode string) | PidNameContentTransferEncoding | Content transfer encoding
+| Content-Type |  0x001e (ASCII string) +
+0x001f (Unicode string) | PidNameContentType | Content type
+| Xref |  0x001e (ASCII string) +
+0x001f (Unicode string) | PidNameCrossReference | Cross reference (Xref)
+| X-Sharing-Browse-Url |  0x001e (ASCII string) +
+0x001f (Unicode string) | PidNameXSharingBrowseUrl | Sharing browse URL
+| X-Sharing-Capabilities |  0x001e (ASCII string) +
+0x001f (Unicode string) | PidNameXSharingCapabilities | Sharing capabilities
+| X-Sharing-Config-Url |  0x001e (ASCII string) +
+0x001f (Unicode string) | PidNameXSharingConfigUrl | Sharing configuration URL
+| X-Sharing-Extended-Caps | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidNameXSharingExtendedCaps | [yellow-background]*Unknown*
+| X-Sharing-Flavor | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidNameXSharingFlavor | [yellow-background]*Unknown*
+| X-Sharing-Instance-Guid | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidNameXSharingInstanceGuid | [yellow-background]*Unknown*
+| X-Sharing-Local-Type | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidNameXSharingLocalType | [yellow-background]*Unknown*
+| X-Sharing-Provider-Guid | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidNameXSharingProviderGuid | [yellow-background]*Unknown*
+| X-Sharing-Provider-Name | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidNameXSharingProviderName | [yellow-background]*Unknown*
+| X-Sharing-Provider-Url | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidNameXSharingProviderUrl | [yellow-background]*Unknown*
+| X-Sharing-Remote-Name | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidNameXSharingRemoteName | [yellow-background]*Unknown*
+| X-Sharing-Remote-Path | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidNameXSharingRemotePath | [yellow-background]*Unknown*
+| X-Sharing-Remote-Store-Uid | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidNameXSharingRemoteStoreUid | [yellow-background]*Unknown*
+| X-Sharing-Remote-Type | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidNameXSharingRemoteType | [yellow-background]*Unknown*
+| X-Sharing-Remote-Uid | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidNameXSharingRemoteUid | [yellow-background]*Unknown*
+|===
+
+Other strings found in several Personal Folder Files:
+[cols="1,1,1,5",options="header"]
+|===
+| Item name | Value type | Identifier | Description
+| dkim-signature | 0x001e (ASCII string) +
+0x001f (Unicode string) | | DKIM signature
+|===
+
 * [yellow-background]*TODO: migrate documentation*
 
 === Attachment property set
