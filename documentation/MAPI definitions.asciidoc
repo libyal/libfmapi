@@ -5028,11 +5028,81 @@ Other strings found in several Personal Folder Files:
 | Item name | Value type | Identifier | Description
 | dkim-signature | 0x001e (ASCII string) +
 0x001f (Unicode string) | | DKIM signature
+| domainkey-signature | 0x001e (ASCII string) +
+0x001f (Unicode string) | | Domain key signature
+| errors-to | 0x001e (ASCII string) +
+0x001f (Unicode string) | | Errors to
+| in-reply-to | 0x001e (ASCII string) +
+0x001f (Unicode string) | | In reply to
+| list-archive | 0x001e (ASCII string) +
+0x001f (Unicode string) | | List archive
+| list-info | 0x001e (ASCII string) +
+0x001f (Unicode string) | | List info
+| list-owner | 0x001e (ASCII string) +
+0x001f (Unicode string) | | List owner
+| list-post | 0x001e (ASCII string) +
+0x001f (Unicode string) | | List post
+| list-server | 0x001e (ASCII string) +
+0x001f (Unicode string) | | List server
+| return-path | 0x001e (ASCII string) +
+0x001f (Unicode string) | | Return path
+| Spam | 0x0005 (Floating point double precision (64-bit)) | | [yellow-background]*Unknown*
+| SpamBayesOriginalFolderStoreID | 0x0102 (Binary data) | | [yellow-background]*Unknown*
+| SpamBayesOriginalFolderID | 0x0102 (Binary data) | | [yellow-background]*Unknown*
+| user-agent | 0x001e (ASCII string) +
+0x001f (Unicode string) | | User agent
+| x-accept-language | 0x001e (ASCII string) +
+0x001f (Unicode string) | | [yellow-background]*Unknown*
+| x-antivirus | 0x001e (ASCII string) +
+0x001f (Unicode string) | | [yellow-background]*Unknown*
+| x-antivirus-status | 0x001e (ASCII string) +
+0x001f (Unicode string) | | [yellow-background]*Unknown*
+| x-demt-data | 0x001e (ASCII string) +
+0x001f (Unicode string) | | [yellow-background]*Unknown*
+| x-dolist-unsubscribe | 0x001e (ASCII string) +
+0x001f (Unicode string) | | [yellow-background]*Unknown*
+| x-fid | 0x001e (ASCII string) +
+0x001f (Unicode string) | | [yellow-background]*Unknown*
+| x-header-versions | 0x001e (ASCII string) +
+0x001f (Unicode string) | | [yellow-background]*Unknown*
+| x-header-masterid | 0x001e (ASCII string) +
+0x001f (Unicode string) | | [yellow-background]*Unknown*
+| x-header-companydbusername | 0x001e (ASCII string) +
+0x001f (Unicode string) | | [yellow-background]*Unknown*
+| ASCII or Unicode string values
+| x-lumos-senderid | 0x001e (ASCII string) +
+0x001f (Unicode string) | | [yellow-background]*Unknown*
+| x-mimeole | 0x001e (ASCII string) +
+0x001f (Unicode string) | | [yellow-background]*Unknown* +
+Added by Microsoft MimeOLE
+| x-ns-id | 0x001e (ASCII string) +
+0x001f (Unicode string) | | [yellow-background]*Unknown*
+| x-ns-batch | 0x001e (ASCII string) +
+0x001f (Unicode string) | | [yellow-background]*Unknown*
+| x-originalarrivaltime | 0x001e (ASCII string) +
+0x001f (Unicode string) | | Original arrival time
+| x-refid | 0x001e (ASCII string) +
+0x001f (Unicode string) | | Reference identifier
+| x-return-path-hint | 0x001e (ASCII string) +
+0x001f (Unicode string) | | [yellow-background]*Unknown*
+| x-roving-campaignid | 0x001e (ASCII string) +
+0x001f (Unicode string) | | [yellow-background]*Unknown*
+| x-roving-id | 0x001e (ASCII string) +
+0x001f (Unicode string) | | [yellow-background]*Unknown*
+| x-roving-streamid | 0x001e (ASCII string) +
+0x001f (Unicode string) | | [yellow-background]*Unknown*
+| x-sender | 0x001e (ASCII string) +
+0x001f (Unicode string) | | Sender
+| x-subscripted_email | 0x001e (ASCII string) +
+0x001f (Unicode string) | | [yellow-background]*Unknown*
+| x-trace | 0x001e (ASCII string) +
+0x001f (Unicode string) | | [yellow-background]*Unknown*
 |===
 
-* [yellow-background]*TODO: migrate documentation*
-
 === Attachment property set
+
+Named properties mapped to the Attachment interface GUID:
+96357f7f-59e1-47d0-99a7-46515c183b54.
 
 * [yellow-background]*TODO: migrate documentation*
 
