@@ -5104,33 +5104,86 @@ Added by Microsoft MimeOLE
 Named properties mapped to the Attachment interface GUID:
 96357f7f-59e1-47d0-99a7-46515c183b54.
 
-* [yellow-background]*TODO: migrate documentation*
+[cols="1,1,1,5",options="header"]
+|===
+| Item name | Value type | Identifier | Description
+| AttachmentMacContentType | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidNameAttachmentMacContentType | Attachment content type for Apple Macintosh
+| AttachmentMacInfo | 0x0102 (Binary data) | PidNameAttachmentMacInfo | Attachment information for Apple Macintosh
+|===
 
 === Unified messaging property set
 
-* [yellow-background]*TODO: migrate documentation*
+Named properties mapped to the unified messaging interface GUID:
+4442858e-a9e3-4e80-b900-317a210cc15b.
+
+[cols="1,1,1,5",options="header"]
+|===
+| Item name | Value type | Identifier | Description
+| UMAudioNotes | 0x001e (ASCII string) +
+0x001f (Unicode string) | PidNameAudioNotes | Audio notes
+|===
 
 === Other property sets
 
 ==== CLSID: 0006200b-0000-0000-c000-000000000046
 
-* [yellow-background]*TODO: migrate documentation*
+Named properties mapped to [yellow-background]*unknown* interface GUID:
+0006200b-0000-0000-c000-000000000046.
+
+[cols="1,1,1,5",options="header"]
+|===
+| Item type | Value type | Identifier | Description
+| 0x8808 | | |
+| 0x8809 | | |
+|===
 
 ==== CLSID: 00062013-0000-0000-c000-000000000046
 
-* [yellow-background]*TODO: migrate documentation*
+Named properties mapped to [yellow-background]*unknown* interface GUID:
+00062013-0000-0000-c000-000000000046.
+
+[cols="1,1,1,5",options="header"]
+|===
+| Item type | Value type | Identifier | Description
+| 0x8d00 | | |
+|===
 
 ==== CLSID: 00062014-0000-0000-c000-000000000046
 
-* [yellow-background]*TODO: migrate documentation*
+Named properties mapped to [yellow-background]*unknown* interface GUID:
+00062014-0000-0000-c000-000000000046.
+
+[cols="1,1,1,5",options="header"]
+|===
+| Item type | Value type | Identifier | Description
+| 0x8f05 | | |
+| | | |
+| 0x8f07 | | |
+|===
 
 ==== CLSID: 29f3ab56-554d-11d0-a97c-00a0c911f50a
 
-* [yellow-background]*TODO: migrate documentation*
+Named properties mapped to [yellow-background]*unknown* interface GUID:
+29f3ab56-554d-11d0-a97c-00a0c911f50a.
+
+[cols="1,1,1,5",options="header"]
+|===
+| Item type | Value type | Identifier | Description
+| 0xa000 | 0x0003 (Integer 32-bit signed) | | [yellow-background]*Unknown*
+|===
 
 ==== CLSID: 4e3a7680-b77a-11d0-9da5-00c04fd65685
 
-* [yellow-background]*TODO: migrate documentation*
+Named properties mapped to [yellow-background]*unknown* interface GUID:
+4e3a7680-b77a-11d0-9da5-00c04fd65685.
+
+[cols="1,1,1,5",options="header"]
+|===
+| Item type | Value type | Identifier | Description
+| Internet Charset Body | 0x001e (ASCII string) +
+0x001f (Unicode string) | | Body formatted in the Internet character set
+|===
 
 == MAPI definitions
 
