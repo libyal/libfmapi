@@ -4350,10 +4350,10 @@ int libfmapi_debug_print_binary_data_value(
 					return( -1 );
 				}
 				if( libfmapi_lzfu_decompress(
-				     (uint8_t *) rtf_value_string,
-				     &rtf_value_string_size,
 				     value_data,
 				     value_data_size,
+				     (uint8_t *) rtf_value_string,
+				     &rtf_value_string_size,
 				     error ) != 1 )
 				{
 					libcerror_error_set(

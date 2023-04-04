@@ -7,7 +7,7 @@ EXIT_SUCCESS=0;
 EXIT_FAILURE=1;
 EXIT_IGNORE=77;
 
-LIBRARY_TESTS="checksum entry_identifier error one_off_entry_identifier property_type support value_type x400_object_identifier";
+LIBRARY_TESTS="checksum entry_identifier error lzfu one_off_entry_identifier property_type support value_type";
 LIBRARY_TESTS_WITH_INPUT="";
 OPTION_SETS="";
 

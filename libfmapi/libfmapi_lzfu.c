@@ -1,5 +1,5 @@
 /*
- * LZFu (un)compression functions
+ * LZFu (de)compression functions
  *
  * Copyright (C) 2009-2023, Joachim Metz <joachim.metz@gmail.com>
  *
@@ -42,28 +42,27 @@ const char *libfmapi_lzfu_rtf_dictionary = \
  * Returns 1 on success or -1 on error
  */
 int libfmapi_lzfu_get_uncompressed_data_size(
-     uint8_t *compressed_data,
+     const uint8_t *compressed_data,
      size_t compressed_data_size,
      size_t *uncompressed_data_size,
      libcerror_error_t **error )
 {
 	libfmapi_lzfu_header_t lzfu_header;
 
-	uint8_t *lzfu_data                = 0;
-	static char *function             = "libfmapi_lzfu_get_uncompressed_data_size";
+	static char *function              = "libfmapi_lzfu_get_uncompressed_data_size";
+	size_t compressed_data_offset      = 0;
 
 #if defined( HAVE_DEBUG_OUTPUT )
 	uint8_t lz_buffer[ 4096 ];
 
-	uint8_t *lzfu_reference_data      = 0;
-	size_t compressed_data_iterator   = 0;
-	size_t uncompressed_data_iterator = 0;
-	uint16_t lz_buffer_iterator       = 0;
-	uint16_t reference_offset         = 0;
-	uint16_t reference_size           = 0;
-	uint16_t reference_iterator       = 0;
-	uint8_t flag_byte_bit_mask        = 0;
-	uint8_t flag_byte                 = 0;
+	const uint8_t *lzfu_reference_data = NULL;
+	size_t uncompressed_data_offset    = 0;
+	uint16_t lz_buffer_iterator        = 0;
+	uint16_t reference_iterator        = 0;
+	uint16_t reference_offset          = 0;
+	uint16_t reference_size            = 0;
+	uint8_t flag_byte                  = 0;
+	uint8_t flag_byte_bit_mask         = 0;
 #endif
 
 	if( compressed_data == NULL )
@@ -77,13 +76,14 @@ int libfmapi_lzfu_get_uncompressed_data_size(
 
 		return( -1 );
 	}
-	if( compressed_data_size > (size_t) SSIZE_MAX )
+	if( ( compressed_data_size < sizeof( libfmapi_lzfu_header_t ) )
+	 || ( compressed_data_size > (size_t) SSIZE_MAX ) )
 	{
 		libcerror_error_set(
 		 error,
 		 LIBCERROR_ERROR_DOMAIN_ARGUMENTS,
-		 LIBCERROR_ARGUMENT_ERROR_VALUE_EXCEEDS_MAXIMUM,
-		 "%s: invalid compressed data size value exceeds maximum.",
+		 LIBCERROR_ARGUMENT_ERROR_VALUE_OUT_OF_BOUNDS,
+		 "%s: invalid compressed data size value out of bounds.",
 		 function );
 
 		return( -1 );
@@ -99,25 +99,23 @@ int libfmapi_lzfu_get_uncompressed_data_size(
 
 		return( -1 );
 	}
-	lzfu_data = compressed_data;
-
 	byte_stream_copy_to_uint32_little_endian(
-	 lzfu_data,
+	 &( compressed_data[ compressed_data_offset ] ),
 	 lzfu_header.compressed_data_size );
 
-	lzfu_data += 4;
+	compressed_data_offset += 4;
 
 	byte_stream_copy_to_uint32_little_endian(
-	 lzfu_data,
+	 &( compressed_data[ compressed_data_offset ] ),
 	 lzfu_header.uncompressed_data_size );
 
-	lzfu_data += 4;
+	compressed_data_offset += 4;
 
 	byte_stream_copy_to_uint32_little_endian(
-	 lzfu_data,
+	 &( compressed_data[ compressed_data_offset ] ),
 	 lzfu_header.signature );
 
-	lzfu_data += 8;
+	compressed_data_offset += 8;
 
 	if( ( lzfu_header.signature != LIBFMAPI_LZFU_SIGNATURE_COMPRESSED )
 	 && ( lzfu_header.signature != LIBFMAPI_LZFU_SIGNATURE_UNCOMPRESSED ) )
@@ -132,13 +130,10 @@ int libfmapi_lzfu_get_uncompressed_data_size(
 
 		return( -1 );
 	}
-	compressed_data_size -= sizeof( libfmapi_lzfu_header_t );
-
 	/* The compressed data size includes 12 bytes of the header
 	 */
-	lzfu_header.compressed_data_size -= 12;
-
-	if( (size_t) lzfu_header.compressed_data_size != compressed_data_size )
+	if( ( lzfu_header.compressed_data_size < 12 )
+	 || ( (size_t) ( lzfu_header.compressed_data_size - 12 ) != ( compressed_data_size - sizeof( libfmapi_lzfu_header_t ) ) ) )
 	{
 		libcerror_error_set(
 		 error,
@@ -151,6 +146,8 @@ int libfmapi_lzfu_get_uncompressed_data_size(
 
 		return( -1 );
 	}
+	lzfu_header.compressed_data_size -= 12;
+
 #if defined( HAVE_DEBUG_OUTPUT )
 	if( libcnotify_verbose != 0 )
 	{
@@ -184,9 +181,9 @@ int libfmapi_lzfu_get_uncompressed_data_size(
 
 			return( -1 );
 		}
-		while( compressed_data_iterator < (size_t) lzfu_header.compressed_data_size )
+		while( compressed_data_offset < compressed_data_size )
 		{
-			flag_byte = lzfu_data[ compressed_data_iterator++ ];
+			flag_byte = compressed_data[ compressed_data_offset++ ];
 
 			/* Check every bit in the chunk flag byte from LSB to MSB
 			 */
@@ -194,7 +191,7 @@ int libfmapi_lzfu_get_uncompressed_data_size(
 			     flag_byte_bit_mask != 0x00;
 			     flag_byte_bit_mask <<= 1 )
 			{
-				if( compressed_data_iterator == (size_t) lzfu_header.compressed_data_size )
+				if( compressed_data_offset == compressed_data_size )
 				{
 					break;
 				}
@@ -202,10 +199,10 @@ int libfmapi_lzfu_get_uncompressed_data_size(
 				 */
 				if( ( flag_byte & flag_byte_bit_mask ) == 0 )
 				{
-					lz_buffer[ lz_buffer_iterator++ ] = lzfu_data[ compressed_data_iterator ];
+					lz_buffer[ lz_buffer_iterator++ ] = compressed_data[ compressed_data_offset ];
 
-					uncompressed_data_iterator++;
-					compressed_data_iterator++;
+					compressed_data_offset++;
+					uncompressed_data_offset++;
 
 					/* Make sure the lz buffer iterator wraps around
 					 */
@@ -215,9 +212,9 @@ int libfmapi_lzfu_get_uncompressed_data_size(
 				}
 				else
 				{
-					lzfu_reference_data = &( lzfu_data[ compressed_data_iterator ] );
+					lzfu_reference_data = &( compressed_data[ compressed_data_offset ] );
 
-					compressed_data_iterator += 2;
+					compressed_data_offset += 2;
 
 					byte_stream_copy_to_uint16_big_endian(
 					 lzfu_reference_data,
@@ -230,7 +227,7 @@ int libfmapi_lzfu_get_uncompressed_data_size(
 					{
 						lz_buffer[ lz_buffer_iterator++ ] = lz_buffer[ reference_offset ];
 
-						uncompressed_data_iterator++;
+						uncompressed_data_offset++;
 						reference_offset++;
 
 						/* Make sure the lz buffer iterator and reference offset wrap around
@@ -243,16 +240,17 @@ int libfmapi_lzfu_get_uncompressed_data_size(
 				}
 			}
 		}
-		if( (size_t) ( lzfu_header.uncompressed_data_size + 2 ) != uncompressed_data_iterator )
+		if( (size_t) ( lzfu_header.uncompressed_data_size + 2 ) != uncompressed_data_offset )
 		{
 			libcnotify_printf(
 			 "%s: mismatch in uncompressed data size (in header: %" PRIu32 " != required: %" PRIzd ").\n",
 			 function,
 			 lzfu_header.uncompressed_data_size + 2,
-			 uncompressed_data_iterator );
+			 uncompressed_data_offset );
 		}
 	}
-#endif
+#endif /* defined( HAVE_DEBUG_OUTPUT ) */
+
 	/* Compensate for the 2 trailing zero bytes
 	 */
 	*uncompressed_data_size = lzfu_header.uncompressed_data_size + 2;
@@ -260,17 +258,32 @@ int libfmapi_lzfu_get_uncompressed_data_size(
 	return( 1 );
 }
 
-/* Compresses data using LZFu compression
+/* Decompresses data using LZFu compression
  * Returns 1 on success or -1 on error
  */
-int libfmapi_lzfu_compress(
-     uint8_t *compressed_data,
-     size_t *compressed_data_size,
+int libfmapi_lzfu_decompress(
+     const uint8_t *compressed_data,
+     size_t compressed_data_size,
      uint8_t *uncompressed_data,
-     size_t uncompressed_data_size,
+     size_t *uncompressed_data_size,
      libcerror_error_t **error )
 {
-	static char *function = "libfmapi_lzfu_compress";
+	libfmapi_lzfu_header_t lzfu_header;
+
+	uint8_t lz_buffer[ 4096 ];
+
+	const uint8_t *lzfu_reference_data = NULL;
+	static char *function              = "libfmapi_lzfu_decompress";
+	size_t compressed_data_offset      = 0;
+	size_t safe_uncompressed_data_size = 0;
+	size_t uncompressed_data_offset    = 0;
+	uint32_t calculated_checksum       = 0;
+	uint16_t lz_buffer_iterator        = 0;
+	uint16_t reference_iterator        = 0;
+	uint16_t reference_offset          = 0;
+	uint16_t reference_size            = 0;
+	uint8_t flag_byte                  = 0;
+	uint8_t flag_byte_bit_mask         = 0;
 
 	if( compressed_data == NULL )
 	{
@@ -283,76 +296,18 @@ int libfmapi_lzfu_compress(
 
 		return( -1 );
 	}
-	if( compressed_data_size == NULL )
+	if( ( compressed_data_size < sizeof( libfmapi_lzfu_header_t ) )
+	 || ( compressed_data_size > (size_t) SSIZE_MAX ) )
 	{
 		libcerror_error_set(
 		 error,
 		 LIBCERROR_ERROR_DOMAIN_ARGUMENTS,
-		 LIBCERROR_ARGUMENT_ERROR_INVALID_VALUE,
-		 "%s: invalid compressed data size.",
+		 LIBCERROR_ARGUMENT_ERROR_VALUE_OUT_OF_BOUNDS,
+		 "%s: invalid compressed data size value out of bounds.",
 		 function );
 
 		return( -1 );
 	}
-	if( uncompressed_data == NULL )
-	{
-		libcerror_error_set(
-		 error,
-		 LIBCERROR_ERROR_DOMAIN_ARGUMENTS,
-		 LIBCERROR_ARGUMENT_ERROR_INVALID_VALUE,
-		 "%s: invalid uncompressed data.",
-		 function );
-
-		return( -1 );
-	}
-	if( uncompressed_data_size > (size_t) SSIZE_MAX )
-	{
-		libcerror_error_set(
-		 error,
-		 LIBCERROR_ERROR_DOMAIN_ARGUMENTS,
-		 LIBCERROR_ARGUMENT_ERROR_VALUE_EXCEEDS_MAXIMUM,
-		 "%s: invalid uncompressed data size value exceeds maximum.",
-		 function );
-
-		return( -1 );
-	}
-	/* TODO implement */
-	libcerror_error_set(
-	 error,
-	 LIBCERROR_ERROR_DOMAIN_RUNTIME,
-	 LIBCERROR_RUNTIME_ERROR_GENERIC,
-	 "%s: NOT IMPLEMENTED YET",
-	 function );
-
-	return( -1 );
-}
-
-/* Decompresses data using LZFu compression
- * Returns 1 on success or -1 on error
- */
-int libfmapi_lzfu_decompress(
-     uint8_t *uncompressed_data,
-     size_t *uncompressed_data_size,
-     uint8_t *compressed_data,
-     size_t compressed_data_size,
-     libcerror_error_t **error )
-{
-	libfmapi_lzfu_header_t lzfu_header;
-	uint8_t lz_buffer[ 4096 ];
-
-	uint8_t *lzfu_data                = 0;
-	uint8_t *lzfu_reference_data      = 0;
-	static char *function             = "libfmapi_lzfu_decompress";
-	size_t compressed_data_iterator   = 0;
-	size_t uncompressed_data_iterator = 0;
-	uint32_t calculated_checksum      = 0;
-	uint16_t lz_buffer_iterator       = 0;
-	uint16_t reference_offset         = 0;
-	uint16_t reference_size           = 0;
-	uint16_t reference_iterator       = 0;
-	uint8_t flag_byte_bit_mask        = 0;
-	uint8_t flag_byte                 = 0;
-
 	if( uncompressed_data == NULL )
 	{
 		libcerror_error_set(
@@ -375,28 +330,20 @@ int libfmapi_lzfu_decompress(
 
 		return( -1 );
 	}
-	if( compressed_data == NULL )
-	{
-		libcerror_error_set(
-		 error,
-		 LIBCERROR_ERROR_DOMAIN_ARGUMENTS,
-		 LIBCERROR_ARGUMENT_ERROR_INVALID_VALUE,
-		 "%s: invalid compressed data.",
-		 function );
+	safe_uncompressed_data_size = *uncompressed_data_size;
 
-		return( -1 );
-	}
-	if( compressed_data_size > (size_t) SSIZE_MAX )
+#if defined( HAVE_DEBUG_OUTPUT )
+	if( libcnotify_verbose != 0 )
 	{
-		libcerror_error_set(
-		 error,
-		 LIBCERROR_ERROR_DOMAIN_ARGUMENTS,
-		 LIBCERROR_ARGUMENT_ERROR_VALUE_EXCEEDS_MAXIMUM,
-		 "%s: invalid compressed data size value exceeds maximum.",
+		libcnotify_printf(
+		 "%s: LZFu compressed data:\n",
 		 function );
-
-		return( -1 );
+		libcnotify_print_data(
+		 compressed_data,
+		 compressed_data_size,
+		 0 );
 	}
+#endif
 	if( memory_copy(
 	     lz_buffer,
 	     libfmapi_lzfu_rtf_dictionary,
@@ -427,53 +374,54 @@ int libfmapi_lzfu_decompress(
 
 		return( -1 );
 	}
-	lzfu_data = compressed_data;
-
 	byte_stream_copy_to_uint32_little_endian(
-	 lzfu_data,
+	 &( compressed_data[ compressed_data_offset ] ),
 	 lzfu_header.compressed_data_size );
 
-	lzfu_data += 4;
+	compressed_data_offset += 4;
 
 	byte_stream_copy_to_uint32_little_endian(
-	 lzfu_data,
+	 &( compressed_data[ compressed_data_offset ] ),
 	 lzfu_header.uncompressed_data_size );
 
-	lzfu_data += 4;
+	compressed_data_offset += 4;
 
 	byte_stream_copy_to_uint32_little_endian(
-	 lzfu_data,
+	 &( compressed_data[ compressed_data_offset ] ),
 	 lzfu_header.signature );
 
-	lzfu_data += 4;
+	compressed_data_offset += 4;
 
 	byte_stream_copy_to_uint32_little_endian(
-	 lzfu_data,
+	 &( compressed_data[ compressed_data_offset ] ),
 	 lzfu_header.checksum );
 
-	lzfu_data += 4;
+	compressed_data_offset += 4;
 
 #if defined( HAVE_DEBUG_OUTPUT )
 	if( libcnotify_verbose != 0 )
 	{
 		libcnotify_printf(
-		 "%s: lzfu header compressed data size\t: %" PRIu32 "\n",
+		 "%s: lzfu header compressed data size\t\t: %" PRIu32 "\n",
 		 function,
 		 lzfu_header.compressed_data_size );
+
 		libcnotify_printf(
-		 "%s: lzfu header uncompressed data size\t: %" PRIu32 "\n",
+		 "%s: lzfu header uncompressed data size\t\t: %" PRIu32 "\n",
 		 function,
 		 lzfu_header.uncompressed_data_size );
+
 		libcnotify_printf(
-		 "%s: lzfu header signature\t\t\t: 0x08%" PRIx32 "\n",
+		 "%s: lzfu header signature\t\t\t\t: 0x08%" PRIx32 "\n",
 		 function,
 		 lzfu_header.signature );
+
 		libcnotify_printf(
-		 "%s: lzfu header checksum\t\t: %" PRIu32 "\n",
+		 "%s: lzfu header checksum\t\t\t\t: %" PRIu32 "\n",
 		 function,
 		 lzfu_header.checksum );
 	}
-#endif
+#endif /* defined( HAVE_DEBUG_OUTPUT ) */
 
 	if( ( lzfu_header.signature != LIBFMAPI_LZFU_SIGNATURE_COMPRESSED )
 	 && ( lzfu_header.signature != LIBFMAPI_LZFU_SIGNATURE_UNCOMPRESSED ) )
@@ -488,13 +436,10 @@ int libfmapi_lzfu_decompress(
 
 		return( -1 );
 	}
-	compressed_data_size -= sizeof( libfmapi_lzfu_header_t );
-
 	/* The compressed data size includes 12 bytes of the header
 	 */
-	lzfu_header.compressed_data_size -= 12;
-
-	if( lzfu_header.compressed_data_size != compressed_data_size )
+	if( ( lzfu_header.compressed_data_size < 12 )
+	 || ( (size_t) ( lzfu_header.compressed_data_size - 12 ) != ( compressed_data_size - sizeof( libfmapi_lzfu_header_t ) ) ) )
 	{
 		libcerror_error_set(
 		 error,
@@ -507,9 +452,11 @@ int libfmapi_lzfu_decompress(
 
 		return( -1 );
 	}
+	lzfu_header.compressed_data_size -= 12;
+
 	/* Make sure the uncompressed buffer is large enough
 	 */
-	if( *uncompressed_data_size < lzfu_header.uncompressed_data_size )
+	if( safe_uncompressed_data_size < lzfu_header.uncompressed_data_size )
 	{
 		libcerror_error_set(
 		 error,
@@ -524,7 +471,7 @@ int libfmapi_lzfu_decompress(
 	}
 	if( libfmapi_checksum_calculate_weak_crc32(
 	     &calculated_checksum,
-	     lzfu_data,
+	     &( compressed_data[ compressed_data_offset ] ),
 	     (size_t) lzfu_header.compressed_data_size,
 	     0,
 	     error ) != 1 )
@@ -551,15 +498,17 @@ int libfmapi_lzfu_decompress(
 
 		return( -1 );
 	}
-	while( compressed_data_iterator < (size_t) lzfu_header.compressed_data_size )
+	while( compressed_data_offset < compressed_data_size )
 	{
-		flag_byte = lzfu_data[ compressed_data_iterator++ ];
+		flag_byte = compressed_data[ compressed_data_offset++ ];
 
 		/* Check every bit in the chunk flag byte from LSB to MSB
 		 */
-		for( flag_byte_bit_mask = 0x01; flag_byte_bit_mask != 0x00; flag_byte_bit_mask <<= 1 )
+		for( flag_byte_bit_mask = 0x01;
+		     flag_byte_bit_mask != 0x00;
+		     flag_byte_bit_mask <<= 1 )
 		{
-			if( compressed_data_iterator == (size_t) lzfu_header.compressed_data_size )
+			if( compressed_data_offset == compressed_data_size )
 			{
 				break;
 			}
@@ -567,7 +516,7 @@ int libfmapi_lzfu_decompress(
 			 */
 			if( ( flag_byte & flag_byte_bit_mask ) == 0 )
 			{
-				if( compressed_data_iterator >= (size_t) lzfu_header.compressed_data_size )
+				if( compressed_data_offset >= compressed_data_size )
 				{
 					libcerror_error_set(
 					 error,
@@ -580,7 +529,7 @@ int libfmapi_lzfu_decompress(
 
 					return( -1 );
 				}
-				if( uncompressed_data_iterator >= *uncompressed_data_size )
+				if( uncompressed_data_offset >= safe_uncompressed_data_size )
 				{
 					libcerror_error_set(
 					 error,
@@ -589,14 +538,14 @@ int libfmapi_lzfu_decompress(
 					 "%s: uncompressed data too small.",
 					 function );
 
-					*uncompressed_data_size = uncompressed_data_iterator;
+					*uncompressed_data_size = uncompressed_data_offset;
 
 					return( -1 );
 				}
-				lz_buffer[ lz_buffer_iterator++ ]                 = lzfu_data[ compressed_data_iterator ];
-				uncompressed_data[ uncompressed_data_iterator++ ] = lzfu_data[ compressed_data_iterator ];
+				lz_buffer[ lz_buffer_iterator++ ]               = compressed_data[ compressed_data_offset ];
+				uncompressed_data[ uncompressed_data_offset++ ] = compressed_data[ compressed_data_offset ];
 
-				compressed_data_iterator++;
+				compressed_data_offset++;
 
 				/* Make sure the lz buffer iterator wraps around
 				 */
@@ -606,7 +555,7 @@ int libfmapi_lzfu_decompress(
 			}
 			else
 			{
-				if( ( compressed_data_iterator + 1 ) >= (size_t) lzfu_header.compressed_data_size )
+				if( compressed_data_offset > ( compressed_data_size - 2 ) )
 				{
 					libcerror_error_set(
 					 error,
@@ -619,9 +568,9 @@ int libfmapi_lzfu_decompress(
 
 					return( -1 );
 				}
-				lzfu_reference_data = &( lzfu_data[ compressed_data_iterator ] );
+				lzfu_reference_data = &( compressed_data[ compressed_data_offset ] );
 
-				compressed_data_iterator += 2;
+				compressed_data_offset += 2;
 
 				byte_stream_copy_to_uint16_big_endian(
 				 lzfu_reference_data,
@@ -630,7 +579,7 @@ int libfmapi_lzfu_decompress(
 				reference_size     = ( reference_offset & 0x000f ) + 2;
 				reference_offset >>= 4;
 
-				if( ( uncompressed_data_iterator + reference_size - 1 ) >= *uncompressed_data_size )
+				if( ( uncompressed_data_offset + reference_size - 1 ) >= safe_uncompressed_data_size )
 				{
 					libcerror_error_set(
 					 error,
@@ -639,14 +588,14 @@ int libfmapi_lzfu_decompress(
 					 "%s: uncompressed data too small.",
 					 function );
 
-					*uncompressed_data_size = uncompressed_data_iterator + reference_size;
+					*uncompressed_data_size = uncompressed_data_offset + reference_size;
 
 					return( -1 );
 				}
 				for( reference_iterator = 0; reference_iterator < reference_size; reference_iterator++ )
 				{
-					lz_buffer[ lz_buffer_iterator++ ]                 = lz_buffer[ reference_offset ];
-					uncompressed_data[ uncompressed_data_iterator++ ] = lz_buffer[ reference_offset ];
+					lz_buffer[ lz_buffer_iterator++ ]               = lz_buffer[ reference_offset ];
+					uncompressed_data[ uncompressed_data_offset++ ] = lz_buffer[ reference_offset ];
 
 					reference_offset++;
 
@@ -660,7 +609,7 @@ int libfmapi_lzfu_decompress(
 			}
 		}
 	}
-	*uncompressed_data_size = uncompressed_data_iterator;
+	*uncompressed_data_size = uncompressed_data_offset;
 
 	return( 1 );
 }

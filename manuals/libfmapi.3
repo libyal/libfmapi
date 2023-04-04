@@ -1,4 +1,4 @@
-.Dd March 26, 2019
+.Dd April  4, 2023
 .Dt libfmapi 3
 .Os libfmapi
 .Sh NAME
@@ -68,6 +68,12 @@ One-off entry identifier functions
 .Fn libfmapi_one_off_entry_identifier_get_utf16_email_address_size "libfmapi_one_off_entry_identifier_t *entry_identifier" "size_t *utf16_string_size" "libfmapi_error_t **error"
 .Ft int
 .Fn libfmapi_one_off_entry_identifier_get_utf16_email_address "libfmapi_one_off_entry_identifier_t *entry_identifier" "uint16_t *utf16_string" "size_t utf16_string_size" "libfmapi_error_t **error"
+.Pp
+LZFu (de)compression functions
+.Ft int
+.Fn libfmapi_lzfu_get_uncompressed_data_size "const uint8_t *compressed_data" "size_t compressed_data_size" "size_t *uncompressed_data_size" "libfmapi_error_t **error"
+.Ft int
+.Fn libfmapi_lzfu_decompress "const uint8_t *compressed_data" "size_t compressed_data_size" "uint8_t *uncompressed_data" "size_t *uncompressed_data_size" "libfmapi_error_t **error"
 .Sh DESCRIPTION
 The
 .Fn libfmapi_get_version

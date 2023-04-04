@@ -356,6 +356,31 @@ uint8_t libfmapi_class_identifier_air_sync[ 16 ];
 LIBFMAPI_EXTERN \
 uint8_t libfmapi_class_identifier_attachment[ 16 ];
 
+/* -------------------------------------------------------------------------
+ * LZFu (de)compression functions
+ * ------------------------------------------------------------------------- */
+
+/* Determines the uncompressed data size from the LZFu header in the compressed data
+ * Returns 1 on success or -1 on error
+ */
+LIBFMAPI_EXTERN \
+int libfmapi_lzfu_get_uncompressed_data_size(
+     const uint8_t *compressed_data,
+     size_t compressed_data_size,
+     size_t *uncompressed_data_size,
+     libfmapi_error_t **error );
+
+/* Decompresses data using LZFu compression
+ * Returns 1 on success or -1 on error
+ */
+LIBFMAPI_EXTERN \
+int libfmapi_lzfu_decompress(
+     const uint8_t *compressed_data,
+     size_t compressed_data_size,
+     uint8_t *uncompressed_data,
+     size_t *uncompressed_data_size,
+     libfmapi_error_t **error );
+
 #if defined( __cplusplus )
 }
 #endif

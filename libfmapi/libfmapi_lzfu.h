@@ -1,5 +1,5 @@
 /*
- * LZFu (un)compression functions
+ * LZFu (de)compression functions
  *
  * Copyright (C) 2009-2023, Joachim Metz <joachim.metz@gmail.com>
  *
@@ -25,6 +25,7 @@
 #include <common.h>
 #include <types.h>
 
+#include "libfmapi_extern.h"
 #include "libfmapi_libcerror.h"
 
 #if defined( __cplusplus )
@@ -54,24 +55,19 @@ struct libfmapi_lzfu_header
 	uint32_t checksum;
 };
 
+LIBFMAPI_EXTERN \
 int libfmapi_lzfu_get_uncompressed_data_size(
-     uint8_t *compressed_data,
+     const uint8_t *compressed_data,
      size_t compressed_data_size,
      size_t *uncompressed_data_size,
      libcerror_error_t **error );
 
-int libfmapi_lzfu_compress(
-     uint8_t *compressed_data,
-     size_t *compressed_data_size,
-     uint8_t *uncompressed_data,
-     size_t uncompressed_data_size,
-     libcerror_error_t **error );
-
+LIBFMAPI_EXTERN \
 int libfmapi_lzfu_decompress(
+     const uint8_t *compressed_data,
+     size_t compressed_data_size,
      uint8_t *uncompressed_data,
      size_t *uncompressed_data_size,
-     uint8_t *compressed_data,
-     size_t compressed_data_size,
      libcerror_error_t **error );
 
 #if defined( __cplusplus )

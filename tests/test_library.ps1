@@ -6,7 +6,7 @@ $ExitSuccess = 0
 $ExitFailure = 1
 $ExitIgnore = 77
 
-$LibraryTests = "checksum entry_identifier error one_off_entry_identifier property_type support value_type x400_object_identifier"
+$LibraryTests = "checksum entry_identifier error lzfu one_off_entry_identifier property_type support value_type"
 $LibraryTestsWithInput = ""
 $OptionSets = ""
 
