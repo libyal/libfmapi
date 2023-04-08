@@ -19,8 +19,8 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-#if !defined( _LIBFMAPI_INTERNAL_ENTRY_IDENTIFIER_H )
-#define _LIBFMAPI_INTERNAL_ENTRY_IDENTIFIER_H
+#if !defined( _LIBFMAPI_ENTRY_IDENTIFIER_H )
+#define _LIBFMAPI_ENTRY_IDENTIFIER_H
 
 #include <common.h>
 #include <types.h>
@@ -59,7 +59,7 @@ int libfmapi_entry_identifier_free(
 LIBFMAPI_EXTERN \
 int libfmapi_entry_identifier_copy_from_byte_stream(
      libfmapi_entry_identifier_t *entry_identifier,
-     uint8_t *byte_stream,
+     const uint8_t *byte_stream,
      size_t byte_stream_size,
      libcerror_error_t **error );
 
@@ -74,5 +74,5 @@ int libfmapi_entry_identifier_get_service_provider_identifier(
 }
 #endif
 
-#endif /* !defined( _LIBFMAPI_INTERNAL_ENTRY_IDENTIFIER_H ) */
+#endif /* !defined( _LIBFMAPI_ENTRY_IDENTIFIER_H ) */
 

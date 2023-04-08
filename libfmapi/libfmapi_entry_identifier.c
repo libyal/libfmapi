@@ -142,7 +142,7 @@ int libfmapi_entry_identifier_free(
  */
 int libfmapi_entry_identifier_copy_from_byte_stream(
      libfmapi_entry_identifier_t *entry_identifier,
-     uint8_t *byte_stream,
+     const uint8_t *byte_stream,
      size_t byte_stream_size,
      libcerror_error_t **error )
 {
@@ -180,24 +180,14 @@ int libfmapi_entry_identifier_copy_from_byte_stream(
 
 		return( -1 );
 	}
-	if( byte_stream_size < 20 )
+	if( ( byte_stream_size < 20 )
+	 || ( byte_stream_size > (size_t) SSIZE_MAX ) )
 	{
 		libcerror_error_set(
 		 error,
 		 LIBCERROR_ERROR_DOMAIN_ARGUMENTS,
-		 LIBCERROR_ARGUMENT_ERROR_VALUE_TOO_SMALL,
-		 "%s: byte stream too small.",
-		 function );
-
-		return( -1 );
-	}
-	if( byte_stream_size > (size_t) SSIZE_MAX )
-	{
-		libcerror_error_set(
-		 error,
-		 LIBCERROR_ERROR_DOMAIN_ARGUMENTS,
-		 LIBCERROR_ARGUMENT_ERROR_VALUE_EXCEEDS_MAXIMUM,
-		 "%s: byte stream size value exceeds maximum.",
+		 LIBCERROR_ARGUMENT_ERROR_VALUE_OUT_OF_BOUNDS,
+		 "%s: invalid byte stream size value out of bounds.",
 		 function );
 
 		return( -1 );
@@ -206,7 +196,7 @@ int libfmapi_entry_identifier_copy_from_byte_stream(
 	if( libcnotify_verbose != 0 )
 	{
 		libcnotify_printf(
-		 "%s: header data:\n",
+		 "%s: entry identifier data:\n",
 		 function );
 		libcnotify_print_data(
 		 byte_stream,
@@ -216,7 +206,7 @@ int libfmapi_entry_identifier_copy_from_byte_stream(
 #endif
 	if( memory_copy(
 	     internal_entry_identifier->flags,
-	     byte_stream,
+	     &( byte_stream[ 0 ] ),
 	     4 ) == NULL )
 	{
 		libcerror_error_set(
@@ -228,11 +218,9 @@ int libfmapi_entry_identifier_copy_from_byte_stream(
 
 		goto on_error;
 	}
-	byte_stream += 4;
-
 	if( memory_copy(
 	     internal_entry_identifier->service_provider_identifier,
-	     byte_stream,
+	     &( byte_stream[ 4 ] ),
 	     16 ) == NULL )
 	{
 		libcerror_error_set(
@@ -244,8 +232,6 @@ int libfmapi_entry_identifier_copy_from_byte_stream(
 
 		goto on_error;
 	}
-	byte_stream += 16;
-
 #if defined( HAVE_DEBUG_OUTPUT )
 	if( libcnotify_verbose != 0 )
 	{
@@ -335,7 +321,8 @@ int libfmapi_entry_identifier_copy_from_byte_stream(
 		libcnotify_printf(
 		 "\n" );
 	}
-#endif
+#endif /* defined( HAVE_DEBUG_OUTPUT ) */
+
 	return( 1 );
 
 on_error:

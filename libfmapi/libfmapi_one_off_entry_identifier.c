@@ -156,14 +156,15 @@ int libfmapi_one_off_entry_identifier_free(
  */
 int libfmapi_one_off_entry_identifier_copy_from_byte_stream(
      libfmapi_one_off_entry_identifier_t *entry_identifier,
-     uint8_t *byte_stream,
+     const uint8_t *byte_stream,
      size_t byte_stream_size,
      int ascii_codepage,
      libcerror_error_t **error )
 {
 	libfmapi_internal_one_off_entry_identifier_t *internal_entry_identifier = NULL;
 	static char *function                                                   = "libfmapi_one_off_entry_identifier_copy_from_byte_stream";
-	size_t byte_stream_index                                                = 0;
+	size_t byte_stream_offset                                               = 0;
+	size_t string_size                                                      = 0;
 	uint16_t flags                                                          = 0;
 	uint16_t format_version                                                 = 0;
 	uint16_t supported_flags                                                = 0;
@@ -225,24 +226,14 @@ int libfmapi_one_off_entry_identifier_copy_from_byte_stream(
 
 		return( -1 );
 	}
-	if( byte_stream_size < 4 )
+	if( ( byte_stream_size < 4 )
+	 || ( byte_stream_size > (size_t) SSIZE_MAX ) )
 	{
 		libcerror_error_set(
 		 error,
 		 LIBCERROR_ERROR_DOMAIN_ARGUMENTS,
-		 LIBCERROR_ARGUMENT_ERROR_VALUE_TOO_SMALL,
-		 "%s: byte stream too small.",
-		 function );
-
-		return( -1 );
-	}
-	if( byte_stream_size > (size_t) SSIZE_MAX )
-	{
-		libcerror_error_set(
-		 error,
-		 LIBCERROR_ERROR_DOMAIN_ARGUMENTS,
-		 LIBCERROR_ARGUMENT_ERROR_VALUE_EXCEEDS_MAXIMUM,
-		 "%s: byte stream size exceeds maximum.",
+		 LIBCERROR_ARGUMENT_ERROR_VALUE_OUT_OF_BOUNDS,
+		 "%s: invalid byte stream size value out of bounds.",
 		 function );
 
 		return( -1 );
@@ -251,7 +242,7 @@ int libfmapi_one_off_entry_identifier_copy_from_byte_stream(
 	if( libcnotify_verbose != 0 )
 	{
 		libcnotify_printf(
-		 "%s: header data:\n",
+		 "%s: one-off entry identifier header data:\n",
 		 function );
 		libcnotify_print_data(
 		 byte_stream,
@@ -260,18 +251,12 @@ int libfmapi_one_off_entry_identifier_copy_from_byte_stream(
 	}
 #endif
 	byte_stream_copy_to_uint16_little_endian(
-	 byte_stream,
+	 &( byte_stream[ 0 ] ),
 	 format_version );
 
-	byte_stream      += 2;
-	byte_stream_size -= 2;
-
 	byte_stream_copy_to_uint16_little_endian(
-	 byte_stream,
+	 &( byte_stream[ 2 ] ),
 	 flags );
-
-	byte_stream      += 2;
-	byte_stream_size -= 2;
 
 #if defined( HAVE_DEBUG_OUTPUT )
 	if( libcnotify_verbose != 0 )
@@ -287,6 +272,8 @@ int libfmapi_one_off_entry_identifier_copy_from_byte_stream(
 		 flags );
 	}
 #endif
+	byte_stream_offset += 4;
+
 	if( format_version != 0 )
 	{
 		libcerror_error_set(
@@ -315,36 +302,26 @@ int libfmapi_one_off_entry_identifier_copy_from_byte_stream(
 
 		goto on_error;
 	}
-	if( byte_stream_size == 0 )
-	{
-		libcerror_error_set(
-		 error,
-		 LIBCERROR_ERROR_DOMAIN_ARGUMENTS,
-		 LIBCERROR_ARGUMENT_ERROR_VALUE_TOO_SMALL,
-		 "%s: byte stream too small.",
-		 function );
-
-		goto on_error;
-	}
 	internal_entry_identifier->format_version = format_version;
 	internal_entry_identifier->flags          = flags;
 	internal_entry_identifier->ascii_codepage = ascii_codepage;
 
-	byte_stream_index = 0;
+	string_size = byte_stream_offset;
 
 	if( ( internal_entry_identifier->flags & LIBFMAPI_ONE_OFF_ENTRY_IDENTIFIER_FLAG_UNICODE ) != 0 )
 	{
-		while( ( byte_stream_index + 1 ) < byte_stream_size )
+		while( string_size < ( byte_stream_size - 3 ) )
 		{
-			if( ( byte_stream[ byte_stream_index ] == 0 )
-			 && ( byte_stream[ byte_stream_index + 1 ] == 0 ) )
+			if( ( byte_stream[ string_size ] == 0 )
+			 && ( byte_stream[ string_size + 1 ] == 0 ) )
 			{
 				break;
 			}
-			byte_stream_index += 2;
+			string_size += 2;
 		}
-		if( ( byte_stream[ byte_stream_index ] != 0 )
-		 || ( byte_stream[ byte_stream_index + 1 ] != 0 ) )
+		if( ( string_size >= ( byte_stream_size - 1 ) )
+		 || ( byte_stream[ string_size ] != 0 )
+		 || ( byte_stream[ string_size + 1 ] != 0 ) )
 		{
 			libcerror_error_set(
 			 error,
@@ -355,19 +332,20 @@ int libfmapi_one_off_entry_identifier_copy_from_byte_stream(
 
 			goto on_error;
 		}
-		byte_stream_index += 2;
+		string_size += 2;
 	}
 	else
 	{
-		while( byte_stream_index < byte_stream_size )
+		while( string_size < ( byte_stream_size - 1 ) )
 		{
-			if( byte_stream[ byte_stream_index ] == 0 )
+			if( byte_stream[ string_size ] == 0 )
 			{
 				break;
 			}
-			byte_stream_index += 1;
+			string_size += 1;
 		}
-		if( byte_stream[ byte_stream_index ] != 0 )
+		if( ( string_size >= byte_stream_size )
+		 || ( byte_stream[ string_size ] != 0 ) )
 		{
 			libcerror_error_set(
 			 error,
@@ -378,7 +356,21 @@ int libfmapi_one_off_entry_identifier_copy_from_byte_stream(
 
 			return( -1 );
 		}
-		byte_stream_index += 1;
+		string_size += 1;
+	}
+	string_size -= byte_stream_offset;
+
+	if( ( string_size == 0 )
+	 || ( string_size > MEMORY_MAXIMUM_ALLOCATION_SIZE ) )
+	{
+		libcerror_error_set(
+		 error,
+		 LIBCERROR_ERROR_DOMAIN_RUNTIME,
+		 LIBCERROR_RUNTIME_ERROR_VALUE_OUT_OF_BOUNDS,
+		 "%s: invalid display name size value out of bounds.",
+		 function );
+
+		goto on_error;
 	}
 #if defined( HAVE_DEBUG_OUTPUT )
 	if( libcnotify_verbose != 0 )
@@ -387,13 +379,13 @@ int libfmapi_one_off_entry_identifier_copy_from_byte_stream(
 		 "%s: display name data:\n",
 		 function );
 		libcnotify_print_data(
-		 byte_stream,
-		 byte_stream_index,
+		 &( byte_stream[ byte_stream_offset ] ),
+		 string_size,
 		 0 );
 	}
 #endif
 	internal_entry_identifier->display_name = (uint8_t *) memory_allocate(
-	                                                       sizeof( uint8_t ) * byte_stream_index );
+	                                                       sizeof( uint8_t ) * string_size );
 
 	if( internal_entry_identifier->display_name == NULL )
 	{
@@ -408,8 +400,8 @@ int libfmapi_one_off_entry_identifier_copy_from_byte_stream(
 	}
 	if( memory_copy(
 	     internal_entry_identifier->display_name,
-	     byte_stream,
-	     byte_stream_index ) == NULL )
+	     &( byte_stream[ byte_stream_offset ] ),
+	     string_size ) == NULL )
 	{
 		libcerror_error_set(
 		 error,
@@ -420,37 +412,26 @@ int libfmapi_one_off_entry_identifier_copy_from_byte_stream(
 
 		goto on_error;
 	}
-	internal_entry_identifier->display_name_size = byte_stream_index;
+	internal_entry_identifier->display_name_size = string_size;
 
-	byte_stream      += byte_stream_index;
-	byte_stream_size -= byte_stream_index;
+	byte_stream_offset += string_size;
 
-	if( byte_stream_size == 0 )
-	{
-		libcerror_error_set(
-		 error,
-		 LIBCERROR_ERROR_DOMAIN_ARGUMENTS,
-		 LIBCERROR_ARGUMENT_ERROR_VALUE_TOO_SMALL,
-		 "%s: byte stream too small.",
-		 function );
-
-		goto on_error;
-	}
-	byte_stream_index = 0;
+	string_size = byte_stream_offset;
 
 	if( ( internal_entry_identifier->flags & LIBFMAPI_ONE_OFF_ENTRY_IDENTIFIER_FLAG_UNICODE ) != 0 )
 	{
-		while( ( byte_stream_index + 1 ) < byte_stream_size )
+		while( string_size < ( byte_stream_size - 3 ) )
 		{
-			if( ( byte_stream[ byte_stream_index ] == 0 )
-			 && ( byte_stream[ byte_stream_index + 1 ] == 0 ) )
+			if( ( byte_stream[ string_size ] == 0 )
+			 && ( byte_stream[ string_size + 1 ] == 0 ) )
 			{
 				break;
 			}
-			byte_stream_index += 2;
+			string_size += 2;
 		}
-		if( ( byte_stream[ byte_stream_index ] != 0 )
-		 || ( byte_stream[ byte_stream_index + 1 ] != 0 ) )
+		if( ( string_size >= ( byte_stream_size - 1 ) )
+		 || ( byte_stream[ string_size ] != 0 )
+		 || ( byte_stream[ string_size + 1 ] != 0 ) )
 		{
 			libcerror_error_set(
 			 error,
@@ -461,19 +442,20 @@ int libfmapi_one_off_entry_identifier_copy_from_byte_stream(
 
 			goto on_error;
 		}
-		byte_stream_index += 2;
+		string_size += 2;
 	}
 	else
 	{
-		while( byte_stream_index < byte_stream_size )
+		while( string_size < ( byte_stream_size - 1 ) )
 		{
-			if( byte_stream[ byte_stream_index ] == 0 )
+			if( byte_stream[ string_size ] == 0 )
 			{
 				break;
 			}
-			byte_stream_index += 1;
+			string_size += 1;
 		}
-		if( byte_stream[ byte_stream_index ] != 0 )
+		if( ( string_size >= byte_stream_size )
+		 || ( byte_stream[ string_size ] != 0 ) )
 		{
 			libcerror_error_set(
 			 error,
@@ -484,7 +466,21 @@ int libfmapi_one_off_entry_identifier_copy_from_byte_stream(
 
 			goto on_error;
 		}
-		byte_stream_index += 1;
+		string_size += 1;
+	}
+	string_size -= byte_stream_offset;
+
+	if( ( string_size == 0 )
+	 || ( string_size > MEMORY_MAXIMUM_ALLOCATION_SIZE ) )
+	{
+		libcerror_error_set(
+		 error,
+		 LIBCERROR_ERROR_DOMAIN_RUNTIME,
+		 LIBCERROR_RUNTIME_ERROR_VALUE_OUT_OF_BOUNDS,
+		 "%s: invalid address type size value out of bounds.",
+		 function );
+
+		goto on_error;
 	}
 #if defined( HAVE_DEBUG_OUTPUT )
 	if( libcnotify_verbose != 0 )
@@ -493,13 +489,13 @@ int libfmapi_one_off_entry_identifier_copy_from_byte_stream(
 		 "%s: address type data:\n",
 		 function );
 		libcnotify_print_data(
-		 byte_stream,
-		 byte_stream_index,
+		 &( byte_stream[ byte_stream_offset ] ),
+		 string_size,
 		 0 );
 	}
 #endif
 	internal_entry_identifier->address_type = (uint8_t *) memory_allocate(
-	                                                       sizeof( uint8_t ) * byte_stream_index );
+	                                                       sizeof( uint8_t ) * string_size );
 
 	if( internal_entry_identifier->address_type == NULL )
 	{
@@ -514,8 +510,8 @@ int libfmapi_one_off_entry_identifier_copy_from_byte_stream(
 	}
 	if( memory_copy(
 	     internal_entry_identifier->address_type,
-	     byte_stream,
-	     byte_stream_index ) == NULL )
+	     &( byte_stream[ byte_stream_offset ] ),
+	     string_size ) == NULL )
 	{
 		libcerror_error_set(
 		 error,
@@ -526,37 +522,26 @@ int libfmapi_one_off_entry_identifier_copy_from_byte_stream(
 
 		goto on_error;
 	}
-	internal_entry_identifier->address_type_size = byte_stream_index;
+	internal_entry_identifier->address_type_size = string_size;
 
-	byte_stream      += byte_stream_index;
-	byte_stream_size -= byte_stream_index;
+	byte_stream_offset += string_size;
 
-	if( byte_stream_size == 0 )
-	{
-		libcerror_error_set(
-		 error,
-		 LIBCERROR_ERROR_DOMAIN_ARGUMENTS,
-		 LIBCERROR_ARGUMENT_ERROR_VALUE_TOO_SMALL,
-		 "%s: byte stream too small.",
-		 function );
-
-		goto on_error;
-	}
-	byte_stream_index = 0;
+	string_size = byte_stream_offset;
 
 	if( ( internal_entry_identifier->flags & LIBFMAPI_ONE_OFF_ENTRY_IDENTIFIER_FLAG_UNICODE ) != 0 )
 	{
-		while( ( byte_stream_index + 1 ) < byte_stream_size )
+		while( string_size < ( byte_stream_size - 3 ) )
 		{
-			if( ( byte_stream[ byte_stream_index ] == 0 )
-			 && ( byte_stream[ byte_stream_index + 1 ] == 0 ) )
+			if( ( byte_stream[ string_size ] == 0 )
+			 && ( byte_stream[ string_size + 1 ] == 0 ) )
 			{
 				break;
 			}
-			byte_stream_index += 2;
+			string_size += 2;
 		}
-		if( ( byte_stream[ byte_stream_index ] != 0 )
-		 || ( byte_stream[ byte_stream_index + 1 ] != 0 ) )
+		if( ( string_size >= ( byte_stream_size - 1 ) )
+		 || ( byte_stream[ string_size ] != 0 )
+		 || ( byte_stream[ string_size + 1 ] != 0 ) )
 		{
 			libcerror_error_set(
 			 error,
@@ -567,19 +552,20 @@ int libfmapi_one_off_entry_identifier_copy_from_byte_stream(
 
 			goto on_error;
 		}
-		byte_stream_index += 2;
+		string_size += 2;
 	}
 	else
 	{
-		while( byte_stream_index < byte_stream_size )
+		while( string_size < ( byte_stream_size - 1 ) )
 		{
-			if( byte_stream[ byte_stream_index ] == 0 )
+			if( byte_stream[ string_size ] == 0 )
 			{
 				break;
 			}
-			byte_stream_index += 1;
+			string_size += 1;
 		}
-		if( byte_stream[ byte_stream_index ] != 0 )
+		if( ( string_size >= byte_stream_size )
+		 || ( byte_stream[ string_size ] != 0 ) )
 		{
 			libcerror_error_set(
 			 error,
@@ -590,7 +576,21 @@ int libfmapi_one_off_entry_identifier_copy_from_byte_stream(
 
 			goto on_error;
 		}
-		byte_stream_index += 1;
+		string_size += 1;
+	}
+	string_size -= byte_stream_offset;
+
+	if( ( string_size == 0 )
+	 || ( string_size > MEMORY_MAXIMUM_ALLOCATION_SIZE ) )
+	{
+		libcerror_error_set(
+		 error,
+		 LIBCERROR_ERROR_DOMAIN_RUNTIME,
+		 LIBCERROR_RUNTIME_ERROR_VALUE_OUT_OF_BOUNDS,
+		 "%s: invalid email address size value out of bounds.",
+		 function );
+
+		goto on_error;
 	}
 #if defined( HAVE_DEBUG_OUTPUT )
 	if( libcnotify_verbose != 0 )
@@ -599,13 +599,13 @@ int libfmapi_one_off_entry_identifier_copy_from_byte_stream(
 		 "%s: email address data:\n",
 		 function );
 		libcnotify_print_data(
-		 byte_stream,
-		 byte_stream_index,
+		 &( byte_stream[ byte_stream_offset ] ),
+		 string_size,
 		 0 );
 	}
 #endif
 	internal_entry_identifier->email_address = (uint8_t *) memory_allocate(
-	                                                        sizeof( uint8_t ) * byte_stream_index );
+	                                                        sizeof( uint8_t ) * string_size );
 
 	if( internal_entry_identifier->email_address == NULL )
 	{
@@ -620,8 +620,8 @@ int libfmapi_one_off_entry_identifier_copy_from_byte_stream(
 	}
 	if( memory_copy(
 	     internal_entry_identifier->email_address,
-	     byte_stream,
-	     byte_stream_index ) == NULL )
+	     &( byte_stream[ byte_stream_offset ] ),
+	     string_size ) == NULL )
 	{
 		libcerror_error_set(
 		 error,
@@ -632,22 +632,21 @@ int libfmapi_one_off_entry_identifier_copy_from_byte_stream(
 
 		goto on_error;
 	}
-	internal_entry_identifier->email_address_size = byte_stream_index;
+	internal_entry_identifier->email_address_size = string_size;
 
-	byte_stream      += byte_stream_index;
-	byte_stream_size -= byte_stream_index;
+	byte_stream_offset += string_size;
 
 #if defined( HAVE_DEBUG_OUTPUT )
 	if( libcnotify_verbose != 0 )
 	{
-		if( byte_stream_size > 0 )
+		if( byte_stream_offset < byte_stream_size )
 		{
 			libcnotify_printf(
 			 "%s: trailing data:\n",
 			 function );
 			libcnotify_print_data(
-			 byte_stream,
-			 byte_stream_size,
+			 &( byte_stream[ byte_stream_offset ] ),
+			 byte_stream_size - byte_stream_offset,
 			 0 );
 		}
 	}
