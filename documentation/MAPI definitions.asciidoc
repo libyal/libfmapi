@@ -5830,7 +5830,7 @@ The icon display type definitions are used by the following properties:
 
 * 0x3905 (PidTagDisplayTypeEx)
 
-The following are conveniance macro's for the extended icon display type defintions.
+The following are conveniance macro's for the extended icon display type definitions.
 
 [cols="1,1,5",options="header"]
 |===
