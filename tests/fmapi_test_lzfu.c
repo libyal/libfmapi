@@ -20,6 +20,7 @@
  */
 
 #include <common.h>
+#include <byte_stream.h>
 #include <file_stream.h>
 #include <types.h>
 
@@ -30,6 +31,7 @@
 #include "fmapi_test_libcerror.h"
 #include "fmapi_test_libfmapi.h"
 #include "fmapi_test_macros.h"
+#include "fmapi_test_memory.h"
 #include "fmapi_test_unused.h"
 
 #include "../libfmapi/libfmapi_lzfu.h"
@@ -137,6 +139,62 @@ int fmapi_test_lzfu_get_uncompressed_data_size(
 	          164,
 	          NULL,
 	          &error );
+
+	FMAPI_TEST_ASSERT_EQUAL_INT(
+	 "result",
+	 result,
+	 -1 );
+
+	FMAPI_TEST_ASSERT_IS_NOT_NULL(
+	 "error",
+	 error );
+
+	libcerror_error_free(
+	 &error );
+
+	/* Test with invalid signature
+	 */
+	byte_stream_copy_from_uint32_little_endian(
+	 &( fmapi_test_lzfu_compressed_data1[ 8 ] ),
+	 0xffffffffUL );
+
+	result = libfmapi_lzfu_get_uncompressed_data_size(
+	          fmapi_test_lzfu_compressed_data1,
+	          164,
+	          &uncompressed_data_size,
+	          &error );
+
+	byte_stream_copy_from_uint32_little_endian(
+	 &( fmapi_test_lzfu_compressed_data1[ 8 ] ),
+	 0x75465a4cUL );
+
+	FMAPI_TEST_ASSERT_EQUAL_INT(
+	 "result",
+	 result,
+	 -1 );
+
+	FMAPI_TEST_ASSERT_IS_NOT_NULL(
+	 "error",
+	 error );
+
+	libcerror_error_free(
+	 &error );
+
+	/* Test with invalid compressed data size
+	 */
+	byte_stream_copy_from_uint32_little_endian(
+	 fmapi_test_lzfu_compressed_data1,
+	 0xffffffffUL );
+
+	result = libfmapi_lzfu_get_uncompressed_data_size(
+	          fmapi_test_lzfu_compressed_data1,
+	          164,
+	          &uncompressed_data_size,
+	          &error );
+
+	byte_stream_copy_from_uint32_little_endian(
+	 fmapi_test_lzfu_compressed_data1,
+	 0x000000a0UL );
 
 	FMAPI_TEST_ASSERT_EQUAL_INT(
 	 "result",
@@ -277,6 +335,129 @@ int fmapi_test_lzfu_decompress(
 
 	libcerror_error_free(
 	 &error );
+
+	/* Test with invalid signature
+	 */
+	byte_stream_copy_from_uint32_little_endian(
+	 &( fmapi_test_lzfu_compressed_data1[ 8 ] ),
+	 0xffffffffUL );
+
+	result = libfmapi_lzfu_decompress(
+	          fmapi_test_lzfu_compressed_data1,
+	          164,
+	          uncompressed_data,
+	          &uncompressed_data_size,
+	          &error );
+
+	byte_stream_copy_from_uint32_little_endian(
+	 &( fmapi_test_lzfu_compressed_data1[ 8 ] ),
+	 0x75465a4cUL );
+
+	FMAPI_TEST_ASSERT_EQUAL_INT(
+	 "result",
+	 result,
+	 -1 );
+
+	FMAPI_TEST_ASSERT_IS_NOT_NULL(
+	 "error",
+	 error );
+
+	libcerror_error_free(
+	 &error );
+
+	/* Test with invalid compressed data size
+	 */
+	byte_stream_copy_from_uint32_little_endian(
+	 fmapi_test_lzfu_compressed_data1,
+	 0xffffffffUL );
+
+	result = libfmapi_lzfu_decompress(
+	          fmapi_test_lzfu_compressed_data1,
+	          164,
+	          uncompressed_data,
+	          &uncompressed_data_size,
+	          &error );
+
+	byte_stream_copy_from_uint32_little_endian(
+	 fmapi_test_lzfu_compressed_data1,
+	 0x000000a0UL );
+
+	FMAPI_TEST_ASSERT_EQUAL_INT(
+	 "result",
+	 result,
+	 -1 );
+
+	FMAPI_TEST_ASSERT_IS_NOT_NULL(
+	 "error",
+	 error );
+
+	libcerror_error_free(
+	 &error );
+
+#if defined( HAVE_FMAPI_TEST_MEMORY )
+#if defined( OPTIMIZATION_DISABLED )
+
+	/* Test libfmapi_lzfu_decompress with memcpy failing
+	 */
+	fmapi_test_memcpy_attempts_before_fail = 0;
+
+	result = libfmapi_lzfu_decompress(
+	          fmapi_test_lzfu_compressed_data1,
+	          164,
+	          uncompressed_data,
+	          &uncompressed_data_size,
+	          &error );
+
+	if( fmapi_test_memcpy_attempts_before_fail != -1 )
+	{
+		fmapi_test_memcpy_attempts_before_fail = -1;
+	}
+	else
+	{
+		FMAPI_TEST_ASSERT_EQUAL_INT(
+		 "result",
+		 result,
+		 -1 );
+
+		FMAPI_TEST_ASSERT_IS_NOT_NULL(
+		 "error",
+		 error );
+
+		libcerror_error_free(
+		 &error );
+	}
+#endif /* defined( OPTIMIZATION_DISABLED ) */
+
+	/* Test libfmapi_lzfu_decompress with memset failing
+	 */
+	fmapi_test_memset_attempts_before_fail = 0;
+
+	result = libfmapi_lzfu_decompress(
+	          fmapi_test_lzfu_compressed_data1,
+	          164,
+	          uncompressed_data,
+	          &uncompressed_data_size,
+	          &error );
+
+	if( fmapi_test_memset_attempts_before_fail != -1 )
+	{
+		fmapi_test_memset_attempts_before_fail = -1;
+	}
+	else
+	{
+		FMAPI_TEST_ASSERT_EQUAL_INT(
+		 "result",
+		 result,
+		 -1 );
+
+		FMAPI_TEST_ASSERT_IS_NOT_NULL(
+		 "error",
+		 error );
+
+		libcerror_error_free(
+		 &error );
+	}
+#endif /* defined( HAVE_FMAPI_TEST_MEMORY ) */
 
 	return( 1 );
 

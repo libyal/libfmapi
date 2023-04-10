@@ -20,6 +20,7 @@
  */
 
 #include <common.h>
+#include <byte_stream.h>
 #include <file_stream.h>
 #include <types.h>
 
@@ -45,14 +46,6 @@ uint8_t fmapi_test_one_off_entry_identifier_data2[ 52 ] = {
 	0x6e, 0x00, 0x00, 0x00, 0x55, 0x00, 0x4e, 0x00, 0x4b, 0x00, 0x4e, 0x00, 0x4f, 0x00, 0x57, 0x00,
 	0x4e, 0x00, 0x00, 0x00, 0x55, 0x00, 0x6e, 0x00, 0x6b, 0x00, 0x6e, 0x00, 0x6f, 0x00, 0x77, 0x00,
 	0x6e, 0x00, 0x00, 0x00 };
-
-uint8_t fmapi_test_one_off_entry_identifier_data_invalid_format_version1[ 28 ] = {
-	0xff, 0xff, 0x00, 0x00, 0x55, 0x6e, 0x6b, 0x6e, 0x6f, 0x77, 0x6e, 0x00, 0x55, 0x4e, 0x4b, 0x4e,
-	0x4f, 0x57, 0x4e, 0x00, 0x55, 0x6e, 0x6b, 0x6e, 0x6f, 0x77, 0x6e, 0x00 };
-
-uint8_t fmapi_test_one_off_entry_identifier_data_invalid_flags1[ 28 ] = {
-	0x00, 0x00, 0xff, 0xff, 0x55, 0x6e, 0x6b, 0x6e, 0x6f, 0x77, 0x6e, 0x00, 0x55, 0x4e, 0x4b, 0x4e,
-	0x4f, 0x57, 0x4e, 0x00, 0x55, 0x6e, 0x6b, 0x6e, 0x6f, 0x77, 0x6e, 0x00 };
 
 /* Tests the libfmapi_one_off_entry_identifier_initialize function
  * Returns 1 if successful or 0 if not
@@ -458,6 +451,75 @@ int fmapi_test_one_off_entry_identifier_copy_from_byte_stream(
 	libcerror_error_free(
 	 &error );
 
+	( (libfmapi_internal_one_off_entry_identifier_t *) one_off_entry_identifier )->email_address = (uint8_t *) 0x12345678UL;
+
+	result = libfmapi_one_off_entry_identifier_copy_from_byte_stream(
+	          one_off_entry_identifier,
+	          fmapi_test_one_off_entry_identifier_data1,
+	          28,
+	          LIBUNA_CODEPAGE_WINDOWS_1252,
+	          &error );
+
+	( (libfmapi_internal_one_off_entry_identifier_t *) one_off_entry_identifier )->email_address = NULL;
+
+	FMAPI_TEST_ASSERT_EQUAL_INT(
+	 "result",
+	 result,
+	 -1 );
+
+	FMAPI_TEST_ASSERT_IS_NOT_NULL(
+	 "error",
+	 error );
+
+	libcerror_error_free(
+	 &error );
+
+	( (libfmapi_internal_one_off_entry_identifier_t *) one_off_entry_identifier )->address_type = (uint8_t *) 0x12345678UL;
+
+	result = libfmapi_one_off_entry_identifier_copy_from_byte_stream(
+	          one_off_entry_identifier,
+	          fmapi_test_one_off_entry_identifier_data1,
+	          28,
+	          LIBUNA_CODEPAGE_WINDOWS_1252,
+	          &error );
+
+	( (libfmapi_internal_one_off_entry_identifier_t *) one_off_entry_identifier )->address_type = NULL;
+
+	FMAPI_TEST_ASSERT_EQUAL_INT(
+	 "result",
+	 result,
+	 -1 );
+
+	FMAPI_TEST_ASSERT_IS_NOT_NULL(
+	 "error",
+	 error );
+
+	libcerror_error_free(
+	 &error );
+
+	( (libfmapi_internal_one_off_entry_identifier_t *) one_off_entry_identifier )->display_name = (uint8_t *) 0x12345678UL;
+
+	result = libfmapi_one_off_entry_identifier_copy_from_byte_stream(
+	          one_off_entry_identifier,
+	          fmapi_test_one_off_entry_identifier_data1,
+	          28,
+	          LIBUNA_CODEPAGE_WINDOWS_1252,
+	          &error );
+
+	( (libfmapi_internal_one_off_entry_identifier_t *) one_off_entry_identifier )->display_name = NULL;
+
+	FMAPI_TEST_ASSERT_EQUAL_INT(
+	 "result",
+	 result,
+	 -1 );
+
+	FMAPI_TEST_ASSERT_IS_NOT_NULL(
+	 "error",
+	 error );
+
+	libcerror_error_free(
+	 &error );
+
 	result = libfmapi_one_off_entry_identifier_copy_from_byte_stream(
 	          one_off_entry_identifier,
 	          NULL,
@@ -517,12 +579,20 @@ int fmapi_test_one_off_entry_identifier_copy_from_byte_stream(
 
 	/* Test with invalid format version
 	 */
+	byte_stream_copy_from_uint16_little_endian(
+	 fmapi_test_one_off_entry_identifier_data1,
+	 0xffff );
+
 	result = libfmapi_one_off_entry_identifier_copy_from_byte_stream(
 	          one_off_entry_identifier,
-	          fmapi_test_one_off_entry_identifier_data_invalid_format_version1,
+	          fmapi_test_one_off_entry_identifier_data1,
 	          28,
 	          LIBUNA_CODEPAGE_WINDOWS_1252,
 	          &error );
+
+	byte_stream_copy_from_uint16_little_endian(
+	 fmapi_test_one_off_entry_identifier_data1,
+	 0x0000 );
 
 	FMAPI_TEST_ASSERT_EQUAL_INT(
 	 "result",
@@ -538,10 +608,39 @@ int fmapi_test_one_off_entry_identifier_copy_from_byte_stream(
 
 	/* Test with invalid flags
 	 */
+	byte_stream_copy_from_uint16_little_endian(
+	 &( fmapi_test_one_off_entry_identifier_data1[ 2 ] ),
+	 0xffff );
+
 	result = libfmapi_one_off_entry_identifier_copy_from_byte_stream(
 	          one_off_entry_identifier,
-	          fmapi_test_one_off_entry_identifier_data_invalid_flags1,
+	          fmapi_test_one_off_entry_identifier_data1,
 	          28,
+	          LIBUNA_CODEPAGE_WINDOWS_1252,
+	          &error );
+
+	byte_stream_copy_from_uint16_little_endian(
+	 &( fmapi_test_one_off_entry_identifier_data1[ 2 ] ),
+	 0x0000 );
+
+	FMAPI_TEST_ASSERT_EQUAL_INT(
+	 "result",
+	 result,
+	 -1 );
+
+	FMAPI_TEST_ASSERT_IS_NOT_NULL(
+	 "error",
+	 error );
+
+	libcerror_error_free(
+	 &error );
+
+	/* Test with data missing in display name
+	 */
+	result = libfmapi_one_off_entry_identifier_copy_from_byte_stream(
+	          one_off_entry_identifier,
+	          fmapi_test_one_off_entry_identifier_data1,
+	          5,
 	          LIBUNA_CODEPAGE_WINDOWS_1252,
 	          &error );
 
@@ -557,12 +656,90 @@ int fmapi_test_one_off_entry_identifier_copy_from_byte_stream(
 	libcerror_error_free(
 	 &error );
 
-	/* Test with missing data
+	result = libfmapi_one_off_entry_identifier_copy_from_byte_stream(
+	          one_off_entry_identifier,
+	          fmapi_test_one_off_entry_identifier_data2,
+	          6,
+	          LIBUNA_CODEPAGE_WINDOWS_1252,
+	          &error );
+
+	FMAPI_TEST_ASSERT_EQUAL_INT(
+	 "result",
+	 result,
+	 -1 );
+
+	FMAPI_TEST_ASSERT_IS_NOT_NULL(
+	 "error",
+	 error );
+
+	libcerror_error_free(
+	 &error );
+
+	/* Test with data missing in address type
 	 */
 	result = libfmapi_one_off_entry_identifier_copy_from_byte_stream(
 	          one_off_entry_identifier,
 	          fmapi_test_one_off_entry_identifier_data1,
-	          4,
+	          13,
+	          LIBUNA_CODEPAGE_WINDOWS_1252,
+	          &error );
+
+	FMAPI_TEST_ASSERT_EQUAL_INT(
+	 "result",
+	 result,
+	 -1 );
+
+	FMAPI_TEST_ASSERT_IS_NOT_NULL(
+	 "error",
+	 error );
+
+	libcerror_error_free(
+	 &error );
+
+	result = libfmapi_one_off_entry_identifier_copy_from_byte_stream(
+	          one_off_entry_identifier,
+	          fmapi_test_one_off_entry_identifier_data2,
+	          22,
+	          LIBUNA_CODEPAGE_WINDOWS_1252,
+	          &error );
+
+	FMAPI_TEST_ASSERT_EQUAL_INT(
+	 "result",
+	 result,
+	 -1 );
+
+	FMAPI_TEST_ASSERT_IS_NOT_NULL(
+	 "error",
+	 error );
+
+	libcerror_error_free(
+	 &error );
+
+	/* Test with data missing in email address
+	 */
+	result = libfmapi_one_off_entry_identifier_copy_from_byte_stream(
+	          one_off_entry_identifier,
+	          fmapi_test_one_off_entry_identifier_data1,
+	          21,
+	          LIBUNA_CODEPAGE_WINDOWS_1252,
+	          &error );
+
+	FMAPI_TEST_ASSERT_EQUAL_INT(
+	 "result",
+	 result,
+	 -1 );
+
+	FMAPI_TEST_ASSERT_IS_NOT_NULL(
+	 "error",
+	 error );
+
+	libcerror_error_free(
+	 &error );
+
+	result = libfmapi_one_off_entry_identifier_copy_from_byte_stream(
+	          one_off_entry_identifier,
+	          fmapi_test_one_off_entry_identifier_data2,
+	          38,
 	          LIBUNA_CODEPAGE_WINDOWS_1252,
 	          &error );
 

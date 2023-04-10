@@ -68,6 +68,7 @@ fmapi_test_lzfu_SOURCES = \
 	fmapi_test_lzfu.c \
 	fmapi_test_libcerror.h \
 	fmapi_test_libfmapi.h \
+	fmapi_test_memory.c fmapi_test_memory.h \
 	fmapi_test_unused.h
 
 fmapi_test_lzfu_LDADD = \

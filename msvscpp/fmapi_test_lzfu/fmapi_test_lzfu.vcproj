@@ -179,6 +179,10 @@
 				RelativePath="..\..\tests\fmapi_test_lzfu.c"
 				>
 			</File>
+			<File
+				RelativePath="..\..\tests\fmapi_test_memory.c"
+				>
+			</File>
 		</Filter>
 		<Filter
 			Name="Header Files"
@@ -191,6 +195,10 @@
 			</File>
 			<File
 				RelativePath="..\..\tests\fmapi_test_libfmapi.h"
+				>
+			</File>
+			<File
+				RelativePath="..\..\tests\fmapi_test_memory.h"
 				>
 			</File>
 			<File
