@@ -18,9 +18,9 @@ MAINTAINERCLEANFILES = \
 	Makefile.in
 
 distclean: clean
-	/bin/rm -f libfmapi.h
-	/bin/rm -f libfmapi/definitions.h
-	/bin/rm -f libfmapi/features.h
-	/bin/rm -f libfmapi/types.h
-	/bin/rm -f Makefile
+	-rm -f libfmapi.h
+	-rm -f libfmapi/definitions.h
+	-rm -f libfmapi/features.h
+	-rm -f libfmapi/types.h
+	-rm -f Makefile
 

@@ -62,11 +62,13 @@ MAINTAINERCLEANFILES = \
 	Makefile.in
 
 distclean: clean
-	/bin/rm -f libfmapi_definitions.h
-	/bin/rm -f libfmapi.rc
-	/bin/rm -f Makefile
+	-rm -f libfmapi_definitions.h
+	-rm -f libfmapi.rc
+	-rm -f Makefile
 
-splint:
+sources-local: $(BUILT_SOURCES)
+
+splint-local:
 	@echo "Running splint on libfmapi ..."
 	-splint -preproc -redef $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(libfmapi_la_SOURCES)
 
