@@ -1,6 +1,6 @@
 AM_CPPFLAGS = \
-	-I$(top_srcdir)/include \
-	-I$(top_srcdir)/common \
+	-I../include -I$(top_srcdir)/include \
+	-I../common -I$(top_srcdir)/common \
 	@LIBCERROR_CPPFLAGS@ \
 	@LIBCDATA_CPPFLAGS@ \
 	@LIBCTHREADS_CPPFLAGS@ \
@@ -58,13 +58,11 @@ EXTRA_DIST = \
 	libfmapi.rc \
 	libfmapi.rc.in
 
-MAINTAINERCLEANFILES = \
+DISTCLEANFILES = \
+	libfmapi_definitions.h \
+	libfmapi.rc \
+	Makefile \
 	Makefile.in
-
-distclean: clean
-	-rm -f libfmapi_definitions.h
-	-rm -f libfmapi.rc
-	-rm -f Makefile
 
 sources-local: $(BUILT_SOURCES)
 

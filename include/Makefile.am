@@ -14,13 +14,11 @@ EXTRA_DIST = \
 	libfmapi/features.h.in \
 	libfmapi/types.h.in
 
-MAINTAINERCLEANFILES = \
+DISTCLEANFILES = \
+	libfmapi.h \
+	libfmapi/definitions.h \
+	libfmapi/features.h \
+	libfmapi/types.h \
+	Makefile \
 	Makefile.in
-
-distclean: clean
-	-rm -f libfmapi.h
-	-rm -f libfmapi/definitions.h
-	-rm -f libfmapi/features.h
-	-rm -f libfmapi/types.h
-	-rm -f Makefile
 
