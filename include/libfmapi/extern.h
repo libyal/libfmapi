@@ -33,10 +33,10 @@
 #define LIBFMAPI_EXTERN __declspec(dllexport)
 
 #elif defined( LIBFMAPI_DLL_IMPORT )
-#define LIBFMAPI_EXTERN extern __declspec(dllimport)
+#define LIBFMAPI_EXTERN __declspec(dllimport)
 
 #else
-#define LIBFMAPI_EXTERN extern
+#define LIBFMAPI_EXTERN
 
 #endif
 
