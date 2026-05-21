@@ -31,14 +31,17 @@
  */
 #if defined( LIBFMAPI_DLL_EXPORT )
 #define LIBFMAPI_EXTERN __declspec(dllexport)
+#define LIBFMAPI_EXTERN_VARIABLE extern __declspec(dllexport)
 
 #elif defined( LIBFMAPI_DLL_IMPORT )
-#define LIBFMAPI_EXTERN extern __declspec(dllimport)
+#define LIBFMAPI_EXTERN __declspec(dllimport)
+#define LIBFMAPI_EXTERN_VARIABLE extern __declspec(dllimport)
 
 #else
 #define LIBFMAPI_EXTERN extern
+#define LIBFMAPI_EXTERN_VARIABLE extern
 
-#endif
+#endif /* defined( LIBFMAPI_DLL_EXPORT ) */
 
 #endif /* !defined( _LIBFMAPI_EXTERN_H ) */
 
