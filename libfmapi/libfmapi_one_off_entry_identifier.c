@@ -634,11 +634,11 @@ int libfmapi_one_off_entry_identifier_copy_from_byte_stream(
 	}
 	internal_entry_identifier->email_address_size = string_size;
 
-	byte_stream_offset += string_size;
-
 #if defined( HAVE_DEBUG_OUTPUT )
 	if( libcnotify_verbose != 0 )
 	{
+		byte_stream_offset += string_size;
+
 		if( byte_stream_offset < byte_stream_size )
 		{
 			libcnotify_printf(

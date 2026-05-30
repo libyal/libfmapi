@@ -115,8 +115,6 @@ int libfmapi_lzfu_get_uncompressed_data_size(
 	 &( compressed_data[ compressed_data_offset ] ),
 	 lzfu_header.signature );
 
-	compressed_data_offset += 8;
-
 	if( ( lzfu_header.signature != LIBFMAPI_LZFU_SIGNATURE_COMPRESSED )
 	 && ( lzfu_header.signature != LIBFMAPI_LZFU_SIGNATURE_UNCOMPRESSED ) )
 	{
@@ -181,6 +179,8 @@ int libfmapi_lzfu_get_uncompressed_data_size(
 
 			return( -1 );
 		}
+		compressed_data_offset += 8;
+
 		while( compressed_data_offset < compressed_data_size )
 		{
 			flag_byte = compressed_data[ compressed_data_offset++ ];
