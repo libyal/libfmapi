@@ -1,19 +1,21 @@
 #!/bin/sh
 # Script to run tests
 #
-# Version: 20201121
+# Version: 20260609
 
-if test -f ${PWD}/libfmapi/.libs/libfmapi.1.dylib && test -f ./pyfmapi/.libs/pyfmapi.so;
+if test -f ${PWD}/libfmapi/.libs/libfmapi.1.dylib && test -f ./pyfmapi/.libs/pyfmapi.so
 then
-	install_name_tool -change /usr/local/lib/libfmapi.1.dylib ${PWD}/libfmapi/.libs/libfmapi.1.dylib ./pyfmapi/.libs/pyfmapi.so;
+	install_name_tool -change /usr/local/lib/libfmapi.1.dylib ${PWD}/libfmapi/.libs/libfmapi.1.dylib ./pyfmapi/.libs/pyfmapi.so
 fi
 
-make check CHECK_WITH_STDERR=1;
-RESULT=$?;
+make check-build > /dev/null
 
-if test ${RESULT} -ne 0 && test -f tests/test-suite.log;
+make check $@
+RESULT=$?
+
+if test ${RESULT} -ne 0
 then
-	cat tests/test-suite.log;
+	find . -name \*.log -path \*.dir/\*/\*.log -print -exec cat {} \;
 fi
-exit ${RESULT};
+exit ${RESULT}
 

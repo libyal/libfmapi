@@ -24,6 +24,19 @@
 
 #include <common.h>
 
+#if !defined( __CYGWIN__ ) && !defined( _WIN32 ) && defined( __has_attribute )
+#if __has_attribute( visibility )
+#define LIBFMAPI_INTERNAL	__attribute__((visibility("hidden"))) extern
+
+#else
+#define LIBFMAPI_INTERNAL	extern
+
+#endif /* __has_attribute( visibility ) */
+#else
+#define LIBFMAPI_INTERNAL	extern
+
+#endif /* !defined( __CYGWIN__ ) && !defined( _WIN32 ) && defined( __has_attribute ) */
+
 /* Define HAVE_LOCAL_LIBFMAPI for local use of libfmapi
  */
 #if !defined( HAVE_LOCAL_LIBFMAPI )
@@ -32,7 +45,7 @@
 
 #else
 #define LIBFMAPI_EXTERN		/* extern */
-#define LIBFMAPI_EXTERN_VARIABLE	extern
+#define LIBFMAPI_EXTERN_VARIABLE	LIBFMAPI_INTERNAL
 
 #endif /* !defined( HAVE_LOCAL_LIBFMAPI ) */
 

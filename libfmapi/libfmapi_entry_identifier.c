@@ -304,7 +304,7 @@ int libfmapi_entry_identifier_copy_from_byte_stream(
 		 guid_string,
 		 libfmapi_service_provider_identifier_get_name(
 		  internal_entry_identifier->service_provider_identifier ) );
-	
+
 		if( libfguid_identifier_free(
 		     &guid,
 		     error ) != 1 )

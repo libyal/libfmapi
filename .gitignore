@@ -1,6 +1,6 @@
 # Files to ignore by git
 #
-# Version: 20251129
+# Version: 20260604
 
 # Generic auto-generated build files
 *~
@@ -127,7 +127,12 @@ stamp-h[1-9]
 /libfmapi.spec
 /libfmapi/libfmapi.rc
 /libfmapi/libfmapi_definitions.h
+/tests/*.dir
 /tests/*.exe
+/tests/*.log
+/tests/*.tmp
+/tests/atconfig
+/tests/atlocal
 /tests/fmapi_test_checksum
 /tests/fmapi_test_entry_identifier
 /tests/fmapi_test_error
@@ -136,6 +141,11 @@ stamp-h[1-9]
 /tests/fmapi_test_property_type
 /tests/fmapi_test_support
 /tests/fmapi_test_value_type
+/tests/fmapi_test_x400_object_identifier
+/tests/notify_stream.log
+/tests/package.m4
+/tests/test_library
+/tests/test_manpages
 /tests/tmp*
 
 # Local library dependencies specific files
