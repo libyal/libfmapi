@@ -41,6 +41,7 @@
 #include "libfmapi_lzfu.h"
 #include "libfmapi_one_off_entry_identifier.h"
 #include "libfmapi_service_provider_identifier.h"
+#include "libfmapi_unused.h"
 
 #if defined( HAVE_DEBUG_OUTPUT )
 
@@ -524,12 +525,14 @@ on_error:
 int libfmapi_debug_print_persist_data_block(
      uint8_t *value_data,
      size_t value_data_size,
-     int ascii_codepage,
+     int ascii_codepage LIBFMAPI_ATTRIBUTE_UNUSED,
      libcerror_error_t **error )
 {
 	static char *function       = "libfmapi_debug_print_persist_data_block";
 	uint16_t block_type         = 0;
 	uint16_t elements_data_size = 0;
+
+	LIBFMAPI_UNREFERENCED_PARAMETER( ascii_codepage )
 
 	if( value_data == NULL )
 	{

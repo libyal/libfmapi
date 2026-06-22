@@ -141,7 +141,6 @@ stamp-h[1-9]
 /tests/fmapi_test_property_type
 /tests/fmapi_test_support
 /tests/fmapi_test_value_type
-/tests/fmapi_test_x400_object_identifier
 /tests/notify_stream.log
 /tests/package.m4
 /tests/test_library
