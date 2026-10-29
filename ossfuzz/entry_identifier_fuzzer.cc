@@ -32,26 +32,49 @@ int LLVMFuzzerTestOneInput(
      const uint8_t *data,
      size_t size )
 {
+	char error_string[ 4096 ]          = { 0 };
+
+	libfmapi_error_t *error            = NULL;
+
 	libfmapi_entry_identifier_t *entry_identifier = NULL;
+
+	uint8_t guid_data[ 16 ]            = { 0 };
 
 	if( libfmapi_entry_identifier_initialize(
 	     &entry_identifier,
-	     NULL ) != 1 )
+	     &error ) == 1
+	 && libfmapi_entry_identifier_copy_from_byte_stream(
+	     entry_identifier,
+	     data,
+	     size,
+	     &error ) == 1 )
 	{
-		return( 0 );
+		libfmapi_entry_identifier_get_service_provider_identifier(
+		 entry_identifier,
+		 guid_data,
+		 16,
+		 &error );
 	}
-	libfmapi_entry_identifier_copy_from_byte_stream(
-	 entry_identifier,
-	 data,
-	 size,
-	 NULL );
-
 	libfmapi_entry_identifier_free(
 	 &entry_identifier,
-	 NULL );
+	 &error );
+
+	if( error != NULL )
+	{
+		libfmapi_error_sprint(
+		 error,
+		 error_string,
+		 sizeof( error_string ) );
+
+		libfmapi_error_backtrace_sprint(
+		 error,
+		 error_string,
+		 sizeof( error_string ) );
+	}
+	libfmapi_error_free(
+	 &error );
 
 	return( 0 );
 }
 
 } /* extern "C" */
-

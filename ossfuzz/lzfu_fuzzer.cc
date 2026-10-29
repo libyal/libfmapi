@@ -32,16 +32,43 @@ int LLVMFuzzerTestOneInput(
      const uint8_t *data,
      size_t size )
 {
+	char error_string[ 4096 ]            = { 0 };
+
+	libfmapi_error_t *error              = NULL;
+
 	uint8_t uncompressed_data[ 64 * 1024 ];
 
 	size_t uncompressed_data_size = 64 * 1024;
+
+	size_t safe_uncompressed_data_size = 0;
+
+	libfmapi_lzfu_get_uncompressed_data_size(
+	 data,
+	 size,
+	 &safe_uncompressed_data_size,
+	 &error );
 
 	libfmapi_lzfu_decompress(
 	 data,
 	 size,
 	 uncompressed_data,
 	 &uncompressed_data_size,
-	 NULL );
+	 &error );
+
+	if( error != NULL )
+	{
+		libfmapi_error_sprint(
+		 error,
+		 error_string,
+		 sizeof( error_string ) );
+
+		libfmapi_error_backtrace_sprint(
+		 error,
+		 error_string,
+		 sizeof( error_string ) );
+	}
+	libfmapi_error_free(
+	 &error );
 
 	return( 0 );
 }
