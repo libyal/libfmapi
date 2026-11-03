@@ -2,7 +2,7 @@ AC_PREREQ([2.71])
 
 AC_INIT(
   [libfmapi],
-  [20261029],
+  [20261103],
   [https://github.com/libyal/libfmapi/issues])
 
 AC_CONFIG_SRCDIR(
